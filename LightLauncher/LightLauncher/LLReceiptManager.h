@@ -10,6 +10,7 @@
 
 @interface LLReceiptManager : NSObject
 
-@property (strong, nonatomic, readonly) NSMutableArray *receipts;
+@property (nonatomic, strong, readonly) NSMutableArray *receipts;
+@property (nonatomic, strong, readonly) NSMutableArray *commands;
 
 @end

@@ -10,7 +10,12 @@
 
 @interface LLCommand : NSObject
 
-@property (strong, nonatomic) NSString* name;
-@property (strong, nonatomic) NSArray *options;
+@property (nonatomic, strong) NSString *command;
+@property (nonatomic, strong) NSArray *options;
+
+- initWithCommand:(NSString *)command AndOptions:(NSArray *)options;
+- (NSString *)description;
+- (NSString *)iconFileName;
+- (void) executeWithNavigationController:(UINavigationController *)navigationController;
 
 @end

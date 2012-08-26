@@ -1,5 +1,5 @@
 //
-//  LLOption.h
+//  LLConstants.h
 //  LightLauncher
 //
 //  Created by Huy Nguyen on 8/26/12.
@@ -8,9 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LLOption : NSObject
-
-@property (nonatomic, strong) NSString* name;
-@property (nonatomic, strong) NSString* parameter;
+@protocol LLConstants <NSObject>
 
 @end

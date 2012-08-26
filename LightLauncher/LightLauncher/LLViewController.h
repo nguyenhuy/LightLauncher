@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LLViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UITextField *textFieldInput;
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@class LLReceiptManager;
+
+@interface LLViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) LLReceiptManager* receiptManager;
+@property (nonatomic, strong) IBOutlet UITextField *textFieldInput;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 
 @end

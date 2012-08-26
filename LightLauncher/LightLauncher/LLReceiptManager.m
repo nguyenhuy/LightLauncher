@@ -7,13 +7,30 @@
 //
 
 #import "LLReceiptManager.h"
+#import "LLTwitterCommand.h"
 
 @interface LLReceiptManager ()
-@property (strong, nonatomic, readwrite) NSMutableArray* receipts;
+@property (nonatomic, strong, readwrite) NSMutableArray* receipts;
+@property (nonatomic, strong, readwrite) NSMutableArray* commands;
 @end
 
 @implementation LLReceiptManager
 
 @synthesize receipts = _receipts;
+@synthesize commands = _commands;
+
+- (id)init {
+    self = [super init];
+    if (self != nil) {
+        self.commands = [NSMutableArray arrayWithObjects:
+                         [[LLTwitterCommand alloc] initWithCommand:@"tw" AndOptions:nil],
+                         [[LLTwitterCommand alloc] initWithCommand:@"tw" AndOptions:nil],
+                         [[LLTwitterCommand alloc] initWithCommand:@"tw" AndOptions:nil],
+                         [[LLTwitterCommand alloc] initWithCommand:@"tw" AndOptions:nil],
+                         [[LLTwitterCommand alloc] initWithCommand:@"tw" AndOptions:nil],
+                         nil];
+    }
+    return self;
+}
 
 @end

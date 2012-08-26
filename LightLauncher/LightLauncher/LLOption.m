@@ -13,4 +13,8 @@
 @synthesize name = _name;
 @synthesize parameter = _parameter;
 
+- (NSString *)description {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"desction must be overridden in all commadns" userInfo:nil];
+}
+
 @end

@@ -19,6 +19,11 @@
 		785A0DD015E9BFD1002C6F78 /* LLCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DCF15E9BFD1002C6F78 /* LLCommand.m */; };
 		785A0DD315E9BFD8002C6F78 /* LLOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DD215E9BFD8002C6F78 /* LLOption.m */; };
 		785A0DD615E9C165002C6F78 /* LLReceiptManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DD515E9C165002C6F78 /* LLReceiptManager.m */; };
+		785A0DDD15E9C39E002C6F78 /* LLReceiptCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DDC15E9C39E002C6F78 /* LLReceiptCell.m */; };
+		785A0DE215E9C662002C6F78 /* LLCommandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DE115E9C662002C6F78 /* LLCommandCell.m */; };
+		785A0E1015E9CF02002C6F78 /* LLTwitterCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0E0F15E9CF02002C6F78 /* LLTwitterCommand.m */; };
+		785A0E1315E9D157002C6F78 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 785A0E1215E9D157002C6F78 /* twitter.png */; };
+		785A0E1515E9D98F002C6F78 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0E1415E9D98F002C6F78 /* Twitter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +48,14 @@
 		785A0DD215E9BFD8002C6F78 /* LLOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLOption.m; sourceTree = "<group>"; };
 		785A0DD415E9C164002C6F78 /* LLReceiptManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLReceiptManager.h; sourceTree = "<group>"; };
 		785A0DD515E9C165002C6F78 /* LLReceiptManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLReceiptManager.m; sourceTree = "<group>"; };
+		785A0DDB15E9C39E002C6F78 /* LLReceiptCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLReceiptCell.h; sourceTree = "<group>"; };
+		785A0DDC15E9C39E002C6F78 /* LLReceiptCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLReceiptCell.m; sourceTree = "<group>"; };
+		785A0DE015E9C662002C6F78 /* LLCommandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandCell.h; sourceTree = "<group>"; };
+		785A0DE115E9C662002C6F78 /* LLCommandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandCell.m; sourceTree = "<group>"; };
+		785A0E0E15E9CF02002C6F78 /* LLTwitterCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLTwitterCommand.h; sourceTree = "<group>"; };
+		785A0E0F15E9CF02002C6F78 /* LLTwitterCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLTwitterCommand.m; sourceTree = "<group>"; };
+		785A0E1215E9D157002C6F78 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		785A0E1415E9D98F002C6F78 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				785A0E1515E9D98F002C6F78 /* Twitter.framework in Frameworks */,
 				785A0DA215E9A3B6002C6F78 /* UIKit.framework in Frameworks */,
 				785A0DA415E9A3B6002C6F78 /* Foundation.framework in Frameworks */,
 				785A0DA615E9A3B6002C6F78 /* CoreGraphics.framework in Frameworks */,
@@ -79,6 +93,7 @@
 		785A0DA015E9A3B6002C6F78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				785A0E1415E9D98F002C6F78 /* Twitter.framework */,
 				785A0DA115E9A3B6002C6F78 /* UIKit.framework */,
 				785A0DA315E9A3B6002C6F78 /* Foundation.framework */,
 				785A0DA515E9A3B6002C6F78 /* CoreGraphics.framework */,
@@ -89,10 +104,12 @@
 		785A0DA715E9A3B6002C6F78 /* LightLauncher */ = {
 			isa = PBXGroup;
 			children = (
-				785A0DC415E9BEEF002C6F78 /* Model */,
-				785A0DC215E9BEE4002C6F78 /* Controller */,
 				785A0DB015E9A3B6002C6F78 /* LLAppDelegate.h */,
 				785A0DB115E9A3B6002C6F78 /* LLAppDelegate.m */,
+				785A0DC415E9BEEF002C6F78 /* Model */,
+				785A0DD715E9C329002C6F78 /* View */,
+				785A0DC215E9BEE4002C6F78 /* Controller */,
+				785A0E1115E9D135002C6F78 /* Images */,
 				785A0DA815E9A3B6002C6F78 /* Supporting Files */,
 			);
 			path = LightLauncher;
@@ -122,16 +139,45 @@
 		785A0DC415E9BEEF002C6F78 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				785A0E0D15E9CE22002C6F78 /* Commands */,
 				785A0DCB15E9BFC9002C6F78 /* LLReceipt.h */,
 				785A0DCC15E9BFC9002C6F78 /* LLReceipt.m */,
-				785A0DCE15E9BFD1002C6F78 /* LLCommand.h */,
-				785A0DCF15E9BFD1002C6F78 /* LLCommand.m */,
 				785A0DD115E9BFD8002C6F78 /* LLOption.h */,
 				785A0DD215E9BFD8002C6F78 /* LLOption.m */,
 				785A0DD415E9C164002C6F78 /* LLReceiptManager.h */,
 				785A0DD515E9C165002C6F78 /* LLReceiptManager.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		785A0DD715E9C329002C6F78 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				785A0DDB15E9C39E002C6F78 /* LLReceiptCell.h */,
+				785A0DDC15E9C39E002C6F78 /* LLReceiptCell.m */,
+				785A0DE015E9C662002C6F78 /* LLCommandCell.h */,
+				785A0DE115E9C662002C6F78 /* LLCommandCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		785A0E0D15E9CE22002C6F78 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				785A0DCE15E9BFD1002C6F78 /* LLCommand.h */,
+				785A0DCF15E9BFD1002C6F78 /* LLCommand.m */,
+				785A0E0E15E9CF02002C6F78 /* LLTwitterCommand.h */,
+				785A0E0F15E9CF02002C6F78 /* LLTwitterCommand.m */,
+			);
+			name = Commands;
+			sourceTree = "<group>";
+		};
+		785A0E1115E9D135002C6F78 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				785A0E1215E9D157002C6F78 /* twitter.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +234,7 @@
 			files = (
 				785A0DAC15E9A3B6002C6F78 /* InfoPlist.strings in Resources */,
 				785A0DB815E9A3B6002C6F78 /* LLViewController.xib in Resources */,
+				785A0E1315E9D157002C6F78 /* twitter.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +252,9 @@
 				785A0DD015E9BFD1002C6F78 /* LLCommand.m in Sources */,
 				785A0DD315E9BFD8002C6F78 /* LLOption.m in Sources */,
 				785A0DD615E9C165002C6F78 /* LLReceiptManager.m in Sources */,
+				785A0DDD15E9C39E002C6F78 /* LLReceiptCell.m in Sources */,
+				785A0DE215E9C662002C6F78 /* LLCommandCell.m in Sources */,
+				785A0E1015E9CF02002C6F78 /* LLTwitterCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

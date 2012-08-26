@@ -12,7 +12,7 @@
 
 @interface LLReceipt : NSObject
 
-@property (strong, nonatomic) LLCommand* command;
-@property (strong, nonatomic) NSDate* lastUsed;
+@property (nonatomic, strong) LLCommand* command;
+@property (nonatomic, strong) NSDate* lastUsed;
 
 @end

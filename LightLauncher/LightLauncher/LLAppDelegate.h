@@ -12,8 +12,8 @@
 
 @interface LLAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) UIWindow *window;
 
-@property (strong, nonatomic) LLViewController *viewController;
+@property (nonatomic, strong) LLViewController *viewController;
 
 @end
