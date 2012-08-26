@@ -19,11 +19,11 @@
     return @"twitter.png";
 }
 
-- (void)executeWithNavigationController:(UINavigationController *)navigationController {
+- (void) executeFromViewController:(UIViewController *)viewController {
     if ([TWTweetComposeViewController canSendTweet]) {
         TWTweetComposeViewController *controller = [[TWTweetComposeViewController alloc] init];
         [controller setInitialText:@"Test LightLauncher"];
-        [navigationController presentModalViewController:controller animated:YES];
+        [viewController presentModalViewController:controller animated:YES];
     } else {
 #warning warm user
     }

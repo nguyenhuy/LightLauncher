@@ -57,7 +57,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [[self.receiptManager.commands objectAtIndex:indexPath.row] executeWithNavigationController:self.navigationController];
+    [[self.receiptManager.commands objectAtIndex:indexPath.row] executeFromViewController:self];
 }
 
 @end

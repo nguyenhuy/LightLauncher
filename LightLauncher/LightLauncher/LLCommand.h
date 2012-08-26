@@ -16,6 +16,6 @@
 - initWithCommand:(NSString *)command AndOptions:(NSArray *)options;
 - (NSString *)description;
 - (NSString *)iconFileName;
-- (void) executeWithNavigationController:(UINavigationController *)navigationController;
+- (void) executeFromViewController:(UIViewController *)viewController;
 
 @end

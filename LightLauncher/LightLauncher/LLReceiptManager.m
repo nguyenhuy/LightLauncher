@@ -8,6 +8,7 @@
 
 #import "LLReceiptManager.h"
 #import "LLTwitterCommand.h"
+#import "LLEmailCommand.h"
 
 @interface LLReceiptManager ()
 @property (nonatomic, strong, readwrite) NSMutableArray* receipts;
@@ -24,10 +25,7 @@
     if (self != nil) {
         self.commands = [NSMutableArray arrayWithObjects:
                          [[LLTwitterCommand alloc] initWithCommand:@"tw" AndOptions:nil],
-                         [[LLTwitterCommand alloc] initWithCommand:@"tw" AndOptions:nil],
-                         [[LLTwitterCommand alloc] initWithCommand:@"tw" AndOptions:nil],
-                         [[LLTwitterCommand alloc] initWithCommand:@"tw" AndOptions:nil],
-                         [[LLTwitterCommand alloc] initWithCommand:@"tw" AndOptions:nil],
+                         [[LLEmailCommand alloc] initWithCommand:@"em" AndOptions:nil],
                          nil];
     }
     return self;

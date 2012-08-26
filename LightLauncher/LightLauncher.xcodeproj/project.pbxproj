@@ -24,6 +24,9 @@
 		785A0E1015E9CF02002C6F78 /* LLTwitterCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0E0F15E9CF02002C6F78 /* LLTwitterCommand.m */; };
 		785A0E1315E9D157002C6F78 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 785A0E1215E9D157002C6F78 /* twitter.png */; };
 		785A0E1515E9D98F002C6F78 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0E1415E9D98F002C6F78 /* Twitter.framework */; };
+		785A0E2215E9EF1A002C6F78 /* LLEmailCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0E2115E9EF1A002C6F78 /* LLEmailCommand.m */; };
+		785A0E2515E9EFEC002C6F78 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 785A0E2415E9EFEC002C6F78 /* mail.png */; };
+		785A0E2715E9F0AC002C6F78 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0E2615E9F0AC002C6F78 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,10 @@
 		785A0E0F15E9CF02002C6F78 /* LLTwitterCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLTwitterCommand.m; sourceTree = "<group>"; };
 		785A0E1215E9D157002C6F78 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
 		785A0E1415E9D98F002C6F78 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		785A0E2015E9EF1A002C6F78 /* LLEmailCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLEmailCommand.h; sourceTree = "<group>"; };
+		785A0E2115E9EF1A002C6F78 /* LLEmailCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLEmailCommand.m; sourceTree = "<group>"; };
+		785A0E2415E9EFEC002C6F78 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mail.png; sourceTree = "<group>"; };
+		785A0E2615E9F0AC002C6F78 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				785A0E2715E9F0AC002C6F78 /* MessageUI.framework in Frameworks */,
 				785A0E1515E9D98F002C6F78 /* Twitter.framework in Frameworks */,
 				785A0DA215E9A3B6002C6F78 /* UIKit.framework in Frameworks */,
 				785A0DA415E9A3B6002C6F78 /* Foundation.framework in Frameworks */,
@@ -93,6 +101,7 @@
 		785A0DA015E9A3B6002C6F78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				785A0E2615E9F0AC002C6F78 /* MessageUI.framework */,
 				785A0E1415E9D98F002C6F78 /* Twitter.framework */,
 				785A0DA115E9A3B6002C6F78 /* UIKit.framework */,
 				785A0DA315E9A3B6002C6F78 /* Foundation.framework */,
@@ -168,6 +177,8 @@
 				785A0DCF15E9BFD1002C6F78 /* LLCommand.m */,
 				785A0E0E15E9CF02002C6F78 /* LLTwitterCommand.h */,
 				785A0E0F15E9CF02002C6F78 /* LLTwitterCommand.m */,
+				785A0E2015E9EF1A002C6F78 /* LLEmailCommand.h */,
+				785A0E2115E9EF1A002C6F78 /* LLEmailCommand.m */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -175,6 +186,7 @@
 		785A0E1115E9D135002C6F78 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				785A0E2415E9EFEC002C6F78 /* mail.png */,
 				785A0E1215E9D157002C6F78 /* twitter.png */,
 			);
 			name = Images;
@@ -235,6 +247,7 @@
 				785A0DAC15E9A3B6002C6F78 /* InfoPlist.strings in Resources */,
 				785A0DB815E9A3B6002C6F78 /* LLViewController.xib in Resources */,
 				785A0E1315E9D157002C6F78 /* twitter.png in Resources */,
+				785A0E2515E9EFEC002C6F78 /* mail.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +268,7 @@
 				785A0DDD15E9C39E002C6F78 /* LLReceiptCell.m in Sources */,
 				785A0DE215E9C662002C6F78 /* LLCommandCell.m in Sources */,
 				785A0E1015E9CF02002C6F78 /* LLTwitterCommand.m in Sources */,
+				785A0E2215E9EF1A002C6F78 /* LLEmailCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
