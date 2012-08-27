@@ -17,7 +17,7 @@
     LLCommandCell *cell = [[LLCommandCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:COMMAND_CELL];
     cell.frame = CGRectMake(0, 0, 320, 100);
     
-    cell.imageView.image = [UIImage imageWithContentsOfFile:[command iconFileName]];
+    cell.imageView.image = [UIImage imageNamed:[command iconFileName]];
     cell.textLabel.text = [command description];
     cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     return cell;
