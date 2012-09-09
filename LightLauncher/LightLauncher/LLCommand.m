@@ -28,7 +28,7 @@
     @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"iconFileName must be implemented" userInfo:nil];
 }
 
-- (void)executeWithNavigationController:(UINavigationController *)navigationController {
+- (void)executeFromViewController:(UIViewController *)viewController {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"execute must be implemented" userInfo:nil];
 }
 
