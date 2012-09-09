@@ -1,2 +1,3 @@
-25/8: 3 hours: setup skeleton, add model classes, add Twitter command
-26/8: 1 hours: add Mail command, load icons
+25/8: 3 hours: setup skeleton, add model classes, add Twitter command.
+26/8: 1 hours: add Mail command, load icons.
+9/9: 2 hours: Change LLCommand: remove options array, each instance will have there variables for specified options. Add options to EmailCommand: To, Cc, Bcc, Subject, Body, AttachmentData.
