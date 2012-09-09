@@ -10,14 +10,12 @@
 
 @implementation LLCommand
 
-@synthesize command = _command;
-@synthesize options = _options;
+@synthesize name = _name;
 
-- (id)initWithCommand:(NSString *)command AndOptions:(NSArray *)options {
+- (id)initWithName:(NSString *)name {
     self = [super init];
-    if (self != nil) {
-        self.command = command;
-        self.options = options;
+    if (self) {
+        self.name = name;
     }
     return self;
 }

@@ -9,8 +9,18 @@
 #import "LLCommand.h"
 #import <MessageUI/MessageUI.h>
 
+@class LLToOption;
+@class LLSubjectOption;
+@class LLBodyOption;
+
 @interface LLEmailCommand : LLCommand <MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) UIViewController *viewController;
+@property (nonatomic, strong) NSArray *toOptions;
+@property (nonatomic, strong) NSArray *ccOptions;
+@property (nonatomic, strong) NSArray *bccOptions;
+@property (nonatomic, strong) LLSubjectOption *subject;
+@property (nonatomic, strong) LLBodyOption *body;
+@property (nonatomic, strong) NSArray *attachmentFiles;
 
 @end

@@ -7,10 +7,27 @@
 //
 
 #import "LLEmailCommand.h"
+#import "LLToOption.h"
+#import "LLCcOption.h"
+#import "LLBccOption.h"
+#import "LLSubjectOption.h"
+#import "LLBodyOption.h"
+#import "LLAttachmentDataOption.h"
+
+@interface LLEmailCommand ()
+- (NSArray *)recipientsFromToOptions:(NSArray *)toOptions;
+- (void)addAttachmentDatasToMailComposeViewController:(MFMailComposeViewController *)controller;
+@end
 
 @implementation LLEmailCommand
 
 @synthesize viewController = _viewController;
+@synthesize toOptions = _toOptions;
+@synthesize ccOptions = _ccOptions;
+@synthesize bccOptions = _bccOptions;
+@synthesize subject = _subject;
+@synthesize body = _body;
+@synthesize attachmentFiles = _attachmentFiles;
 
 - (NSString *)description {
     return @"Email";
@@ -20,17 +37,16 @@
     return @"mail.png";
 }
 
-
 - (void) executeFromViewController:(UIViewController *)viewController {
     self.viewController = viewController;
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
-        [controller setSubject:@"Subject"];
-        [controller setToRecipients:[NSArray arrayWithObject:@"allforone1511@gmail.com"]];
-        [controller setCcRecipients:[NSArray arrayWithObject:@"huy.nguyen151190@gmail.com"]];
-        [controller setBccRecipients:[NSArray arrayWithObject:@"allforone1511@yahoo.com"]];
-        [controller setMessageBody:@"Body" isHTML:NO];
-        [controller addAttachmentData:[NSData dataWithContentsOfFile:@"mail.png"] mimeType:@"image/png" fileName:@"Mail icon"];
+        [controller setToRecipients:[self recipientsFromToOptions:self.toOptions]];
+        [controller setCcRecipients:[self recipientsFromToOptions:self.ccOptions]];
+        [controller setBccRecipients:[self recipientsFromToOptions:self.bccOptions]];
+        [controller setSubject:self.subject.param];
+        [controller setMessageBody:self.body.param isHTML:self.body.isHtml];
+        [self addAttachmentDatasToMailComposeViewController:controller];
         controller.mailComposeDelegate = self;
         [self.viewController presentModalViewController:controller animated:YES];
     } else {
@@ -67,6 +83,18 @@
     [alert show];
 }
 
+- (NSArray *)recipientsFromToOptions:(NSArray *)toOptions {
+    NSMutableArray *recipients = [NSMutableArray arrayWithCapacity:toOptions.count];
+    for (LLToOption *o in toOptions) {
+        [recipients addObject:o.param];
+    }
+    return recipients;
+}
 
+- (void)addAttachmentDatasToMailComposeViewController:(MFMailComposeViewController *)controller {
+    for (LLAttachmentDataOption *o in self.attachmentFiles) {
+        [controller addAttachmentData:o.data mimeType:o.mimeType fileName:o.fileName];
+    }
+}
 
 @end

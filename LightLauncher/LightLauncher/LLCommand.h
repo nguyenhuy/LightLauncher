@@ -10,10 +10,9 @@
 
 @interface LLCommand : NSObject
 
-@property (nonatomic, strong) NSString *command;
-@property (nonatomic, strong) NSArray *options;
+@property (nonatomic, strong) NSString *name;
 
-- initWithCommand:(NSString *)command AndOptions:(NSArray *)options;
+- (id)initWithName:(NSString *)name;
 - (NSString *)description;
 - (NSString *)iconFileName;
 - (void) executeFromViewController:(UIViewController *)viewController;

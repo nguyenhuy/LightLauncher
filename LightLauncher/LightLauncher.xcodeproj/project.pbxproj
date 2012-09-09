@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		783D380415FC991000C81DF0 /* LLToOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 783D380315FC991000C81DF0 /* LLToOption.m */; };
+		783D382615FC9B7600C81DF0 /* LLCcOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 783D382515FC9B7600C81DF0 /* LLCcOption.m */; };
+		783D382915FC9BB300C81DF0 /* LLBccOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 783D382815FC9BB300C81DF0 /* LLBccOption.m */; };
+		783D382C15FC9BDB00C81DF0 /* LLSubjectOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 783D382B15FC9BDA00C81DF0 /* LLSubjectOption.m */; };
+		783D382F15FC9C0200C81DF0 /* LLBodyOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 783D382E15FC9C0200C81DF0 /* LLBodyOption.m */; };
+		783D383215FCA00600C81DF0 /* LLAttachmentDataOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 783D383115FCA00600C81DF0 /* LLAttachmentDataOption.m */; };
 		785A0DA215E9A3B6002C6F78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0DA115E9A3B6002C6F78 /* UIKit.framework */; };
 		785A0DA415E9A3B6002C6F78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0DA315E9A3B6002C6F78 /* Foundation.framework */; };
 		785A0DA615E9A3B6002C6F78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0DA515E9A3B6002C6F78 /* CoreGraphics.framework */; };
@@ -30,6 +36,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		783D380215FC991000C81DF0 /* LLToOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLToOption.h; sourceTree = "<group>"; };
+		783D380315FC991000C81DF0 /* LLToOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLToOption.m; sourceTree = "<group>"; };
+		783D382415FC9B7600C81DF0 /* LLCcOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCcOption.h; sourceTree = "<group>"; };
+		783D382515FC9B7600C81DF0 /* LLCcOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCcOption.m; sourceTree = "<group>"; };
+		783D382715FC9BB300C81DF0 /* LLBccOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLBccOption.h; sourceTree = "<group>"; };
+		783D382815FC9BB300C81DF0 /* LLBccOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLBccOption.m; sourceTree = "<group>"; };
+		783D382A15FC9BDA00C81DF0 /* LLSubjectOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSubjectOption.h; sourceTree = "<group>"; };
+		783D382B15FC9BDA00C81DF0 /* LLSubjectOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSubjectOption.m; sourceTree = "<group>"; };
+		783D382D15FC9C0200C81DF0 /* LLBodyOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLBodyOption.h; sourceTree = "<group>"; };
+		783D382E15FC9C0200C81DF0 /* LLBodyOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLBodyOption.m; sourceTree = "<group>"; };
+		783D383015FCA00500C81DF0 /* LLAttachmentDataOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLAttachmentDataOption.h; sourceTree = "<group>"; };
+		783D383115FCA00600C81DF0 /* LLAttachmentDataOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLAttachmentDataOption.m; sourceTree = "<group>"; };
 		785A0D9D15E9A3B6002C6F78 /* LightLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		785A0DA115E9A3B6002C6F78 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		785A0DA315E9A3B6002C6F78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -81,6 +99,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		783D37FD15FC974B00C81DF0 /* Options */ = {
+			isa = PBXGroup;
+			children = (
+				785A0DD115E9BFD8002C6F78 /* LLOption.h */,
+				785A0DD215E9BFD8002C6F78 /* LLOption.m */,
+				783D380215FC991000C81DF0 /* LLToOption.h */,
+				783D380315FC991000C81DF0 /* LLToOption.m */,
+				783D382415FC9B7600C81DF0 /* LLCcOption.h */,
+				783D382515FC9B7600C81DF0 /* LLCcOption.m */,
+				783D382715FC9BB300C81DF0 /* LLBccOption.h */,
+				783D382815FC9BB300C81DF0 /* LLBccOption.m */,
+				783D382A15FC9BDA00C81DF0 /* LLSubjectOption.h */,
+				783D382B15FC9BDA00C81DF0 /* LLSubjectOption.m */,
+				783D382D15FC9C0200C81DF0 /* LLBodyOption.h */,
+				783D382E15FC9C0200C81DF0 /* LLBodyOption.m */,
+				783D383015FCA00500C81DF0 /* LLAttachmentDataOption.h */,
+				783D383115FCA00600C81DF0 /* LLAttachmentDataOption.m */,
+			);
+			name = Options;
+			sourceTree = "<group>";
+		};
 		785A0D9215E9A3B6002C6F78 = {
 			isa = PBXGroup;
 			children = (
@@ -151,8 +190,6 @@
 				785A0E0D15E9CE22002C6F78 /* Commands */,
 				785A0DCB15E9BFC9002C6F78 /* LLReceipt.h */,
 				785A0DCC15E9BFC9002C6F78 /* LLReceipt.m */,
-				785A0DD115E9BFD8002C6F78 /* LLOption.h */,
-				785A0DD215E9BFD8002C6F78 /* LLOption.m */,
 				785A0DD415E9C164002C6F78 /* LLReceiptManager.h */,
 				785A0DD515E9C165002C6F78 /* LLReceiptManager.m */,
 			);
@@ -179,6 +216,7 @@
 				785A0E0F15E9CF02002C6F78 /* LLTwitterCommand.m */,
 				785A0E2015E9EF1A002C6F78 /* LLEmailCommand.h */,
 				785A0E2115E9EF1A002C6F78 /* LLEmailCommand.m */,
+				783D37FD15FC974B00C81DF0 /* Options */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -269,6 +307,12 @@
 				785A0DE215E9C662002C6F78 /* LLCommandCell.m in Sources */,
 				785A0E1015E9CF02002C6F78 /* LLTwitterCommand.m in Sources */,
 				785A0E2215E9EF1A002C6F78 /* LLEmailCommand.m in Sources */,
+				783D380415FC991000C81DF0 /* LLToOption.m in Sources */,
+				783D382615FC9B7600C81DF0 /* LLCcOption.m in Sources */,
+				783D382915FC9BB300C81DF0 /* LLBccOption.m in Sources */,
+				783D382C15FC9BDB00C81DF0 /* LLSubjectOption.m in Sources */,
+				783D382F15FC9C0200C81DF0 /* LLBodyOption.m in Sources */,
+				783D383215FCA00600C81DF0 /* LLAttachmentDataOption.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
