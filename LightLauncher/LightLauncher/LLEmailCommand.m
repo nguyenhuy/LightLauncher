@@ -25,8 +25,8 @@
 @synthesize toOptions = _toOptions;
 @synthesize ccOptions = _ccOptions;
 @synthesize bccOptions = _bccOptions;
-@synthesize subject = _subject;
-@synthesize body = _body;
+@synthesize subjectOption = _subjectOption;
+@synthesize bodyOption = _bodyOption;
 @synthesize attachmentFiles = _attachmentFiles;
 
 - (NSString *)description {
@@ -44,8 +44,8 @@
         [controller setToRecipients:[self recipientsFromToOptions:self.toOptions]];
         [controller setCcRecipients:[self recipientsFromToOptions:self.ccOptions]];
         [controller setBccRecipients:[self recipientsFromToOptions:self.bccOptions]];
-        [controller setSubject:self.subject.param];
-        [controller setMessageBody:self.body.param isHTML:self.body.isHtml];
+        [controller setSubject:self.subjectOption.param];
+        [controller setMessageBody:self.bodyOption.param isHTML:self.bodyOption.isHtml];
         [self addAttachmentDatasToMailComposeViewController:controller];
         controller.mailComposeDelegate = self;
         [self.viewController presentModalViewController:controller animated:YES];

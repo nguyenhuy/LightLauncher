@@ -11,8 +11,5 @@
 @interface LLOption : NSObject
 
 @property (nonatomic, strong) NSString* name;
-@property (nonatomic, strong) NSString* param;
-
-- (id)initWithParam:(NSString *)param;
 
 @end

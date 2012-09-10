@@ -10,11 +10,10 @@
 
 @interface LLAttachmentDataOption : LLOption
 
-// param is path to file, data will be loaded when needed
+@property (nonatomic, strong) NSData *data;
 @property (nonatomic, strong) NSString *mimeType;
 @property (nonatomic, strong) NSString *fileName;
 
-- (id)initWithParam:(NSString *)param AndMimeType:(NSString *)mimeType andFileName:(NSString *)fileName;
-- (NSData *)data;
+- (id)initWithData:(NSData *)data AndMimeType:(NSString *)mimeType AndFileName:(NSString *)fileName;
 
 @end

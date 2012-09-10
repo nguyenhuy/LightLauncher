@@ -11,15 +11,6 @@
 @implementation LLOption
 
 @synthesize name = _name;
-@synthesize param = _param;
-
-- (id)initWithParam:(NSString *)param {
-    self = [super init];
-    if (self) {
-        self.param = param;
-    }
-    return self;
-}
 
 - (NSString *)description {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"desction must be overridden in all commadns" userInfo:nil];

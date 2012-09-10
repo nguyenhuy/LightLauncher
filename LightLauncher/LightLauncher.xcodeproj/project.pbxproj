@@ -33,6 +33,9 @@
 		785A0E2215E9EF1A002C6F78 /* LLEmailCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0E2115E9EF1A002C6F78 /* LLEmailCommand.m */; };
 		785A0E2515E9EFEC002C6F78 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 785A0E2415E9EFEC002C6F78 /* mail.png */; };
 		785A0E2715E9F0AC002C6F78 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0E2615E9F0AC002C6F78 /* MessageUI.framework */; };
+		78CA68FD15FEABD000079F07 /* LLImageOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CA68FC15FEABD000079F07 /* LLImageOption.m */; };
+		78CA690115FEAC1A00079F07 /* LLStringOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CA690015FEAC1A00079F07 /* LLStringOption.m */; };
+		78CA690415FEAE1800079F07 /* LLUrlOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CA690315FEAE1700079F07 /* LLUrlOption.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +84,12 @@
 		785A0E2115E9EF1A002C6F78 /* LLEmailCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLEmailCommand.m; sourceTree = "<group>"; };
 		785A0E2415E9EFEC002C6F78 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mail.png; sourceTree = "<group>"; };
 		785A0E2615E9F0AC002C6F78 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		78CA68FB15FEABD000079F07 /* LLImageOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLImageOption.h; sourceTree = "<group>"; };
+		78CA68FC15FEABD000079F07 /* LLImageOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLImageOption.m; sourceTree = "<group>"; };
+		78CA68FF15FEAC1A00079F07 /* LLStringOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLStringOption.h; sourceTree = "<group>"; };
+		78CA690015FEAC1A00079F07 /* LLStringOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLStringOption.m; sourceTree = "<group>"; };
+		78CA690215FEAE1700079F07 /* LLUrlOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLUrlOption.h; sourceTree = "<group>"; };
+		78CA690315FEAE1700079F07 /* LLUrlOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLUrlOption.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +113,8 @@
 			children = (
 				785A0DD115E9BFD8002C6F78 /* LLOption.h */,
 				785A0DD215E9BFD8002C6F78 /* LLOption.m */,
+				78CA68FF15FEAC1A00079F07 /* LLStringOption.h */,
+				78CA690015FEAC1A00079F07 /* LLStringOption.m */,
 				783D380215FC991000C81DF0 /* LLToOption.h */,
 				783D380315FC991000C81DF0 /* LLToOption.m */,
 				783D382415FC9B7600C81DF0 /* LLCcOption.h */,
@@ -114,8 +125,12 @@
 				783D382B15FC9BDA00C81DF0 /* LLSubjectOption.m */,
 				783D382D15FC9C0200C81DF0 /* LLBodyOption.h */,
 				783D382E15FC9C0200C81DF0 /* LLBodyOption.m */,
+				78CA690215FEAE1700079F07 /* LLUrlOption.h */,
+				78CA690315FEAE1700079F07 /* LLUrlOption.m */,
 				783D383015FCA00500C81DF0 /* LLAttachmentDataOption.h */,
 				783D383115FCA00600C81DF0 /* LLAttachmentDataOption.m */,
+				78CA68FB15FEABD000079F07 /* LLImageOption.h */,
+				78CA68FC15FEABD000079F07 /* LLImageOption.m */,
 			);
 			name = Options;
 			sourceTree = "<group>";
@@ -313,6 +328,9 @@
 				783D382C15FC9BDB00C81DF0 /* LLSubjectOption.m in Sources */,
 				783D382F15FC9C0200C81DF0 /* LLBodyOption.m in Sources */,
 				783D383215FCA00600C81DF0 /* LLAttachmentDataOption.m in Sources */,
+				78CA68FD15FEABD000079F07 /* LLImageOption.m in Sources */,
+				78CA690115FEAC1A00079F07 /* LLStringOption.m in Sources */,
+				78CA690415FEAE1800079F07 /* LLUrlOption.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

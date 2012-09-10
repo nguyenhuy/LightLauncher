@@ -8,6 +8,14 @@
 
 #import "LLCommand.h"
 
+@class LLImageOption;
+@class LLUrlOption;
+@class LLBodyOption;
+
 @interface LLTwitterCommand : LLCommand
+
+@property (nonatomic, strong) LLBodyOption *bodyOption;
+@property (nonatomic, strong) LLUrlOption *urlOption;
+@property (nonatomic, strong) LLImageOption *imageOption;
 
 @end

@@ -1,13 +1,13 @@
 //
-//  LLToOption.h
+//  LLUrlOption.h
 //  LightLauncher
 //
-//  Created by Huy Nguyen on 9/9/12.
+//  Created by Huy Nguyen on 9/11/12.
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
 #import "LLStringOption.h"
 
-@interface LLToOption : LLStringOption
+@interface LLUrlOption : LLStringOption
 
 @end

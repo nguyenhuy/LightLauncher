@@ -10,20 +10,22 @@
 
 @implementation LLAttachmentDataOption
 
+@synthesize data = _data;
 @synthesize mimeType = _mimeType;
 @synthesize fileName = _fileName;
 
-- (id)initWithParam:(NSString *)param AndMimeType:(NSString *)mimeType andFileName:(NSString *)fileName {
-    self = [super initWithParam:param];
+- (id)initWithData:(NSData *)data AndMimeType:(NSString *)mimeType AndFileName:(NSString *)fileName {
+    self = [super init];
     if (self) {
+        self.data = data;
         self.mimeType = mimeType;
         self.fileName = fileName;
     }
     return self;
 }
 
-- (NSData *)data {
-    return [NSData dataWithContentsOfFile:self.param];
+- (NSString *)description {
+    return @"AttachmentData";
 }
 
 @end

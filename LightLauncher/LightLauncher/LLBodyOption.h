@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
-#import "LLOption.h"
+#import "LLStringOption.h"
 
-@interface LLBodyOption : LLOption
+@interface LLBodyOption : LLStringOption
 
 @property (nonatomic) BOOL isHtml;
 
