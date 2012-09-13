@@ -1,4 +1,5 @@
 25/8: 3 hours: setup skeleton, add model classes, add Twitter command.
 26/8: 1 hour: add Mail command, load icons.
 9/9: 2 hours: Change LLCommand: remove options array, each instance will have there variables for specified options. Add options to EmailCommand: To, Cc, Bcc, Subject, Body, AttachmentData.
-11/9: 1 hour: Add Twitter options. Refactor LLOption.s
+11/9: 1 hour: Add Twitter options. Refactor LLOption.
+13/9: 0.5 hour: Research about UITextViewDelegate
