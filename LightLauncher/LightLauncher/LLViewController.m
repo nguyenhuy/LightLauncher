@@ -12,25 +12,35 @@
 #import "LLCommand.h"
 
 @interface LLViewController ()
-
 @end
 
 @implementation LLViewController
 
 @synthesize receiptManager = _receiptManager;
-@synthesize textFieldInput = _textFieldInput;
+@synthesize headerView = _headerView;
+@synthesize textFieldCommand = _textFieldCommand;
+@synthesize statusView = _statusView;
+@synthesize lblStatus = _lblStatus;
 @synthesize tableView = _tableView;
+@synthesize swipeGestureRecognizerStatusView = _swipeGestureRecognizerStatusView;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.receiptManager = [[LLReceiptManager alloc] init];
+
+    // Config swipe gesture recognizer for status view
+    self.swipeGestureRecognizerStatusView.direction = UISwipeGestureRecognizerDirectionLeft & UISwipeGestureRecognizerDirectionRight;
 }
 
 - (void)viewDidUnload
 {
-    [self setTextFieldInput:nil];
     [self setTableView:nil];
+    [self setHeaderView:nil];
+    [self setTextFieldCommand:nil];
+    [self setStatusView:nil];
+    [self setLblStatus:nil];
+    [self setSwipeGestureRecognizerStatusView:nil];
     [super viewDidUnload];
 }
 
@@ -58,6 +68,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [[self.receiptManager.commands objectAtIndex:indexPath.row] executeFromViewController:self];
+}
+
+#pragma mark - SwipeGestureRecognizerDelegate
+
+- (IBAction)onSwipeStatusView:(id)sender {
+
 }
 
 @end
