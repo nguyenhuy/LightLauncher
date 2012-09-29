@@ -48,7 +48,7 @@
         [controller setMessageBody:self.bodyOption.param isHTML:self.bodyOption.isHtml];
         [self addAttachmentDatasToMailComposeViewController:controller];
         controller.mailComposeDelegate = self;
-        [self.viewController presentModalViewController:controller animated:YES];
+        [self.viewController presentViewController:controller animated:YES completion:nil];
     } else {
 #warning can't send mail, warn user
     }
@@ -78,7 +78,7 @@
             break;
     }
     
-    [self.viewController dismissModalViewControllerAnimated:YES];
+    [self.viewController dismissViewControllerAnimated:YES completion:nil];
     self.viewController = nil;
     [alert show];
 }

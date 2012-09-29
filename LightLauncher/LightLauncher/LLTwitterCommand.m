@@ -31,7 +31,7 @@
     [controller setInitialText:self.bodyOption.param];
     [controller addURL:[NSURL URLWithString:self.urlOption.param]];
     [controller addImage:self.imageOption.image];
-    [viewController presentModalViewController:controller animated:YES];
+    [viewController presentViewController:controller animated:YES completion:nil];
     
     controller.completionHandler = ^(TWTweetComposeViewControllerResult result) {
         NSString *title = @"status";
@@ -47,7 +47,7 @@
         [alertView show];
         
         // Dismiss the controller
-        [viewController dismissModalViewControllerAnimated:YES];
+        [viewController dismissViewControllerAnimated:YES completion:nil];
     };
 }
 
