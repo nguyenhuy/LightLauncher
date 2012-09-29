@@ -84,6 +84,7 @@
 		785A0E2115E9EF1A002C6F78 /* LLEmailCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLEmailCommand.m; sourceTree = "<group>"; };
 		785A0E2415E9EFEC002C6F78 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mail.png; sourceTree = "<group>"; };
 		785A0E2615E9F0AC002C6F78 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		788295FB1616A4EA0072B584 /* Log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		78CA68FB15FEABD000079F07 /* LLImageOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLImageOption.h; sourceTree = "<group>"; };
 		78CA68FC15FEABD000079F07 /* LLImageOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLImageOption.m; sourceTree = "<group>"; };
 		78CA68FF15FEAC1A00079F07 /* LLStringOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLStringOption.h; sourceTree = "<group>"; };
@@ -173,6 +174,7 @@
 				785A0DD715E9C329002C6F78 /* View */,
 				785A0DC215E9BEE4002C6F78 /* Controller */,
 				785A0E1115E9D135002C6F78 /* Images */,
+				788295FC1616A4F50072B584 /* Utils */,
 				785A0DA815E9A3B6002C6F78 /* Supporting Files */,
 			);
 			path = LightLauncher;
@@ -243,6 +245,14 @@
 				785A0E1215E9D157002C6F78 /* twitter.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		788295FC1616A4F50072B584 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				788295FB1616A4EA0072B584 /* Log.h */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,6 +389,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				"OTHER_CFLAGS[arch=*]" = "-DDEBUG";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;

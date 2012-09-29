@@ -92,7 +92,6 @@
 												<string key="NSFrameSize">{320, 43}</string>
 												<reference key="NSSuperview" ref="786778908"/>
 												<reference key="NSWindow"/>
-												<reference key="NSNextKeyView"/>
 												<string key="NSReuseIdentifierKey">_NS:9</string>
 												<bool key="IBUIOpaque">NO</bool>
 												<bool key="IBUIClipsSubviews">YES</bool>
@@ -182,6 +181,7 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUISwipeGestureRecognizer" id="101718939"/>
+			<object class="IBUISwipeGestureRecognizer" id="759019088"/>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<array class="NSMutableArray" key="connectionRecords">
@@ -235,11 +235,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">swipeGestureRecognizerStatusView</string>
+						<string key="label">rightToLeftSwipeGestureRecognizer</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="759019088"/>
+					</object>
+					<int key="connectionID">40</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">leftToRightSwipeGestureRecognizer</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="101718939"/>
 					</object>
-					<int key="connectionID">31</int>
+					<int key="connectionID">41</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -265,7 +273,17 @@
 						<string key="cachedDesigntimeCollectionClassName">NSArray</string>
 						<bool key="addsContentToExistingCollection">YES</bool>
 					</object>
-					<int key="connectionID">24</int>
+					<int key="connectionID">46</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletCollectionConnection" key="connection">
+						<string key="label">gestureRecognizers</string>
+						<reference key="source" ref="786778908"/>
+						<reference key="destination" ref="759019088"/>
+						<string key="cachedDesigntimeCollectionClassName">NSArray</string>
+						<bool key="addsContentToExistingCollection">YES</bool>
+					</object>
+					<int key="connectionID">47</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -277,11 +295,27 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">onSwipeStatusView:</string>
+						<string key="label">onSwipeStatusViewLeftToRight:</string>
 						<reference key="source" ref="101718939"/>
 						<reference key="destination" ref="372490531"/>
 					</object>
-					<int key="connectionID">33</int>
+					<int key="connectionID">42</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="759019088"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">36</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">onSwipeStatusViewRightToLeft:</string>
+						<reference key="source" ref="759019088"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">43</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -354,6 +388,13 @@
 						<int key="objectID">23</int>
 						<reference key="object" ref="101718939"/>
 						<reference key="parent" ref="0"/>
+						<string key="objectName">Left to Right Swipe Gesture Recognizer</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">34</int>
+						<reference key="object" ref="759019088"/>
+						<reference key="parent" ref="0"/>
+						<string key="objectName">Right to Left Swipe Gesture Recognizer</string>
 					</object>
 				</array>
 			</object>
@@ -366,6 +407,7 @@
 				<string key="18.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="19.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="23.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="34.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="9.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -374,29 +416,33 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">33</int>
+			<int key="maxID">47</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
 					<string key="className">LLViewController</string>
 					<string key="superclassName">UIViewController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">onSwipeStatusView:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">onSwipeStatusView:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">onSwipeStatusView:</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="onSwipeStatusViewLeftToRight:">id</string>
+						<string key="onSwipeStatusViewRightToLeft:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="onSwipeStatusViewLeftToRight:">
+							<string key="name">onSwipeStatusViewLeftToRight:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-					</object>
+						<object class="IBActionInfo" key="onSwipeStatusViewRightToLeft:">
+							<string key="name">onSwipeStatusViewRightToLeft:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="headerView">UIView</string>
 						<string key="lblStatus">UILabel</string>
+						<string key="leftToRightSwipeGestureRecognizer">UISwipeGestureRecognizer</string>
+						<string key="rightToLeftSwipeGestureRecognizer">UISwipeGestureRecognizer</string>
 						<string key="statusView">UIView</string>
-						<string key="swipeGestureRecognizerStatusView">UISwipeGestureRecognizer</string>
 						<string key="tableView">UITableView</string>
 						<string key="textFieldCommand">UITextField</string>
 					</dictionary>
@@ -409,13 +455,17 @@
 							<string key="name">lblStatus</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="leftToRightSwipeGestureRecognizer">
+							<string key="name">leftToRightSwipeGestureRecognizer</string>
+							<string key="candidateClassName">UISwipeGestureRecognizer</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="rightToLeftSwipeGestureRecognizer">
+							<string key="name">rightToLeftSwipeGestureRecognizer</string>
+							<string key="candidateClassName">UISwipeGestureRecognizer</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="statusView">
 							<string key="name">statusView</string>
 							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="swipeGestureRecognizerStatusView">
-							<string key="name">swipeGestureRecognizerStatusView</string>
-							<string key="candidateClassName">UISwipeGestureRecognizer</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="tableView">
 							<string key="name">tableView</string>

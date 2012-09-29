@@ -19,8 +19,11 @@
 @property (strong, nonatomic) IBOutlet UIView *statusView;
 @property (strong, nonatomic) IBOutlet UILabel *lblStatus;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *leftToRightSwipeGestureRecognizer;
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *rightToLeftSwipeGestureRecognizer;
 
-@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swipeGestureRecognizerStatusView;
-- (IBAction)onSwipeStatusView:(id)sender;
+- (IBAction)onSwipeStatusViewLeftToRight:(id)sender;
+- (IBAction)onSwipeStatusViewRightToLeft:(id)sender;
+
 
 @end

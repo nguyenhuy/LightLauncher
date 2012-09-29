@@ -12,6 +12,7 @@
 #import "LLCommand.h"
 
 @interface LLViewController ()
+- (void)configSwipeGestureRecognizer;
 @end
 
 @implementation LLViewController
@@ -22,15 +23,14 @@
 @synthesize statusView = _statusView;
 @synthesize lblStatus = _lblStatus;
 @synthesize tableView = _tableView;
-@synthesize swipeGestureRecognizerStatusView = _swipeGestureRecognizerStatusView;
+@synthesize leftToRightSwipeGestureRecognizer = _leftToRightSwipeGestureRecognizer;
+@synthesize rightToLeftSwipeGestureRecognizer = _rightToLeftSwipeGestureRecognizer;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.receiptManager = [[LLReceiptManager alloc] init];
-
-    // Config swipe gesture recognizer for status view
-    self.swipeGestureRecognizerStatusView.direction = UISwipeGestureRecognizerDirectionLeft & UISwipeGestureRecognizerDirectionRight;
+    [self configSwipeGestureRecognizer];
 }
 
 - (void)viewDidUnload
@@ -40,7 +40,8 @@
     [self setTextFieldCommand:nil];
     [self setStatusView:nil];
     [self setLblStatus:nil];
-    [self setSwipeGestureRecognizerStatusView:nil];
+    [self setLeftToRightSwipeGestureRecognizer:nil];
+    [self setRightToLeftSwipeGestureRecognizer:nil];
     [super viewDidUnload];
 }
 
@@ -70,10 +71,19 @@
     [[self.receiptManager.commands objectAtIndex:indexPath.row] executeFromViewController:self];
 }
 
-#pragma mark - SwipeGestureRecognizerDelegate
+#pragma mark - Swipe Gesture Recognizers
 
-- (IBAction)onSwipeStatusView:(id)sender {
+- (void)configSwipeGestureRecognizer {
+    self.leftToRightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+    self.rightToLeftSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+}
 
+- (IBAction)onSwipeStatusViewLeftToRight:(id)sender {
+    DLog(@"Left to Right");
+}
+
+- (IBAction)onSwipeStatusViewRightToLeft:(id)sender {
+    DLog(@"Right to Left");    
 }
 
 @end
