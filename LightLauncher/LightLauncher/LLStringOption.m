@@ -10,8 +10,6 @@
 
 @implementation LLStringOption
 
-@synthesize param = _param;
-
 - (id)initWithParam:(NSString *)param {
     self = [super init];
     if (self) {

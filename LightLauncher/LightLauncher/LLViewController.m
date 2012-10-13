@@ -17,15 +17,6 @@
 
 @implementation LLViewController
 
-@synthesize receiptManager = _receiptManager;
-@synthesize headerView = _headerView;
-@synthesize textFieldCommand = _textFieldCommand;
-@synthesize statusView = _statusView;
-@synthesize lblStatus = _lblStatus;
-@synthesize tableView = _tableView;
-@synthesize leftToRightSwipeGestureRecognizer = _leftToRightSwipeGestureRecognizer;
-@synthesize rightToLeftSwipeGestureRecognizer = _rightToLeftSwipeGestureRecognizer;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];

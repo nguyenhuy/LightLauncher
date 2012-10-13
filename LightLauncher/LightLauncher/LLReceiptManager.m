@@ -26,9 +26,6 @@
 
 @implementation LLReceiptManager
 
-@synthesize receipts = _receipts;
-@synthesize commands = _commands;
-
 - (id)init {
     self = [super init];
     if (self != nil) {

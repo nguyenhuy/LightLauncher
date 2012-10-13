@@ -10,8 +10,6 @@
 
 @implementation LLCommand
 
-@synthesize name = _name;
-
 - (id)initWithName:(NSString *)name {
     self = [super init];
     if (self) {

@@ -11,7 +11,4 @@
 
 @implementation LLReceipt
 
-@synthesize command = _command;
-@synthesize lastUsed = _lastUsed;
-
 @end

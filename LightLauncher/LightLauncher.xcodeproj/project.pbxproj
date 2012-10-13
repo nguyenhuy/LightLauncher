@@ -29,10 +29,12 @@
 		785A0DE215E9C662002C6F78 /* LLCommandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DE115E9C662002C6F78 /* LLCommandCell.m */; };
 		785A0E1015E9CF02002C6F78 /* LLTwitterCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0E0F15E9CF02002C6F78 /* LLTwitterCommand.m */; };
 		785A0E1315E9D157002C6F78 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 785A0E1215E9D157002C6F78 /* twitter.png */; };
-		785A0E1515E9D98F002C6F78 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0E1415E9D98F002C6F78 /* Twitter.framework */; };
 		785A0E2215E9EF1A002C6F78 /* LLEmailCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0E2115E9EF1A002C6F78 /* LLEmailCommand.m */; };
 		785A0E2515E9EFEC002C6F78 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 785A0E2415E9EFEC002C6F78 /* mail.png */; };
 		785A0E2715E9F0AC002C6F78 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0E2615E9F0AC002C6F78 /* MessageUI.framework */; };
+		785EBB5F16297FBF00ADE85F /* LLSocialCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EBB5E16297FBF00ADE85F /* LLSocialCommand.m */; };
+		785EBB621629805E00ADE85F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785EBB611629805E00ADE85F /* Social.framework */; };
+		785EBB651629858C00ADE85F /* LLFacebookCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EBB641629858C00ADE85F /* LLFacebookCommand.m */; };
 		78CA68FD15FEABD000079F07 /* LLImageOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CA68FC15FEABD000079F07 /* LLImageOption.m */; };
 		78CA690115FEAC1A00079F07 /* LLStringOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CA690015FEAC1A00079F07 /* LLStringOption.m */; };
 		78CA690415FEAE1800079F07 /* LLUrlOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CA690315FEAE1700079F07 /* LLUrlOption.m */; };
@@ -84,6 +86,11 @@
 		785A0E2115E9EF1A002C6F78 /* LLEmailCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLEmailCommand.m; sourceTree = "<group>"; };
 		785A0E2415E9EFEC002C6F78 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mail.png; sourceTree = "<group>"; };
 		785A0E2615E9F0AC002C6F78 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		785EBB5D16297FBF00ADE85F /* LLSocialCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSocialCommand.h; sourceTree = "<group>"; };
+		785EBB5E16297FBF00ADE85F /* LLSocialCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSocialCommand.m; sourceTree = "<group>"; };
+		785EBB611629805E00ADE85F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		785EBB631629858C00ADE85F /* LLFacebookCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLFacebookCommand.h; sourceTree = "<group>"; };
+		785EBB641629858C00ADE85F /* LLFacebookCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLFacebookCommand.m; sourceTree = "<group>"; };
 		788295FB1616A4EA0072B584 /* Log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		78CA68FB15FEABD000079F07 /* LLImageOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLImageOption.h; sourceTree = "<group>"; };
 		78CA68FC15FEABD000079F07 /* LLImageOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLImageOption.m; sourceTree = "<group>"; };
@@ -98,8 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				785EBB621629805E00ADE85F /* Social.framework in Frameworks */,
 				785A0E2715E9F0AC002C6F78 /* MessageUI.framework in Frameworks */,
-				785A0E1515E9D98F002C6F78 /* Twitter.framework in Frameworks */,
 				785A0DA215E9A3B6002C6F78 /* UIKit.framework in Frameworks */,
 				785A0DA415E9A3B6002C6F78 /* Foundation.framework in Frameworks */,
 				785A0DA615E9A3B6002C6F78 /* CoreGraphics.framework in Frameworks */,
@@ -139,6 +146,7 @@
 		785A0D9215E9A3B6002C6F78 = {
 			isa = PBXGroup;
 			children = (
+				785EBB611629805E00ADE85F /* Social.framework */,
 				785A0DA715E9A3B6002C6F78 /* LightLauncher */,
 				785A0DA015E9A3B6002C6F78 /* Frameworks */,
 				785A0D9E15E9A3B6002C6F78 /* Products */,
@@ -229,10 +237,14 @@
 			children = (
 				785A0DCE15E9BFD1002C6F78 /* LLCommand.h */,
 				785A0DCF15E9BFD1002C6F78 /* LLCommand.m */,
-				785A0E0E15E9CF02002C6F78 /* LLTwitterCommand.h */,
-				785A0E0F15E9CF02002C6F78 /* LLTwitterCommand.m */,
 				785A0E2015E9EF1A002C6F78 /* LLEmailCommand.h */,
 				785A0E2115E9EF1A002C6F78 /* LLEmailCommand.m */,
+				785EBB5D16297FBF00ADE85F /* LLSocialCommand.h */,
+				785EBB5E16297FBF00ADE85F /* LLSocialCommand.m */,
+				785EBB631629858C00ADE85F /* LLFacebookCommand.h */,
+				785EBB641629858C00ADE85F /* LLFacebookCommand.m */,
+				785A0E0E15E9CF02002C6F78 /* LLTwitterCommand.h */,
+				785A0E0F15E9CF02002C6F78 /* LLTwitterCommand.m */,
 				783D37FD15FC974B00C81DF0 /* Options */,
 			);
 			name = Commands;
@@ -341,6 +353,8 @@
 				78CA68FD15FEABD000079F07 /* LLImageOption.m in Sources */,
 				78CA690115FEAC1A00079F07 /* LLStringOption.m in Sources */,
 				78CA690415FEAE1800079F07 /* LLUrlOption.m in Sources */,
+				785EBB5F16297FBF00ADE85F /* LLSocialCommand.m in Sources */,
+				785EBB651629858C00ADE85F /* LLFacebookCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

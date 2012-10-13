@@ -10,10 +10,6 @@
 
 @implementation LLAttachmentDataOption
 
-@synthesize data = _data;
-@synthesize mimeType = _mimeType;
-@synthesize fileName = _fileName;
-
 - (id)initWithData:(NSData *)data AndMimeType:(NSString *)mimeType AndFileName:(NSString *)fileName {
     self = [super init];
     if (self) {

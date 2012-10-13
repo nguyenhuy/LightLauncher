@@ -10,8 +10,6 @@
 
 @implementation LLImageOption
 
-@synthesize image = _image;
-
 - (id)initWithWithImage:(UIImage *)image {
     self = [super init];
     if (self) {

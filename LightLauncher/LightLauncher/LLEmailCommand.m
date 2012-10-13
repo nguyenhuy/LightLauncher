@@ -21,14 +21,6 @@
 
 @implementation LLEmailCommand
 
-@synthesize viewController = _viewController;
-@synthesize toOptions = _toOptions;
-@synthesize ccOptions = _ccOptions;
-@synthesize bccOptions = _bccOptions;
-@synthesize subjectOption = _subjectOption;
-@synthesize bodyOption = _bodyOption;
-@synthesize attachmentFiles = _attachmentFiles;
-
 - (NSString *)description {
     return @"Email";
 }

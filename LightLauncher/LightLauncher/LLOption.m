@@ -10,8 +10,6 @@
 
 @implementation LLOption
 
-@synthesize name = _name;
-
 - (NSString *)description {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"desction must be overridden in all commadns" userInfo:nil];
 }

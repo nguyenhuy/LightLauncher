@@ -10,8 +10,6 @@
 
 @implementation LLBodyOption
 
-@synthesize isHtml = _isHtml;
-
 - (id)initWithParam:(NSString *)param AndIsHtml:(BOOL)isHtml {
     self = [super initWithParam:param];
     if (self) {
