@@ -5,3 +5,5 @@
 13/9: 0.5 hour: Research about UITextViewDelegate.
 24/9: 0.5 hour: Add views to ViewController.
 13/10: 0.5 hour: Add SocialCommand to make use of new Social.framework in ios6. Change TwitterCommand and add FacebookCommand for social commands. Remove synthesizes because it will be auto generated.
+14/10: 1.5 hours: Fb and Tw work now. Add LLServiceCommand. Refactor LLSocialCommand, LLEmailCommand and LLUrlOption.
+
