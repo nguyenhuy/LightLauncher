@@ -64,7 +64,7 @@
                          nil];
         NSArray *images = [NSArray arrayWithObjects:
                            [[LLImageOption alloc] initWithWithImage:[UIImage imageNamed:@"twitter.png"]],
-                           [[LLImageOption alloc] initWithWithImage:[UIImage imageNamed:@"twitter.png"]],
+                           [[LLImageOption alloc] initWithWithImage:[UIImage imageNamed:@"facebook.png"]],
                            nil];
         LLTwitterCommand *twCommand = [[LLTwitterCommand alloc] initWithName:@"tw"];
         twCommand.bodyOption = [[LLBodyOption alloc] initWithParam:@"Hello Twitter"];

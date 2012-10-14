@@ -17,4 +17,6 @@
 @property (nonatomic, strong) NSArray *urlOptions;
 @property (nonatomic, strong) NSArray *imageOptions;
 
+- (NSString *)serviceType;
+
 @end

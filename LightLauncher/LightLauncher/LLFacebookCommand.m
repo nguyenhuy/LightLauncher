@@ -10,6 +10,10 @@
 
 @implementation LLFacebookCommand
 
+- (NSString *)serviceName {
+    return @"Facebook";
+}
+
 - (NSString *)serviceType {
     return SLServiceTypeFacebook;
 }

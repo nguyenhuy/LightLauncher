@@ -18,6 +18,10 @@
 
 @implementation LLSocialCommand
 
+- (NSString *)serviceType {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"serviceType must be implemented" userInfo:nil];
+}
+
 - (BOOL)isServiceAvailable {
     return [SLComposeViewController isAvailableForServiceType:[self serviceType]];
 }
@@ -45,7 +49,7 @@
             case SLComposeViewControllerResultDone:
                 message = @"Done";
         }
-        [self onFinishedWithStatusTitle:[self serviceType] andMessage:message];
+        [self onFinishedWithStatusTitle:[self serviceName] andMessage:message];
     }];
     
     return composeViewController;

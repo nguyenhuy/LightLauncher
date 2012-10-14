@@ -10,6 +10,10 @@
 
 @implementation LLTwitterCommand
 
+- (NSString *)serviceName {
+    return @"Twitter";
+}
+
 - (NSString *)serviceType {
     return SLServiceTypeTwitter;
 }

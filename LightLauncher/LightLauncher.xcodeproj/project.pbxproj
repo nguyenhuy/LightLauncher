@@ -36,6 +36,7 @@
 		785EBB621629805E00ADE85F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785EBB611629805E00ADE85F /* Social.framework */; };
 		785EBB651629858C00ADE85F /* LLFacebookCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EBB641629858C00ADE85F /* LLFacebookCommand.m */; };
 		785EBB68162AC70F00ADE85F /* LLServiceCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EBB67162AC70F00ADE85F /* LLServiceCommand.m */; };
+		785EBB6A162B15C000ADE85F /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 785EBB69162B15C000ADE85F /* facebook.png */; };
 		78CA68FD15FEABD000079F07 /* LLImageOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CA68FC15FEABD000079F07 /* LLImageOption.m */; };
 		78CA690115FEAC1A00079F07 /* LLStringOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CA690015FEAC1A00079F07 /* LLStringOption.m */; };
 		78CA690415FEAE1800079F07 /* LLUrlOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CA690315FEAE1700079F07 /* LLUrlOption.m */; };
@@ -94,6 +95,7 @@
 		785EBB641629858C00ADE85F /* LLFacebookCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLFacebookCommand.m; sourceTree = "<group>"; };
 		785EBB66162AC70E00ADE85F /* LLServiceCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLServiceCommand.h; sourceTree = "<group>"; };
 		785EBB67162AC70F00ADE85F /* LLServiceCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLServiceCommand.m; sourceTree = "<group>"; };
+		785EBB69162B15C000ADE85F /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		788295FB1616A4EA0072B584 /* Log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		78CA68FB15FEABD000079F07 /* LLImageOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLImageOption.h; sourceTree = "<group>"; };
 		78CA68FC15FEABD000079F07 /* LLImageOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLImageOption.m; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 		785A0E1115E9D135002C6F78 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				785EBB69162B15C000ADE85F /* facebook.png */,
 				785A0E2415E9EFEC002C6F78 /* mail.png */,
 				785A0E1215E9D157002C6F78 /* twitter.png */,
 			);
@@ -328,6 +331,7 @@
 				785A0DB815E9A3B6002C6F78 /* LLViewController.xib in Resources */,
 				785A0E1315E9D157002C6F78 /* twitter.png in Resources */,
 				785A0E2515E9EFEC002C6F78 /* mail.png in Resources */,
+				785EBB6A162B15C000ADE85F /* facebook.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

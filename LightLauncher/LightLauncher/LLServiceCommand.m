@@ -10,8 +10,8 @@
 
 @implementation LLServiceCommand
 
-- (NSString *)serviceType {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"serviceType must be implemented" userInfo:nil];
+- (NSString *)serviceName {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"serviceName must be implemented" userInfo:nil];
 }
 
 - (BOOL)isServiceAvailable {
@@ -36,7 +36,7 @@
     } else {
         [self.viewController presentViewController:composeViewController animated:YES completion:^() {
             if ([self isFinishedAfterPresentingComposeViewController]) {
-                [self onFinishedWithStatusTitle:[self serviceType] andMessage:@"Finished"];
+                [self onFinishedWithStatusTitle:[self serviceName] andMessage:@"Finished"];
             }
         }];
     }
@@ -53,7 +53,7 @@
 }
 
 - (void)onServiceNotAvailable {
-    NSString *title = [NSString stringWithFormat:@"%@ not available", [self serviceType]];
+    NSString *title = [NSString stringWithFormat:@"%@ not available", [self serviceName]];
     [self onFinishedWithStatusTitle:title andMessage:@"Please check your Settings"];
 }
 

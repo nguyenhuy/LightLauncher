@@ -29,7 +29,7 @@
     return @"mail.png";
 }
 
-- (NSString *)serviceType {
+- (NSString *)serviceName {
     return @"Email";
 }
 

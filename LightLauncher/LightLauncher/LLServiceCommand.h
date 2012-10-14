@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) UIViewController *viewController;
 
-- (NSString *)serviceType;
+- (NSString *)serviceName;
 - (BOOL)isServiceAvailable;
 - (BOOL)isFinishedAfterPresentingComposeViewController;
 - (UIViewController *)composeViewController;
