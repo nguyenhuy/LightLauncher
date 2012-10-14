@@ -7,18 +7,14 @@
 //
 
 #import <Social/Social.h>
-#import "LLCommand.h"
+#import "LLServiceCommand.h"
 
-@class LLImageOption;
-@class LLUrlOption;
 @class LLBodyOption;
 
-@interface LLSocialCommand : LLCommand
+@interface LLSocialCommand : LLServiceCommand
 
 @property (nonatomic, strong) LLBodyOption *bodyOption;
-@property (nonatomic, strong) LLUrlOption *urlOption;
-@property (nonatomic, strong) LLImageOption *imageOption;
-
-- (NSString *) serviceType;
+@property (nonatomic, strong) NSArray *urlOptions;
+@property (nonatomic, strong) NSArray *imageOptions;
 
 @end

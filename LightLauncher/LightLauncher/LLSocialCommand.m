@@ -7,38 +7,60 @@
 //
 
 #import "LLSocialCommand.h"
+#import "LLBodyOption.h"
+#import "LLUrlOption.h"
+#import "LLImageOption.h"
+
+@interface LLSocialCommand ()
+- (void)addAllImageToComposeViewController:(SLComposeViewController *) composeViewController;
+- (void)addAllUrlsToComposeViewController:(SLComposeViewController *) composeViewController;
+@end
 
 @implementation LLSocialCommand
 
-- (NSString *)serviceType {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"serviceType must be implemented" userInfo:nil];
+- (BOOL)isServiceAvailable {
+    return [SLComposeViewController isAvailableForServiceType:[self serviceType]];
 }
 
-- (void) executeFromViewController:(UIViewController *)viewController {
+- (BOOL)isFinishedAfterPresentingComposeViewController {
+    return NO;
+}
+
+- (UIViewController *)composeViewController {
+    SLComposeViewController *composeViewController = [SLComposeViewController composeViewControllerForServiceType:[self serviceType]];
+    if (composeViewController == nil) {
+        return nil;
+    }
     
+    [composeViewController setInitialText:self.bodyOption.param];
+    [self addAllImageToComposeViewController:composeViewController];
+    [self addAllUrlsToComposeViewController:composeViewController];
     
-    TWTweetComposeViewController *controller = [[TWTweetComposeViewController alloc] init];
-    [controller setInitialText:self.bodyOption.param];
-    [controller addURL:[NSURL URLWithString:self.urlOption.param]];
-    [controller addImage:self.imageOption.image];
-    [viewController presentViewController:controller animated:YES completion:nil];
+    [composeViewController setCompletionHandler:^(SLComposeViewControllerResult result) {
+        NSString *message;
+        switch (result) {
+            case SLComposeViewControllerResultCancelled:
+                message = @"Canceled";
+                break;
+            case SLComposeViewControllerResultDone:
+                message = @"Done";
+        }
+        [self onFinishedWithStatusTitle:[self serviceType] andMessage:message];
+    }];
     
-    controller.completionHandler = ^(TWTweetComposeViewControllerResult result) {
-        NSString *title = @"status";
-        NSString *msg;
-        
-        if (result == TWTweetComposeViewControllerResultCancelled)
-            msg = @"Tweet compostion was canceled.";
-        else if (result == TWTweetComposeViewControllerResultDone)
-            msg = @"Tweet composition completed.";
-        
-        // Show alert to see how things went...
-        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-        [alertView show];
-        
-        // Dismiss the controller
-        [viewController dismissViewControllerAnimated:YES completion:nil];
-    };
+    return composeViewController;
+}
+
+- (void)addAllImageToComposeViewController:(SLComposeViewController *)composeViewController {
+    for(LLImageOption *imageOption in self.imageOptions) {
+        [composeViewController addImage:imageOption.image];
+    }
+}
+
+- (void)addAllUrlsToComposeViewController:(SLComposeViewController *)composeViewController {
+    for (LLUrlOption *urlOption in self.urlOptions) {
+        [composeViewController addURL:urlOption.url];
+    }
 }
 
 @end

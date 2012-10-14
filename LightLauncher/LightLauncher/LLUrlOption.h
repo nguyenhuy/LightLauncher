@@ -10,4 +10,6 @@
 
 @interface LLUrlOption : LLStringOption
 
+- (NSURL *)url;
+
 @end

@@ -9,6 +9,7 @@
 #import "LLReceiptManager.h"
 #import "LLTwitterCommand.h"
 #import "LLEmailCommand.h"
+#import "LLFacebookCommand.h"
 
 #import "LLToOption.h"
 #import "LLCcOption.h"
@@ -57,14 +58,28 @@
                                             AndMimeType:@"image/png" AndFileName:@"abc.png"],
                                         nil];
         
+        NSArray *urls = [NSArray arrayWithObjects:
+                         [[LLUrlOption alloc] initWithParam:@"google.com"],
+                         [[LLUrlOption alloc] initWithParam:@"facebook.com"],
+                         nil];
+        NSArray *images = [NSArray arrayWithObjects:
+                           [[LLImageOption alloc] initWithWithImage:[UIImage imageNamed:@"twitter.png"]],
+                           [[LLImageOption alloc] initWithWithImage:[UIImage imageNamed:@"twitter.png"]],
+                           nil];
         LLTwitterCommand *twCommand = [[LLTwitterCommand alloc] initWithName:@"tw"];
-        twCommand.bodyOption = [[LLBodyOption alloc] initWithParam:@"Hello Tw"];
-        twCommand.urlOption = [[LLUrlOption alloc] initWithParam:@"google.com"];
-        twCommand.imageOption = [[LLImageOption alloc] initWithWithImage:[UIImage imageNamed:@"twitter.png"]];
+        twCommand.bodyOption = [[LLBodyOption alloc] initWithParam:@"Hello Twitter"];
+        twCommand.urlOptions = urls;
+        twCommand.imageOptions = images;
+        
+        LLFacebookCommand *fbCommand = [[LLFacebookCommand alloc] initWithName:@"fb"];
+        fbCommand.bodyOption = [[LLBodyOption alloc] initWithParam:@"Hello FB"];
+        fbCommand.urlOptions = urls;
+        fbCommand.imageOptions = images;
         
         self.commands = [NSMutableArray arrayWithObjects:
                          twCommand,
                          emailCommand,
+                         fbCommand,
                          nil];
     }
     return self;

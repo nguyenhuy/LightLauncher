@@ -6,16 +6,15 @@
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
-#import "LLCommand.h"
+#import "LLServiceCommand.h"
 #import <MessageUI/MessageUI.h>
 
 @class LLToOption;
 @class LLSubjectOption;
 @class LLBodyOption;
 
-@interface LLEmailCommand : LLCommand <MFMailComposeViewControllerDelegate>
+@interface LLEmailCommand : LLServiceCommand <MFMailComposeViewControllerDelegate>
 
-@property (nonatomic, strong) UIViewController *viewController;
 @property (nonatomic, strong) NSArray *toOptions;
 @property (nonatomic, strong) NSArray *ccOptions;
 @property (nonatomic, strong) NSArray *bccOptions;

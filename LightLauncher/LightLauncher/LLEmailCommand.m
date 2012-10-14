@@ -15,7 +15,7 @@
 #import "LLAttachmentDataOption.h"
 
 @interface LLEmailCommand ()
-- (NSArray *)recipientsFromToOptions:(NSArray *)toOptions;
+- (NSArray *)recipientsFromOptions:(NSArray *)toOptions;
 - (void)addAttachmentDatasToMailComposeViewController:(MFMailComposeViewController *)controller;
 @end
 
@@ -29,53 +29,31 @@
     return @"mail.png";
 }
 
-- (void) executeFromViewController:(UIViewController *)viewController {
-    self.viewController = viewController;
-    if ([MFMailComposeViewController canSendMail]) {
-        MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
-        [controller setToRecipients:[self recipientsFromToOptions:self.toOptions]];
-        [controller setCcRecipients:[self recipientsFromToOptions:self.ccOptions]];
-        [controller setBccRecipients:[self recipientsFromToOptions:self.bccOptions]];
-        [controller setSubject:self.subjectOption.param];
-        [controller setMessageBody:self.bodyOption.param isHTML:self.bodyOption.isHtml];
-        [self addAttachmentDatasToMailComposeViewController:controller];
-        controller.mailComposeDelegate = self;
-        [self.viewController presentViewController:controller animated:YES completion:nil];
-    } else {
-#warning can't send mail, warn user
-    }
+- (NSString *)serviceType {
+    return @"Email";
 }
 
-#pragma mark - MFMailComposerViewControllerDelegate
-
-- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
-
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Status:" message:@"" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
-    
-    switch (result) {
-        case MFMailComposeResultCancelled:
-            alert.message = @"Message Canceled";
-            break;
-        case MFMailComposeResultSaved:
-            alert.message = @"Message Saved";
-            break;
-        case MFMailComposeResultSent:
-            alert.message = @"Message Sent";
-            break;
-        case MFMailComposeResultFailed:
-            alert.message = @"Message Failed";
-            break;
-        default:
-            alert.message = @"Message Not Sent";
-            break;
-    }
-    
-    [self.viewController dismissViewControllerAnimated:YES completion:nil];
-    self.viewController = nil;
-    [alert show];
+- (BOOL)isServiceAvailable {
+    return [MFMailComposeViewController canSendMail];
 }
 
-- (NSArray *)recipientsFromToOptions:(NSArray *)toOptions {
+- (BOOL)isFinishedAfterPresentingComposeViewController {
+    return NO;
+}
+
+- (UIViewController *)composeViewController {
+    MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
+    [controller setToRecipients:[self recipientsFromOptions:self.toOptions]];
+    [controller setCcRecipients:[self recipientsFromOptions:self.ccOptions]];
+    [controller setBccRecipients:[self recipientsFromOptions:self.bccOptions]];
+    [controller setSubject:self.subjectOption.param];
+    [controller setMessageBody:self.bodyOption.param isHTML:self.bodyOption.isHtml];
+    [self addAttachmentDatasToMailComposeViewController:controller];
+    controller.mailComposeDelegate = self;
+    return controller;
+}
+
+- (NSArray *)recipientsFromOptions:(NSArray *)toOptions {
     NSMutableArray *recipients = [NSMutableArray arrayWithCapacity:toOptions.count];
     for (LLToOption *o in toOptions) {
         [recipients addObject:o.param];
@@ -87,6 +65,31 @@
     for (LLAttachmentDataOption *o in self.attachmentFiles) {
         [controller addAttachmentData:o.data mimeType:o.mimeType fileName:o.fileName];
     }
+}
+
+#pragma mark - MFMailComposerViewControllerDelegate
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+
+    NSString *message;
+    switch (result) {
+        case MFMailComposeResultCancelled:
+            message = @"Message Canceled";
+            break;
+        case MFMailComposeResultSaved:
+            message = @"Message Saved";
+            break;
+        case MFMailComposeResultSent:
+            message = @"Message Sent";
+            break;
+        case MFMailComposeResultFailed:
+            message = @"Message Failed";
+            break;
+        default:
+            message = @"Message Not Sent";
+            break;
+    }
+    [self onFinishedWithStatusTitle:@"Email" andMessage:message];
 }
 
 @end

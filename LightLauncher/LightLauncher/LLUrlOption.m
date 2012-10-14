@@ -14,4 +14,8 @@
     return @"Url";
 }
 
+- (NSURL *)url {
+    return [NSURL URLWithString:self.param];
+}
+
 @end

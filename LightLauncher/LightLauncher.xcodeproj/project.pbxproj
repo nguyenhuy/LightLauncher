@@ -35,6 +35,7 @@
 		785EBB5F16297FBF00ADE85F /* LLSocialCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EBB5E16297FBF00ADE85F /* LLSocialCommand.m */; };
 		785EBB621629805E00ADE85F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785EBB611629805E00ADE85F /* Social.framework */; };
 		785EBB651629858C00ADE85F /* LLFacebookCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EBB641629858C00ADE85F /* LLFacebookCommand.m */; };
+		785EBB68162AC70F00ADE85F /* LLServiceCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EBB67162AC70F00ADE85F /* LLServiceCommand.m */; };
 		78CA68FD15FEABD000079F07 /* LLImageOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CA68FC15FEABD000079F07 /* LLImageOption.m */; };
 		78CA690115FEAC1A00079F07 /* LLStringOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CA690015FEAC1A00079F07 /* LLStringOption.m */; };
 		78CA690415FEAE1800079F07 /* LLUrlOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CA690315FEAE1700079F07 /* LLUrlOption.m */; };
@@ -91,6 +92,8 @@
 		785EBB611629805E00ADE85F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		785EBB631629858C00ADE85F /* LLFacebookCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLFacebookCommand.h; sourceTree = "<group>"; };
 		785EBB641629858C00ADE85F /* LLFacebookCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLFacebookCommand.m; sourceTree = "<group>"; };
+		785EBB66162AC70E00ADE85F /* LLServiceCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLServiceCommand.h; sourceTree = "<group>"; };
+		785EBB67162AC70F00ADE85F /* LLServiceCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLServiceCommand.m; sourceTree = "<group>"; };
 		788295FB1616A4EA0072B584 /* Log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		78CA68FB15FEABD000079F07 /* LLImageOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLImageOption.h; sourceTree = "<group>"; };
 		78CA68FC15FEABD000079F07 /* LLImageOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLImageOption.m; sourceTree = "<group>"; };
@@ -237,6 +240,8 @@
 			children = (
 				785A0DCE15E9BFD1002C6F78 /* LLCommand.h */,
 				785A0DCF15E9BFD1002C6F78 /* LLCommand.m */,
+				785EBB66162AC70E00ADE85F /* LLServiceCommand.h */,
+				785EBB67162AC70F00ADE85F /* LLServiceCommand.m */,
 				785A0E2015E9EF1A002C6F78 /* LLEmailCommand.h */,
 				785A0E2115E9EF1A002C6F78 /* LLEmailCommand.m */,
 				785EBB5D16297FBF00ADE85F /* LLSocialCommand.h */,
@@ -355,6 +360,7 @@
 				78CA690415FEAE1800079F07 /* LLUrlOption.m in Sources */,
 				785EBB5F16297FBF00ADE85F /* LLSocialCommand.m in Sources */,
 				785EBB651629858C00ADE85F /* LLFacebookCommand.m in Sources */,
+				785EBB68162AC70F00ADE85F /* LLServiceCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
