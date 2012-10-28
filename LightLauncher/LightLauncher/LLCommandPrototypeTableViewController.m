@@ -6,15 +6,15 @@
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
-#import "LLCreateCommandViewController.h"
+#import "LLCommandPrototypeTableViewController.h"
 #import "LLCommandManager.h"
 #import "LLCommandCell.h"
 
-@interface LLCreateCommandViewController ()
+@interface LLCommandPrototypeTableViewController ()
 
 @end
 
-@implementation LLCreateCommandViewController
+@implementation LLCommandPrototypeTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

@@ -10,6 +10,6 @@
 
 @class LLCommandManager;
 
-@interface LLCreateCommandViewController : UITableViewController
+@interface LLCommandPrototypeTableViewController : UITableViewController
 
 @end
