@@ -6,12 +6,12 @@
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
-#import "LLViewController.h"
+#import "LLCreateCommandViewController.h"
 #import "LLReceiptManager.h"
 #import "LLCommandCell.h"
 #import "LLCommand.h"
 
-@interface LLViewController ()
+@interface LLCreateCommandViewController ()
 - (void)configCommandTextField;
 - (void)configSwipeGestureRecognizer;
 - (void)registerForKeyboardNotifications;
@@ -19,7 +19,7 @@
 - (void)keyboardWillBeHidden:(NSNotification *)notification;
 @end
 
-@implementation LLViewController
+@implementation LLCreateCommandViewController
 
 - (void)viewDidLoad
 {

@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class LLViewController;
+@class LLCreateCommandViewController;
 
 @interface LLAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
 
-@property (nonatomic, strong) LLViewController *viewController;
+@property (nonatomic, strong) LLCreateCommandViewController *viewController;
 
 @end

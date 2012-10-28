@@ -13,8 +13,8 @@
 		785A0DAC15E9A3B6002C6F78 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 785A0DAA15E9A3B6002C6F78 /* InfoPlist.strings */; };
 		785A0DAE15E9A3B6002C6F78 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DAD15E9A3B6002C6F78 /* main.m */; };
 		785A0DB215E9A3B6002C6F78 /* LLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DB115E9A3B6002C6F78 /* LLAppDelegate.m */; };
-		785A0DB515E9A3B6002C6F78 /* LLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DB415E9A3B6002C6F78 /* LLViewController.m */; };
-		785A0DB815E9A3B6002C6F78 /* LLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 785A0DB615E9A3B6002C6F78 /* LLViewController.xib */; };
+		785A0DB515E9A3B6002C6F78 /* LLCreateCommandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DB415E9A3B6002C6F78 /* LLCreateCommandViewController.m */; };
+		785A0DB815E9A3B6002C6F78 /* LLCreateCommandViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 785A0DB615E9A3B6002C6F78 /* LLCreateCommandViewController.xib */; };
 		785A0DCD15E9BFC9002C6F78 /* LLReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DCC15E9BFC9002C6F78 /* LLReceipt.m */; };
 		785A0DD015E9BFD1002C6F78 /* LLCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DCF15E9BFD1002C6F78 /* LLCommand.m */; };
 		785A0DD615E9C165002C6F78 /* LLReceiptManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DD515E9C165002C6F78 /* LLReceiptManager.m */; };
@@ -46,9 +46,9 @@
 		785A0DAF15E9A3B6002C6F78 /* LightLauncher-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LightLauncher-Prefix.pch"; sourceTree = "<group>"; };
 		785A0DB015E9A3B6002C6F78 /* LLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLAppDelegate.h; sourceTree = "<group>"; };
 		785A0DB115E9A3B6002C6F78 /* LLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LLAppDelegate.m; sourceTree = "<group>"; };
-		785A0DB315E9A3B6002C6F78 /* LLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLViewController.h; sourceTree = "<group>"; };
-		785A0DB415E9A3B6002C6F78 /* LLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LLViewController.m; sourceTree = "<group>"; };
-		785A0DB715E9A3B6002C6F78 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LLViewController.xib; sourceTree = "<group>"; };
+		785A0DB315E9A3B6002C6F78 /* LLCreateCommandViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLCreateCommandViewController.h; sourceTree = "<group>"; };
+		785A0DB415E9A3B6002C6F78 /* LLCreateCommandViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LLCreateCommandViewController.m; sourceTree = "<group>"; };
+		785A0DB715E9A3B6002C6F78 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LLCreateCommandViewController.xib; sourceTree = "<group>"; };
 		785A0DCB15E9BFC9002C6F78 /* LLReceipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLReceipt.h; sourceTree = "<group>"; };
 		785A0DCC15E9BFC9002C6F78 /* LLReceipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLReceipt.m; sourceTree = "<group>"; };
 		785A0DCE15E9BFD1002C6F78 /* LLCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommand.h; sourceTree = "<group>"; };
@@ -159,9 +159,9 @@
 		785A0DC215E9BEE4002C6F78 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				785A0DB315E9A3B6002C6F78 /* LLViewController.h */,
-				785A0DB415E9A3B6002C6F78 /* LLViewController.m */,
-				785A0DB615E9A3B6002C6F78 /* LLViewController.xib */,
+				785A0DB315E9A3B6002C6F78 /* LLCreateCommandViewController.h */,
+				785A0DB415E9A3B6002C6F78 /* LLCreateCommandViewController.m */,
+				785A0DB615E9A3B6002C6F78 /* LLCreateCommandViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -309,7 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				785A0DAC15E9A3B6002C6F78 /* InfoPlist.strings in Resources */,
-				785A0DB815E9A3B6002C6F78 /* LLViewController.xib in Resources */,
+				785A0DB815E9A3B6002C6F78 /* LLCreateCommandViewController.xib in Resources */,
 				785A0E1315E9D157002C6F78 /* twitter.png in Resources */,
 				785A0E2515E9EFEC002C6F78 /* mail.png in Resources */,
 				785EBB6A162B15C000ADE85F /* facebook.png in Resources */,
@@ -325,7 +325,7 @@
 			files = (
 				785A0DAE15E9A3B6002C6F78 /* main.m in Sources */,
 				785A0DB215E9A3B6002C6F78 /* LLAppDelegate.m in Sources */,
-				785A0DB515E9A3B6002C6F78 /* LLViewController.m in Sources */,
+				785A0DB515E9A3B6002C6F78 /* LLCreateCommandViewController.m in Sources */,
 				785A0DCD15E9BFC9002C6F78 /* LLReceipt.m in Sources */,
 				785A0DD015E9BFD1002C6F78 /* LLCommand.m in Sources */,
 				785A0DD615E9C165002C6F78 /* LLReceiptManager.m in Sources */,
@@ -353,12 +353,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		785A0DB615E9A3B6002C6F78 /* LLViewController.xib */ = {
+		785A0DB615E9A3B6002C6F78 /* LLCreateCommandViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				785A0DB715E9A3B6002C6F78 /* en */,
 			);
-			name = LLViewController.xib;
+			name = LLCreateCommandViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

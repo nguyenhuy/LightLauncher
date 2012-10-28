@@ -10,7 +10,7 @@
 
 @class LLReceiptManager;
 
-@interface LLViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+@interface LLCreateCommandViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @property (nonatomic, strong) LLReceiptManager* receiptManager;
 
@@ -24,6 +24,5 @@
 
 - (IBAction)onSwipeStatusViewLeftToRight:(id)sender;
 - (IBAction)onSwipeStatusViewRightToLeft:(id)sender;
-
 
 @end
