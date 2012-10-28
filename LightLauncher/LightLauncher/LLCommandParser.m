@@ -7,7 +7,16 @@
 //
 
 #import "LLCommandParser.h"
+#import "JSONKit.h"
 
 @implementation LLCommandParser
+
++ (NSString *)encode:(LLCommand *)command {
+
+}
+
++ (LLCommand *)decode:(NSString *)json {
+    
+}
 
 @end

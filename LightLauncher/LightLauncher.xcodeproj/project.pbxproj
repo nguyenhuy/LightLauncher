@@ -31,12 +31,13 @@
 		785A0E1315E9D157002C6F78 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 785A0E1215E9D157002C6F78 /* twitter.png */; };
 		785A0E2215E9EF1A002C6F78 /* LLEmailCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0E2115E9EF1A002C6F78 /* LLEmailCommand.m */; };
 		785A0E2515E9EFEC002C6F78 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 785A0E2415E9EFEC002C6F78 /* mail.png */; };
-		785A0E2715E9F0AC002C6F78 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0E2615E9F0AC002C6F78 /* MessageUI.framework */; };
 		785EBB5F16297FBF00ADE85F /* LLSocialCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EBB5E16297FBF00ADE85F /* LLSocialCommand.m */; };
 		785EBB621629805E00ADE85F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785EBB611629805E00ADE85F /* Social.framework */; };
 		785EBB651629858C00ADE85F /* LLFacebookCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EBB641629858C00ADE85F /* LLFacebookCommand.m */; };
 		785EBB68162AC70F00ADE85F /* LLServiceCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EBB67162AC70F00ADE85F /* LLServiceCommand.m */; };
 		785EBB6A162B15C000ADE85F /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 785EBB69162B15C000ADE85F /* facebook.png */; };
+		788FBF87163CE93C005A444E /* LLCommandParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF86163CE93C005A444E /* LLCommandParser.m */; };
+		788FBF8D163CEC59005A444E /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF8C163CEC59005A444E /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		78CA68FD15FEABD000079F07 /* LLImageOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CA68FC15FEABD000079F07 /* LLImageOption.m */; };
 		78CA690115FEAC1A00079F07 /* LLStringOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CA690015FEAC1A00079F07 /* LLStringOption.m */; };
 		78CA690415FEAE1800079F07 /* LLUrlOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CA690315FEAE1700079F07 /* LLUrlOption.m */; };
@@ -83,7 +84,6 @@
 		785A0E0E15E9CF02002C6F78 /* LLTwitterCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLTwitterCommand.h; sourceTree = "<group>"; };
 		785A0E0F15E9CF02002C6F78 /* LLTwitterCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLTwitterCommand.m; sourceTree = "<group>"; };
 		785A0E1215E9D157002C6F78 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
-		785A0E1415E9D98F002C6F78 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		785A0E2015E9EF1A002C6F78 /* LLEmailCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLEmailCommand.h; sourceTree = "<group>"; };
 		785A0E2115E9EF1A002C6F78 /* LLEmailCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLEmailCommand.m; sourceTree = "<group>"; };
 		785A0E2415E9EFEC002C6F78 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mail.png; sourceTree = "<group>"; };
@@ -97,6 +97,10 @@
 		785EBB67162AC70F00ADE85F /* LLServiceCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLServiceCommand.m; sourceTree = "<group>"; };
 		785EBB69162B15C000ADE85F /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		788295FB1616A4EA0072B584 /* Log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
+		788FBF85163CE93C005A444E /* LLCommandParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandParser.h; sourceTree = "<group>"; };
+		788FBF86163CE93C005A444E /* LLCommandParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandParser.m; sourceTree = "<group>"; };
+		788FBF8B163CEC59005A444E /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		788FBF8C163CEC59005A444E /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		78CA68FB15FEABD000079F07 /* LLImageOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLImageOption.h; sourceTree = "<group>"; };
 		78CA68FC15FEABD000079F07 /* LLImageOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLImageOption.m; sourceTree = "<group>"; };
 		78CA68FF15FEAC1A00079F07 /* LLStringOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLStringOption.h; sourceTree = "<group>"; };
@@ -111,7 +115,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				785EBB621629805E00ADE85F /* Social.framework in Frameworks */,
-				785A0E2715E9F0AC002C6F78 /* MessageUI.framework in Frameworks */,
 				785A0DA215E9A3B6002C6F78 /* UIKit.framework in Frameworks */,
 				785A0DA415E9A3B6002C6F78 /* Foundation.framework in Frameworks */,
 				785A0DA615E9A3B6002C6F78 /* CoreGraphics.framework in Frameworks */,
@@ -151,9 +154,9 @@
 		785A0D9215E9A3B6002C6F78 = {
 			isa = PBXGroup;
 			children = (
-				785EBB611629805E00ADE85F /* Social.framework */,
 				785A0DA715E9A3B6002C6F78 /* LightLauncher */,
 				785A0DA015E9A3B6002C6F78 /* Frameworks */,
+				788FBF89163CEC1D005A444E /* Libraries */,
 				785A0D9E15E9A3B6002C6F78 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -169,8 +172,8 @@
 		785A0DA015E9A3B6002C6F78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				785EBB611629805E00ADE85F /* Social.framework */,
 				785A0E2615E9F0AC002C6F78 /* MessageUI.framework */,
-				785A0E1415E9D98F002C6F78 /* Twitter.framework */,
 				785A0DA115E9A3B6002C6F78 /* UIKit.framework */,
 				785A0DA315E9A3B6002C6F78 /* Foundation.framework */,
 				785A0DA515E9A3B6002C6F78 /* CoreGraphics.framework */,
@@ -222,6 +225,8 @@
 				785A0DCC15E9BFC9002C6F78 /* LLReceipt.m */,
 				785A0DD415E9C164002C6F78 /* LLReceiptManager.h */,
 				785A0DD515E9C165002C6F78 /* LLReceiptManager.m */,
+				788FBF85163CE93C005A444E /* LLCommandParser.h */,
+				788FBF86163CE93C005A444E /* LLCommandParser.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -273,6 +278,23 @@
 				788295FB1616A4EA0072B584 /* Log.h */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		788FBF89163CEC1D005A444E /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				788FBF8A163CEC44005A444E /* JSONKit */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		788FBF8A163CEC44005A444E /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				788FBF8B163CEC59005A444E /* JSONKit.h */,
+				788FBF8C163CEC59005A444E /* JSONKit.m */,
+			);
+			name = JSONKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,6 +387,8 @@
 				785EBB5F16297FBF00ADE85F /* LLSocialCommand.m in Sources */,
 				785EBB651629858C00ADE85F /* LLFacebookCommand.m in Sources */,
 				785EBB68162AC70F00ADE85F /* LLServiceCommand.m in Sources */,
+				788FBF87163CE93C005A444E /* LLCommandParser.m in Sources */,
+				788FBF8D163CEC59005A444E /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
