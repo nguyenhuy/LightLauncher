@@ -7,12 +7,6 @@
 //
 
 #import "LLEmailCommand.h"
-#import "LLToOption.h"
-#import "LLCcOption.h"
-#import "LLBccOption.h"
-#import "LLSubjectOption.h"
-#import "LLBodyOption.h"
-#import "LLAttachmentDataOption.h"
 
 @interface LLEmailCommand ()
 - (NSArray *)recipientsFromOptions:(NSArray *)toOptions;

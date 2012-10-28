@@ -52,7 +52,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 100;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -63,11 +63,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LLCommandCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_COMMAND_CELL];
-    if (cell == nil) {
-        cell = [[LLCommandCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:IDENTIFIER_COMMAND_CELL];
-    }
-    
-    cell.command = [[[LLReceiptManager sharedInstance] commands] objectAtIndex:indexPath.row];
+    // Since we registered this CommandCell class with the tableView,
+    // it will init a new cell if can't reuse any
+    // and we don't need to check nil here.
+    cell.command = [[[LLReceiptManager sharedInstance] commands] objectAtIndex:indexPath.row % 3];
     
     return cell;
 }
