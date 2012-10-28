@@ -7,6 +7,7 @@
 //
 
 #import "LLCreateCommandViewController.h"
+#import "LLCommand.h"
 
 @interface LLCreateCommandViewController ()
 
@@ -26,7 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    self.title = [[self.command class] description];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  

@@ -15,5 +15,6 @@
 @property (nonatomic, strong) UIWindow *window;
 
 @property (nonatomic, strong) LLCommandPrototypeTableViewController *viewController;
+@property (nonatomic, strong) UINavigationController *navigationController;
 
 @end

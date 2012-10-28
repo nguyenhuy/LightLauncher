@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#define NIB_CREATE_COMMAND_VIEW_CONTROLLER @"LLCreateCommandViewController"
+
+@class LLCommand;
+
 @interface LLCreateCommandViewController : UITableViewController
+
+@property (nonatomic, strong) LLCommand *command;
 
 @end

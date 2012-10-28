@@ -9,6 +9,7 @@
 #import "LLCommandPrototypeTableViewController.h"
 #import "LLCommandManager.h"
 #import "LLCommandCell.h"
+#import "LLCreateCommandViewController.h"
 
 @interface LLCommandPrototypeTableViewController ()
 
@@ -28,6 +29,7 @@
 {
     [super viewDidLoad];
     
+    self.title = @"Commands";
     [self.tableView registerClass:[LLCommandCell class] forCellReuseIdentifier:IDENTIFIER_COMMAND_CELL];
 
     // Uncomment the following line to preserve selection between presentations.
@@ -77,8 +79,9 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    LLCommand *command = [[[LLCommandManager sharedInstance] commandPrototypes] objectAtIndex:indexPath.row];
-    [[LLCommandManager sharedInstance] executeFromCommand:command withViewController:self];
+    LLCreateCommandViewController *controller = [[LLCreateCommandViewController alloc] initWithNibName:NIB_CREATE_COMMAND_VIEW_CONTROLLER bundle:nil];
+    controller.command = [[[LLCommandManager sharedInstance] commandPrototypes] objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 /*
