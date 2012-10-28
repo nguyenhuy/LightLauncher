@@ -32,6 +32,7 @@
 		788FBF87163CE93C005A444E /* LLCommandParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF86163CE93C005A444E /* LLCommandParser.m */; };
 		788FBF8D163CEC59005A444E /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF8C163CEC59005A444E /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		788FBF90163D1038005A444E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0E2615E9F0AC002C6F78 /* MessageUI.framework */; };
+		788FBF99163D4E49005A444E /* NSObject+IsEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF98163D4E49005A444E /* NSObject+IsEmpty.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,8 @@
 		788FBF8B163CEC59005A444E /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		788FBF8C163CEC59005A444E /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		788FBF8E163D0232005A444E /* Options.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Options.h; sourceTree = "<group>"; };
+		788FBF97163D4E49005A444E /* NSObject+IsEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+IsEmpty.h"; sourceTree = "<group>"; };
+		788FBF98163D4E49005A444E /* NSObject+IsEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+IsEmpty.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				788295FB1616A4EA0072B584 /* Log.h */,
+				788FBF97163D4E49005A444E /* NSObject+IsEmpty.h */,
+				788FBF98163D4E49005A444E /* NSObject+IsEmpty.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 				785EBB68162AC70F00ADE85F /* LLServiceCommand.m in Sources */,
 				788FBF87163CE93C005A444E /* LLCommandParser.m in Sources */,
 				788FBF8D163CEC59005A444E /* JSONKit.m in Sources */,
+				788FBF99163D4E49005A444E /* NSObject+IsEmpty.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

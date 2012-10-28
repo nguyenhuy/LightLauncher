@@ -9,6 +9,9 @@
 #ifndef LightLauncher_Options_h
 #define LightLauncher_Options_h
 
+#define JSON_KEY_COMMAND @"command"
+#define JSON_KEY_OPTIONS @"options"
+
 #define COMMAND_EMAIL @"email"
 #define COMMAND_FACEBOOK @"facebook"
 #define COMMAND_TWITTER @"twitter"

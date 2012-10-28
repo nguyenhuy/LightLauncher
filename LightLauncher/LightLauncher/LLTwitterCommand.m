@@ -15,15 +15,17 @@
     return self;
 }
 
-- (NSString *)command {
+#pragma mark - Command methods
+
++ (NSString *)command {
     return COMMAND_TWITTER;
 }
 
-- (NSString *)description {
++ (NSString *)description {
     return @"Twitter";
 }
 
-- (NSString *)iconFileName {
++ (NSString *)iconFileName {
     return @"twitter.png";
 }
 

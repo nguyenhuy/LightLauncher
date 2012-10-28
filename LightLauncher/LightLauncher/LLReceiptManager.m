@@ -7,18 +7,11 @@
 //
 
 #import "LLReceiptManager.h"
+#import "LLCommandParser.h"
+
 #import "LLTwitterCommand.h"
 #import "LLEmailCommand.h"
 #import "LLFacebookCommand.h"
-
-#import "LLToOption.h"
-#import "LLCcOption.h"
-#import "LLBccOption.h"
-#import "LLSubjectOption.h"
-#import "LLBodyOption.h"
-#import "LLAttachmentDataOption.h"
-#import "LLUrlOption.h"
-#import "LLImageOption.h"
 
 @interface LLReceiptManager ()
 @property (nonatomic, strong, readwrite) NSMutableArray* receipts;
@@ -84,8 +77,17 @@
                      nil];
 }
 
-- (void)executeCommand:(NSString *)command {
+- (void)executeFromString:(NSString *)string withViewController:(UIViewController *)viewController{
+    LLCommand *command = [LLCommandParser decode:string];
+    [self executeFromCommand:command withViewController:viewController];
+}
+
+- (void)executeFromCommand:(LLCommand *)command withViewController:(UIViewController *)viewController{
+
+#warning testing only
+    NSString *json = [LLCommandParser encode:command];
     
+    [command executeFromViewController:viewController];
 }
 
 @end

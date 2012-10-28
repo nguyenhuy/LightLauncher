@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class LLCommand;
+
 @interface LLReceiptManager : NSObject
 
 @property (nonatomic, strong, readonly) NSMutableArray *receipts;
 @property (nonatomic, strong, readonly) NSMutableArray *commands;
 
-- (void)executeCommand:(NSString *)command;
+- (void)executeFromString:(NSString *)string withViewController:(UIViewController *)viewController;
+- (void)executeFromCommand:(LLCommand *)command withViewController:(UIViewController *)viewController;
 
 @end

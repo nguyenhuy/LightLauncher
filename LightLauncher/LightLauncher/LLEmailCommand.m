@@ -21,6 +21,25 @@
 
 @implementation LLEmailCommand
 
+- (id)init {
+    self = [super initWithServiceType:COMMAND_EMAIL andServiceName:@"Email"];
+    return self;
+}
+
+#pragma mark - Command methods
+
++ (NSString *)command {
+    return COMMAND_EMAIL;
+}
+
++ (NSString *)description {
+    return @"Email";
+}
+
++ (NSString *)iconFileName {
+    return @"mail.png";
+}
+
 #pragma mark - Getters and Setters
 
 - (NSArray *)toAddresses {
@@ -69,20 +88,6 @@
 
 - (void)addAttachment:(NSString *)attachment {
     [self addValue:attachment forKey:OPTION_ATTACHMENTS];
-}
-
-#pragma mark - Command methods
-
-- (NSString *)description {
-    return @"Email";
-}
-
-- (NSString *)iconFileName {
-    return @"mail.png";
-}
-
-- (NSString *)serviceName {
-    return @"Email";
 }
 
 #pragma mark - Service methods

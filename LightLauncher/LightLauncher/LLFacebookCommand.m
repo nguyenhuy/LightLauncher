@@ -15,15 +15,17 @@
     return self;
 }
 
-- (NSString *)command {
+#pragma mark - Command methods
+
++ (NSString *)command {
     return COMMAND_FACEBOOK;
 }
 
-- (NSString *)description {
++ (NSString *)description {
     return @"Facebook";
 }
 
-- (NSString *)iconFileName {
++ (NSString *)iconFileName {
     return @"facebook.png";
 }
 

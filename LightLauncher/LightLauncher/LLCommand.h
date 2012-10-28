@@ -11,9 +11,11 @@
 
 @interface LLCommand : NSObject
 
-- (NSString *)command;
-- (NSString *)description;
-- (NSString *)iconFileName;
+@property (nonatomic, strong) NSMutableDictionary *options;
+
++ (NSString *)command;
++ (NSString *)description;
++ (NSString *)iconFileName;
 
 - (id)valueForKey:(NSString *)key;
 - (void)setValue:(id)value forKey:(NSString *)key;

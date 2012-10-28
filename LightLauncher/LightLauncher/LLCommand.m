@@ -8,11 +8,27 @@
 
 #import "LLCommand.h"
 
-@interface LLCommand ()
-@property (nonatomic, strong) NSMutableDictionary *options;
-@end
-
 @implementation LLCommand
+
+- (id)init {
+    self = [super init];
+    if(self) {
+        self.options = [NSMutableDictionary new];
+    }
+    return self;
+}
+
++ (NSString *)command {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"description must be implemented" userInfo:nil];
+}
+
++ (NSString *)description {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"description must be implemented" userInfo:nil];
+}
+
++ (NSString *)iconFileName {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"iconFileName must be implemented" userInfo:nil];
+}
 
 - (id)valueForKey:(NSString *)key {
     return [self.options valueForKey:key];
@@ -29,18 +45,6 @@
         [self.options setValue:array forKey:key];
     }
     [array addObject:value];
-}
-
-- (NSString *)command {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"description must be implemented" userInfo:nil];
-}
-
-- (NSString *)description {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"description must be implemented" userInfo:nil];
-}
-
-- (NSString *)iconFileName {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"iconFileName must be implemented" userInfo:nil];
 }
 
 - (void)executeFromViewController:(UIViewController *)viewController {

@@ -64,7 +64,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [[self.receiptManager.commands objectAtIndex:indexPath.row] executeFromViewController:self];
+    
+    LLCommand *command = [self.receiptManager.commands objectAtIndex:indexPath.row];
+    [self.receiptManager executeFromCommand:command withViewController:self];
 }
 
 #pragma marn - Command Text Field and UITextFieldDelegate
@@ -77,7 +79,7 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self.receiptManager executeCommand:self.textFieldCommand.text];
+    [self.receiptManager executeFromString:self.textFieldCommand.text withViewController:self];
     return YES;
 }
 
