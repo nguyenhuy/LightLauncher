@@ -69,7 +69,7 @@
     [self.receiptManager executeFromCommand:command withViewController:self];
 }
 
-#pragma marn - Command Text Field and UITextFieldDelegate
+#pragma mark - Command Text Field and UITextFieldDelegate
 - (void)configCommandTextField {
     self.textFieldCommand.delegate = self;
     
