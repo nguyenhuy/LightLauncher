@@ -10,12 +10,13 @@
 
 @implementation LLFacebookCommand
 
-- (NSString *)serviceName {
-    return @"Facebook";
+- (id)init {
+    self = [super initWithServiceType:SLServiceTypeFacebook andServiceName:@"Facebook"];
+    return self;
 }
 
-- (NSString *)serviceType {
-    return SLServiceTypeFacebook;
+- (NSString *)command {
+    return COMMAND_FACEBOOK;
 }
 
 - (NSString *)description {

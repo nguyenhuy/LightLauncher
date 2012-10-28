@@ -39,50 +39,43 @@
 
 - (void)initCommands {
     // Init fake email command to test
-    LLEmailCommand *emailCommand = [[LLEmailCommand alloc] initWithName:@"mail"];
-    emailCommand.toOptions = [NSMutableArray arrayWithObjects:
-                              [[LLToOption alloc] initWithParam:@"allforone1511@gmail.com"],
-                              [[LLToOption alloc] initWithParam:@"allforone1511@gmail.com"],
-                              [[LLToOption alloc] initWithParam:@"allforone1511@gmail.com"],
-                              nil];
-    emailCommand.ccOptions = [NSMutableArray arrayWithObjects:
-                              [[LLCcOption alloc] initWithParam:@"allforone1511@gmail.com"],
-                              [[LLCcOption alloc] initWithParam:@"allforone1511@gmail.com"],
-                              [[LLCcOption alloc] initWithParam:@"allforone1511@gmail.com"],
-                              nil];
-    emailCommand.bccOptions = [NSMutableArray arrayWithObjects:
-                               [[LLBccOption alloc] initWithParam:@"allforone1511@gmail.com"],
-                               [[LLBccOption alloc] initWithParam:@"allforone1511@gmail.com"],
-                               [[LLBccOption alloc] initWithParam:@"allforone1511@gmail.com"],
-                               nil];
-    emailCommand.subjectOption = [[LLSubjectOption alloc] initWithParam:@"hello"];
-    emailCommand.bodyOption = [[LLBodyOption alloc] initWithParam:@"Hello LightLauncher" AndIsHtml:NO];
-    emailCommand.attachmentFiles = [NSMutableArray arrayWithObjects:
-                                    [[LLAttachmentDataOption alloc]
-                                     initWithData:[NSData dataWithContentsOfFile:@"mail.png"]
-                                     AndMimeType:@"image/png" AndFileName:@"abc.png"],
-                                    [[LLAttachmentDataOption alloc]
-                                     initWithData:[NSData dataWithContentsOfFile:@"mail.png"]
-                                     AndMimeType:@"image/png" AndFileName:@"abc.png"],
-                                    nil];
+    LLEmailCommand *emailCommand = [[LLEmailCommand alloc] init];
+    emailCommand.subject = @"hello";
+    emailCommand.body = @"Hello LightLauncher";
+
+    [emailCommand addToAddress:@"allforone1511@gmail.com"];
+    [emailCommand addToAddress:@"allforone1511@gmail.com"];
+    [emailCommand addToAddress:@"allforone1511@gmail.com"];
+
+    [emailCommand addCcAddress:@"allforone1511@gmail.com"];
+    [emailCommand addCcAddress:@"allforone1511@gmail.com"];
+    [emailCommand addCcAddress:@"allforone1511@gmail.com"];
+
+    [emailCommand addBccAddress:@"allforone1511@gmail.com"];
+    [emailCommand addBccAddress:@"allforone1511@gmail.com"];
+    [emailCommand addBccAddress:@"allforone1511@gmail.com"];
     
-    NSArray *urls = [NSArray arrayWithObjects:
-                     [[LLUrlOption alloc] initWithParam:@"google.com"],
-                     [[LLUrlOption alloc] initWithParam:@"facebook.com"],
-                     nil];
-    NSArray *images = [NSArray arrayWithObjects:
-                       [[LLImageOption alloc] initWithWithImage:[UIImage imageNamed:@"twitter.png"]],
-                       [[LLImageOption alloc] initWithWithImage:[UIImage imageNamed:@"facebook.png"]],
-                       nil];
-    LLTwitterCommand *twCommand = [[LLTwitterCommand alloc] initWithName:@"tw"];
-    twCommand.bodyOption = [[LLBodyOption alloc] initWithParam:@"Hello Twitter"];
-    twCommand.urlOptions = urls;
-    twCommand.imageOptions = images;
+    [emailCommand addAttachment:@"mail.png"];
+    [emailCommand addAttachment:@"mail.png"];
+    [emailCommand addAttachment:@"mail.png"];
     
-    LLFacebookCommand *fbCommand = [[LLFacebookCommand alloc] initWithName:@"fb"];
-    fbCommand.bodyOption = [[LLBodyOption alloc] initWithParam:@"Hello FB"];
-    fbCommand.urlOptions = urls;
-    fbCommand.imageOptions = images;
+    LLTwitterCommand *twCommand = [[LLTwitterCommand alloc] init];
+    twCommand.body = @"Hello Twitter";
+
+    [twCommand addUrl:@"google.com"];
+    [twCommand addUrl:@"facebook.com"];
+    
+    [twCommand addImage:@"twitter.com"];
+    [twCommand addImage:@"facebook.com"];
+    
+    LLFacebookCommand *fbCommand = [[LLFacebookCommand alloc] init];
+    fbCommand.body = @"Hello Twitter";
+    
+    [fbCommand addUrl:@"google.com"];
+    [fbCommand addUrl:@"facebook.com"];
+    
+    [fbCommand addImage:@"twitter.com"];
+    [fbCommand addImage:@"facebook.com"];
     
     self.commands = [NSMutableArray arrayWithObjects:
                      twCommand,

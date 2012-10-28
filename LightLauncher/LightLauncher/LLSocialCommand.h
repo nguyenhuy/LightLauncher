@@ -9,14 +9,14 @@
 #import <Social/Social.h>
 #import "LLServiceCommand.h"
 
-@class LLBodyOption;
-
 @interface LLSocialCommand : LLServiceCommand
 
-@property (nonatomic, strong) LLBodyOption *bodyOption;
-@property (nonatomic, strong) NSArray *urlOptions;
-@property (nonatomic, strong) NSArray *imageOptions;
+- (NSString *)body;
+- (NSArray *)urls;
+- (NSArray *)images;
 
-- (NSString *)serviceType;
+- (void)setBody:(NSString *)body;
+- (void)addUrl:(NSString *)url;
+- (void)addImage:(NSString *)path;
 
 @end

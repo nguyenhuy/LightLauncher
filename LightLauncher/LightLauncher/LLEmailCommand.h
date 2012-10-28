@@ -15,11 +15,18 @@
 
 @interface LLEmailCommand : LLServiceCommand <MFMailComposeViewControllerDelegate>
 
-@property (nonatomic, strong) NSArray *toOptions;
-@property (nonatomic, strong) NSArray *ccOptions;
-@property (nonatomic, strong) NSArray *bccOptions;
-@property (nonatomic, strong) LLSubjectOption *subjectOption;
-@property (nonatomic, strong) LLBodyOption *bodyOption;
-@property (nonatomic, strong) NSArray *attachmentFiles;
+- (NSArray *)toAddresses;
+- (NSArray *)ccAddresses;
+- (NSArray *)bccAddresses;
+- (NSString *)subject;
+- (NSString *)body;
+- (NSArray *)attachments;
+
+- (void)addToAddress:(NSString *)address;
+- (void)addCcAddress:(NSString *)address;
+- (void)addBccAddress:(NSString *)address;
+- (void)setSubject:(NSString *)subject;
+- (void)setBody:(NSString *)body;
+- (void)addAttachment:(NSString *)attachment;
 
 @end

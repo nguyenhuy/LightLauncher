@@ -21,6 +21,58 @@
 
 @implementation LLEmailCommand
 
+#pragma mark - Getters and Setters
+
+- (NSArray *)toAddresses {
+    return [self valueForKey:OPTION_TO_ADDRESSES];
+}
+
+- (NSArray *)ccAddresses {
+    return [self valueForKey:OPTION_CC_ADDRESSES];
+}
+
+- (NSArray *)bccAddresses {
+    return [self valueForKey:OPTION_BCC_ADDRESSES];
+}
+
+- (NSString *)subject {
+    return [self valueForKey:OPTION_SUBJECT];
+}
+
+- (NSString *)body {
+    return [self valueForKey:OPTION_BODY];
+}
+
+- (NSArray *)attachments {
+    return [self valueForKey:OPTION_ATTACHMENTS];
+}
+
+- (void)addToAddress:(NSString *)address {
+    [self addValue:address forKey:OPTION_TO_ADDRESSES];
+}
+
+- (void)addCcAddress:(NSString *)address {
+    [self addValue:address forKey:OPTION_CC_ADDRESSES];
+}
+
+- (void)addBccAddress:(NSString *)address {
+    [self addValue:address forKey:OPTION_BCC_ADDRESSES];
+}
+
+- (void)setSubject:(NSString *)subject {
+    [self setValue:subject forKey:OPTION_SUBJECT];
+}
+
+- (void)setBody:(NSString *)body {
+    [self setValue:body forKey:OPTION_BODY];
+}
+
+- (void)addAttachment:(NSString *)attachment {
+    [self addValue:attachment forKey:OPTION_ATTACHMENTS];
+}
+
+#pragma mark - Command methods
+
 - (NSString *)description {
     return @"Email";
 }
@@ -33,6 +85,8 @@
     return @"Email";
 }
 
+#pragma mark - Service methods
+
 - (BOOL)isServiceAvailable {
     return [MFMailComposeViewController canSendMail];
 }
@@ -43,27 +97,29 @@
 
 - (UIViewController *)composeViewController {
     MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
-    [controller setToRecipients:[self recipientsFromOptions:self.toOptions]];
-    [controller setCcRecipients:[self recipientsFromOptions:self.ccOptions]];
-    [controller setBccRecipients:[self recipientsFromOptions:self.bccOptions]];
-    [controller setSubject:self.subjectOption.param];
-    [controller setMessageBody:self.bodyOption.param isHTML:self.bodyOption.isHtml];
+    [controller setToRecipients:[self recipientsFromOptions:self.toAddresses]];
+    [controller setCcRecipients:[self recipientsFromOptions:self.ccAddresses]];
+    [controller setBccRecipients:[self recipientsFromOptions:self.bccAddresses]];
+    [controller setSubject:self.subject];
+    [controller setMessageBody:self.body isHTML:false];
     [self addAttachmentDatasToMailComposeViewController:controller];
     controller.mailComposeDelegate = self;
     return controller;
 }
 
-- (NSArray *)recipientsFromOptions:(NSArray *)toOptions {
-    NSMutableArray *recipients = [NSMutableArray arrayWithCapacity:toOptions.count];
-    for (LLToOption *o in toOptions) {
-        [recipients addObject:o.param];
+- (NSArray *)recipientsFromOptions:(NSArray *)addresses {
+    NSMutableArray *recipients = [NSMutableArray arrayWithCapacity:addresses.count];
+    for (NSString *address in addresses) {
+        [recipients addObject:address];
     }
     return recipients;
 }
 
 - (void)addAttachmentDatasToMailComposeViewController:(MFMailComposeViewController *)controller {
-    for (LLAttachmentDataOption *o in self.attachmentFiles) {
-        [controller addAttachmentData:o.data mimeType:o.mimeType fileName:o.fileName];
+    for (NSString *path in self.attachments) {
+        NSData *data = [NSData dataWithContentsOfFile:path];
+#warning get mimetype and filename
+        [controller addAttachmentData:data mimeType:@"image/png" fileName:@"path"];
     }
 }
 

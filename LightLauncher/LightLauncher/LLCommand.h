@@ -7,14 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Options.h"
 
 @interface LLCommand : NSObject
 
-@property (nonatomic, strong) NSString *name;
-
-- (id)initWithName:(NSString *)name;
+- (NSString *)command;
 - (NSString *)description;
 - (NSString *)iconFileName;
-- (void) executeFromViewController:(UIViewController *)viewController;
+
+- (id)valueForKey:(NSString *)key;
+- (void)setValue:(id)value forKey:(NSString *)key;
+// Add value to a new or existing array associates with the key
+- (void)addValue:(id)value forKey:(NSString *)key;
+
+- (void)executeFromViewController:(UIViewController *)viewController;
 
 @end

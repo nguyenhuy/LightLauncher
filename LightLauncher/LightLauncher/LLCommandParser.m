@@ -12,11 +12,11 @@
 @implementation LLCommandParser
 
 + (NSString *)encode:(LLCommand *)command {
-
+    return nil;
 }
 
 + (LLCommand *)decode:(NSString *)json {
-    
+    return nil;    
 }
 
 @end

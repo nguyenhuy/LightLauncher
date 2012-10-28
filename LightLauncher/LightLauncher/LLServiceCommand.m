@@ -8,11 +8,41 @@
 
 #import "LLServiceCommand.h"
 
+@interface LLServiceCommand ()
+- (void)setServiceType:(NSString *)serviceType;
+- (void)setServiceName:(NSString *)serviceName;
+@end
+
 @implementation LLServiceCommand
 
-- (NSString *)serviceName {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"serviceName must be implemented" userInfo:nil];
+- (id)initWithServiceType:(NSString *)serviceType andServiceName:(NSString *)serviceName {
+    self = [super init];
+    if (self) {
+        self.serviceType = serviceType;
+        self.serviceName = serviceName;
+    }
+    return self;
 }
+
+#pragma mark - Getters and Setters
+
+- (NSString *)serviceType {
+    return [self valueForKey:OPTION_SERVICE_TYPE];
+}
+
+- (NSString *)serviceName {
+    return [self valueForKey:OPTION_SERVICE_NAME];
+}
+
+- (void)setServiceType:(NSString *)serviceType {
+    [self setValue:serviceType forKey:OPTION_SERVICE_TYPE];
+}
+
+- (void)setServiceName:(NSString *)serviceName {
+    [self setValue:serviceName forKey:OPTION_SERVICE_NAME];
+}
+
+#pragma mark - Service related methods
 
 - (BOOL)isServiceAvailable {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"isServiceAvailable must be implemented" userInfo:nil];

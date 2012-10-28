@@ -7,9 +7,6 @@
 //
 
 #import "LLSocialCommand.h"
-#import "LLBodyOption.h"
-#import "LLUrlOption.h"
-#import "LLImageOption.h"
 
 @interface LLSocialCommand ()
 - (void)addAllImageToComposeViewController:(SLComposeViewController *) composeViewController;
@@ -18,9 +15,33 @@
 
 @implementation LLSocialCommand
 
-- (NSString *)serviceType {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"serviceType must be implemented" userInfo:nil];
+#pragma mark - Getters and Setters
+
+- (NSString *)body {
+    return [self valueForKey:OPTION_BODY];
 }
+
+- (NSArray *)urls {
+    return [self valueForKey:OPTION_URLS];
+}
+
+- (NSArray *)images {
+    return [self valueForKey:OPTION_IMAGES];
+}
+
+- (void)setBody:(NSString *)body {
+    [self setValue:body forKey:OPTION_BODY];
+}
+
+- (void)addUrl:(NSString *)url {
+    [self addValue:url forKey:OPTION_URLS];
+}
+
+- (void)addImage:(NSString *)path {
+    [self addValue:path forKey:OPTION_IMAGES];
+}
+
+#pragma mark - Service methods
 
 - (BOOL)isServiceAvailable {
     return [SLComposeViewController isAvailableForServiceType:[self serviceType]];
@@ -36,7 +57,7 @@
         return nil;
     }
     
-    [composeViewController setInitialText:self.bodyOption.param];
+    [composeViewController setInitialText:self.body];
     [self addAllImageToComposeViewController:composeViewController];
     [self addAllUrlsToComposeViewController:composeViewController];
     
@@ -56,14 +77,14 @@
 }
 
 - (void)addAllImageToComposeViewController:(SLComposeViewController *)composeViewController {
-    for(LLImageOption *imageOption in self.imageOptions) {
-        [composeViewController addImage:imageOption.image];
+    for(NSString *path in self.images) {
+        [composeViewController addImage:[UIImage imageNamed:path]];
     }
 }
 
 - (void)addAllUrlsToComposeViewController:(SLComposeViewController *)composeViewController {
-    for (LLUrlOption *urlOption in self.urlOptions) {
-        [composeViewController addURL:urlOption.url];
+    for (NSString *url in self.urls) {
+        [composeViewController addURL:[NSURL URLWithString:url]];
     }
 }
 

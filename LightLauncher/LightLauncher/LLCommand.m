@@ -8,14 +8,31 @@
 
 #import "LLCommand.h"
 
+@interface LLCommand ()
+@property (nonatomic, strong) NSMutableDictionary *options;
+@end
+
 @implementation LLCommand
 
-- (id)initWithName:(NSString *)name {
-    self = [super init];
-    if (self) {
-        self.name = name;
+- (id)valueForKey:(NSString *)key {
+    return [self.options valueForKey:key];
+}
+
+- (void)setValue:(id)value forKey:(NSString *)key {
+    [self.options setValue:value forKey:key];
+}
+
+- (void)addValue:(id)value forKey:(NSString *)key {
+    NSMutableArray *array = [self.options valueForKey:key];
+    if (array == nil) {
+        array = [NSMutableArray new];
+        [self.options setValue:array forKey:key];
     }
-    return self;
+    [array addObject:value];
+}
+
+- (NSString *)command {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"description must be implemented" userInfo:nil];
 }
 
 - (NSString *)description {

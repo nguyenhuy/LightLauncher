@@ -10,12 +10,13 @@
 
 @implementation LLTwitterCommand
 
-- (NSString *)serviceName {
-    return @"Twitter";
+- (id)init {
+    self = [super initWithServiceType:SLServiceTypeTwitter andServiceName:@"Twitter"];
+    return self;
 }
 
-- (NSString *)serviceType {
-    return SLServiceTypeTwitter;
+- (NSString *)command {
+    return COMMAND_TWITTER;
 }
 
 - (NSString *)description {
