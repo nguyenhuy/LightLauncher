@@ -10,19 +10,9 @@
 
 @class LLReceiptManager;
 
-@interface LLCreateCommandViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+@interface LLCreateCommandViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) LLReceiptManager* receiptManager;
-
-@property (strong, nonatomic) IBOutlet UIView *headerView;
-@property (strong, nonatomic) IBOutlet UITextField *textFieldCommand;
-@property (strong, nonatomic) IBOutlet UIView *statusView;
-@property (strong, nonatomic) IBOutlet UILabel *lblStatus;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *leftToRightSwipeGestureRecognizer;
-@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *rightToLeftSwipeGestureRecognizer;
-
-- (IBAction)onSwipeStatusViewLeftToRight:(id)sender;
-- (IBAction)onSwipeStatusViewRightToLeft:(id)sender;
 
 @end

@@ -12,11 +12,6 @@
 #import "LLCommand.h"
 
 @interface LLCreateCommandViewController ()
-- (void)configCommandTextField;
-- (void)configSwipeGestureRecognizer;
-- (void)registerForKeyboardNotifications;
-- (void)keyboardWasShown:(NSNotification *)notification;
-- (void)keyboardWillBeHidden:(NSNotification *)notification;
 @end
 
 @implementation LLCreateCommandViewController
@@ -25,19 +20,11 @@
 {
     [super viewDidLoad];
     self.receiptManager = [[LLReceiptManager alloc] init];
-    [self configCommandTextField];
-    [self configSwipeGestureRecognizer];
 }
 
 - (void)viewDidUnload
 {
     [self setTableView:nil];
-    [self setHeaderView:nil];
-    [self setTextFieldCommand:nil];
-    [self setStatusView:nil];
-    [self setLblStatus:nil];
-    [self setLeftToRightSwipeGestureRecognizer:nil];
-    [self setRightToLeftSwipeGestureRecognizer:nil];
     [super viewDidUnload];
 }
 
@@ -67,58 +54,6 @@
     
     LLCommand *command = [self.receiptManager.commands objectAtIndex:indexPath.row];
     [self.receiptManager executeFromCommand:command withViewController:self];
-}
-
-#pragma mark - Command Text Field and UITextFieldDelegate
-- (void)configCommandTextField {
-    self.textFieldCommand.delegate = self;
-    
-    [self registerForKeyboardNotifications];
-    // Show the keyboard immediately
-    [self.textFieldCommand resignFirstResponder];
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self.receiptManager executeFromString:self.textFieldCommand.text withViewController:self];
-    return YES;
-}
-
-#pragma mark - Keyboard Notifications
-
-- (void)registerForKeyboardNotifications {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
-}
-
-- (void)keyboardWasShown:(NSNotification *)notification {
-    NSDictionary* info = [notification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
-    self.tableView.contentInset = contentInsets;
-    self.tableView.scrollIndicatorInsets = contentInsets;
-}
-
-- (void)keyboardWillBeHidden:(NSNotification *)notification {
-    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-    self.tableView.contentInset = contentInsets;
-    self.tableView.scrollIndicatorInsets = contentInsets;
-}
-
-#pragma mark - Swipe Gesture Recognizers
-
-- (void)configSwipeGestureRecognizer {
-    self.leftToRightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
-    self.rightToLeftSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
-}
-
-- (IBAction)onSwipeStatusViewLeftToRight:(id)sender {
-    DLog(@"Left to Right");
-}
-
-- (IBAction)onSwipeStatusViewRightToLeft:(id)sender {
-    DLog(@"Right to Left");    
 }
 
 @end
