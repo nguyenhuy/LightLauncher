@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) NSMutableDictionary *options;
 
++ (LLCommand *)commandPrototype;
 + (NSString *)command;
 + (NSString *)description;
 + (NSString *)iconFileName;

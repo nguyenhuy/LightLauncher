@@ -17,6 +17,19 @@
 
 #pragma mark - Command methods
 
++ (LLCommand *)commandPrototype {
+    LLTwitterCommand *instance = [[LLTwitterCommand alloc] init];
+    instance.body = @"Hello Twitter";
+    
+    [instance addUrl:@"google.com"];
+    [instance addUrl:@"facebook.com"];
+    
+    [instance addImage:@"twitter.com"];
+    [instance addImage:@"facebook.com"];
+    
+    return instance;
+}
+
 + (NSString *)command {
     return COMMAND_TWITTER;
 }

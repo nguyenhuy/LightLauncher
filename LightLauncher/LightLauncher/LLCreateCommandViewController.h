@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class LLReceiptManager;
+@class LLCommandManager;
 
 @interface LLCreateCommandViewController : UITableViewController
 

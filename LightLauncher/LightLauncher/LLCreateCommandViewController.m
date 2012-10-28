@@ -7,7 +7,7 @@
 //
 
 #import "LLCreateCommandViewController.h"
-#import "LLReceiptManager.h"
+#import "LLCommandManager.h"
 #import "LLCommandCell.h"
 
 @interface LLCreateCommandViewController ()
@@ -52,12 +52,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 100;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[LLReceiptManager sharedInstance] commands] count];
+    return [[[LLCommandManager sharedInstance] commandPrototypes] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -66,7 +66,7 @@
     // Since we registered this CommandCell class with the tableView,
     // it will init a new cell if can't reuse any
     // and we don't need to check nil here.
-    cell.command = [[[LLReceiptManager sharedInstance] commands] objectAtIndex:indexPath.row % 3];
+    cell.command = [[[LLCommandManager sharedInstance] commandPrototypes] objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -77,8 +77,8 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    LLCommand *command = [[[LLReceiptManager sharedInstance] commands] objectAtIndex:indexPath.row];
-    [[LLReceiptManager sharedInstance] executeFromCommand:command withViewController:self];
+    LLCommand *command = [[[LLCommandManager sharedInstance] commandPrototypes] objectAtIndex:indexPath.row];
+    [[LLCommandManager sharedInstance] executeFromCommand:command withViewController:self];
 }
 
 /*

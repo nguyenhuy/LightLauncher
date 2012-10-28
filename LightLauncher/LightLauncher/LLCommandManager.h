@@ -10,12 +10,12 @@
 
 @class LLCommand;
 
-@interface LLReceiptManager : NSObject
+@interface LLCommandManager : NSObject
 
 @property (nonatomic, strong, readonly) NSMutableArray *receipts;
-@property (nonatomic, strong, readonly) NSMutableArray *commands;
+@property (nonatomic, strong, readonly) NSMutableArray *commandPrototypes;
 
-+ (LLReceiptManager *)sharedInstance;
++ (LLCommandManager *)sharedInstance;
 
 - (void)executeFromString:(NSString *)string withViewController:(UIViewController *)viewController;
 - (void)executeFromCommand:(LLCommand *)command withViewController:(UIViewController *)viewController;
