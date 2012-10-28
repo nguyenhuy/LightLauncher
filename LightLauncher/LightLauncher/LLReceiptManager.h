@@ -13,4 +13,6 @@
 @property (nonatomic, strong, readonly) NSMutableArray *receipts;
 @property (nonatomic, strong, readonly) NSMutableArray *commands;
 
+- (void)executeCommand:(NSString *)command;
+
 @end

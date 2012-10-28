@@ -10,7 +10,7 @@
 
 @class LLReceiptManager;
 
-@interface LLViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface LLViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @property (nonatomic, strong) LLReceiptManager* receiptManager;
 
