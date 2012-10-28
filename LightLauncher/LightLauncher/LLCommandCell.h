@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#define IDENTIFIER_COMMAND_CELL @"CommandCell"
+
 @class LLCommand;
 
 @interface LLCommandCell : UITableViewCell
 
-+(LLCommandCell *)instanceWithCommand:(LLCommand *)command;
+- (void)setCommand:(LLCommand *)command;
 
 @end

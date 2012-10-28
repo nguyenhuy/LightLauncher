@@ -1,8 +1,8 @@
 //
-//  LLViewController.h
+//  LLCreateCommandViewController.h
 //  LightLauncher
 //
-//  Created by Huy Nguyen on 8/26/12.
+//  Created by Huy Nguyen on 10/28/12.
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
@@ -10,9 +10,6 @@
 
 @class LLReceiptManager;
 
-@interface LLCreateCommandViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
-
-@property (nonatomic, strong) LLReceiptManager* receiptManager;
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@interface LLCreateCommandViewController : UITableViewController
 
 @end

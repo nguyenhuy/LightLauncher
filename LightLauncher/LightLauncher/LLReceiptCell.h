@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-#define RECEIPT_CELL_IDENTIFIER @"ReceiptCell"
+#define IDENTIFIER_RECEIPT_CELL @"ReceiptCell"
 
 @class LLReceipt;
 
 @interface LLReceiptCell : UITableViewCell
 
-+(LLReceiptCell *)instanceWithReceipt:(LLReceipt *)receipt;
+- (void)setReceipt:(LLReceipt *)receipt;
 
 @end

@@ -10,18 +10,17 @@
 
 @implementation LLReceiptCell
 
-+ (LLReceiptCell *)instanceWithReceipt:(LLReceipt *)receipt {
-    LLReceiptCell *cell = [[LLReceiptCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:RECEIPT_CELL_IDENTIFIER];
-    return cell;
-}
-
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
     }
     return self;
+}
+
+- (void)setReceipt:(LLReceipt *)receipt {
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

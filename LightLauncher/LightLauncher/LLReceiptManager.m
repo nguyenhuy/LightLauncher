@@ -22,6 +22,15 @@
 
 @implementation LLReceiptManager
 
++ (id)sharedInstance{
+    static LLReceiptManager *instance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[LLReceiptManager alloc] init];
+    });
+    return instance;
+}
+
 - (id)init {
     self = [super init];
     if (self != nil) {
@@ -83,10 +92,6 @@
 }
 
 - (void)executeFromCommand:(LLCommand *)command withViewController:(UIViewController *)viewController{
-
-#warning testing only
-    NSString *json = [LLCommandParser encode:command];
-    
     [command executeFromViewController:viewController];
 }
 

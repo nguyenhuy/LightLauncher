@@ -15,6 +15,8 @@
 @property (nonatomic, strong, readonly) NSMutableArray *receipts;
 @property (nonatomic, strong, readonly) NSMutableArray *commands;
 
++ (LLReceiptManager *)sharedInstance;
+
 - (void)executeFromString:(NSString *)string withViewController:(UIViewController *)viewController;
 - (void)executeFromCommand:(LLCommand *)command withViewController:(UIViewController *)viewController;
 
