@@ -9,7 +9,7 @@
 #import "LLCommandPrototypeTableViewController.h"
 #import "LLCommandManager.h"
 #import "LLCommandCell.h"
-#import "LLCreateCommandViewController.h"
+#import "LLCreateCommandTableViewController.h"
 
 @interface LLCommandPrototypeTableViewController ()
 
@@ -79,7 +79,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    LLCreateCommandViewController *controller = [[LLCreateCommandViewController alloc] initWithNibName:NIB_CREATE_COMMAND_VIEW_CONTROLLER bundle:nil];
+    LLCreateCommandTableViewController *controller = [[LLCreateCommandTableViewController alloc] initWithNibName:NIB_CREATE_COMMAND_VIEW_CONTROLLER bundle:nil];
     controller.command = [[[LLCommandManager sharedInstance] commandPrototypes] objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:controller animated:YES];
 }

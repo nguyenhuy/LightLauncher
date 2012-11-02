@@ -12,7 +12,7 @@
 
 @class LLCommand;
 
-@interface LLCreateCommandViewController : UITableViewController
+@interface LLCreateCommandTableViewController : UITableViewController
 
 @property (nonatomic, strong) LLCommand *command;
 
