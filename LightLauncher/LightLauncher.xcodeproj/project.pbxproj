@@ -35,6 +35,7 @@
 		788FBFA7163D91CF005A444E /* LLCommandPrototypeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788FBFA5163D91CF005A444E /* LLCommandPrototypeTableViewController.xib */; };
 		788FBFC3163DA3F3005A444E /* LLCreateCommandTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBFC1163DA3F3005A444E /* LLCreateCommandTableViewController.m */; };
 		788FBFC4163DA3F3005A444E /* LLCreateCommandTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788FBFC2163DA3F3005A444E /* LLCreateCommandTableViewController.xib */; };
+		78BA2D3416435C950057AD58 /* LLCommandPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BA2D3316435C950057AD58 /* LLCommandPrototype.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,7 +79,6 @@
 		788FBF86163CE93C005A444E /* LLCommandParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandParser.m; sourceTree = "<group>"; };
 		788FBF8B163CEC59005A444E /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		788FBF8C163CEC59005A444E /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
-		788FBF8E163D0232005A444E /* Options.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Options.h; sourceTree = "<group>"; };
 		788FBF97163D4E49005A444E /* NSObject+IsEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+IsEmpty.h"; sourceTree = "<group>"; };
 		788FBF98163D4E49005A444E /* NSObject+IsEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+IsEmpty.m"; sourceTree = "<group>"; };
 		788FBFA3163D91CF005A444E /* LLCommandPrototypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandPrototypeTableViewController.h; sourceTree = "<group>"; };
@@ -87,6 +87,9 @@
 		788FBFC0163DA3F3005A444E /* LLCreateCommandTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCreateCommandTableViewController.h; sourceTree = "<group>"; };
 		788FBFC1163DA3F3005A444E /* LLCreateCommandTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCreateCommandTableViewController.m; sourceTree = "<group>"; };
 		788FBFC2163DA3F3005A444E /* LLCreateCommandTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLCreateCommandTableViewController.xib; sourceTree = "<group>"; };
+		78BA2D3116435A420057AD58 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		78BA2D3216435C950057AD58 /* LLCommandPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandPrototype.h; sourceTree = "<group>"; };
+		78BA2D3316435C950057AD58 /* LLCommandPrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandPrototype.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,8 +185,11 @@
 				785A0DCC15E9BFC9002C6F78 /* LLReceipt.m */,
 				785A0DD415E9C164002C6F78 /* LLCommandManager.h */,
 				785A0DD515E9C165002C6F78 /* LLCommandManager.m */,
+				78BA2D3216435C950057AD58 /* LLCommandPrototype.h */,
+				78BA2D3316435C950057AD58 /* LLCommandPrototype.m */,
 				788FBF85163CE93C005A444E /* LLCommandParser.h */,
 				788FBF86163CE93C005A444E /* LLCommandParser.m */,
+				78BA2D3116435A420057AD58 /* Constants.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -209,7 +215,6 @@
 				785EBB641629858C00ADE85F /* LLFacebookCommand.m */,
 				785A0E0E15E9CF02002C6F78 /* LLTwitterCommand.h */,
 				785A0E0F15E9CF02002C6F78 /* LLTwitterCommand.m */,
-				788FBF8E163D0232005A444E /* Options.h */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -349,6 +354,7 @@
 				788FBF99163D4E49005A444E /* NSObject+IsEmpty.m in Sources */,
 				788FBFA6163D91CF005A444E /* LLCommandPrototypeTableViewController.m in Sources */,
 				788FBFC3163DA3F3005A444E /* LLCreateCommandTableViewController.m in Sources */,
+				78BA2D3416435C950057AD58 /* LLCommandPrototype.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,13 +1,13 @@
 //
-//  Options.h
+//  Constants.h
 //  LightLauncher
 //
-//  Created by Huy Nguyen on 10/28/12.
+//  Created by Huy Nguyen on 11/2/12.
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
-#ifndef LightLauncher_Options_h
-#define LightLauncher_Options_h
+#ifndef LightLauncher_Constants_h
+#define LightLauncher_Constants_h
 
 #define JSON_KEY_COMMAND @"command"
 #define JSON_KEY_OPTIONS @"options"

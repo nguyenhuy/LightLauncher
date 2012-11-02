@@ -7,13 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Options.h"
+#import "Constants.h"
+
+@class LLCommandPrototype;
 
 @interface LLCommand : NSObject
 
 @property (nonatomic, strong) NSMutableDictionary *options;
 
-+ (LLCommand *)commandPrototype;
++ (LLCommandPrototype *)commandPrototype;
 + (NSString *)command;
 + (NSString *)description;
 + (NSString *)iconFileName;
