@@ -22,31 +22,6 @@
 
 #pragma mark - Command methods
 
-+ (LLCommand *)commandPrototype {
-    LLEmailCommand *instance = [[LLEmailCommand alloc] init];
-    
-    instance.subject = @"hello";
-    instance.body = @"Hello LightLauncher";
-    
-    [instance addToAddress:@"allforone1511@gmail.com"];
-    [instance addToAddress:@"allforone1511@gmail.com"];
-    [instance addToAddress:@"allforone1511@gmail.com"];
-    
-    [instance addCcAddress:@"allforone1511@gmail.com"];
-    [instance addCcAddress:@"allforone1511@gmail.com"];
-    [instance addCcAddress:@"allforone1511@gmail.com"];
-    
-    [instance addBccAddress:@"allforone1511@gmail.com"];
-    [instance addBccAddress:@"allforone1511@gmail.com"];
-    [instance addBccAddress:@"allforone1511@gmail.com"];
-    
-    [instance addAttachment:@"mail.png"];
-    [instance addAttachment:@"mail.png"];
-    [instance addAttachment:@"mail.png"];
-    
-    return instance;
-}
-
 + (NSString *)command {
     return COMMAND_EMAIL;
 }

@@ -10,4 +10,13 @@
 
 @implementation LLCommandPrototype
 
+- (LLCommandPrototype *)initWithCommand:(LLCommand *)command andOptions:(NSArray *)options {
+    self = [super init];
+    if (self) {
+        self.command = command;
+        self.options = options;
+    }
+    return self;
+}
+
 @end

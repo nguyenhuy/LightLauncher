@@ -36,6 +36,9 @@
 		788FBFC3163DA3F3005A444E /* LLCreateCommandTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBFC1163DA3F3005A444E /* LLCreateCommandTableViewController.m */; };
 		788FBFC4163DA3F3005A444E /* LLCreateCommandTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788FBFC2163DA3F3005A444E /* LLCreateCommandTableViewController.xib */; };
 		78BA2D3416435C950057AD58 /* LLCommandPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BA2D3316435C950057AD58 /* LLCommandPrototype.m */; };
+		78F12CF21646B0020068F9E4 /* LLOptionPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */; };
+		78F12CF51646B11F0068F9E4 /* LLCommandPrototypeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */; };
+		78F12CF81646B43A0068F9E4 /* LLOptionPrototypeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF71646B43A0068F9E4 /* LLOptionPrototypeFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +93,12 @@
 		78BA2D3116435A420057AD58 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		78BA2D3216435C950057AD58 /* LLCommandPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandPrototype.h; sourceTree = "<group>"; };
 		78BA2D3316435C950057AD58 /* LLCommandPrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandPrototype.m; sourceTree = "<group>"; };
+		78F12CF01646B0020068F9E4 /* LLOptionPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLOptionPrototype.h; sourceTree = "<group>"; };
+		78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLOptionPrototype.m; sourceTree = "<group>"; };
+		78F12CF31646B11F0068F9E4 /* LLCommandPrototypeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandPrototypeFactory.h; sourceTree = "<group>"; };
+		78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandPrototypeFactory.m; sourceTree = "<group>"; };
+		78F12CF61646B43A0068F9E4 /* LLOptionPrototypeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLOptionPrototypeFactory.h; sourceTree = "<group>"; };
+		78F12CF71646B43A0068F9E4 /* LLOptionPrototypeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLOptionPrototypeFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,8 +194,14 @@
 				785A0DCC15E9BFC9002C6F78 /* LLReceipt.m */,
 				785A0DD415E9C164002C6F78 /* LLCommandManager.h */,
 				785A0DD515E9C165002C6F78 /* LLCommandManager.m */,
+				78F12CF31646B11F0068F9E4 /* LLCommandPrototypeFactory.h */,
+				78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */,
+				78F12CF61646B43A0068F9E4 /* LLOptionPrototypeFactory.h */,
+				78F12CF71646B43A0068F9E4 /* LLOptionPrototypeFactory.m */,
 				78BA2D3216435C950057AD58 /* LLCommandPrototype.h */,
 				78BA2D3316435C950057AD58 /* LLCommandPrototype.m */,
+				78F12CF01646B0020068F9E4 /* LLOptionPrototype.h */,
+				78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */,
 				788FBF85163CE93C005A444E /* LLCommandParser.h */,
 				788FBF86163CE93C005A444E /* LLCommandParser.m */,
 				78BA2D3116435A420057AD58 /* Constants.h */,
@@ -355,6 +370,9 @@
 				788FBFA6163D91CF005A444E /* LLCommandPrototypeTableViewController.m in Sources */,
 				788FBFC3163DA3F3005A444E /* LLCreateCommandTableViewController.m in Sources */,
 				78BA2D3416435C950057AD58 /* LLCommandPrototype.m in Sources */,
+				78F12CF21646B0020068F9E4 /* LLOptionPrototype.m in Sources */,
+				78F12CF51646B11F0068F9E4 /* LLCommandPrototypeFactory.m in Sources */,
+				78F12CF81646B43A0068F9E4 /* LLOptionPrototypeFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

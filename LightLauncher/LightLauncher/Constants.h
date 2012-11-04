@@ -9,6 +9,8 @@
 #ifndef LightLauncher_Constants_h
 #define LightLauncher_Constants_h
 
+#define APP_NAME @"LightLauncher"
+
 #define JSON_KEY_COMMAND @"command"
 #define JSON_KEY_OPTIONS @"options"
 

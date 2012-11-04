@@ -13,9 +13,9 @@
 @interface LLCommandPrototype : NSObject
 
 @property (nonatomic, strong) LLCommand *command;
-// An dictionary of options
-// Key is name of the option
-// Value is an array of possible values for that option
-@property (nonatomic, strong) NSDictionary *options;
+// An array of LLOptionPrototype
+@property (nonatomic, strong) NSArray *options;
+
+- (LLCommandPrototype *)initWithCommand:(LLCommand *)command andOptions:(NSArray *)options;
 
 @end
