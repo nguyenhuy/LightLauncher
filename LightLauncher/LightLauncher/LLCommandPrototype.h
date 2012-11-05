@@ -12,9 +12,9 @@
 
 @interface LLCommandPrototype : NSObject
 
-@property (nonatomic, strong) LLCommand *command;
+@property (nonatomic, strong, readonly) LLCommand *command;
 // An array of LLOptionPrototype
-@property (nonatomic, strong) NSArray *options;
+@property (nonatomic, strong, readonly) NSArray *options;
 
 - (LLCommandPrototype *)initWithCommand:(LLCommand *)command andOptions:(NSArray *)options;
 

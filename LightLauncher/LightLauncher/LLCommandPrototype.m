@@ -8,6 +8,12 @@
 
 #import "LLCommandPrototype.h"
 
+@interface LLCommandPrototype ()
+@property (nonatomic, strong, readwrite) LLCommand *command;
+// An array of LLOptionPrototype
+@property (nonatomic, strong, readwrite) NSArray *options;
+@end
+
 @implementation LLCommandPrototype
 
 - (LLCommandPrototype *)initWithCommand:(LLCommand *)command andOptions:(NSArray *)options {

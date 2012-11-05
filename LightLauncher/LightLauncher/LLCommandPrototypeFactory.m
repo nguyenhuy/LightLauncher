@@ -15,6 +15,10 @@
 #import "LLFacebookCommand.h"
 #import "LLTwitterCommand.h"
 
+@interface LLCommandPrototypeFactory ()
++ (LLCommandPrototype *)socialCommandPrototypeForCommand:(LLSocialCommand *)command;
+@end
+
 @implementation LLCommandPrototypeFactory
 
 + (LLCommandPrototype *)commandPrototypeForCommand:(NSString *)command {
@@ -24,10 +28,29 @@
     if ([command isEqualToString:COMMAND_FACEBOOK]) {
         return [self facebookCommandPrototype];
     }
-    if ([command isEqualToString:COMMAND_TWITTER]) {
+    if([command isEqualToString:COMMAND_TWITTER]) {
         return [self twitterCommandPrototype];
     }
     return nil;
+}
+
++ (LLCommandPrototype *)socialCommandPrototypeForCommand:(LLSocialCommand *)command {
+    command.body = @"Hello Twitter";
+    
+    [command addUrl:@"google.com"];
+    [command addUrl:@"facebook.com"];
+    
+    [command addImage:@"twitter.com"];
+    [command addImage:@"facebook.com"];
+    
+    NSArray *options = [[NSArray alloc] initWithObjects:
+                        [LLOptionPrototypeFactory bodyOptionPrototype],
+                        [LLOptionPrototypeFactory imageAttachmentsOptionPrototype],
+                        [LLOptionPrototypeFactory urlAddressesOptionPrototype],
+                        nil];
+    
+    LLCommandPrototype *commandPrototype = [[LLCommandPrototype alloc] initWithCommand:command andOptions:options];
+    return commandPrototype;
 }
 
 + (LLCommandPrototype *)emailCommandPrototype {
@@ -38,17 +61,13 @@
     
     [command addToAddress:@"allforone1511@gmail.com"];
     [command addToAddress:@"allforone1511@gmail.com"];
-    [command addToAddress:@"allforone1511@gmail.com"];
     
-    [command addCcAddress:@"allforone1511@gmail.com"];
     [command addCcAddress:@"allforone1511@gmail.com"];
     [command addCcAddress:@"allforone1511@gmail.com"];
     
     [command addBccAddress:@"allforone1511@gmail.com"];
     [command addBccAddress:@"allforone1511@gmail.com"];
-    [command addBccAddress:@"allforone1511@gmail.com"];
     
-    [command addAttachment:@"mail.png"];
     [command addAttachment:@"mail.png"];
     [command addAttachment:@"mail.png"];
     
@@ -58,6 +77,7 @@
                         [LLOptionPrototypeFactory toAddressesOptionPrototype],
                         [LLOptionPrototypeFactory ccAddressesOptionPrototype],
                         [LLOptionPrototypeFactory bccAddressesOptionPrototype],
+                        [LLOptionPrototypeFactory fileAttachmentsOptionPrototype],
                         nil];
     
     LLCommandPrototype *commandPrototype = [[LLCommandPrototype alloc] initWithCommand:command andOptions:options];
@@ -65,11 +85,13 @@
 }
 
 + (LLCommandPrototype *)facebookCommandPrototype {
-    
+    LLFacebookCommand *command = [[LLFacebookCommand alloc] init];
+    return [self socialCommandPrototypeForCommand:command];
 }
 
 + (LLCommandPrototype *)twitterCommandPrototype {
-    
+    LLTwitterCommand *command = [[LLTwitterCommand alloc] init];
+    return [self socialCommandPrototypeForCommand:command];
 }
 
 @end

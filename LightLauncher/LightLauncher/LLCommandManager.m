@@ -9,6 +9,8 @@
 #import "LLCommandManager.h"
 #import "LLCommandParser.h"
 
+#import "LLCommandPrototypeFactory.h"
+
 #import "LLTwitterCommand.h"
 #import "LLEmailCommand.h"
 #import "LLFacebookCommand.h"
@@ -46,10 +48,10 @@
 
 - (void)initCommandPrototypes {
     self.commandPrototypes = [NSMutableArray arrayWithObjects:
-                     [LLEmailCommand commandPrototype],
-                     [LLTwitterCommand commandPrototype],
-                     [LLFacebookCommand commandPrototype],
-                     nil];
+                              [LLCommandPrototypeFactory emailCommandPrototype],
+                              [LLCommandPrototypeFactory facebookCommandPrototype],
+                              [LLCommandPrototypeFactory twitterCommandPrototype],
+                              nil];
 }
 
 - (void)executeFromString:(NSString *)string withViewController:(UIViewController *)viewController{

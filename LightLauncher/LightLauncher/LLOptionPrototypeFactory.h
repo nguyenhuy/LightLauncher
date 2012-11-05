@@ -13,12 +13,15 @@
 @interface LLOptionPrototypeFactory : NSObject
 
 + (LLOptionPrototype *)optionPrototypeWithName:(NSString *)name;
-+ (LLOptionPrototype *)optionPrototypeWithName:(NSString *)name andDisplayName:(NSString *)displayName andPossibleValue:(NSString *)possibleValue andDisplayPossibleValue:(NSString *)displayPossibleValue;
 + (LLOptionPrototype *)subjectOptionPrototype;
 + (LLOptionPrototype *)bodyOptionPrototype;
 + (LLOptionPrototype *)toAddressesOptionPrototype;
 + (LLOptionPrototype *)ccAddressesOptionPrototype;
 + (LLOptionPrototype *)bccAddressesOptionPrototype;
-+ (LLOptionPrototype *)attachmentsOptionPrototype;
++ (LLOptionPrototype *)urlAddressesOptionPrototype;
+
++ (LLOptionPrototype *)fileAttachmentsOptionPrototype;
++ (LLOptionPrototype *)imageAttachmentsOptionPrototype;
+
 
 @end

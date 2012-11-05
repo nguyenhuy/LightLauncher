@@ -10,13 +10,17 @@
 
 @interface LLOptionPrototype : NSObject
 
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *displayName;
+@property (nonatomic, strong, readonly) NSString *key;
+@property (nonatomic, strong, readonly) NSString *displayName;
 // Dictionary of possible values
-// Key is the value
-// Value is the display value, which is readable and should be used to display in UI
-@property (nonatomic, strong) NSDictionary *possibleValues;
+// Key of the dictionary is the key of LLOptionValuePrototype
+// Value of the dictionary is the LLOptionValuePrototype object
 
-- (LLOptionPrototype *)initWithName:(NSString *)name andDisplayName:(NSString *)displayName andPossibleValues:(NSDictionary *)possibleValues;
+// We can alternatively use NSArray.
+// But when we want to get a LLOptionValuePrototype, we have to loop and compare.
+// So dictionary is better.
+@property (nonatomic, strong, readonly) NSDictionary *possibleValues;
+
+- (LLOptionPrototype *)initWithKey:(NSString *)key andDisplayName:(NSString *)displayName andPossibleValues:(NSDictionary *)possibleValues;
 
 @end

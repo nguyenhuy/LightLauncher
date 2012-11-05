@@ -57,7 +57,7 @@
 }
 
 - (NSArray *)attachments {
-    return [self valueForKey:OPTION_ATTACHMENTS];
+    return [self valueForKey:OPTION_FILE_ATTACHMENTS];
 }
 
 - (void)addToAddress:(NSString *)address {
@@ -81,7 +81,7 @@
 }
 
 - (void)addAttachment:(NSString *)attachment {
-    [self addValue:attachment forKey:OPTION_ATTACHMENTS];
+    [self addValue:attachment forKey:OPTION_FILE_ATTACHMENTS];
 }
 
 #pragma mark - Service methods

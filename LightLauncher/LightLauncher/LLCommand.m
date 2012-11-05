@@ -18,10 +18,6 @@
     return self;
 }
 
-+ (LLCommandPrototype *)commandPrototype {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"commandPrototype must be implemented" userInfo:nil];
-}
-
 + (NSString *)command {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"command must be implemented" userInfo:nil];
 }

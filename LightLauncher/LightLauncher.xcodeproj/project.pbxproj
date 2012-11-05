@@ -39,6 +39,8 @@
 		78F12CF21646B0020068F9E4 /* LLOptionPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */; };
 		78F12CF51646B11F0068F9E4 /* LLCommandPrototypeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */; };
 		78F12CF81646B43A0068F9E4 /* LLOptionPrototypeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF71646B43A0068F9E4 /* LLOptionPrototypeFactory.m */; };
+		78F12CFE164750950068F9E4 /* LLOptionValuePrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CFD164750950068F9E4 /* LLOptionValuePrototype.m */; };
+		78F12D0116476F6E0068F9E4 /* LLOptionValuePrototypeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12D0016476F6D0068F9E4 /* LLOptionValuePrototypeFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +101,10 @@
 		78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandPrototypeFactory.m; sourceTree = "<group>"; };
 		78F12CF61646B43A0068F9E4 /* LLOptionPrototypeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLOptionPrototypeFactory.h; sourceTree = "<group>"; };
 		78F12CF71646B43A0068F9E4 /* LLOptionPrototypeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLOptionPrototypeFactory.m; sourceTree = "<group>"; };
+		78F12CFC164750940068F9E4 /* LLOptionValuePrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLOptionValuePrototype.h; sourceTree = "<group>"; };
+		78F12CFD164750950068F9E4 /* LLOptionValuePrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLOptionValuePrototype.m; sourceTree = "<group>"; };
+		78F12CFF16476F6D0068F9E4 /* LLOptionValuePrototypeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLOptionValuePrototypeFactory.h; sourceTree = "<group>"; };
+		78F12D0016476F6D0068F9E4 /* LLOptionValuePrototypeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLOptionValuePrototypeFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,10 +204,14 @@
 				78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */,
 				78F12CF61646B43A0068F9E4 /* LLOptionPrototypeFactory.h */,
 				78F12CF71646B43A0068F9E4 /* LLOptionPrototypeFactory.m */,
+				78F12CFF16476F6D0068F9E4 /* LLOptionValuePrototypeFactory.h */,
+				78F12D0016476F6D0068F9E4 /* LLOptionValuePrototypeFactory.m */,
 				78BA2D3216435C950057AD58 /* LLCommandPrototype.h */,
 				78BA2D3316435C950057AD58 /* LLCommandPrototype.m */,
 				78F12CF01646B0020068F9E4 /* LLOptionPrototype.h */,
 				78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */,
+				78F12CFC164750940068F9E4 /* LLOptionValuePrototype.h */,
+				78F12CFD164750950068F9E4 /* LLOptionValuePrototype.m */,
 				788FBF85163CE93C005A444E /* LLCommandParser.h */,
 				788FBF86163CE93C005A444E /* LLCommandParser.m */,
 				78BA2D3116435A420057AD58 /* Constants.h */,
@@ -373,6 +383,8 @@
 				78F12CF21646B0020068F9E4 /* LLOptionPrototype.m in Sources */,
 				78F12CF51646B11F0068F9E4 /* LLCommandPrototypeFactory.m in Sources */,
 				78F12CF81646B43A0068F9E4 /* LLOptionPrototypeFactory.m in Sources */,
+				78F12CFE164750950068F9E4 /* LLOptionValuePrototype.m in Sources */,
+				78F12D0116476F6E0068F9E4 /* LLOptionValuePrototypeFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

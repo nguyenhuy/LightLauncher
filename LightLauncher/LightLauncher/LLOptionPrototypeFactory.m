@@ -7,8 +7,12 @@
 //
 
 #import "LLOptionPrototypeFactory.h"
-#import "Constants.h"
+#import "LLOptionValuePrototypeFactory.h"
+
 #import "LLOptionPrototype.h"
+#import "LLOptionValuePrototype.h"
+
+#import "Constants.h"
 
 @implementation LLOptionPrototypeFactory
 
@@ -28,44 +32,99 @@
     if([name isEqualToString:OPTION_BCC_ADDRESSES]) {
         return [self bccAddressesOptionPrototype];
     }
-    if ([name isEqualToString:OPTION_ATTACHMENTS]) {
-        return [self attachmentsOptionPrototype];
+    if ([name isEqualToString:OPTION_FILE_ATTACHMENTS]) {
+        return [self fileAttachmentsOptionPrototype];
     }
     return nil;
 }
 
-+ (LLOptionPrototype *)optionPrototypeWithName:(NSString *)name andDisplayName:(NSString *)displayName andPossibleValue:(NSString *)possibleValue andDisplayPossibleValue:(NSString *)displayPossibleValue {
++(LLOptionPrototype *)subjectOptionPrototype {
+    LLOptionValuePrototype *prefillSubjectValue = [LLOptionValuePrototypeFactory stringOptionValuePrototypeWithDisplayName:@"Subject"];
     
     NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                    displayPossibleValue, possibleValue,
+                                    prefillSubjectValue.key, prefillSubjectValue,
                                     nil];
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithName:name andDisplayName:displayName andPossibleValues:possibleValues];
+    
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_SUBJECT andDisplayName:@"Subject" andPossibleValues:possibleValues];
     return optionPrototype;
-}
-
-+(LLOptionPrototype *)subjectOptionPrototype {
-    return [self optionPrototypeWithName:OPTION_SUBJECT andDisplayName:@"Subject" andPossibleValue:@"" andDisplayPossibleValue:@""];
 }
 
 + (LLOptionPrototype *)bodyOptionPrototype {
     NSString *subject = [NSString stringWithFormat:@"Send via %@", APP_NAME];
-    return [self optionPrototypeWithName:OPTION_BODY andDisplayName:@"Body" andPossibleValue:subject andDisplayPossibleValue:subject];
+    LLOptionValuePrototype *prefillBodyValue = [LLOptionValuePrototypeFactory stringOptionValuePrototypeWithDisplayName:subject];
+    
+    NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    prefillBodyValue.key, prefillBodyValue,
+                                    nil];
+    
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_BODY andDisplayName:@"Body" andPossibleValues:possibleValues];
+    return optionPrototype;
 }
 
 + (LLOptionPrototype *)toAddressesOptionPrototype {
-    return [self optionPrototypeWithName:OPTION_TO_ADDRESSES andDisplayName:@"To" andPossibleValue:@"support@lightlauncher.com" andDisplayPossibleValue:@"support@lightlauncher.com"];
+    LLOptionValuePrototype *prefillToValue = [LLOptionValuePrototypeFactory emailsOptionValuePrototypeWithDisplayName:@"support@lightlauncher.com"];
+    
+    NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    prefillToValue.key, prefillToValue,
+                                    nil];
+    
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_TO_ADDRESSES andDisplayName:@"To" andPossibleValues:possibleValues];
+    return optionPrototype;
 }
 
 + (LLOptionPrototype *)ccAddressesOptionPrototype {
-    return [self optionPrototypeWithName:OPTION_CC_ADDRESSES andDisplayName:@"Cc" andPossibleValue:@"support@lightlauncher.com" andDisplayPossibleValue:@"support@lightlauncher.com"];
+    LLOptionValuePrototype *prefillCcValue = [LLOptionValuePrototypeFactory emailsOptionValuePrototypeWithDisplayName:@"support@lightlauncher.com"];
+    
+    NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    prefillCcValue.key, prefillCcValue,
+                                    nil];
+    
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_CC_ADDRESSES andDisplayName:@"Cc" andPossibleValues:possibleValues];
+    return optionPrototype;
 }
 
 + (LLOptionPrototype *)bccAddressesOptionPrototype {
-    return [self optionPrototypeWithName:OPTION_BCC_ADDRESSES andDisplayName:@"Bcc" andPossibleValue:@"support@lightlauncher.com" andDisplayPossibleValue:@"support@lightlauncher.com"];
+    LLOptionValuePrototype *prefillBccValue = [LLOptionValuePrototypeFactory emailsOptionValuePrototypeWithDisplayName:@"support@lightlauncher.com"];
+    
+    NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    prefillBccValue.key, prefillBccValue,
+                                    nil];
+    
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_BCC_ADDRESSES andDisplayName:@"Bcc" andPossibleValues:possibleValues];
+    return optionPrototype;
 }
 
-+ (LLOptionPrototype *)attachmentsOptionPrototype {
-    return [self optionPrototypeWithName:OPTION_ATTACHMENTS andDisplayName:@"Attachments" andPossibleValue:@"mail.png" andDisplayPossibleValue:@"mail.png"];
++ (LLOptionPrototype *)urlAddressesOptionPrototype {
+    LLOptionValuePrototype *prefillUrlvalue = [LLOptionValuePrototypeFactory urlsOptionValuePrototypeWithDisplayName:@"http://lightlauncher.com"];
+    
+    NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    prefillUrlvalue.key, prefillUrlvalue,
+                                    nil];
+    
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_URLS andDisplayName:@"URLs" andPossibleValues:possibleValues];
+    return optionPrototype;
+}
+
++ (LLOptionPrototype *)fileAttachmentsOptionPrototype {
+    LLOptionValuePrototype *fileValue = [LLOptionValuePrototypeFactory fileAttachmentsOptionValuePrototypeWithDisplayName:@"Pick now"];
+    
+    NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    fileValue.key, fileValue,
+                                    nil];
+    
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_FILE_ATTACHMENTS andDisplayName:@"File attachments" andPossibleValues:possibleValues];
+    return optionPrototype;
+}
+
++ (LLOptionPrototype *)imageAttachmentsOptionPrototype {
+    LLOptionValuePrototype *imageValue = [LLOptionValuePrototypeFactory imageAttachmentsOptionValuePrototypeWithDisplayName:@"Pick now"];
+    
+    NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    imageValue.key, imageValue,
+                                    nil];
+
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_IMAGE_ATTACHMENTS andDisplayName:@"Images" andPossibleValues:possibleValues];
+    return optionPrototype;
 }
 
 @end

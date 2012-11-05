@@ -22,11 +22,22 @@
 #define OPTION_SERVICE_NAME @"service_name"
 #define OPTION_BODY @"body"
 #define OPTION_URLS @"urls"
-#define OPTION_IMAGES @"images"
 #define OPTION_TO_ADDRESSES @"to_addresses"
 #define OPTION_CC_ADDRESSES @"cc_addresses"
 #define OPTION_BCC_ADDRESSES @"bcc_addresses"
 #define OPTION_SUBJECT @"subject"
-#define OPTION_ATTACHMENTS @"attachments"
+#define OPTION_FILE_ATTACHMENTS @"file_attachments"
+#define OPTION_IMAGE_ATTACHMENTS @"image_attachments"
+
+#define OPTION_VALUE_PREFILL @"prefill"
+
+typedef enum {
+    TYPE_BOOLEAN,
+    TYPE_STRING,
+    TYPE_EMAIL,
+    TYPE_URL,
+    TYPE_FILE,
+    TYPE_IMAGE
+} OptionValueType;
 
 #endif

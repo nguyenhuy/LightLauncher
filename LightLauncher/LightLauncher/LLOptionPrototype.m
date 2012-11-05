@@ -8,12 +8,18 @@
 
 #import "LLOptionPrototype.h"
 
+@interface LLOptionPrototype ()
+@property (nonatomic, strong, readwrite) NSString *key;
+@property (nonatomic, strong, readwrite) NSString *displayName;
+@property (nonatomic, strong, readwrite) NSDictionary *possibleValues;
+@end
+
 @implementation LLOptionPrototype
 
-- (LLOptionPrototype *)initWithName:(NSString *)name andDisplayName:(NSString *)displayName andPossibleValues:(NSDictionary *)possibleValues {
+- (LLOptionPrototype *)initWithKey:(NSString *)key andDisplayName:(NSString *)displayName andPossibleValues:(NSDictionary *)possibleValues {
     self = [super init];
     if (self) {
-        self.name = name;
+        self.key = key;
         self.displayName = displayName;
         self.possibleValues = possibleValues;
     }
