@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define NI_COMMAND_PROTOTYPE_TABLE_VIEW_CONTROLLER @"LLCommandPrototypeTableViewController"
+#define NIB_COMMAND_PROTOTYPE_TABLE_VIEW_CONTROLLER @"LLCommandPrototypeTableViewController"
 
 @interface LLCommandPrototypeTableViewController : UITableViewController
 

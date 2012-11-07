@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7817D156164A2481007DEC5E /* LLOptionValuePrototypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7817D155164A2481007DEC5E /* LLOptionValuePrototypeCell.m */; };
 		785A0DA215E9A3B6002C6F78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0DA115E9A3B6002C6F78 /* UIKit.framework */; };
 		785A0DA415E9A3B6002C6F78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0DA315E9A3B6002C6F78 /* Foundation.framework */; };
 		785A0DA615E9A3B6002C6F78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0DA515E9A3B6002C6F78 /* CoreGraphics.framework */; };
@@ -44,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7817D154164A2481007DEC5E /* LLOptionValuePrototypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLOptionValuePrototypeCell.h; sourceTree = "<group>"; };
+		7817D155164A2481007DEC5E /* LLOptionValuePrototypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLOptionValuePrototypeCell.m; sourceTree = "<group>"; };
 		785A0D9D15E9A3B6002C6F78 /* LightLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		785A0DA115E9A3B6002C6F78 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		785A0DA315E9A3B6002C6F78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -226,6 +229,8 @@
 				785A0DDC15E9C39E002C6F78 /* LLReceiptCell.m */,
 				785A0DE015E9C662002C6F78 /* LLCommandPrototypeCell.h */,
 				785A0DE115E9C662002C6F78 /* LLCommandPrototypeCell.m */,
+				7817D154164A2481007DEC5E /* LLOptionValuePrototypeCell.h */,
+				7817D155164A2481007DEC5E /* LLOptionValuePrototypeCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -385,6 +390,7 @@
 				78F12CF81646B43A0068F9E4 /* LLOptionPrototypeFactory.m in Sources */,
 				78F12CFE164750950068F9E4 /* LLOptionValuePrototype.m in Sources */,
 				78F12D0116476F6E0068F9E4 /* LLOptionValuePrototypeFactory.m in Sources */,
+				7817D156164A2481007DEC5E /* LLOptionValuePrototypeCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

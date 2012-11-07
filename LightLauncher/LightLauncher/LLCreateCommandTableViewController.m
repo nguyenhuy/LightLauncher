@@ -8,7 +8,9 @@
 
 #import "LLCreateCommandTableViewController.h"
 #import "LLCommandPrototype.h"
+#import "LLOptionPrototype.h"
 #import "LLCommand.h"
+#import "LLOptionValuePrototypeCell.h"
 
 @interface LLCreateCommandTableViewController ()
 @property (nonatomic, strong, readwrite) LLCommand *command;
@@ -44,6 +46,8 @@
     
     self.title = [[self.commandPrototype.command class] description];
     
+    [self.tableView registerClass:[LLOptionValuePrototypeCell class] forCellReuseIdentifier:IDENTIFIER_OPTION_VALUE_PROTOTYPE_CELL];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -61,27 +65,23 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return [self.commandPrototype.options count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    LLOptionPrototype *optionPrototype = [self.commandPrototype.options objectAtIndex:section];
+    return [optionPrototype.possibleValues count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
+    LLOptionValuePrototypeCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_OPTION_VALUE_PROTOTYPE_CELL];
     
-    // Configure the cell...
+    LLOptionPrototype *optionPrototype = [self.commandPrototype.options objectAtIndex:indexPath.section];
+    LLOptionValuePrototype *optionValuePrototype = [[optionPrototype.possibleValues allValues] objectAtIndex:indexPath.row];
+    cell.optionValuePrototype = optionValuePrototype;
     
     return cell;
 }

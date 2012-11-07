@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define NIB_CREATE_COMMAND_VIEW_CONTROLLER @"LLCreateCommandViewController"
+#define NIB_CREATE_COMMAND_VIEW_CONTROLLER @"LLCreateCommandTableViewController"
 
 @class LLCommandPrototype;
 @class LLCommand;

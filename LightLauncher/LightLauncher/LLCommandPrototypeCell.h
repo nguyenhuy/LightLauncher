@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define IDENTIFIER_COMMAND_CELL @"CommandCell"
+#define IDENTIFIER_COMMAND_PROTOTYPE_CELL @"CommandPrototypeCell"
 
 @class LLCommandPrototype;
 

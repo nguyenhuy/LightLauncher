@@ -30,7 +30,7 @@
     [super viewDidLoad];
     
     self.title = @"Commands";
-    [self.tableView registerClass:[LLCommandPrototypeCell class] forCellReuseIdentifier:IDENTIFIER_COMMAND_CELL];
+    [self.tableView registerClass:[LLCommandPrototypeCell class] forCellReuseIdentifier:IDENTIFIER_COMMAND_PROTOTYPE_CELL];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -64,11 +64,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LLCommandPrototypeCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_COMMAND_CELL];
+    LLCommandPrototypeCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_COMMAND_PROTOTYPE_CELL];
     // Since we registered this CommandCell class with the tableView,
     // it will init a new cell if can't reuse any
     // and we don't need to check nil here.
-    [cell setCommandPrototype:[[[LLCommandManager sharedInstance] commandPrototypes] objectAtIndex:indexPath.row]];
+    cell.commandPrototype = [[[LLCommandManager sharedInstance] commandPrototypes] objectAtIndex:indexPath.row];
     
     return cell;
 }
