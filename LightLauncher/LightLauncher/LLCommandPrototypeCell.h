@@ -10,10 +10,10 @@
 
 #define IDENTIFIER_COMMAND_CELL @"CommandCell"
 
-@class LLCommand;
+@class LLCommandPrototype;
 
-@interface LLCommandCell : UITableViewCell
+@interface LLCommandPrototypeCell : UITableViewCell
 
-- (void)setCommand:(LLCommand *)command;
+@property (nonatomic, strong) LLCommandPrototype *commandPrototype;
 
 @end

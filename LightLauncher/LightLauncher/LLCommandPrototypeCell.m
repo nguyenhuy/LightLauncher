@@ -6,10 +6,11 @@
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
-#import "LLCommandCell.h"
+#import "LLCommandPrototypeCell.h"
+#import "LLCommandPrototype.h"
 #import "LLCommand.h"
 
-@implementation LLCommandCell
+@implementation LLCommandPrototypeCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -21,9 +22,18 @@
     return self;
 }
 
-- (void)setCommand:(LLCommand *)command {
-    self.imageView.image = [UIImage imageNamed:[[command class] iconFileName]];
-    self.textLabel.text = [[command class] description];
+- (void)setCommandPrototype:(LLCommandPrototype *)commandPrototype {
+    if (_commandPrototype != nil) {
+        _commandPrototype = nil;
+    }
+    
+    _commandPrototype = commandPrototype;
+    
+    if (_commandPrototype != nil) {
+        LLCommand *command = commandPrototype.command;
+        self.imageView.image = [UIImage imageNamed:[[command class] iconFileName]];
+        self.textLabel.text = [[command class] description];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
