@@ -10,10 +10,12 @@
 
 #define NIB_CREATE_COMMAND_VIEW_CONTROLLER @"LLCreateCommandViewController"
 
+@class LLCommandPrototype;
 @class LLCommand;
 
 @interface LLCreateCommandTableViewController : UITableViewController
 
-@property (nonatomic, strong) LLCommand *command;
+@property (nonatomic, strong) LLCommandPrototype *commandPrototype;
+@property (nonatomic, strong, readonly) LLCommand *command;
 
 @end

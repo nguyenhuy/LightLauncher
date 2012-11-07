@@ -7,10 +7,11 @@
 //
 
 #import "LLCreateCommandTableViewController.h"
+#import "LLCommandPrototype.h"
 #import "LLCommand.h"
 
 @interface LLCreateCommandTableViewController ()
-
+@property (nonatomic, strong, readwrite) LLCommand *command;
 @end
 
 @implementation LLCreateCommandTableViewController
@@ -24,11 +25,24 @@
     return self;
 }
 
+- (void)setCommandPrototype:(LLCommandPrototype *)commandPrototype {
+    if (_commandPrototype) {
+        _commandPrototype = nil;
+        _command = nil;
+    }
+    
+    _commandPrototype = commandPrototype;
+    
+    if (commandPrototype) {
+        _command = [_commandPrototype.command copy];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.title = [[self.command class] description];
+    self.title = [[self.commandPrototype.command class] description];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

@@ -23,13 +23,13 @@
 }
 
 - (void)setCommandPrototype:(LLCommandPrototype *)commandPrototype {
-    if (_commandPrototype != nil) {
+    if (_commandPrototype) {
         _commandPrototype = nil;
     }
     
     _commandPrototype = commandPrototype;
     
-    if (_commandPrototype != nil) {
+    if (_commandPrototype) {
         LLCommand *command = commandPrototype.command;
         self.imageView.image = [UIImage imageNamed:[[command class] iconFileName]];
         self.textLabel.text = [[command class] description];

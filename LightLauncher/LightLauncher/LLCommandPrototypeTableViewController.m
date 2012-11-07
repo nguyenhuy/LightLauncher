@@ -80,7 +80,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     LLCreateCommandTableViewController *controller = [[LLCreateCommandTableViewController alloc] initWithNibName:NIB_CREATE_COMMAND_VIEW_CONTROLLER bundle:nil];
-    controller.command = [[[LLCommandManager sharedInstance] commandPrototypes] objectAtIndex:indexPath.row];
+    controller.commandPrototype = [[[LLCommandManager sharedInstance] commandPrototypes] objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:controller animated:YES];
 }
 

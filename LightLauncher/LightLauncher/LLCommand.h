@@ -11,7 +11,7 @@
 
 @class LLCommandPrototype;
 
-@interface LLCommand : NSObject
+@interface LLCommand : NSObject <NSCopying>
 
 @property (nonatomic, strong) NSMutableDictionary *options;
 

@@ -51,4 +51,10 @@
     @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"execute must be implemented" userInfo:nil];
 }
 
+- (id)copyWithZone:(NSZone *)zone {
+    LLCommand *newCopy = [[self.class alloc] init];
+    newCopy.options = [self.options copyWithZone:zone];
+    return newCopy;
+}
+
 @end
