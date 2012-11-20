@@ -75,13 +75,29 @@
     return [optionPrototype.possibleValues count];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [[self.commandPrototype.options objectAtIndex:section] displayName];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LLOptionValuePrototypeCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_OPTION_VALUE_PROTOTYPE_CELL];
     
     LLOptionPrototype *optionPrototype = [self.commandPrototype.options objectAtIndex:indexPath.section];
-    LLOptionValuePrototype *optionValuePrototype = [[optionPrototype.possibleValues allValues] objectAtIndex:indexPath.row];
-    cell.optionValuePrototype = optionValuePrototype;
+    NSObject *optionValue = [self.command valueForKey:optionPrototype.key];
+    
+    if (optionValue) {
+        NSString *title = nil;
+        if ([optionValue isKindOfClass:[NSString class]]) {
+            title = (NSString *) optionValue;
+        } else if([optionValue isKindOfClass:[NSArray class]]) {
+            title = [((NSArray *) optionValue) componentsJoinedByString:@", "];
+        }
+        cell.textLabel.text = title;
+    } else {
+        LLOptionValuePrototype *optionValuePrototype = [[optionPrototype.possibleValues allValues] objectAtIndex:indexPath.row];
+        cell.optionValuePrototype = optionValuePrototype;
+    }
     
     return cell;
 }
