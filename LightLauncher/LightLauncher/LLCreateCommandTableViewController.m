@@ -11,6 +11,8 @@
 #import "LLOptionPrototype.h"
 #import "LLCommand.h"
 #import "LLOptionValuePrototypeCell.h"
+#import "LLCommandManager.h"
+
 
 @interface LLCreateCommandTableViewController ()
 @property (nonatomic, strong, readwrite) LLCommand *command;
@@ -52,7 +54,8 @@
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *executeBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(executeCommand)];
+    self.navigationItem.rightBarButtonItem = executeBarButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -152,6 +155,12 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+#pragma mark - Instance methods
+
+- (void)executeCommand {
+    [[LLCommandManager sharedInstance] executeFromCommand:self.command withViewController:self];
 }
 
 @end
