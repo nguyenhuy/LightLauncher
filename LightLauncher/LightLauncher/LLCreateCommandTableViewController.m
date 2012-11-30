@@ -17,10 +17,12 @@
 
 #import "LLOptionValuePrototypeCell.h"
 
-
-
 @interface LLCreateCommandTableViewController ()
-@property (nonatomic, strong, readwrite) LLCommand *command;
+
+- (LLOptionPrototype *)optionPrototypeAtIndexPath:(NSIndexPath *)indexPath;
+- (LLOptionPrototype *)optionPrototypeAtIndex:(int)index;
+- (LLOptionValuePrototype *)optionValuePrototypeAtIndexPath:(NSIndexPath *)indexPath;
+
 @end
 
 @implementation LLCreateCommandTableViewController
@@ -32,19 +34,6 @@
         // Custom initialization
     }
     return self;
-}
-
-- (void)setCommandPrototype:(LLCommandPrototype *)commandPrototype {
-    if (_commandPrototype) {
-        _commandPrototype = nil;
-        _command = nil;
-    }
-    
-    _commandPrototype = commandPrototype;
-    
-    if (commandPrototype) {
-        _command = [_commandPrototype.command copy];
-    }
 }
 
 - (void)viewDidLoad
@@ -90,92 +79,54 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LLOptionValuePrototypeCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_OPTION_VALUE_PROTOTYPE_CELL];
-    
-    LLOptionPrototype *optionPrototype = [self.commandPrototype.options objectAtIndex:indexPath.section];
-    NSObject *value = [self.command valueForKey:optionPrototype.key];
-    
-    LLOptionValuePrototype *optionValuePrototype = [[optionPrototype.possibleValues allValues] objectAtIndex:indexPath.row];
+    LLOptionValuePrototype *optionValuePrototype = [self optionValuePrototypeAtIndexPath:indexPath];
     cell.optionValuePrototype = optionValuePrototype;
-    
-    BOOL selected = NO;
-    if (value) {
-        if ([value isKindOfClass:[NSString class]]) {
-            NSString *valueString = (NSString *) value;
-            if (optionValuePrototype.key == OPTION_VALUE_PREFILL) {
-                cell.textLabel.text = valueString;
-                selected = YES;
-            } else if ([valueString isEqualToString:optionValuePrototype.key]){
-                selected = YES;
-            }
-        } else if([value isKindOfClass:[NSArray class]]) {
-            if (optionValuePrototype.key == OPTION_VALUE_PREFILL) {
-                // Must be prefill
-                cell.textLabel.text = [((NSArray *) value) componentsJoinedByString:@", "];
-                selected = YES;
-            }
-        }
-    }
-    cell.accessoryType = selected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
-    
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    // Deselect other option values
+    LLOptionPrototype *option = [self optionPrototypeAtIndexPath:indexPath];
+    for (LLOptionValuePrototype *optionValue in option.possibleValues.allValues) {
+        optionValue.selected = NO;
+    }
+
+    LLOptionValuePrototype *optionValue = [self optionValuePrototypeAtIndexPath:indexPath];
+    optionValue.selected = YES;
+    // @TODO: how to get user input here???
+    [tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:YES];
 }
 
 #pragma mark - Instance methods
 
 - (void)executeCommand {
-    [[LLCommandManager sharedInstance] executeFromCommand:self.command withCommandPrototype:self.commandPrototype withViewController:self];
+    [[LLCommandManager sharedInstance] executeFromCommandPrototype:self.commandPrototype withViewController:self];
+}
+
+- (LLOptionPrototype *)optionPrototypeAtIndexPath:(NSIndexPath *)indexPath {
+    return [self optionPrototypeAtIndex:indexPath.section];
+}
+
+- (LLOptionPrototype *)optionPrototypeAtIndex:(int)index {
+    return [self.commandPrototype.options objectAtIndex:index];
+}
+
+- (LLOptionValuePrototype *)optionValuePrototypeAtIndexPath:(NSIndexPath *)indexPath {
+    LLOptionPrototype *optionPrototype = [self optionPrototypeAtIndexPath:indexPath];
+    LLOptionValuePrototype *optionValuePrototype = [[optionPrototype.possibleValues allValues] objectAtIndex:indexPath.row];
+    return optionValuePrototype;
 }
 
 @end

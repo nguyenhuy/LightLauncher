@@ -16,7 +16,6 @@
 @interface LLCreateCommandTableViewController : UITableViewController
 
 @property (nonatomic, strong) LLCommandPrototype *commandPrototype;
-@property (nonatomic, strong, readonly) LLCommand *command;
 
 - (void)executeCommand;
 

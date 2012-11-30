@@ -21,27 +21,22 @@
 
 @implementation LLCommandCompiler
 
-+ (LLCommand *)compile:(const LLCommand *)rawCommand withCommandPrototype:(LLCommandPrototype *)commandPrototype {
-    LLCommand *compiledCommand = [rawCommand copy];
-    for (LLOptionPrototype *optionPrototype in commandPrototype.options) {
-        NSObject *value = [compiledCommand valueForKey:optionPrototype.key];
-        if (value) {
-            NSString *compiledValue;
-            NSString *valueString = nil;
-            if ([value isKindOfClass:[NSString class]]) {
-                valueString = (NSString *) value;
-                if ([valueString isEqualToString:OPTION_VALUE_PASTEBOARD]) {
-                    LLOptionValuePrototype *optionValuePrototype = [optionPrototype possibleValueForKey:valueString];
-                    compiledValue = [self optionValueFromPasteboardWithOptionValuePrototype:optionValuePrototype];
++ (LLCommand *)compile:(LLCommandPrototype *)commandPrototype {
+    LLCommand *compiledCommand = [commandPrototype.command copy];
+    // @TODO refactor this
+    for (LLOptionPrototype *option in commandPrototype.options) {
+        for (LLOptionValuePrototype *optionValue in option.possibleValues.allValues) {
+            if (optionValue.selected) {
+                NSString *compiledValue;
+                if (optionValue.value == nil) {
+                    if ([optionValue.key isEqualToString:OPTION_VALUE_PASTEBOARD]) {
+                        compiledValue = [self optionValueFromPasteboardWithOptionValuePrototype:optionValue];
+                    }
                 } else {
-                    // Prefill value
-                    compiledValue = valueString;
+                    compiledValue = [optionValue valueString];
                 }
-            } else if([value isKindOfClass:[NSArray class]]) {
-                // Prefill value
-                compiledValue = [((NSArray *) value) componentsJoinedByString:@", "];
+                [compiledCommand setValue:compiledValue forKey:option.key];
             }
-            [compiledValue setValue:compiledValue forKey:optionPrototype.key];
         }
     }
     return compiledCommand;

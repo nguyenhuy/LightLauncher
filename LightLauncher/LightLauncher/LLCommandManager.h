@@ -19,6 +19,6 @@
 + (LLCommandManager *)sharedInstance;
 
 - (void)executeFromString:(NSString *)string withCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController;
-- (void)executeFromCommand:(LLCommand *)command withCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController;
+- (void)executeFromCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController;
 
 @end

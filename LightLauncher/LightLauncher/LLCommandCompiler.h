@@ -13,7 +13,6 @@
 
 @interface LLCommandCompiler : NSObject
 
-// Retruns a new command with compiled value for each option which represents in rawCommand
-+ (LLCommand *)compile:(const LLCommand *)rawCommand withCommandPrototype:(LLCommandPrototype *)commandPrototype;
++ (LLCommand *)compile:(LLCommandPrototype *)commandPrototype;
 
 @end

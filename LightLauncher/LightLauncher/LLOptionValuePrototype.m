@@ -16,14 +16,32 @@
 
 @implementation LLOptionValuePrototype
 
-- (id)initWithKey:(NSString *)key andDisplayName:(NSString *)displayName andType:(OptionValueType)type {
+- (LLOptionValuePrototype *)initWithKey:(NSString *)key andDisplayName:(NSString *)displayName andType:(OptionValueType)type {
     self = [super init];
     if (self) {
         self.key = key;
         self.displayName = displayName;
         self.type = type;
+        self.selected = NO;
+        self.value = nil;
     }
     return self;
+}
+
+- (NSString *)valueString {
+    if (self.value == nil) {
+        return nil;
+    }
+    
+    if ([self.value isKindOfClass:[NSString class]]){
+        return self.value;
+    }
+    
+    if ([self.value isKindOfClass:[NSArray class]]) {
+        return [self.value componentsJoinedByString:@", "];
+    }
+    
+    return nil;
 }
 
 @end

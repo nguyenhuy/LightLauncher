@@ -53,7 +53,7 @@
 
 - (id)copyWithZone:(NSZone *)zone {
     LLCommand *newCopy = [[self.class alloc] init];
-    newCopy.options = [self.options copyWithZone:zone];
+    newCopy.options = [[NSMutableDictionary alloc] initWithDictionary:self.options copyItems:YES];
     return newCopy;
 }
 

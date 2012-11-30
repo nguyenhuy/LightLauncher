@@ -29,7 +29,12 @@
     _optionValuePrototype = optionValuePrototype;
     
     if (_optionValuePrototype) {
-        self.textLabel.text = _optionValuePrototype.displayName;
+        if (_optionValuePrototype.value == nil) {
+            self.textLabel.text = _optionValuePrototype.displayName;
+        } else {
+            self.textLabel.text = [_optionValuePrototype valueString];
+        }
+        self.accessoryType = _optionValuePrototype.selected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     }
 }
 

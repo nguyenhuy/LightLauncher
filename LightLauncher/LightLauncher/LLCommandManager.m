@@ -57,12 +57,13 @@
 }
 
 - (void)executeFromString:(NSString *)string withCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController {
-    LLCommand *command = [LLCommandParser decode:string];
-    [self executeFromCommand:command withCommandPrototype:commandPrototype withViewController:viewController];
+    // @TODO: maybe need to decompile instead
+//    LLCommand *command = [LLCommandParser decode:string];
+//    [self executeFromCommand:command withCommandPrototype:commandPrototype withViewController:viewController];
 }
 
-- (void)executeFromCommand:(LLCommand *)command withCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController {
-    LLCommand *compiledCommand = [LLCommandCompiler compile:command withCommandPrototype:commandPrototype];
+- (void)executeFromCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController {
+    LLCommand *compiledCommand = [LLCommandCompiler compile:commandPrototype];
     [compiledCommand executeFromViewController:viewController];
 }
 
