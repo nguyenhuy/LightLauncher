@@ -13,6 +13,30 @@
 
 @interface LLCommand : NSObject <NSCopying>
 
+// Dict of KVCs that represents options
+// Example:
+//{
+//    "bcc_addresses" =     (
+//                           "allforone1511@gmail.com",
+//                           "allforone1511@gmail.com"
+//                           );
+//    body = "Hello LightLauncher";
+//    "cc_addresses" =     (
+//                          "allforone1511@gmail.com",
+//                          "allforone1511@gmail.com"
+//                          );
+//    "file_attachments" =     (
+//                              "mail.png",
+//                              "mail.png"
+//                              );
+//    "service_name" = Email;
+//    "service_type" = email;
+//    subject = hello;
+//    "to_addresses" =     (
+//                          "allforone1511@gmail.com",
+//                          "allforone1511@gmail.com"
+//                          );
+//}
 @property (nonatomic, strong) NSMutableDictionary *options;
 
 + (NSString *)command;

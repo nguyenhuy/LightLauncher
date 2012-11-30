@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class LLCommand;
+@class LLCommandPrototype;
 
 @interface LLCommandManager : NSObject
 
@@ -17,7 +18,7 @@
 
 + (LLCommandManager *)sharedInstance;
 
-- (void)executeFromString:(NSString *)string withViewController:(UIViewController *)viewController;
-- (void)executeFromCommand:(LLCommand *)command withViewController:(UIViewController *)viewController;
+- (void)executeFromString:(NSString *)string withCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController;
+- (void)executeFromCommand:(LLCommand *)command withCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController;
 
 @end

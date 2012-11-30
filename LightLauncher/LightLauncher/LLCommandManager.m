@@ -7,7 +7,9 @@
 //
 
 #import "LLCommandManager.h"
+
 #import "LLCommandParser.h"
+#import "LLCommandCompiler.h"
 
 #import "LLCommandPrototypeFactory.h"
 
@@ -54,13 +56,14 @@
                               nil];
 }
 
-- (void)executeFromString:(NSString *)string withViewController:(UIViewController *)viewController{
+- (void)executeFromString:(NSString *)string withCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController {
     LLCommand *command = [LLCommandParser decode:string];
-    [self executeFromCommand:command withViewController:viewController];
+    [self executeFromCommand:command withCommandPrototype:commandPrototype withViewController:viewController];
 }
 
-- (void)executeFromCommand:(LLCommand *)command withViewController:(UIViewController *)viewController{
-    [command executeFromViewController:viewController];
+- (void)executeFromCommand:(LLCommand *)command withCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController {
+    LLCommand *compiledCommand = [LLCommandCompiler compile:command withCommandPrototype:commandPrototype];
+    [compiledCommand executeFromViewController:viewController];
 }
 
 @end

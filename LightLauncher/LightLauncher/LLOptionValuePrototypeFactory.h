@@ -16,5 +16,6 @@
 + (LLOptionValuePrototype *)urlsOptionValuePrototypeWithDisplayName:(NSString *)displayName;
 + (LLOptionValuePrototype *)fileAttachmentsOptionValuePrototypeWithDisplayName:(NSString *)displayName;
 + (LLOptionValuePrototype *)imageAttachmentsOptionValuePrototypeWithDisplayName:(NSString *)displayName;
++ (LLOptionValuePrototype *)pasteboardOptionValuePrototype;
 
 @end

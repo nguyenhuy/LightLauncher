@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		780E20FF16682C7500AE63EA /* LLCommandCompiler.m in Sources */ = {isa = PBXBuildFile; fileRef = 780E20FE16682C7500AE63EA /* LLCommandCompiler.m */; };
 		7817D156164A2481007DEC5E /* LLOptionValuePrototypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7817D155164A2481007DEC5E /* LLOptionValuePrototypeCell.m */; };
 		785A0DA215E9A3B6002C6F78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0DA115E9A3B6002C6F78 /* UIKit.framework */; };
 		785A0DA415E9A3B6002C6F78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0DA315E9A3B6002C6F78 /* Foundation.framework */; };
@@ -45,6 +46,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		780E20FD16682C7500AE63EA /* LLCommandCompiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandCompiler.h; sourceTree = "<group>"; };
+		780E20FE16682C7500AE63EA /* LLCommandCompiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandCompiler.m; sourceTree = "<group>"; };
 		7817D154164A2481007DEC5E /* LLOptionValuePrototypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLOptionValuePrototypeCell.h; sourceTree = "<group>"; };
 		7817D155164A2481007DEC5E /* LLOptionValuePrototypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLOptionValuePrototypeCell.m; sourceTree = "<group>"; };
 		785A0D9D15E9A3B6002C6F78 /* LightLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +206,8 @@
 				785A0DCC15E9BFC9002C6F78 /* LLReceipt.m */,
 				785A0DD415E9C164002C6F78 /* LLCommandManager.h */,
 				785A0DD515E9C165002C6F78 /* LLCommandManager.m */,
+				780E20FD16682C7500AE63EA /* LLCommandCompiler.h */,
+				780E20FE16682C7500AE63EA /* LLCommandCompiler.m */,
 				78F12CF31646B11F0068F9E4 /* LLCommandPrototypeFactory.h */,
 				78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */,
 				78F12CF61646B43A0068F9E4 /* LLOptionPrototypeFactory.h */,
@@ -391,6 +396,7 @@
 				78F12CFE164750950068F9E4 /* LLOptionValuePrototype.m in Sources */,
 				78F12D0116476F6E0068F9E4 /* LLOptionValuePrototypeFactory.m in Sources */,
 				7817D156164A2481007DEC5E /* LLOptionValuePrototypeCell.m in Sources */,
+				780E20FF16682C7500AE63EA /* LLCommandCompiler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

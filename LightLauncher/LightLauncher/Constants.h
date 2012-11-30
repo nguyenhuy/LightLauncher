@@ -30,6 +30,9 @@
 #define OPTION_IMAGE_ATTACHMENTS @"image_attachments"
 
 #define OPTION_VALUE_PREFILL @"prefill"
+#define OPTION_VALUE_PASTEBOARD @"pasteboard"
+
+#define DISPLAY_NAME_PASTEBOARD_OPTION_VALUE @"from Pasteboard"
 
 typedef enum {
     TYPE_BOOLEAN,
