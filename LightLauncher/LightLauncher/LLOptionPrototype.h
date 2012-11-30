@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class LLOptionValuePrototype;
+
 @interface LLOptionPrototype : NSObject
 
 @property (nonatomic, strong, readonly) NSString *key;
@@ -22,6 +24,7 @@
 @property (nonatomic, strong, readonly) NSDictionary *possibleValues;
 
 - (LLOptionPrototype *)initWithKey:(NSString *)key andDisplayName:(NSString *)displayName andPossibleValues:(NSDictionary *)possibleValues;
-- (BOOL)containPossibleValueWithKey:(NSString *)key;
+- (LLOptionValuePrototype *)possibleValueForKey:(NSString *)key;
+- (BOOL)containPossibleValueForKey:(NSString *)key;
 
 @end

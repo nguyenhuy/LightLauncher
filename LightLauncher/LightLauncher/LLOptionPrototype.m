@@ -26,7 +26,11 @@
     return self;
 }
 
-- (BOOL)containPossibleValueWithKey:(NSString *)key {
+- (LLOptionValuePrototype *)possibleValueForKey:(NSString *)key {
+    return [self.possibleValues objectForKey:key];
+}
+
+- (BOOL)containPossibleValueForKey:(NSString *)key {
     return [self.possibleValues objectForKey:key] != nil;
 }
 
