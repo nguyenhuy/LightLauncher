@@ -26,4 +26,8 @@
     return self;
 }
 
+- (BOOL)containPossibleValueWithKey:(NSString *)key {
+    return [self.possibleValues objectForKey:key] != nil;
+}
+
 @end

@@ -7,11 +7,16 @@
 //
 
 #import "LLCreateCommandTableViewController.h"
+
+#import "LLCommand.h"
+#import "LLCommandManager.h"
+
 #import "LLCommandPrototype.h"
 #import "LLOptionPrototype.h"
-#import "LLCommand.h"
+#import "LLOptionValuePrototype.h"
+
 #import "LLOptionValuePrototypeCell.h"
-#import "LLCommandManager.h"
+
 
 
 @interface LLCreateCommandTableViewController ()
@@ -89,17 +94,16 @@
     LLOptionPrototype *optionPrototype = [self.commandPrototype.options objectAtIndex:indexPath.section];
     NSObject *value = [self.command valueForKey:optionPrototype.key];
     
-    if (value) {
-        NSString *title = nil;
+    LLOptionValuePrototype *optionValuePrototype = [[optionPrototype.possibleValues allValues] objectAtIndex:indexPath.row];
+    cell.optionValuePrototype = optionValuePrototype;
+    
+    if (value && optionValuePrototype.key == OPTION_VALUE_PREFILL) {
         if ([value isKindOfClass:[NSString class]]) {
-            title = (NSString *) value;
+            cell.textLabel.text = (NSString *) value;
         } else if([value isKindOfClass:[NSArray class]]) {
-            title = [((NSArray *) value) componentsJoinedByString:@", "];
+            // Must be prefill
+            cell.textLabel.text = [((NSArray *) value) componentsJoinedByString:@", "];
         }
-        cell.textLabel.text = title;
-    } else {
-        LLOptionValuePrototype *optionValuePrototype = [[optionPrototype.possibleValues allValues] objectAtIndex:indexPath.row];
-        cell.optionValuePrototype = optionValuePrototype;
     }
     
     return cell;

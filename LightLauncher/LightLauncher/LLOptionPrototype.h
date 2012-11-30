@@ -22,5 +22,6 @@
 @property (nonatomic, strong, readonly) NSDictionary *possibleValues;
 
 - (LLOptionPrototype *)initWithKey:(NSString *)key andDisplayName:(NSString *)displayName andPossibleValues:(NSDictionary *)possibleValues;
+- (BOOL)containPossibleValueWithKey:(NSString *)key;
 
 @end
