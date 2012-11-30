@@ -17,6 +17,7 @@
 
 @interface LLCommandCompiler ()
 + (NSString *)optionValueFromPasteboardWithOptionValuePrototype:(LLOptionValuePrototype *)optionValuePrototype;
++ (NSString *)compiledValueFromOptionValuePrototype:(LLOptionValuePrototype *)optionValue;
 @end
 
 @implementation LLCommandCompiler
@@ -27,19 +28,25 @@
     for (LLOptionPrototype *option in commandPrototype.options) {
         for (LLOptionValuePrototype *optionValue in option.possibleValues.allValues) {
             if (optionValue.selected) {
-                NSString *compiledValue;
-                if (optionValue.value == nil) {
-                    if ([optionValue.key isEqualToString:OPTION_VALUE_PASTEBOARD]) {
-                        compiledValue = [self optionValueFromPasteboardWithOptionValuePrototype:optionValue];
-                    }
-                } else {
-                    compiledValue = [optionValue valueString];
-                }
+                NSString *compiledValue = [self compiledValueFromOptionValuePrototype:optionValue];
                 [compiledCommand setValue:compiledValue forKey:option.key];
+                continue;
             }
         }
     }
     return compiledCommand;
+}
+
++ (NSString *)compiledValueFromOptionValuePrototype:(LLOptionValuePrototype *)optionValue {
+    NSString *compiledValue;
+    if (optionValue.value == nil) {
+        if ([optionValue.key isEqualToString:OPTION_VALUE_PASTEBOARD]) {
+            compiledValue = [self optionValueFromPasteboardWithOptionValuePrototype:optionValue];
+        }
+    } else {
+        compiledValue = [optionValue valueString];
+    }
+    return compiledValue;
 }
 
 + (NSString *)optionValueFromPasteboardWithOptionValuePrototype:(LLOptionValuePrototype *)optionValuePrototype {
