@@ -97,14 +97,25 @@
     LLOptionValuePrototype *optionValuePrototype = [[optionPrototype.possibleValues allValues] objectAtIndex:indexPath.row];
     cell.optionValuePrototype = optionValuePrototype;
     
-    if (value && optionValuePrototype.key == OPTION_VALUE_PREFILL) {
+    BOOL selected = NO;
+    if (value) {
         if ([value isKindOfClass:[NSString class]]) {
-            cell.textLabel.text = (NSString *) value;
+            NSString *valueString = (NSString *) value;
+            if (optionValuePrototype.key == OPTION_VALUE_PREFILL) {
+                cell.textLabel.text = valueString;
+                selected = YES;
+            } else if ([valueString isEqualToString:optionValuePrototype.key]){
+                selected = YES;
+            }
         } else if([value isKindOfClass:[NSArray class]]) {
-            // Must be prefill
-            cell.textLabel.text = [((NSArray *) value) componentsJoinedByString:@", "];
+            if (optionValuePrototype.key == OPTION_VALUE_PREFILL) {
+                // Must be prefill
+                cell.textLabel.text = [((NSArray *) value) componentsJoinedByString:@", "];
+                selected = YES;
+            }
         }
     }
+    cell.accessoryType = selected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     
     return cell;
 }
