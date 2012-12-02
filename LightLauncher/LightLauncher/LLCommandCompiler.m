@@ -24,7 +24,6 @@
 
 + (LLCommand *)compile:(LLCommandPrototype *)commandPrototype {
     LLCommand *compiledCommand = [commandPrototype.command copy];
-    // @TODO refactor this
     for (LLOptionPrototype *option in commandPrototype.options) {
         for (LLOptionValuePrototype *optionValue in option.possibleValues.allValues) {
             if (optionValue.selected) {
