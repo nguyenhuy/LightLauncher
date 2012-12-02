@@ -19,7 +19,7 @@
 }
 
 + (NSString *)command {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"description must be implemented" userInfo:nil];
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"command must be implemented" userInfo:nil];
 }
 
 + (NSString *)description {
@@ -49,6 +49,12 @@
 
 - (void)executeFromViewController:(UIViewController *)viewController {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"execute must be implemented" userInfo:nil];
+}
+
+- (id)copyWithZone:(NSZone *)zone {
+    LLCommand *newCopy = [[self.class alloc] init];
+    newCopy.options = [[NSMutableDictionary alloc] initWithDictionary:self.options copyItems:YES];
+    return newCopy;
 }
 
 @end

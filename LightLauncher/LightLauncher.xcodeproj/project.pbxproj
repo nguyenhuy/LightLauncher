@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		780E20FF16682C7500AE63EA /* LLCommandCompiler.m in Sources */ = {isa = PBXBuildFile; fileRef = 780E20FE16682C7500AE63EA /* LLCommandCompiler.m */; };
+		7817D156164A2481007DEC5E /* LLOptionValuePrototypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7817D155164A2481007DEC5E /* LLOptionValuePrototypeCell.m */; };
 		785A0DA215E9A3B6002C6F78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0DA115E9A3B6002C6F78 /* UIKit.framework */; };
 		785A0DA415E9A3B6002C6F78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0DA315E9A3B6002C6F78 /* Foundation.framework */; };
 		785A0DA615E9A3B6002C6F78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0DA515E9A3B6002C6F78 /* CoreGraphics.framework */; };
@@ -15,9 +17,9 @@
 		785A0DB215E9A3B6002C6F78 /* LLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DB115E9A3B6002C6F78 /* LLAppDelegate.m */; };
 		785A0DCD15E9BFC9002C6F78 /* LLReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DCC15E9BFC9002C6F78 /* LLReceipt.m */; };
 		785A0DD015E9BFD1002C6F78 /* LLCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DCF15E9BFD1002C6F78 /* LLCommand.m */; };
-		785A0DD615E9C165002C6F78 /* LLReceiptManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DD515E9C165002C6F78 /* LLReceiptManager.m */; };
+		785A0DD615E9C165002C6F78 /* LLCommandManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DD515E9C165002C6F78 /* LLCommandManager.m */; };
 		785A0DDD15E9C39E002C6F78 /* LLReceiptCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DDC15E9C39E002C6F78 /* LLReceiptCell.m */; };
-		785A0DE215E9C662002C6F78 /* LLCommandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DE115E9C662002C6F78 /* LLCommandCell.m */; };
+		785A0DE215E9C662002C6F78 /* LLCommandPrototypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DE115E9C662002C6F78 /* LLCommandPrototypeCell.m */; };
 		785A0E1015E9CF02002C6F78 /* LLTwitterCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0E0F15E9CF02002C6F78 /* LLTwitterCommand.m */; };
 		785A0E1315E9D157002C6F78 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 785A0E1215E9D157002C6F78 /* twitter.png */; };
 		785A0E2215E9EF1A002C6F78 /* LLEmailCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0E2115E9EF1A002C6F78 /* LLEmailCommand.m */; };
@@ -31,11 +33,23 @@
 		788FBF8D163CEC59005A444E /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF8C163CEC59005A444E /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		788FBF90163D1038005A444E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0E2615E9F0AC002C6F78 /* MessageUI.framework */; };
 		788FBF99163D4E49005A444E /* NSObject+IsEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF98163D4E49005A444E /* NSObject+IsEmpty.m */; };
-		788FBFA6163D91CF005A444E /* LLCreateCommandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBFA4163D91CF005A444E /* LLCreateCommandViewController.m */; };
-		788FBFA7163D91CF005A444E /* LLCreateCommandViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788FBFA5163D91CF005A444E /* LLCreateCommandViewController.xib */; };
+		788FBFA6163D91CF005A444E /* LLCommandPrototypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBFA4163D91CF005A444E /* LLCommandPrototypeTableViewController.m */; };
+		788FBFA7163D91CF005A444E /* LLCommandPrototypeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788FBFA5163D91CF005A444E /* LLCommandPrototypeTableViewController.xib */; };
+		788FBFC3163DA3F3005A444E /* LLCreateCommandTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBFC1163DA3F3005A444E /* LLCreateCommandTableViewController.m */; };
+		788FBFC4163DA3F3005A444E /* LLCreateCommandTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788FBFC2163DA3F3005A444E /* LLCreateCommandTableViewController.xib */; };
+		78BA2D3416435C950057AD58 /* LLCommandPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BA2D3316435C950057AD58 /* LLCommandPrototype.m */; };
+		78F12CF21646B0020068F9E4 /* LLOptionPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */; };
+		78F12CF51646B11F0068F9E4 /* LLCommandPrototypeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */; };
+		78F12CF81646B43A0068F9E4 /* LLOptionPrototypeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF71646B43A0068F9E4 /* LLOptionPrototypeFactory.m */; };
+		78F12CFE164750950068F9E4 /* LLOptionValuePrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CFD164750950068F9E4 /* LLOptionValuePrototype.m */; };
+		78F12D0116476F6E0068F9E4 /* LLOptionValuePrototypeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12D0016476F6D0068F9E4 /* LLOptionValuePrototypeFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		780E20FD16682C7500AE63EA /* LLCommandCompiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandCompiler.h; sourceTree = "<group>"; };
+		780E20FE16682C7500AE63EA /* LLCommandCompiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandCompiler.m; sourceTree = "<group>"; };
+		7817D154164A2481007DEC5E /* LLOptionValuePrototypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLOptionValuePrototypeCell.h; sourceTree = "<group>"; };
+		7817D155164A2481007DEC5E /* LLOptionValuePrototypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLOptionValuePrototypeCell.m; sourceTree = "<group>"; };
 		785A0D9D15E9A3B6002C6F78 /* LightLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		785A0DA115E9A3B6002C6F78 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		785A0DA315E9A3B6002C6F78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -50,12 +64,12 @@
 		785A0DCC15E9BFC9002C6F78 /* LLReceipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLReceipt.m; sourceTree = "<group>"; };
 		785A0DCE15E9BFD1002C6F78 /* LLCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommand.h; sourceTree = "<group>"; };
 		785A0DCF15E9BFD1002C6F78 /* LLCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommand.m; sourceTree = "<group>"; };
-		785A0DD415E9C164002C6F78 /* LLReceiptManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLReceiptManager.h; sourceTree = "<group>"; };
-		785A0DD515E9C165002C6F78 /* LLReceiptManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLReceiptManager.m; sourceTree = "<group>"; };
+		785A0DD415E9C164002C6F78 /* LLCommandManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandManager.h; sourceTree = "<group>"; };
+		785A0DD515E9C165002C6F78 /* LLCommandManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandManager.m; sourceTree = "<group>"; };
 		785A0DDB15E9C39E002C6F78 /* LLReceiptCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLReceiptCell.h; sourceTree = "<group>"; };
 		785A0DDC15E9C39E002C6F78 /* LLReceiptCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLReceiptCell.m; sourceTree = "<group>"; };
-		785A0DE015E9C662002C6F78 /* LLCommandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandCell.h; sourceTree = "<group>"; };
-		785A0DE115E9C662002C6F78 /* LLCommandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandCell.m; sourceTree = "<group>"; };
+		785A0DE015E9C662002C6F78 /* LLCommandPrototypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandPrototypeCell.h; sourceTree = "<group>"; };
+		785A0DE115E9C662002C6F78 /* LLCommandPrototypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandPrototypeCell.m; sourceTree = "<group>"; };
 		785A0E0E15E9CF02002C6F78 /* LLTwitterCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLTwitterCommand.h; sourceTree = "<group>"; };
 		785A0E0F15E9CF02002C6F78 /* LLTwitterCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLTwitterCommand.m; sourceTree = "<group>"; };
 		785A0E1215E9D157002C6F78 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
@@ -76,12 +90,27 @@
 		788FBF86163CE93C005A444E /* LLCommandParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandParser.m; sourceTree = "<group>"; };
 		788FBF8B163CEC59005A444E /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		788FBF8C163CEC59005A444E /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
-		788FBF8E163D0232005A444E /* Options.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Options.h; sourceTree = "<group>"; };
 		788FBF97163D4E49005A444E /* NSObject+IsEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+IsEmpty.h"; sourceTree = "<group>"; };
 		788FBF98163D4E49005A444E /* NSObject+IsEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+IsEmpty.m"; sourceTree = "<group>"; };
-		788FBFA3163D91CF005A444E /* LLCreateCommandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCreateCommandViewController.h; sourceTree = "<group>"; };
-		788FBFA4163D91CF005A444E /* LLCreateCommandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCreateCommandViewController.m; sourceTree = "<group>"; };
-		788FBFA5163D91CF005A444E /* LLCreateCommandViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLCreateCommandViewController.xib; sourceTree = "<group>"; };
+		788FBFA3163D91CF005A444E /* LLCommandPrototypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandPrototypeTableViewController.h; sourceTree = "<group>"; };
+		788FBFA4163D91CF005A444E /* LLCommandPrototypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandPrototypeTableViewController.m; sourceTree = "<group>"; };
+		788FBFA5163D91CF005A444E /* LLCommandPrototypeTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLCommandPrototypeTableViewController.xib; sourceTree = "<group>"; };
+		788FBFC0163DA3F3005A444E /* LLCreateCommandTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCreateCommandTableViewController.h; sourceTree = "<group>"; };
+		788FBFC1163DA3F3005A444E /* LLCreateCommandTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCreateCommandTableViewController.m; sourceTree = "<group>"; };
+		788FBFC2163DA3F3005A444E /* LLCreateCommandTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLCreateCommandTableViewController.xib; sourceTree = "<group>"; };
+		78BA2D3116435A420057AD58 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		78BA2D3216435C950057AD58 /* LLCommandPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandPrototype.h; sourceTree = "<group>"; };
+		78BA2D3316435C950057AD58 /* LLCommandPrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandPrototype.m; sourceTree = "<group>"; };
+		78F12CF01646B0020068F9E4 /* LLOptionPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLOptionPrototype.h; sourceTree = "<group>"; };
+		78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLOptionPrototype.m; sourceTree = "<group>"; };
+		78F12CF31646B11F0068F9E4 /* LLCommandPrototypeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandPrototypeFactory.h; sourceTree = "<group>"; };
+		78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandPrototypeFactory.m; sourceTree = "<group>"; };
+		78F12CF61646B43A0068F9E4 /* LLOptionPrototypeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLOptionPrototypeFactory.h; sourceTree = "<group>"; };
+		78F12CF71646B43A0068F9E4 /* LLOptionPrototypeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLOptionPrototypeFactory.m; sourceTree = "<group>"; };
+		78F12CFC164750940068F9E4 /* LLOptionValuePrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLOptionValuePrototype.h; sourceTree = "<group>"; };
+		78F12CFD164750950068F9E4 /* LLOptionValuePrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLOptionValuePrototype.m; sourceTree = "<group>"; };
+		78F12CFF16476F6D0068F9E4 /* LLOptionValuePrototypeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLOptionValuePrototypeFactory.h; sourceTree = "<group>"; };
+		78F12D0016476F6D0068F9E4 /* LLOptionValuePrototypeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLOptionValuePrototypeFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,9 +188,12 @@
 		785A0DC215E9BEE4002C6F78 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				788FBFA3163D91CF005A444E /* LLCreateCommandViewController.h */,
-				788FBFA4163D91CF005A444E /* LLCreateCommandViewController.m */,
-				788FBFA5163D91CF005A444E /* LLCreateCommandViewController.xib */,
+				788FBFA3163D91CF005A444E /* LLCommandPrototypeTableViewController.h */,
+				788FBFA4163D91CF005A444E /* LLCommandPrototypeTableViewController.m */,
+				788FBFA5163D91CF005A444E /* LLCommandPrototypeTableViewController.xib */,
+				788FBFC0163DA3F3005A444E /* LLCreateCommandTableViewController.h */,
+				788FBFC1163DA3F3005A444E /* LLCreateCommandTableViewController.m */,
+				788FBFC2163DA3F3005A444E /* LLCreateCommandTableViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -172,10 +204,25 @@
 				785A0E0D15E9CE22002C6F78 /* Commands */,
 				785A0DCB15E9BFC9002C6F78 /* LLReceipt.h */,
 				785A0DCC15E9BFC9002C6F78 /* LLReceipt.m */,
-				785A0DD415E9C164002C6F78 /* LLReceiptManager.h */,
-				785A0DD515E9C165002C6F78 /* LLReceiptManager.m */,
+				785A0DD415E9C164002C6F78 /* LLCommandManager.h */,
+				785A0DD515E9C165002C6F78 /* LLCommandManager.m */,
+				780E20FD16682C7500AE63EA /* LLCommandCompiler.h */,
+				780E20FE16682C7500AE63EA /* LLCommandCompiler.m */,
+				78F12CF31646B11F0068F9E4 /* LLCommandPrototypeFactory.h */,
+				78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */,
+				78F12CF61646B43A0068F9E4 /* LLOptionPrototypeFactory.h */,
+				78F12CF71646B43A0068F9E4 /* LLOptionPrototypeFactory.m */,
+				78F12CFF16476F6D0068F9E4 /* LLOptionValuePrototypeFactory.h */,
+				78F12D0016476F6D0068F9E4 /* LLOptionValuePrototypeFactory.m */,
+				78BA2D3216435C950057AD58 /* LLCommandPrototype.h */,
+				78BA2D3316435C950057AD58 /* LLCommandPrototype.m */,
+				78F12CF01646B0020068F9E4 /* LLOptionPrototype.h */,
+				78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */,
+				78F12CFC164750940068F9E4 /* LLOptionValuePrototype.h */,
+				78F12CFD164750950068F9E4 /* LLOptionValuePrototype.m */,
 				788FBF85163CE93C005A444E /* LLCommandParser.h */,
 				788FBF86163CE93C005A444E /* LLCommandParser.m */,
+				78BA2D3116435A420057AD58 /* Constants.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -185,8 +232,10 @@
 			children = (
 				785A0DDB15E9C39E002C6F78 /* LLReceiptCell.h */,
 				785A0DDC15E9C39E002C6F78 /* LLReceiptCell.m */,
-				785A0DE015E9C662002C6F78 /* LLCommandCell.h */,
-				785A0DE115E9C662002C6F78 /* LLCommandCell.m */,
+				785A0DE015E9C662002C6F78 /* LLCommandPrototypeCell.h */,
+				785A0DE115E9C662002C6F78 /* LLCommandPrototypeCell.m */,
+				7817D154164A2481007DEC5E /* LLOptionValuePrototypeCell.h */,
+				7817D155164A2481007DEC5E /* LLOptionValuePrototypeCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -201,7 +250,6 @@
 				785EBB641629858C00ADE85F /* LLFacebookCommand.m */,
 				785A0E0E15E9CF02002C6F78 /* LLTwitterCommand.h */,
 				785A0E0F15E9CF02002C6F78 /* LLTwitterCommand.m */,
-				788FBF8E163D0232005A444E /* Options.h */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -312,7 +360,8 @@
 				785A0E1315E9D157002C6F78 /* twitter.png in Resources */,
 				785A0E2515E9EFEC002C6F78 /* mail.png in Resources */,
 				785EBB6A162B15C000ADE85F /* facebook.png in Resources */,
-				788FBFA7163D91CF005A444E /* LLCreateCommandViewController.xib in Resources */,
+				788FBFA7163D91CF005A444E /* LLCommandPrototypeTableViewController.xib in Resources */,
+				788FBFC4163DA3F3005A444E /* LLCreateCommandTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,9 +376,9 @@
 				785A0DB215E9A3B6002C6F78 /* LLAppDelegate.m in Sources */,
 				785A0DCD15E9BFC9002C6F78 /* LLReceipt.m in Sources */,
 				785A0DD015E9BFD1002C6F78 /* LLCommand.m in Sources */,
-				785A0DD615E9C165002C6F78 /* LLReceiptManager.m in Sources */,
+				785A0DD615E9C165002C6F78 /* LLCommandManager.m in Sources */,
 				785A0DDD15E9C39E002C6F78 /* LLReceiptCell.m in Sources */,
-				785A0DE215E9C662002C6F78 /* LLCommandCell.m in Sources */,
+				785A0DE215E9C662002C6F78 /* LLCommandPrototypeCell.m in Sources */,
 				785A0E1015E9CF02002C6F78 /* LLTwitterCommand.m in Sources */,
 				785A0E2215E9EF1A002C6F78 /* LLEmailCommand.m in Sources */,
 				785EBB5F16297FBF00ADE85F /* LLSocialCommand.m in Sources */,
@@ -338,7 +387,16 @@
 				788FBF87163CE93C005A444E /* LLCommandParser.m in Sources */,
 				788FBF8D163CEC59005A444E /* JSONKit.m in Sources */,
 				788FBF99163D4E49005A444E /* NSObject+IsEmpty.m in Sources */,
-				788FBFA6163D91CF005A444E /* LLCreateCommandViewController.m in Sources */,
+				788FBFA6163D91CF005A444E /* LLCommandPrototypeTableViewController.m in Sources */,
+				788FBFC3163DA3F3005A444E /* LLCreateCommandTableViewController.m in Sources */,
+				78BA2D3416435C950057AD58 /* LLCommandPrototype.m in Sources */,
+				78F12CF21646B0020068F9E4 /* LLOptionPrototype.m in Sources */,
+				78F12CF51646B11F0068F9E4 /* LLCommandPrototypeFactory.m in Sources */,
+				78F12CF81646B43A0068F9E4 /* LLOptionPrototypeFactory.m in Sources */,
+				78F12CFE164750950068F9E4 /* LLOptionValuePrototype.m in Sources */,
+				78F12D0116476F6E0068F9E4 /* LLOptionValuePrototypeFactory.m in Sources */,
+				7817D156164A2481007DEC5E /* LLOptionValuePrototypeCell.m in Sources */,
+				780E20FF16682C7500AE63EA /* LLCommandCompiler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

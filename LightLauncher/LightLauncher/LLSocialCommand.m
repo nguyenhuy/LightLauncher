@@ -26,7 +26,7 @@
 }
 
 - (NSArray *)images {
-    return [self valueForKey:OPTION_IMAGES];
+    return [self valueForKey:OPTION_IMAGE_ATTACHMENTS];
 }
 
 - (void)setBody:(NSString *)body {
@@ -38,7 +38,7 @@
 }
 
 - (void)addImage:(NSString *)path {
-    [self addValue:path forKey:OPTION_IMAGES];
+    [self addValue:path forKey:OPTION_IMAGE_ATTACHMENTS];
 }
 
 #pragma mark - Service methods

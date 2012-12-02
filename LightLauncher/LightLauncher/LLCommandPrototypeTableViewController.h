@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class LLReceiptManager;
+#define NIB_COMMAND_PROTOTYPE_TABLE_VIEW_CONTROLLER @"LLCommandPrototypeTableViewController"
 
-@interface LLCreateCommandViewController : UITableViewController
+@interface LLCommandPrototypeTableViewController : UITableViewController
 
 @end

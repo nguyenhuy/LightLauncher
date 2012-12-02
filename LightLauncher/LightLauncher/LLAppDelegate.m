@@ -8,7 +8,7 @@
 
 #import "LLAppDelegate.h"
 
-#import "LLCreateCommandViewController.h"
+#import "LLCommandPrototypeTableViewController.h"
 
 @implementation LLAppDelegate
 
@@ -16,8 +16,9 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[LLCreateCommandViewController alloc] initWithNibName:@"LLCreateCommandViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    self.viewController = [[LLCommandPrototypeTableViewController alloc] initWithNibName:NIB_COMMAND_PROTOTYPE_TABLE_VIEW_CONTROLLER bundle:nil];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;
 }

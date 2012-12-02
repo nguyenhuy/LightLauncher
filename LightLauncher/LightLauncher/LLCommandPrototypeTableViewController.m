@@ -6,15 +6,16 @@
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
-#import "LLCreateCommandViewController.h"
-#import "LLReceiptManager.h"
-#import "LLCommandCell.h"
+#import "LLCommandPrototypeTableViewController.h"
+#import "LLCommandManager.h"
+#import "LLCommandPrototypeCell.h"
+#import "LLCreateCommandTableViewController.h"
 
-@interface LLCreateCommandViewController ()
+@interface LLCommandPrototypeTableViewController ()
 
 @end
 
-@implementation LLCreateCommandViewController
+@implementation LLCommandPrototypeTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -28,7 +29,8 @@
 {
     [super viewDidLoad];
     
-    [self.tableView registerClass:[LLCommandCell class] forCellReuseIdentifier:IDENTIFIER_COMMAND_CELL];
+    self.title = @"Commands";
+    [self.tableView registerClass:[LLCommandPrototypeCell class] forCellReuseIdentifier:IDENTIFIER_COMMAND_PROTOTYPE_CELL];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -52,21 +54,21 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 100;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[LLReceiptManager sharedInstance] commands] count];
+    return [[[LLCommandManager sharedInstance] commandPrototypes] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LLCommandCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_COMMAND_CELL];
+    LLCommandPrototypeCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_COMMAND_PROTOTYPE_CELL];
     // Since we registered this CommandCell class with the tableView,
     // it will init a new cell if can't reuse any
     // and we don't need to check nil here.
-    cell.command = [[[LLReceiptManager sharedInstance] commands] objectAtIndex:indexPath.row % 3];
+    cell.commandPrototype = [[[LLCommandManager sharedInstance] commandPrototypes] objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -77,8 +79,9 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    LLCommand *command = [[[LLReceiptManager sharedInstance] commands] objectAtIndex:indexPath.row];
-    [[LLReceiptManager sharedInstance] executeFromCommand:command withViewController:self];
+    LLCreateCommandTableViewController *controller = [[LLCreateCommandTableViewController alloc] initWithNibName:NIB_CREATE_COMMAND_VIEW_CONTROLLER bundle:nil];
+    controller.commandPrototype = [[[LLCommandManager sharedInstance] commandPrototypes] objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 /*

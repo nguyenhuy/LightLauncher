@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class LLCreateCommandViewController;
+@class LLCommandPrototypeTableViewController;
 
 @interface LLAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
 
-@property (nonatomic, strong) LLCreateCommandViewController *viewController;
+@property (nonatomic, strong) LLCommandPrototypeTableViewController *viewController;
+@property (nonatomic, strong) UINavigationController *navigationController;
 
 @end
