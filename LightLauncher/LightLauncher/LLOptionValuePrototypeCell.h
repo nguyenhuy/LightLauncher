@@ -16,4 +16,6 @@
 
 @property (strong, nonatomic) LLOptionValuePrototype* optionValuePrototype;
 
+- (void)updateView;
+
 @end

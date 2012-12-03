@@ -37,6 +37,8 @@
 		788FBFA7163D91CF005A444E /* LLCommandPrototypeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788FBFA5163D91CF005A444E /* LLCommandPrototypeTableViewController.xib */; };
 		788FBFC3163DA3F3005A444E /* LLCreateCommandTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBFC1163DA3F3005A444E /* LLCreateCommandTableViewController.m */; };
 		788FBFC4163DA3F3005A444E /* LLCreateCommandTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788FBFC2163DA3F3005A444E /* LLCreateCommandTableViewController.xib */; };
+		789EE197166C9D7000CD4B92 /* LLPrefillOptionValuePrototypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 789EE196166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.m */; };
+		789EE199166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 789EE198166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib */; };
 		78BA2D3416435C950057AD58 /* LLCommandPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BA2D3316435C950057AD58 /* LLCommandPrototype.m */; };
 		78F12CF21646B0020068F9E4 /* LLOptionPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */; };
 		78F12CF51646B11F0068F9E4 /* LLCommandPrototypeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */; };
@@ -98,6 +100,9 @@
 		788FBFC0163DA3F3005A444E /* LLCreateCommandTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCreateCommandTableViewController.h; sourceTree = "<group>"; };
 		788FBFC1163DA3F3005A444E /* LLCreateCommandTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCreateCommandTableViewController.m; sourceTree = "<group>"; };
 		788FBFC2163DA3F3005A444E /* LLCreateCommandTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLCreateCommandTableViewController.xib; sourceTree = "<group>"; };
+		789EE195166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLPrefillOptionValuePrototypeCell.h; sourceTree = "<group>"; };
+		789EE196166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLPrefillOptionValuePrototypeCell.m; sourceTree = "<group>"; };
+		789EE198166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLPrefillOptionValuePrototypeCell.xib; sourceTree = "<group>"; };
 		78BA2D3116435A420057AD58 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		78BA2D3216435C950057AD58 /* LLCommandPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandPrototype.h; sourceTree = "<group>"; };
 		78BA2D3316435C950057AD58 /* LLCommandPrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandPrototype.m; sourceTree = "<group>"; };
@@ -236,6 +241,9 @@
 				785A0DE115E9C662002C6F78 /* LLCommandPrototypeCell.m */,
 				7817D154164A2481007DEC5E /* LLOptionValuePrototypeCell.h */,
 				7817D155164A2481007DEC5E /* LLOptionValuePrototypeCell.m */,
+				789EE195166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.h */,
+				789EE196166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.m */,
+				789EE198166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -362,6 +370,7 @@
 				785EBB6A162B15C000ADE85F /* facebook.png in Resources */,
 				788FBFA7163D91CF005A444E /* LLCommandPrototypeTableViewController.xib in Resources */,
 				788FBFC4163DA3F3005A444E /* LLCreateCommandTableViewController.xib in Resources */,
+				789EE199166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +406,7 @@
 				78F12D0116476F6E0068F9E4 /* LLOptionValuePrototypeFactory.m in Sources */,
 				7817D156164A2481007DEC5E /* LLOptionValuePrototypeCell.m in Sources */,
 				780E20FF16682C7500AE63EA /* LLCommandCompiler.m in Sources */,
+				789EE197166C9D7000CD4B92 /* LLPrefillOptionValuePrototypeCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

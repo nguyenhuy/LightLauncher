@@ -15,7 +15,6 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.frame = CGRectMake(0, 0, 320, 100);
         self.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     return self;
@@ -27,22 +26,17 @@
     }
     
     _optionValuePrototype = optionValuePrototype;
-    
-    if (_optionValuePrototype) {
-        if (_optionValuePrototype.value == nil) {
-            self.textLabel.text = _optionValuePrototype.displayName;
-        } else {
-            self.textLabel.text = [_optionValuePrototype valueString];
-        }
-        self.accessoryType = _optionValuePrototype.selected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
-    }
+    [self updateView];
+}
+
+- (void)updateView {
+    self.textLabel.text = self.optionValuePrototype.displayName;
+    self.accessoryType = self.optionValuePrototype.selected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

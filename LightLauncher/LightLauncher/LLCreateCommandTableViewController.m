@@ -16,6 +16,7 @@
 #import "LLOptionValuePrototype.h"
 
 #import "LLOptionValuePrototypeCell.h"
+#import "LLPrefillOptionValuePrototypeCell.h"
 
 @interface LLCreateCommandTableViewController ()
 
@@ -43,10 +44,8 @@
     self.title = [[self.commandPrototype.command class] description];
     
     [self.tableView registerClass:[LLOptionValuePrototypeCell class] forCellReuseIdentifier:IDENTIFIER_OPTION_VALUE_PROTOTYPE_CELL];
+    [self.tableView registerNib:[UINib nibWithNibName:NIB_PREFILL_OPTION_VALUE_PROTOTYPE_CELL bundle:nil] forCellReuseIdentifier:IDENTIFIER_PREFILL_OPTION_VALUE_PROTOTYPE_CELL];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     UIBarButtonItem *executeBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(executeCommand)];
     self.navigationItem.rightBarButtonItem = executeBarButtonItem;
@@ -78,8 +77,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LLOptionValuePrototypeCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_OPTION_VALUE_PROTOTYPE_CELL];
     LLOptionValuePrototype *optionValuePrototype = [self optionValuePrototypeAtIndexPath:indexPath];
+    LLOptionValuePrototypeCell *cell;
+    
+    if ([optionValuePrototype.key isEqualToString:OPTION_VALUE_PREFILL]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_PREFILL_OPTION_VALUE_PROTOTYPE_CELL];
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_OPTION_VALUE_PROTOTYPE_CELL];
+    }
+    
     cell.optionValuePrototype = optionValuePrototype;
     return cell;
 }

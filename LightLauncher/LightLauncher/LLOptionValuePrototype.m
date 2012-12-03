@@ -44,4 +44,11 @@
     return nil;
 }
 
+- (BOOL)selected {
+    if ([self.key isEqualToString:OPTION_VALUE_PREFILL]) {
+        return _selected && [self.value isEmpty];
+    }
+    return _selected;
+}
+
 @end
