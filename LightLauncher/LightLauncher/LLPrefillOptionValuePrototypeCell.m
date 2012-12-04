@@ -11,18 +11,37 @@
 
 @implementation LLPrefillOptionValuePrototypeCell
 
-- (void)updateView {
-    self.textField.placeholder = self.optionValuePrototype.displayName;
+- (void)updateViewWithOptionValuePrototype:(LLOptionValuePrototype *)optionValuePrototype atIndexPath:(NSIndexPath *)indexPath {
+    self.indexPath = indexPath;
     
-    if (self.optionValuePrototype.type == TYPE_EMAIL) {
+    self.textField.placeholder = optionValuePrototype.displayName;
+    self.textField.returnKeyType = UIReturnKeyDone;
+    self.textField.delegate = self;
+    
+    if (optionValuePrototype.type == TYPE_EMAIL) {
         self.textField.keyboardType = UIKeyboardTypeEmailAddress;
-    } else if (self.optionValuePrototype.type == TYPE_URL) {
+    } else if (optionValuePrototype.type == TYPE_URL) {
         self.textField.keyboardType = UIKeyboardTypeURL;
     } else {
         self.textField.keyboardType = UIKeyboardTypeDefault;
     }
     
-    self.accessoryType = self.optionValuePrototype.selected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    self.accessoryType = optionValuePrototype.selected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [self.delegate onTextFieldDidEndEditing:self];
+}
+
+- (void)dealloc {
+    self.textField.delegate = nil;
+    self.textField = nil;
+    self.delegate = nil;
 }
 
 @end

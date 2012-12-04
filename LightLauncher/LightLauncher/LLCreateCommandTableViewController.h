@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LLPrefillOptionValuePrototypeCell.h"
 
 #define NIB_CREATE_COMMAND_VIEW_CONTROLLER @"LLCreateCommandTableViewController"
 
 @class LLCommandPrototype;
 @class LLCommand;
 
-@interface LLCreateCommandTableViewController : UITableViewController
+@interface LLCreateCommandTableViewController : UITableViewController <LLPrefillOptionValuePrototypeCellDelegate>
 
 @property (nonatomic, strong) LLCommandPrototype *commandPrototype;
 

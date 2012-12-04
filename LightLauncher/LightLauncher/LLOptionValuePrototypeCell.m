@@ -20,18 +20,10 @@
     return self;
 }
 
-- (void)setOptionValuePrototype:(LLOptionValuePrototype *)optionValuePrototype {
-    if (_optionValuePrototype) {
-        _optionValuePrototype = nil;
-    }
-    
-    _optionValuePrototype = optionValuePrototype;
-    [self updateView];
-}
-
-- (void)updateView {
-    self.textLabel.text = self.optionValuePrototype.displayName;
-    self.accessoryType = self.optionValuePrototype.selected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+- (void)updateViewWithOptionValuePrototype:(LLOptionValuePrototype *)optionValuePrototype atIndexPath:(NSIndexPath *)indexPath {
+    self.indexPath = indexPath;
+    self.textLabel.text = optionValuePrototype.displayName;
+    self.accessoryType = optionValuePrototype.selected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

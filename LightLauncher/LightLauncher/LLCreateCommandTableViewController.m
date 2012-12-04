@@ -16,7 +16,6 @@
 #import "LLOptionValuePrototype.h"
 
 #import "LLOptionValuePrototypeCell.h"
-#import "LLPrefillOptionValuePrototypeCell.h"
 
 @interface LLCreateCommandTableViewController ()
 
@@ -86,7 +85,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_OPTION_VALUE_PROTOTYPE_CELL];
     }
     
-    cell.optionValuePrototype = optionValuePrototype;
+    [cell updateViewWithOptionValuePrototype:optionValuePrototype atIndexPath:indexPath];
     return cell;
 }
 
@@ -111,7 +110,6 @@
 
     LLOptionValuePrototype *optionValue = [self optionValuePrototypeAtIndexPath:indexPath];
     optionValue.selected = YES;
-    // @TODO: how to get user input here???
     [tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:YES];
 }
 
@@ -133,6 +131,22 @@
     LLOptionPrototype *optionPrototype = [self optionPrototypeAtIndexPath:indexPath];
     LLOptionValuePrototype *optionValuePrototype = [[optionPrototype.possibleValues allValues] objectAtIndex:indexPath.row];
     return optionValuePrototype;
+}
+
+#pragma mark - Prefill option value prototype cell delegate
+
+- (void)onTextFieldDidEndEditing:(id)cell {
+    LLPrefillOptionValuePrototypeCell *prefillCell = cell;
+    NSIndexPath *indexPath = prefillCell.indexPath;
+    NSString *value = prefillCell.textField.text;
+    
+    // Only update the option value prototype if text was set
+    if ([value length] != 0) {
+        LLOptionValuePrototype *optionValue = [self optionValuePrototypeAtIndexPath:indexPath];
+        optionValue.selected = YES;
+        optionValue.value = value;
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:YES];
+    }
 }
 
 @end

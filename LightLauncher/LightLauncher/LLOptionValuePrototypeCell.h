@@ -14,8 +14,8 @@
 
 @interface LLOptionValuePrototypeCell : UITableViewCell
 
-@property (strong, nonatomic) LLOptionValuePrototype* optionValuePrototype;
+@property (nonatomic, strong) NSIndexPath* indexPath;
 
-- (void)updateView;
+- (void)updateViewWithOptionValuePrototype:(LLOptionValuePrototype *)optionValuePrototype atIndexPath:(NSIndexPath *)indexPath;
 
 @end
