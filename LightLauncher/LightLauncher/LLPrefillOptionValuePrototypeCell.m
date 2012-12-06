@@ -14,6 +14,7 @@
 - (void)updateViewWithOptionValuePrototype:(LLOptionValuePrototype *)optionValuePrototype atIndexPath:(NSIndexPath *)indexPath {
     self.indexPath = indexPath;
     
+    self.textField.text = [optionValuePrototype valueString];
     self.textField.placeholder = optionValuePrototype.displayName;
     self.textField.returnKeyType = UIReturnKeyDone;
     self.textField.delegate = self;
@@ -26,7 +27,8 @@
         self.textField.keyboardType = UIKeyboardTypeDefault;
     }
     
-    self.accessoryType = optionValuePrototype.selected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    BOOL selected = optionValuePrototype.selected;
+    self.accessoryType = selected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

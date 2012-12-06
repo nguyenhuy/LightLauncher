@@ -46,7 +46,7 @@
 
 - (BOOL)selected {
     if ([self.key isEqualToString:OPTION_VALUE_PREFILL]) {
-        return _selected && [self.value isEmpty];
+        return _selected && [[self valueString] length] != 0;
     }
     return _selected;
 }

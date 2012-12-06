@@ -22,7 +22,7 @@
 - (LLOptionPrototype *)optionPrototypeAtIndexPath:(NSIndexPath *)indexPath;
 - (LLOptionPrototype *)optionPrototypeAtIndex:(int)index;
 - (LLOptionValuePrototype *)optionValuePrototypeAtIndexPath:(NSIndexPath *)indexPath;
-
+- (void)updateTableViewAndReloadOptionValueAtIndexPath:(NSIndexPath *)indexPath WithValue:(id)value;
 @end
 
 @implementation LLCreateCommandTableViewController
@@ -81,6 +81,7 @@
     
     if ([optionValuePrototype.key isEqualToString:OPTION_VALUE_PREFILL]) {
         cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_PREFILL_OPTION_VALUE_PROTOTYPE_CELL];
+        ((LLPrefillOptionValuePrototypeCell *) cell).delegate = self;
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_OPTION_VALUE_PROTOTYPE_CELL];
     }
@@ -99,18 +100,31 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
-    // Deselect other option values
-    LLOptionPrototype *option = [self optionPrototypeAtIndexPath:indexPath];
-    for (LLOptionValuePrototype *optionValue in option.possibleValues.allValues) {
-        optionValue.selected = NO;
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    LLOptionValuePrototype *optionValuePrototype = [self optionValuePrototypeAtIndexPath:indexPath];
+    
+    if ([optionValuePrototype.key isEqualToString:OPTION_VALUE_PREFILL]) {
+        // Don't select prefill cells, since the UITextField is on top
+        return nil;
     }
+    return indexPath;
+}
 
-    LLOptionValuePrototype *optionValue = [self optionValuePrototypeAtIndexPath:indexPath];
-    optionValue.selected = YES;
-    [tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:YES];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self updateTableViewAndReloadOptionValueAtIndexPath:indexPath WithValue:nil];
+}
+
+#pragma mark - Prefill option value prototype cell delegate
+
+- (void)onTextFieldDidEndEditing:(id)cell {
+    LLPrefillOptionValuePrototypeCell *prefillCell = cell;
+    NSIndexPath *indexPath = prefillCell.indexPath;
+    NSString *value = prefillCell.textField.text;
+    
+    // Only update the option value prototype if text was set
+    if ([value length] != 0) {
+        [self updateTableViewAndReloadOptionValueAtIndexPath:indexPath WithValue:value];
+    }
 }
 
 #pragma mark - Instance methods
@@ -133,20 +147,20 @@
     return optionValuePrototype;
 }
 
-#pragma mark - Prefill option value prototype cell delegate
-
-- (void)onTextFieldDidEndEditing:(id)cell {
-    LLPrefillOptionValuePrototypeCell *prefillCell = cell;
-    NSIndexPath *indexPath = prefillCell.indexPath;
-    NSString *value = prefillCell.textField.text;
+// @TODO is it a good name?
+- (void)updateTableViewAndReloadOptionValueAtIndexPath:(NSIndexPath *)indexPath WithValue:(id)value {
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    // Only update the option value prototype if text was set
-    if ([value length] != 0) {
-        LLOptionValuePrototype *optionValue = [self optionValuePrototypeAtIndexPath:indexPath];
-        optionValue.selected = YES;
-        optionValue.value = value;
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:YES];
+    // Deselect all option values
+    LLOptionPrototype *option = [self optionPrototypeAtIndexPath:indexPath];
+    for (LLOptionValuePrototype *optionValue in option.possibleValues.allValues) {
+        optionValue.selected = NO;
     }
+    
+    LLOptionValuePrototype *optionValue = [self optionValuePrototypeAtIndexPath:indexPath];
+    optionValue.selected = YES;
+    optionValue.value = value;
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:YES];    
 }
 
 @end
