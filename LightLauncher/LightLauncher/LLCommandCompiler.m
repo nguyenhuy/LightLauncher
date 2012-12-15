@@ -16,8 +16,8 @@
 #import "LLOptionValuePrototype.h"
 
 @interface LLCommandCompiler ()
-+ (NSString *)optionValueFromPasteboardWithOptionValuePrototype:(LLOptionValuePrototype *)optionValuePrototype;
-+ (NSString *)compiledValueFromOptionValuePrototype:(LLOptionValuePrototype *)optionValue;
++ (id)optionValueFromPasteboardWithOptionValuePrototype:(LLOptionValuePrototype *)optionValuePrototype;
++ (id)compiledValueForOption:(LLOptionPrototype *)option FromOptionValuePrototype:(LLOptionValuePrototype *)optionValue;
 @end
 
 @implementation LLCommandCompiler
@@ -27,7 +27,7 @@
     for (LLOptionPrototype *option in commandPrototype.options) {
         for (LLOptionValuePrototype *optionValue in option.possibleValues.allValues) {
             if (optionValue.selected) {
-                NSString *compiledValue = [self compiledValueFromOptionValuePrototype:optionValue];
+                id compiledValue = [self compiledValueForOption:option FromOptionValuePrototype:optionValue];
                 [compiledCommand setValue:compiledValue forKey:option.key];
                 continue;
             }
@@ -36,19 +36,21 @@
     return compiledCommand;
 }
 
-+ (NSString *)compiledValueFromOptionValuePrototype:(LLOptionValuePrototype *)optionValue {
-    NSString *compiledValue;
++ (id)compiledValueForOption:(LLOptionPrototype *)option FromOptionValuePrototype:(LLOptionValuePrototype *)optionValue {
+    id compiledValue;
     if (optionValue.value == nil) {
         if ([optionValue.key isEqualToString:OPTION_VALUE_PASTEBOARD]) {
             compiledValue = [self optionValueFromPasteboardWithOptionValuePrototype:optionValue];
         }
-    } else {
-        compiledValue = [optionValue valueString];
+    } else if (option.dataType == DATA_ARRAY) {
+        compiledValue = [optionValue.value componentsSeparatedByString:COMPONENTS_SEPARATOR];
+    } else if (option.dataType == DATA_STRING) {
+        compiledValue = optionValue.value;
     }
     return compiledValue;
 }
 
-+ (NSString *)optionValueFromPasteboardWithOptionValuePrototype:(LLOptionValuePrototype *)optionValuePrototype {
++ (id)optionValueFromPasteboardWithOptionValuePrototype:(LLOptionValuePrototype *)optionValuePrototype {
     // TODO: support different type (images, colors, data)
     UIPasteboard *pastebboard = [UIPasteboard generalPasteboard];
     return pastebboard.string;

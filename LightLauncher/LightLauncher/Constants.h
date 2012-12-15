@@ -34,6 +34,13 @@
 
 #define DISPLAY_NAME_PASTEBOARD_OPTION_VALUE @"from Pasteboard"
 
+#define COMPONENTS_SEPARATOR @","
+
+typedef enum {
+    DATA_STRING,
+    DATA_ARRAY,
+} OptionDataType;
+
 typedef enum {
     TYPE_BOOLEAN,
     TYPE_STRING,

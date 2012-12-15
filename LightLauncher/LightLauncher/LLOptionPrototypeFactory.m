@@ -47,7 +47,7 @@
                                     pasteboardValue, pasteboardValue.key,
                                     nil];
     
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_SUBJECT andDisplayName:@"Subject" andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_SUBJECT andDisplayName:@"Subject" andDataType:DATA_STRING andPossibleValues:possibleValues];
     return optionPrototype;
 }
 
@@ -61,7 +61,7 @@
                                     pasteboardValue, pasteboardValue.key,
                                     nil];
     
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_BODY andDisplayName:@"Body" andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_BODY andDisplayName:@"Body" andDataType:DATA_STRING andPossibleValues:possibleValues];
     return optionPrototype;
 }
 
@@ -74,7 +74,7 @@
                                     pasteboardValue, pasteboardValue.key,
                                     nil];
     
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_TO_ADDRESSES andDisplayName:@"To" andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_TO_ADDRESSES andDisplayName:@"To" andDataType:DATA_ARRAY andPossibleValues:possibleValues];
     return optionPrototype;
 }
 
@@ -87,7 +87,7 @@
                                     pasteboardValue, pasteboardValue.key,
                                     nil];
     
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_CC_ADDRESSES andDisplayName:@"Cc" andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_CC_ADDRESSES andDisplayName:@"Cc" andDataType:DATA_ARRAY andPossibleValues:possibleValues];
     return optionPrototype;
 }
 
@@ -100,7 +100,7 @@
                                     pasteboardValue, pasteboardValue.key,
                                     nil];
     
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_BCC_ADDRESSES andDisplayName:@"Bcc" andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_BCC_ADDRESSES andDisplayName:@"Bcc" andDataType:DATA_ARRAY andPossibleValues:possibleValues];
     return optionPrototype;
 }
 
@@ -113,7 +113,7 @@
                                     pasteboardValue, pasteboardValue.key,
                                     nil];
     
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_URLS andDisplayName:@"URLs" andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_URLS andDisplayName:@"URLs" andDataType:DATA_ARRAY andPossibleValues:possibleValues];
     return optionPrototype;
 }
 
@@ -126,7 +126,7 @@
                                     pasteboardValue, pasteboardValue.key,
                                     nil];
     
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_FILE_ATTACHMENTS andDisplayName:@"File attachments" andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_FILE_ATTACHMENTS andDisplayName:@"File attachments" andDataType:DATA_ARRAY andPossibleValues:possibleValues];
     return optionPrototype;
 }
 
@@ -139,7 +139,7 @@
                                     pasteboardValue, pasteboardValue.key,
                                     nil];
 
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_IMAGE_ATTACHMENTS andDisplayName:@"Images" andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_IMAGE_ATTACHMENTS andDisplayName:@"Images" andDataType:DATA_ARRAY andPossibleValues:possibleValues];
     return optionPrototype;
 }
 

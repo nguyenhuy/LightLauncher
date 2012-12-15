@@ -14,7 +14,7 @@
 - (void)updateViewWithOptionValuePrototype:(LLOptionValuePrototype *)optionValuePrototype atIndexPath:(NSIndexPath *)indexPath {
     self.indexPath = indexPath;
     
-    self.textField.text = [optionValuePrototype valueString];
+    self.textField.text = optionValuePrototype.value;
     self.textField.placeholder = optionValuePrototype.displayName;
     self.textField.returnKeyType = UIReturnKeyDone;
     self.textField.delegate = self;

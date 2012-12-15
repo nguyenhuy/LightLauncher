@@ -28,25 +28,9 @@
     return self;
 }
 
-- (NSString *)valueString {
-    if (self.value == nil) {
-        return nil;
-    }
-    
-    if ([self.value isKindOfClass:[NSString class]]){
-        return self.value;
-    }
-    
-    if ([self.value isKindOfClass:[NSArray class]]) {
-        return [self.value componentsJoinedByString:@", "];
-    }
-    
-    return nil;
-}
-
 - (BOOL)selected {
     if ([self.key isEqualToString:OPTION_VALUE_PREFILL]) {
-        return _selected && [[self valueString] length] != 0;
+        return _selected && [self.value length] != 0;
     }
     return _selected;
 }

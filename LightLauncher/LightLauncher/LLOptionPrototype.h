@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Constants.h"
 
 @class LLOptionValuePrototype;
 
@@ -22,8 +23,9 @@
 // But when we want to get a LLOptionValuePrototype, we have to loop and compare.
 // So dictionary is better.
 @property (nonatomic, strong, readonly) NSDictionary *possibleValues;
+@property (nonatomic, readonly) OptionDataType dataType;
 
-- (LLOptionPrototype *)initWithKey:(NSString *)key andDisplayName:(NSString *)displayName andPossibleValues:(NSDictionary *)possibleValues;
+- (LLOptionPrototype *)initWithKey:(NSString *)key andDisplayName:(NSString *)displayName andDataType:(OptionDataType)dataType andPossibleValues:(NSDictionary *)possibleValues;
 - (LLOptionValuePrototype *)possibleValueForKey:(NSString *)key;
 - (BOOL)containPossibleValueForKey:(NSString *)key;
 
