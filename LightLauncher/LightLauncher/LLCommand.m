@@ -47,8 +47,13 @@
     [array addObject:value];
 }
 
-- (void)executeFromViewController:(UIViewController *)viewController {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"execute must be implemented" userInfo:nil];
+- (void)executeWithViewController:(UIViewController *)viewController withCommandDelegate:(id<LLCommandDelegate>)delegate {
+    self.delegate = delegate;
+}
+
+- (void)onFinished {
+    [self.delegate onCommandFinished:self];
+    self.delegate = nil;
 }
 
 - (id)copyWithZone:(NSZone *)zone {

@@ -90,10 +90,6 @@
     return [MFMailComposeViewController canSendMail];
 }
 
-- (BOOL)isFinishedAfterPresentingComposeViewController {
-    return NO;
-}
-
 - (UIViewController *)constructComposeViewContrroller {
     MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
     [controller setToRecipients:[self recipientsFromOptions:self.toAddresses]];

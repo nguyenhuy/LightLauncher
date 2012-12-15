@@ -47,10 +47,6 @@
     return [SLComposeViewController isAvailableForServiceType:[self serviceType]];
 }
 
-- (BOOL)isFinishedAfterPresentingComposeViewController {
-    return NO;
-}
-
 - (UIViewController *)constructComposeViewContrroller {
     SLComposeViewController *composeViewController = [SLComposeViewController composeViewControllerForServiceType:[self serviceType]];
     if (composeViewController == nil) {

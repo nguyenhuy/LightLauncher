@@ -16,6 +16,7 @@
 }
 
 #pragma mark - Command methods
+
 + (NSString *)command {
     return COMMAND_FACEBOOK;
 }

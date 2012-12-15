@@ -42,6 +42,7 @@
 //                          );
 //}
 @property (nonatomic, strong) NSMutableDictionary *options;
+@property (nonatomic, strong) UIViewController *viewController;
 @property (nonatomic, strong) id<LLCommandDelegate> delegate;
 
 + (NSString *)command;
@@ -53,6 +54,7 @@
 // Add value to a new or existing array associates with the key
 - (void)addValue:(id)value forKey:(NSString *)key;
 
-- (void)executeFromViewController:(UIViewController *)viewController;
+- (void)executeWithViewController:(UIViewController *)viewController withCommandDelegate:(id<LLCommandDelegate>) delegate;
+- (void)onFinished;
 
 @end

@@ -11,15 +11,12 @@
 @interface LLServiceCommand : LLCommand
 
 @property (nonatomic, strong) UIViewController *viewController;
-@property (nonatomic, strong) UIViewController *composeViewController;
-
 // Service type is the identifier of a service, might be used to pass to Social.framework (ie: FB and Twitter). So this should be unique
 // Service name is human readbale, will be showed in UI.
 - (id)initWithServiceType:(NSString *)serviceType andServiceName:(NSString *)serviceName;
 - (NSString *)serviceType;
 - (NSString *)serviceName;
 - (BOOL)isServiceAvailable;
-- (BOOL)isFinishedAfterPresentingComposeViewController;
 - (UIViewController *)constructComposeViewContrroller;
 - (void)onFinishedWithStatusTitle:(NSString *)title andMessage:(NSString *)message;
 - (void)onServiceNotAvailable;

@@ -65,14 +65,12 @@
 
 - (void)executeFromCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController {
     self.executingCommand = [LLCommandCompiler compile:commandPrototype];
-    self.executingCommand.delegate = self;
-    
+    [self.executingCommand executeWithViewController:viewController withCommandDelegate:self];
 }
 
 #pragma mark Command Delegate
 
 - (void)onCommandFinished:(id)command {
-    self.executingCommand.delegate = nil;
     self.executingCommand = nil;
 }
 

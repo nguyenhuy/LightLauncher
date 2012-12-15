@@ -52,23 +52,15 @@
     @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"constructComposeViewContrroller must be implemented" userInfo:nil];
 }
 
-- (BOOL)isFinishedAfterPresentingComposeViewController {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"isFinishedAfterPresentingComposeViewController must be implemented" userInfo:nil];
-}
-
-- (void)executeFromViewController:(UIViewController *)viewController {
+- (void)executeWithViewController:(UIViewController *)viewController withCommandDelegate:(id<LLCommandDelegate>)delegate {
+    [super executeWithViewController:viewController withCommandDelegate:delegate];
     self.viewController = viewController;
-    UIViewController *composeViewController;
+    UIViewController *composeViewController = [self constructComposeViewContrroller];
     
-    if (![self isServiceAvailable]
-        || (composeViewController = [self composeViewController]) == nil) {
+    if (![self isServiceAvailable] || !composeViewController) {
         [self onServiceNotAvailable];
     } else {
-        [self.viewController presentViewController:composeViewController animated:YES completion:^() {
-            if ([self isFinishedAfterPresentingComposeViewController]) {
-                [self onFinishedWithStatusTitle:[self serviceName] andMessage:@"Finished"];
-            }
-        }];
+        [viewController presentViewController:composeViewController animated:YES completion:nil];
     }
 }
 
@@ -76,13 +68,12 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
     
-    if (self.viewController) {
-        [self.viewController dismissViewControllerAnimated:YES completion:nil];
-        self.viewController = nil;
-    }
-    if (self.composeViewController) {
-        self.composeViewController = nil;
-    }
+    [self.viewController dismissViewControllerAnimated:YES completion:nil];
+    self.viewController = nil;
+    
+    // We should call this lastly, since it will unbind this command in CommandManager
+    // and this command will be collected shortly
+    [super onFinished];
 }
 
 - (void)onServiceNotAvailable {
