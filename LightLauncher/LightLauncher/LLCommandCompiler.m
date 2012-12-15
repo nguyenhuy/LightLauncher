@@ -37,15 +37,18 @@
 }
 
 + (id)compiledValueForOption:(LLOptionPrototype *)option FromOptionValuePrototype:(LLOptionValuePrototype *)optionValue {
-    id compiledValue;
-    if (optionValue.value == nil) {
+    id compiledValue = optionValue.value;
+    
+    // If value is nil, it needs to be got at runtime.
+    // Check and get it now
+    if (!compiledValue) {
         if ([optionValue.key isEqualToString:OPTION_VALUE_PASTEBOARD]) {
             compiledValue = [self optionValueFromPasteboardWithOptionValuePrototype:optionValue];
         }
-    } else if (option.dataType == DATA_ARRAY) {
+    }
+    
+    if (option.dataType == DATA_ARRAY) {
         compiledValue = [optionValue.value componentsSeparatedByString:COMPONENTS_SEPARATOR];
-    } else if (option.dataType == DATA_STRING) {
-        compiledValue = optionValue.value;
     }
     return compiledValue;
 }
