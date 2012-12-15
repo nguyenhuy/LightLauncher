@@ -48,8 +48,8 @@
     @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"isServiceAvailable must be implemented" userInfo:nil];
 }
 
-- (UIViewController *)composeViewController {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"composeViewController must be implemented" userInfo:nil];
+- (UIViewController *)constructComposeViewContrroller {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"constructComposeViewContrroller must be implemented" userInfo:nil];
 }
 
 - (BOOL)isFinishedAfterPresentingComposeViewController {
@@ -76,9 +76,12 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
     
-    if (self.viewController != nil) {
+    if (self.viewController) {
         [self.viewController dismissViewControllerAnimated:YES completion:nil];
         self.viewController = nil;
+    }
+    if (self.composeViewController) {
+        self.composeViewController = nil;
     }
 }
 

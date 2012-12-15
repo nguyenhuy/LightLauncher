@@ -51,7 +51,7 @@
     return NO;
 }
 
-- (UIViewController *)composeViewController {
+- (UIViewController *)constructComposeViewContrroller {
     SLComposeViewController *composeViewController = [SLComposeViewController composeViewControllerForServiceType:[self serviceType]];
     if (composeViewController == nil) {
         return nil;

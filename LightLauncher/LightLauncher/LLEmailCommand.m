@@ -94,7 +94,7 @@
     return NO;
 }
 
-- (UIViewController *)composeViewController {
+- (UIViewController *)constructComposeViewContrroller {
     MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
     [controller setToRecipients:[self recipientsFromOptions:self.toAddresses]];
     [controller setCcRecipients:[self recipientsFromOptions:self.ccAddresses]];

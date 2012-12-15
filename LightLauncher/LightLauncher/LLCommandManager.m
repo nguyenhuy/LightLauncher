@@ -18,8 +18,9 @@
 #import "LLFacebookCommand.h"
 
 @interface LLCommandManager ()
-@property (nonatomic, strong, readwrite) NSMutableArray* receipts;
-@property (nonatomic, strong, readwrite) NSMutableArray* commandPrototypes;
+@property (nonatomic, strong, readwrite) NSMutableArray *receipts;
+@property (nonatomic, strong, readwrite) NSMutableArray *commandPrototypes;
+@property (nonatomic, strong, readwrite) LLCommand *executingCommand;
 - (void)initReceipts;
 - (void)initCommandPrototypes;
 @end
@@ -58,13 +59,21 @@
 
 - (void)executeFromString:(NSString *)string withCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController {
     // @TODO: maybe need to decompile instead
-//    LLCommand *command = [LLCommandParser decode:string];
-//    [self executeFromCommand:command withCommandPrototype:commandPrototype withViewController:viewController];
+    //    LLCommand *command = [LLCommandParser decode:string];
+    //    [self executeFromCommand:command withCommandPrototype:commandPrototype withViewController:viewController];
 }
 
 - (void)executeFromCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController {
-    LLCommand *compiledCommand = [LLCommandCompiler compile:commandPrototype];
-    [compiledCommand executeFromViewController:viewController];
+    self.executingCommand = [LLCommandCompiler compile:commandPrototype];
+    self.executingCommand.delegate = self;
+    
+}
+
+#pragma mark Command Delegate
+
+- (void)onCommandFinished:(id)command {
+    self.executingCommand.delegate = nil;
+    self.executingCommand = nil;
 }
 
 @end

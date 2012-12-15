@@ -11,6 +11,10 @@
 
 @class LLCommandPrototype;
 
+@protocol LLCommandDelegate <NSObject>
+- (void)onCommandFinished:(id)command;
+@end
+
 @interface LLCommand : NSObject <NSCopying>
 
 // Dict of KVCs that represents options
@@ -38,6 +42,7 @@
 //                          );
 //}
 @property (nonatomic, strong) NSMutableDictionary *options;
+@property (nonatomic, strong) id<LLCommandDelegate> delegate;
 
 + (NSString *)command;
 + (NSString *)description;
