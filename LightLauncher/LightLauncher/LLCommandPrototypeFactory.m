@@ -35,14 +35,6 @@
 }
 
 + (LLCommandPrototype *)socialCommandPrototypeForCommand:(LLSocialCommand *)command {
-    command.body = @"Hello Twitter";
-    
-    [command addUrl:@"google.com"];
-    [command addUrl:@"facebook.com"];
-    
-    [command addImage:@"twitter.com"];
-    [command addImage:@"facebook.com"];
-    
     NSArray *options = [[NSArray alloc] initWithObjects:
                         [LLOptionPrototypeFactory bodyOptionPrototype],
                         [LLOptionPrototypeFactory imageAttachmentsOptionPrototype],
@@ -55,21 +47,6 @@
 
 + (LLCommandPrototype *)emailCommandPrototype {
     LLEmailCommand *command = [[LLEmailCommand alloc] init];
-    
-    command.subject = @"hello";
-    command.body = @"Hello LightLauncher";
-    
-    [command addToAddress:@"allforone1511@gmail.com"];
-    [command addToAddress:@"allforone1511@gmail.com"];
-    
-    [command addCcAddress:@"allforone1511@gmail.com"];
-    [command addCcAddress:@"allforone1511@gmail.com"];
-    
-    [command addBccAddress:@"allforone1511@gmail.com"];
-    [command addBccAddress:@"allforone1511@gmail.com"];
-    
-    [command addAttachment:@"mail.png"];
-    [command addAttachment:@"mail.png"];
     
     NSArray *options = [[NSArray alloc] initWithObjects:
                         [LLOptionPrototypeFactory subjectOptionPrototype],
