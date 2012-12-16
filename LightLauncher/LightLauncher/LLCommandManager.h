@@ -14,6 +14,8 @@
 
 @property (nonatomic, strong, readonly) NSMutableArray *receipts;
 @property (nonatomic, strong, readonly) NSMutableArray *commandPrototypes;
+
+@property (nonatomic, strong, readonly) LLCommandPrototype *executingCommandPrototype;
 @property (nonatomic, strong, readonly) LLCommand *executingCommand;
 
 + (LLCommandManager *)sharedInstance;

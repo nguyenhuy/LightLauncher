@@ -7,23 +7,18 @@
 //
 
 #import "LLCommandManager.h"
-
+#import "LLAppDelegate.h"
+#import "LLCommandPrototype.h"
 #import "LLCommandParser.h"
 #import "LLCommandCompiler.h"
-
 #import "LLCommandPrototypeFactory.h"
-
-#import "LLTwitterCommand.h"
-#import "LLEmailCommand.h"
-#import "LLFacebookCommand.h"
-
-#import "LLAppDelegate.h"
 #import "Command.h"
 
 @interface LLCommandManager ()
 @property (nonatomic, strong, readwrite) NSMutableArray *receipts;
 @property (nonatomic, strong, readwrite) NSMutableArray *commandPrototypes;
 @property (nonatomic, strong, readwrite) LLCommand *executingCommand;
+@property (nonatomic, strong, readwrite) LLCommandPrototype *executingCommandPrototype;
 - (void)initReceipts;
 - (void)initCommandPrototypes;
 @end
@@ -67,7 +62,8 @@
 }
 
 - (void)executeFromCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController {
-    self.executingCommand = [LLCommandCompiler compile:commandPrototype];
+    self.executingCommandPrototype = commandPrototype;
+    self.executingCommand = [LLCommandCompiler compile:self.executingCommandPrototype];
     [self.executingCommand executeWithViewController:viewController withCommandDelegate:self];
 }
 
@@ -75,7 +71,8 @@
 
 - (void)onCommandFinished:(id)command {
     self.executingCommand = nil;
-    [LLCommandManager saveToDbCommandPrototype:command];
+    [LLCommandManager saveToDbCommandPrototype:self.executingCommandPrototype];
+    self.executingCommandPrototype = nil;
 }
 
 + (BOOL)saveToDbCommandPrototype:(LLCommandPrototype *)commandPrototype {
