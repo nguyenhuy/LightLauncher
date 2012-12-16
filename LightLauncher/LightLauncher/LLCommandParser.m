@@ -70,33 +70,33 @@
 }
 
 + (NSArray *)jsonArrayFromOptionPrototypes:(NSArray *)optionPrototypes {
-    NSMutableDictionary *temp = [[NSMutableDictionary alloc] initWithCapacity:2];
     NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:optionPrototypes.count];
+    NSMutableDictionary *temp;
     
     for (LLOptionPrototype *o in optionPrototypes) {
+        temp = [[NSMutableDictionary alloc] initWithCapacity:2];
         // dataType and displayName is not encoded because they can be got back (and updated) at run time
         [temp setObject:o.key forKey:JSON_KEY];
         [temp setObject:[self jsonArrayFromOptionValuePrototypes:o.possibleValues.allValues] forKey:JSON_PISSIBLE_VALUES];
-        [result addObject:[temp JSONString]];
-        // temp is reused, so we should clear it now
-        [temp removeAllObjects];
+        [result addObject:temp];
     }
     
     return result;
 }
 
 + (NSArray *)jsonArrayFromOptionValuePrototypes:(NSArray *)optionValuePrototypes {
-    NSMutableDictionary *temp = [[NSMutableDictionary alloc] initWithCapacity:3];
     NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:optionValuePrototypes.count];
+    NSMutableDictionary *temp;
     
     for (LLOptionValuePrototype *o in optionValuePrototypes) {
+        temp = [[NSMutableDictionary alloc] initWithCapacity:3];
         // displayName and type is not encoded, because they can be got back (and updated) at run time
         [temp setObject:o.key forKey:JSON_KEY];
         [temp setObject:[NSNumber numberWithBool:o.selected] forKey:JSON_SELECTED];
-        [temp setObject:o.value forKey:JSON_VALUE];
-        [result addObject:[temp JSONString]];
-        // temp is reused, so we should clear it now
-        [temp removeAllObjects];
+        if (o.value) {
+            [temp setObject:o.value forKey:JSON_VALUE];
+        }
+        [result addObject:temp];
     }
 
     return result;
