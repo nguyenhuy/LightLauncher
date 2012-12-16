@@ -29,6 +29,7 @@
 		785EBB651629858C00ADE85F /* LLFacebookCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EBB641629858C00ADE85F /* LLFacebookCommand.m */; };
 		785EBB68162AC70F00ADE85F /* LLServiceCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EBB67162AC70F00ADE85F /* LLServiceCommand.m */; };
 		785EBB6A162B15C000ADE85F /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 785EBB69162B15C000ADE85F /* facebook.png */; };
+		788A483B167D976E009401DD /* LightLauncher.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 788A4839167D976E009401DD /* LightLauncher.xcdatamodeld */; };
 		788FBF87163CE93C005A444E /* LLCommandParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF86163CE93C005A444E /* LLCommandParser.m */; };
 		788FBF8D163CEC59005A444E /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF8C163CEC59005A444E /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		788FBF90163D1038005A444E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0E2615E9F0AC002C6F78 /* MessageUI.framework */; };
@@ -88,6 +89,7 @@
 		785EBB67162AC70F00ADE85F /* LLServiceCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLServiceCommand.m; sourceTree = "<group>"; };
 		785EBB69162B15C000ADE85F /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		788295FB1616A4EA0072B584 /* Log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
+		788A483A167D976E009401DD /* LightLauncher.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LightLauncher.xcdatamodel; sourceTree = "<group>"; };
 		788FBF85163CE93C005A444E /* LLCommandParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandParser.h; sourceTree = "<group>"; };
 		788FBF86163CE93C005A444E /* LLCommandParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandParser.m; sourceTree = "<group>"; };
 		788FBF8B163CEC59005A444E /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			children = (
 				785A0DB015E9A3B6002C6F78 /* LLAppDelegate.h */,
 				785A0DB115E9A3B6002C6F78 /* LLAppDelegate.m */,
+				788A4839167D976E009401DD /* LightLauncher.xcdatamodeld */,
 				785A0DC415E9BEEF002C6F78 /* Model */,
 				785A0DD715E9C329002C6F78 /* View */,
 				785A0DC215E9BEE4002C6F78 /* Controller */,
@@ -213,6 +216,8 @@
 				785A0DD515E9C165002C6F78 /* LLCommandManager.m */,
 				780E20FD16682C7500AE63EA /* LLCommandCompiler.h */,
 				780E20FE16682C7500AE63EA /* LLCommandCompiler.m */,
+				788FBF85163CE93C005A444E /* LLCommandParser.h */,
+				788FBF86163CE93C005A444E /* LLCommandParser.m */,
 				78F12CF31646B11F0068F9E4 /* LLCommandPrototypeFactory.h */,
 				78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */,
 				78F12CF61646B43A0068F9E4 /* LLOptionPrototypeFactory.h */,
@@ -225,8 +230,6 @@
 				78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */,
 				78F12CFC164750940068F9E4 /* LLOptionValuePrototype.h */,
 				78F12CFD164750950068F9E4 /* LLOptionValuePrototype.m */,
-				788FBF85163CE93C005A444E /* LLCommandParser.h */,
-				788FBF86163CE93C005A444E /* LLCommandParser.m */,
 				78BA2D3116435A420057AD58 /* Constants.h */,
 			);
 			name = Model;
@@ -407,6 +410,7 @@
 				7817D156164A2481007DEC5E /* LLOptionValuePrototypeCell.m in Sources */,
 				780E20FF16682C7500AE63EA /* LLCommandCompiler.m in Sources */,
 				789EE197166C9D7000CD4B92 /* LLPrefillOptionValuePrototypeCell.m in Sources */,
+				788A483B167D976E009401DD /* LightLauncher.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +524,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		788A4839167D976E009401DD /* LightLauncher.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				788A483A167D976E009401DD /* LightLauncher.xcdatamodel */,
+			);
+			currentVersion = 788A483A167D976E009401DD /* LightLauncher.xcdatamodel */;
+			path = LightLauncher.xcdatamodeld;
+			sourceTree = SOURCE_ROOT;
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 785A0D9415E9A3B6002C6F78 /* Project object */;
 }
