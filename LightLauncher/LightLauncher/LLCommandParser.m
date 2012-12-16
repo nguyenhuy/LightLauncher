@@ -9,6 +9,7 @@
 #import "LLCommandParser.h"
 #import "NSObject+IsEmpty.h"
 #import "JSONKit.h"
+#import "LLCommandPrototype.h"
 #import "LLCommand.h"
 #import "LLEmailCommand.h"
 #import "LLFacebookCommand.h"
@@ -20,20 +21,20 @@
 
 @implementation LLCommandParser
 
-+ (NSString *)encode:(LLCommand *)command {
-    if (command == nil) {
++ (NSString *)encode:(LLCommandPrototype *)commandPrototype {
+    if (!commandPrototype) {
         return nil;
     }
     
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:2];
-    [dict setObject:[[command class] command] forKey:JSON_KEY_COMMAND];
-    [dict setObject:command.options forKey:JSON_KEY_OPTIONS];
+    [dict setObject:[[commandPrototype class] command] forKey:JSON_KEY_COMMAND];
+    [dict setObject:commandPrototype.options forKey:JSON_KEY_OPTIONS];
     
     NSString *jsonString = [dict JSONString];
     return jsonString;
 }
 
-+ (LLCommand *)decode:(NSString *)json {
++ (LLCommandPrototype *)decode:(NSString *)json {
     if ([json isEmpty]) {
         return nil;
     }

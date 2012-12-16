@@ -54,6 +54,10 @@
     [self saveContext];
 }
 
++ (LLAppDelegate *)sharedInstance {
+    return [UIApplication sharedApplication].delegate;
+}
+
 - (void)saveContext
 {
     NSError *error = nil;

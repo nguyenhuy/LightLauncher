@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+#define ENTITY_NAME_COMMAND @"Command"
 
 @interface Command : NSManagedObject
 

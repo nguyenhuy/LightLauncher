@@ -23,6 +23,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
++ (LLAppDelegate *)sharedInstance;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 

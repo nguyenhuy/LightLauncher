@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class LLCommand;
+@class LLCommandPrototype;
 
 @interface LLCommandParser : NSObject
 
-// Encode command to json string
-+ (NSString *)encode:(LLCommand *)command;
-// Decode json string that represents a command
-+ (LLCommand *)decode:(NSString *)json;
+// Encode command prototype to json string
++ (NSString *)encode:(LLCommandPrototype *)commandPrototype;
+// Decode json string that represents a command prototype
++ (LLCommandPrototype *)decode:(NSString *)json;
 
 @end

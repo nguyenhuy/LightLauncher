@@ -21,5 +21,6 @@
 
 - (void)executeFromString:(NSString *)string withCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController;
 - (void)executeFromCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController;
++ (BOOL)saveToDbCommandPrototype:(LLCommandPrototype *)commandPrototype;
 
 @end

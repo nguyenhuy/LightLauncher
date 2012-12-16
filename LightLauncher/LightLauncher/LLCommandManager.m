@@ -17,6 +17,9 @@
 #import "LLEmailCommand.h"
 #import "LLFacebookCommand.h"
 
+#import "LLAppDelegate.h"
+#import "Command.h"
+
 @interface LLCommandManager ()
 @property (nonatomic, strong, readwrite) NSMutableArray *receipts;
 @property (nonatomic, strong, readwrite) NSMutableArray *commandPrototypes;
@@ -72,6 +75,26 @@
 
 - (void)onCommandFinished:(id)command {
     self.executingCommand = nil;
+    [LLCommandManager saveToDbCommandPrototype:command];
+}
+
++ (BOOL)saveToDbCommandPrototype:(LLCommandPrototype *)commandPrototype {
+    NSManagedObjectContext *context = [LLAppDelegate sharedInstance].managedObjectContext;
+    
+    Command *command = [NSEntityDescription insertNewObjectForEntityForName:ENTITY_NAME_COMMAND inManagedObjectContext:context];
+    command.liked = NO;
+    command.data = [LLCommandParser encode:commandPrototype];
+    command.executedDate = [NSDate date];
+    
+    NSError *error = nil;
+    BOOL saved = [context save:&error];
+    //@TODO save to Crittercism
+    if (saved) {
+        NSLog(@"The save was successful!");
+    } else {
+        NSLog(@"The save wasn't successful: %@", [error userInfo]);
+    }
+    return saved;
 }
 
 @end
