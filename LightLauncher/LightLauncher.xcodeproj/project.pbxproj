@@ -31,6 +31,7 @@
 		785EBB6A162B15C000ADE85F /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 785EBB69162B15C000ADE85F /* facebook.png */; };
 		788A483B167D976E009401DD /* LightLauncher.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 788A4839167D976E009401DD /* LightLauncher.xcdatamodeld */; };
 		788A4840167D9D3E009401DD /* Command.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A483F167D9D3E009401DD /* Command.m */; };
+		788A4873167DC317009401DD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 788A4872167DC317009401DD /* CoreData.framework */; };
 		788FBF87163CE93C005A444E /* LLCommandParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF86163CE93C005A444E /* LLCommandParser.m */; };
 		788FBF8D163CEC59005A444E /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF8C163CEC59005A444E /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		788FBF90163D1038005A444E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0E2615E9F0AC002C6F78 /* MessageUI.framework */; };
@@ -93,6 +94,7 @@
 		788A483A167D976E009401DD /* LightLauncher.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LightLauncher.xcdatamodel; sourceTree = "<group>"; };
 		788A483E167D9D3E009401DD /* Command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Command.h; sourceTree = "<group>"; };
 		788A483F167D9D3E009401DD /* Command.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Command.m; sourceTree = "<group>"; };
+		788A4872167DC317009401DD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		788FBF85163CE93C005A444E /* LLCommandParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandParser.h; sourceTree = "<group>"; };
 		788FBF86163CE93C005A444E /* LLCommandParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandParser.m; sourceTree = "<group>"; };
 		788FBF8B163CEC59005A444E /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				788A4873167DC317009401DD /* CoreData.framework in Frameworks */,
 				788FBF90163D1038005A444E /* MessageUI.framework in Frameworks */,
 				785EBB621629805E00ADE85F /* Social.framework in Frameworks */,
 				785A0DA215E9A3B6002C6F78 /* UIKit.framework in Frameworks */,
@@ -160,6 +163,7 @@
 		785A0DA015E9A3B6002C6F78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				788A4872167DC317009401DD /* CoreData.framework */,
 				785EBB611629805E00ADE85F /* Social.framework */,
 				785A0E2615E9F0AC002C6F78 /* MessageUI.framework */,
 				785A0DA115E9A3B6002C6F78 /* UIKit.framework */,
