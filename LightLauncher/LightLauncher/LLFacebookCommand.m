@@ -15,14 +15,4 @@
     return self;
 }
 
-#pragma mark - Command methods
-
-+ (NSString *)description {
-    return @"Facebook";
-}
-
-+ (NSString *)iconFileName {
-    return @"facebook.png";
-}
-
 @end

@@ -12,15 +12,19 @@
 @property (nonatomic, strong, readwrite) NSString *command;
 // An array of LLOptionPrototype
 @property (nonatomic, strong, readwrite) NSArray *options;
+@property (nonatomic, strong, readwrite) NSString *desc;
+@property (nonatomic, strong, readwrite) NSString *iconFileName;
 @end
 
 @implementation LLCommandPrototype
 
-- (LLCommandPrototype *)initWithCommand:(NSString *)command andOptions:(NSArray *)options {
+- (LLCommandPrototype *)initWithCommand:(NSString *)command andOptions:(NSArray *)options anDesc:(NSString *)desc andIconFileName:(NSString *)iconFileName {
     self = [super init];
     if (self) {
         self.command = command;
         self.options = options;
+        self.desc = desc;
+        self.iconFileName = iconFileName;
     }
     return self;
 }

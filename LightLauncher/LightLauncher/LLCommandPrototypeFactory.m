@@ -15,7 +15,7 @@
 #import "LLTwitterCommand.h"
 
 @interface LLCommandPrototypeFactory ()
-+ (LLCommandPrototype *)socialCommandPrototypeForCommand:(NSString *)command;
++ (LLCommandPrototype *)socialCommandPrototypeForCommand:(NSString *)command withDesc:(NSString *)desc andIconFileName:(NSString *)iconFileName;
 @end
 
 @implementation LLCommandPrototypeFactory
@@ -33,14 +33,14 @@
     return nil;
 }
 
-+ (LLCommandPrototype *)socialCommandPrototypeForCommand:(NSString *)command {
++ (LLCommandPrototype *)socialCommandPrototypeForCommand:(NSString *)command withDesc:(NSString *)desc andIconFileName:(NSString *)iconFileName {
     NSArray *options = [[NSArray alloc] initWithObjects:
                         [LLOptionPrototypeFactory bodyOptionPrototype],
                         [LLOptionPrototypeFactory imageAttachmentsOptionPrototype],
                         [LLOptionPrototypeFactory urlAddressesOptionPrototype],
                         nil];
     
-    LLCommandPrototype *commandPrototype = [[LLCommandPrototype alloc] initWithCommand:command andOptions:options];
+    LLCommandPrototype *commandPrototype = [[LLCommandPrototype alloc] initWithCommand:command andOptions:options andDesc:desc andIconFileName:iconFileName];
     return commandPrototype;
 }
 
@@ -54,16 +54,16 @@
                         [LLOptionPrototypeFactory fileAttachmentsOptionPrototype],
                         nil];
     
-    LLCommandPrototype *commandPrototype = [[LLCommandPrototype alloc] initWithCommand:COMMAND_EMAIL andOptions:options];
+    LLCommandPrototype *commandPrototype = [[LLCommandPrototype alloc] initWithCommand:COMMAND_EMAIL andOptions:options andDesc:@"Email" andIconFileName:@"mail.png"];
     return commandPrototype;
 }
 
 + (LLCommandPrototype *)facebookCommandPrototype {
-    return [self socialCommandPrototypeForCommand:COMMAND_FACEBOOK];
+    return [self socialCommandPrototypeForCommand:COMMAND_FACEBOOK withDesc:@"Facebook" andIconFileName:@"facebook.png"];
 }
 
 + (LLCommandPrototype *)twitterCommandPrototype {
-    return [self socialCommandPrototypeForCommand:COMMAND_TWITTER];
+    return [self socialCommandPrototypeForCommand:COMMAND_TWITTER withDesc:@"Twitter" andIconFileName:@"twitter.png"];
 }
 
 @end

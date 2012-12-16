@@ -42,9 +42,6 @@
 @property (nonatomic, strong) UIViewController *viewController;
 @property (nonatomic, strong) id<LLCommandDelegate> delegate;
 
-+ (NSString *)description;
-+ (NSString *)iconFileName;
-
 - (id)valueForKey:(NSString *)key;
 - (void)setValue:(id)value forKey:(NSString *)key;
 // Add value to a new or existing array associates with the key

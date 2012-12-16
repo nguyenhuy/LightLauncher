@@ -182,6 +182,7 @@
 				785A0DB015E9A3B6002C6F78 /* LLAppDelegate.h */,
 				785A0DB115E9A3B6002C6F78 /* LLAppDelegate.m */,
 				788A4839167D976E009401DD /* LightLauncher.xcdatamodeld */,
+				78BA2D3116435A420057AD58 /* Constants.h */,
 				785A0DC415E9BEEF002C6F78 /* Model */,
 				785A0DD715E9C329002C6F78 /* View */,
 				785A0DC215E9BEE4002C6F78 /* Controller */,
@@ -221,6 +222,8 @@
 			children = (
 				788A483D167D9CC2009401DD /* CoreData */,
 				785A0E0D15E9CE22002C6F78 /* Commands */,
+				788A488D167DD97F009401DD /* Prototypes */,
+				788A488F167DD995009401DD /* Factories */,
 				785A0DCB15E9BFC9002C6F78 /* LLReceipt.h */,
 				785A0DCC15E9BFC9002C6F78 /* LLReceipt.m */,
 				785A0DD415E9C164002C6F78 /* LLCommandManager.h */,
@@ -229,21 +232,6 @@
 				780E20FE16682C7500AE63EA /* LLCommandCompiler.m */,
 				788FBF85163CE93C005A444E /* LLCommandParser.h */,
 				788FBF86163CE93C005A444E /* LLCommandParser.m */,
-				788A4882167DD5C7009401DD /* LLCommandFactory.h */,
-				788A4883167DD5C8009401DD /* LLCommandFactory.m */,
-				78F12CF31646B11F0068F9E4 /* LLCommandPrototypeFactory.h */,
-				78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */,
-				78F12CF61646B43A0068F9E4 /* LLOptionPrototypeFactory.h */,
-				78F12CF71646B43A0068F9E4 /* LLOptionPrototypeFactory.m */,
-				78F12CFF16476F6D0068F9E4 /* LLOptionValuePrototypeFactory.h */,
-				78F12D0016476F6D0068F9E4 /* LLOptionValuePrototypeFactory.m */,
-				78BA2D3216435C950057AD58 /* LLCommandPrototype.h */,
-				78BA2D3316435C950057AD58 /* LLCommandPrototype.m */,
-				78F12CF01646B0020068F9E4 /* LLOptionPrototype.h */,
-				78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */,
-				78F12CFC164750940068F9E4 /* LLOptionValuePrototype.h */,
-				78F12CFD164750950068F9E4 /* LLOptionValuePrototype.m */,
-				78BA2D3116435A420057AD58 /* Constants.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -305,6 +293,34 @@
 				788A483F167D9D3E009401DD /* Command.m */,
 			);
 			name = CoreData;
+			sourceTree = "<group>";
+		};
+		788A488D167DD97F009401DD /* Prototypes */ = {
+			isa = PBXGroup;
+			children = (
+				78BA2D3216435C950057AD58 /* LLCommandPrototype.h */,
+				78BA2D3316435C950057AD58 /* LLCommandPrototype.m */,
+				78F12CF01646B0020068F9E4 /* LLOptionPrototype.h */,
+				78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */,
+				78F12CFC164750940068F9E4 /* LLOptionValuePrototype.h */,
+				78F12CFD164750950068F9E4 /* LLOptionValuePrototype.m */,
+			);
+			name = Prototypes;
+			sourceTree = "<group>";
+		};
+		788A488F167DD995009401DD /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				788A4882167DD5C7009401DD /* LLCommandFactory.h */,
+				788A4883167DD5C8009401DD /* LLCommandFactory.m */,
+				78F12CF31646B11F0068F9E4 /* LLCommandPrototypeFactory.h */,
+				78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */,
+				78F12CF61646B43A0068F9E4 /* LLOptionPrototypeFactory.h */,
+				78F12CF71646B43A0068F9E4 /* LLOptionPrototypeFactory.m */,
+				78F12CFF16476F6D0068F9E4 /* LLOptionValuePrototypeFactory.h */,
+				78F12D0016476F6D0068F9E4 /* LLOptionValuePrototypeFactory.m */,
+			);
+			name = Factories;
 			sourceTree = "<group>";
 		};
 		788FBF89163CEC1D005A444E /* Libraries */ = {

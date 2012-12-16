@@ -20,16 +20,6 @@
     return self;
 }
 
-#pragma mark - Command methods
-
-+ (NSString *)description {
-    return @"Email";
-}
-
-+ (NSString *)iconFileName {
-    return @"mail.png";
-}
-
 #pragma mark - Getters and Setters
 
 - (NSArray *)toAddresses {

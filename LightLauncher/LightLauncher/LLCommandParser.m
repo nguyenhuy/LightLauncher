@@ -27,7 +27,7 @@
     }
     
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:2];
-    [dict setObject:[[commandPrototype class] command] forKey:JSON_KEY_COMMAND];
+    [dict setObject:commandPrototype.command forKey:JSON_KEY_COMMAND];
     [dict setObject:commandPrototype.options forKey:JSON_KEY_OPTIONS];
     
     NSString *jsonString = [dict JSONString];
@@ -54,22 +54,6 @@
     LLCommand *command = [[commandClass alloc] init];
     command.options = [dict objectForKey:JSON_KEY_OPTIONS];
     return command;
-}
-
-+ (Class)commandClassFromString:(NSString *)commandString {
-    if ([commandString isEmpty]) {
-        return nil;
-    }
-    if ([commandString isEqualToString:[LLEmailCommand command]]) {
-        return [LLEmailCommand class];
-    }
-    if ([commandString isEqualToString:[LLFacebookCommand command]]) {
-        return [LLFacebookCommand class];
-    }
-    if ([commandString isEqualToString:[LLTwitterCommand command]]) {
-        return [LLTwitterCommand class];
-    }
-    return nil;
 }
 
 @end

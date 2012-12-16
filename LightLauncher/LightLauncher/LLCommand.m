@@ -18,14 +18,6 @@
     return self;
 }
 
-+ (NSString *)description {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"description must be implemented" userInfo:nil];
-}
-
-+ (NSString *)iconFileName {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"iconFileName must be implemented" userInfo:nil];
-}
-
 - (id)valueForKey:(NSString *)key {
     return [self.options valueForKey:key];
 }

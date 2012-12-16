@@ -13,7 +13,9 @@
 @property (nonatomic, strong, readonly) NSString *command;
 // An array of LLOptionPrototype
 @property (nonatomic, strong, readonly) NSArray *options;
+@property (nonatomic, strong, readonly) NSString *desc;
+@property (nonatomic, strong, readonly) NSString *iconFileName;
 
-- (LLCommandPrototype *)initWithCommand:(NSString *)command andOptions:(NSArray *)options;
+- (LLCommandPrototype *)initWithCommand:(NSString *)command andOptions:(NSArray *)options andDesc:(NSString *)desc andIconFileName:(NSString *)iconFileName;
 
 @end
