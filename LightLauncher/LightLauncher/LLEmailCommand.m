@@ -22,10 +22,6 @@
 
 #pragma mark - Command methods
 
-+ (NSString *)command {
-    return COMMAND_EMAIL;
-}
-
 + (NSString *)description {
     return @"Email";
 }

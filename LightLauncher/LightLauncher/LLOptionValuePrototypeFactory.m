@@ -7,7 +7,7 @@
 //
 
 #import "LLOptionValuePrototypeFactory.h"
-#import "Constants.h"
+#import "LLOptionValuePrototype.h"
 
 @implementation LLOptionValuePrototypeFactory
 

@@ -6,9 +6,6 @@
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "Constants.h"
-
 @interface LLOptionValuePrototype : NSObject
 
 @property (nonatomic, strong, readonly) NSString *key;

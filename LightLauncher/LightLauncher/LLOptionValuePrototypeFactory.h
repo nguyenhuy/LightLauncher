@@ -6,8 +6,7 @@
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "LLOptionValuePrototype.h"
+@class LLOptionValuePrototype;
 
 @interface LLOptionValuePrototypeFactory : NSObject
 

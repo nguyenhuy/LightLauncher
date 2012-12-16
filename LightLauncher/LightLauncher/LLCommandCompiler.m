@@ -8,7 +8,7 @@
 
 #import "LLCommandCompiler.h"
 
-#import "Constants.h"
+#import "LLCommandFactory.h"
 
 #import "LLCommand.h"
 #import "LLCommandPrototype.h"
@@ -23,7 +23,7 @@
 @implementation LLCommandCompiler
 
 + (LLCommand *)compile:(LLCommandPrototype *)commandPrototype {
-    LLCommand *compiledCommand = [commandPrototype.command copy];
+    LLCommand *compiledCommand = [LLCommandFactory commandForString:commandPrototype.command];
     for (LLOptionPrototype *option in commandPrototype.options) {
         for (LLOptionValuePrototype *optionValue in option.possibleValues.allValues) {
             if (optionValue.selected) {

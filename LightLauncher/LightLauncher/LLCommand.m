@@ -18,10 +18,6 @@
     return self;
 }
 
-+ (NSString *)command {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"command must be implemented" userInfo:nil];
-}
-
 + (NSString *)description {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"description must be implemented" userInfo:nil];
 }

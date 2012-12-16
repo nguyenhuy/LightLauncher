@@ -7,7 +7,6 @@
 //
 
 #import "LLCommandPrototypeFactory.h"
-#import "Constants.h"
 #import "LLCommandPrototype.h"
 #import "LLOptionPrototypeFactory.h"
 #import "LLOptionPrototype.h"
@@ -16,7 +15,7 @@
 #import "LLTwitterCommand.h"
 
 @interface LLCommandPrototypeFactory ()
-+ (LLCommandPrototype *)socialCommandPrototypeForCommand:(LLSocialCommand *)command;
++ (LLCommandPrototype *)socialCommandPrototypeForCommand:(NSString *)command;
 @end
 
 @implementation LLCommandPrototypeFactory
@@ -34,7 +33,7 @@
     return nil;
 }
 
-+ (LLCommandPrototype *)socialCommandPrototypeForCommand:(LLSocialCommand *)command {
++ (LLCommandPrototype *)socialCommandPrototypeForCommand:(NSString *)command {
     NSArray *options = [[NSArray alloc] initWithObjects:
                         [LLOptionPrototypeFactory bodyOptionPrototype],
                         [LLOptionPrototypeFactory imageAttachmentsOptionPrototype],
@@ -46,8 +45,6 @@
 }
 
 + (LLCommandPrototype *)emailCommandPrototype {
-    LLEmailCommand *command = [[LLEmailCommand alloc] init];
-    
     NSArray *options = [[NSArray alloc] initWithObjects:
                         [LLOptionPrototypeFactory subjectOptionPrototype],
                         [LLOptionPrototypeFactory bodyOptionPrototype],
@@ -57,18 +54,16 @@
                         [LLOptionPrototypeFactory fileAttachmentsOptionPrototype],
                         nil];
     
-    LLCommandPrototype *commandPrototype = [[LLCommandPrototype alloc] initWithCommand:command andOptions:options];
+    LLCommandPrototype *commandPrototype = [[LLCommandPrototype alloc] initWithCommand:COMMAND_EMAIL andOptions:options];
     return commandPrototype;
 }
 
 + (LLCommandPrototype *)facebookCommandPrototype {
-    LLFacebookCommand *command = [[LLFacebookCommand alloc] init];
-    return [self socialCommandPrototypeForCommand:command];
+    return [self socialCommandPrototypeForCommand:COMMAND_FACEBOOK];
 }
 
 + (LLCommandPrototype *)twitterCommandPrototype {
-    LLTwitterCommand *command = [[LLTwitterCommand alloc] init];
-    return [self socialCommandPrototypeForCommand:command];
+    return [self socialCommandPrototypeForCommand:COMMAND_TWITTER];
 }
 
 @end

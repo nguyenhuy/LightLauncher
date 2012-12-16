@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @class LLCommandPrototype;
 
 @interface LLCommandPrototypeFactory : NSObject

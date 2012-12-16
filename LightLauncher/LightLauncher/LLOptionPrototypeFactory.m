@@ -12,8 +12,6 @@
 #import "LLOptionPrototype.h"
 #import "LLOptionValuePrototype.h"
 
-#import "Constants.h"
-
 @implementation LLOptionPrototypeFactory
 
 + (LLOptionPrototype *)optionPrototypeWithName:(NSString *)name {

@@ -17,10 +17,6 @@
 
 #pragma mark - Command methods
 
-+ (NSString *)command {
-    return COMMAND_FACEBOOK;
-}
-
 + (NSString *)description {
     return @"Facebook";
 }

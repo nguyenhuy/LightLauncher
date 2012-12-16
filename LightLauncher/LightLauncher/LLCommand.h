@@ -6,9 +6,6 @@
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "Constants.h"
-
 @class LLCommandPrototype;
 
 @protocol LLCommandDelegate <NSObject>
@@ -45,7 +42,6 @@
 @property (nonatomic, strong) UIViewController *viewController;
 @property (nonatomic, strong) id<LLCommandDelegate> delegate;
 
-+ (NSString *)command;
 + (NSString *)description;
 + (NSString *)iconFileName;
 
