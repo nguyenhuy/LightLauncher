@@ -30,9 +30,8 @@
     _commandPrototype = commandPrototype;
     
     if (_commandPrototype) {
-        LLCommand *command = commandPrototype.command;
-        self.imageView.image = [UIImage imageNamed:[[command class] iconFileName]];
-        self.textLabel.text = [[command class] description];
+        self.imageView.image = [UIImage imageNamed:commandPrototype.iconFileName];
+        self.textLabel.text = commandPrototype.desc;
     }
 }
 
