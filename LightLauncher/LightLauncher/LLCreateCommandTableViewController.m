@@ -40,7 +40,7 @@
 {
     [super viewDidLoad];
     
-    self.title = [[self.commandPrototype.command class] description];
+    self.title = self.commandPrototype.desc;
     
     [self.tableView registerClass:[LLOptionValuePrototypeCell class] forCellReuseIdentifier:IDENTIFIER_OPTION_VALUE_PROTOTYPE_CELL];
     [self.tableView registerNib:[UINib nibWithNibName:NIB_PREFILL_OPTION_VALUE_PROTOTYPE_CELL bundle:nil] forCellReuseIdentifier:IDENTIFIER_PREFILL_OPTION_VALUE_PROTOTYPE_CELL];

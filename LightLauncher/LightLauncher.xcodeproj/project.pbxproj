@@ -239,15 +239,7 @@
 		785A0DD715E9C329002C6F78 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				785A0DDB15E9C39E002C6F78 /* LLReceiptCell.h */,
-				785A0DDC15E9C39E002C6F78 /* LLReceiptCell.m */,
-				785A0DE015E9C662002C6F78 /* LLCommandPrototypeCell.h */,
-				785A0DE115E9C662002C6F78 /* LLCommandPrototypeCell.m */,
-				7817D154164A2481007DEC5E /* LLOptionValuePrototypeCell.h */,
-				7817D155164A2481007DEC5E /* LLOptionValuePrototypeCell.m */,
-				789EE195166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.h */,
-				789EE196166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.m */,
-				789EE198166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib */,
+				788A4890167DDC4E009401DD /* Table View Cells */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -321,6 +313,22 @@
 				78F12D0016476F6D0068F9E4 /* LLOptionValuePrototypeFactory.m */,
 			);
 			name = Factories;
+			sourceTree = "<group>";
+		};
+		788A4890167DDC4E009401DD /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				785A0DDB15E9C39E002C6F78 /* LLReceiptCell.h */,
+				785A0DDC15E9C39E002C6F78 /* LLReceiptCell.m */,
+				785A0DE015E9C662002C6F78 /* LLCommandPrototypeCell.h */,
+				785A0DE115E9C662002C6F78 /* LLCommandPrototypeCell.m */,
+				7817D154164A2481007DEC5E /* LLOptionValuePrototypeCell.h */,
+				7817D155164A2481007DEC5E /* LLOptionValuePrototypeCell.m */,
+				789EE195166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.h */,
+				789EE196166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.m */,
+				789EE198166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib */,
+			);
+			name = "Table View Cells";
 			sourceTree = "<group>";
 		};
 		788FBF89163CEC1D005A444E /* Libraries */ = {
