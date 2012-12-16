@@ -30,6 +30,7 @@
 		785EBB68162AC70F00ADE85F /* LLServiceCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EBB67162AC70F00ADE85F /* LLServiceCommand.m */; };
 		785EBB6A162B15C000ADE85F /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 785EBB69162B15C000ADE85F /* facebook.png */; };
 		788A483B167D976E009401DD /* LightLauncher.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 788A4839167D976E009401DD /* LightLauncher.xcdatamodeld */; };
+		788A4840167D9D3E009401DD /* Command.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A483F167D9D3E009401DD /* Command.m */; };
 		788FBF87163CE93C005A444E /* LLCommandParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF86163CE93C005A444E /* LLCommandParser.m */; };
 		788FBF8D163CEC59005A444E /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF8C163CEC59005A444E /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		788FBF90163D1038005A444E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0E2615E9F0AC002C6F78 /* MessageUI.framework */; };
@@ -90,6 +91,8 @@
 		785EBB69162B15C000ADE85F /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		788295FB1616A4EA0072B584 /* Log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		788A483A167D976E009401DD /* LightLauncher.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LightLauncher.xcdatamodel; sourceTree = "<group>"; };
+		788A483E167D9D3E009401DD /* Command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Command.h; sourceTree = "<group>"; };
+		788A483F167D9D3E009401DD /* Command.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Command.m; sourceTree = "<group>"; };
 		788FBF85163CE93C005A444E /* LLCommandParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandParser.h; sourceTree = "<group>"; };
 		788FBF86163CE93C005A444E /* LLCommandParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandParser.m; sourceTree = "<group>"; };
 		788FBF8B163CEC59005A444E /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
@@ -209,6 +212,7 @@
 		785A0DC415E9BEEF002C6F78 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				788A483D167D9CC2009401DD /* CoreData */,
 				785A0E0D15E9CE22002C6F78 /* Commands */,
 				785A0DCB15E9BFC9002C6F78 /* LLReceipt.h */,
 				785A0DCC15E9BFC9002C6F78 /* LLReceipt.m */,
@@ -283,6 +287,15 @@
 				788FBF98163D4E49005A444E /* NSObject+IsEmpty.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		788A483D167D9CC2009401DD /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				788A483E167D9D3E009401DD /* Command.h */,
+				788A483F167D9D3E009401DD /* Command.m */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 		788FBF89163CEC1D005A444E /* Libraries */ = {
@@ -411,6 +424,7 @@
 				780E20FF16682C7500AE63EA /* LLCommandCompiler.m in Sources */,
 				789EE197166C9D7000CD4B92 /* LLPrefillOptionValuePrototypeCell.m in Sources */,
 				788A483B167D976E009401DD /* LightLauncher.xcdatamodeld in Sources */,
+				788A4840167D9D3E009401DD /* Command.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
