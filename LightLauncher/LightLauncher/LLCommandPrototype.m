@@ -18,7 +18,7 @@
 
 @implementation LLCommandPrototype
 
-- (LLCommandPrototype *)initWithCommand:(NSString *)command andOptions:(NSArray *)options anDesc:(NSString *)desc andIconFileName:(NSString *)iconFileName {
+- (LLCommandPrototype *)initWithCommand:(NSString *)command andOptions:(NSArray *)options andDesc:(NSString *)desc andIconFileName:(NSString *)iconFileName {
     self = [super init];
     if (self) {
         self.command = command;
