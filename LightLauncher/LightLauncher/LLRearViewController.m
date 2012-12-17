@@ -9,9 +9,6 @@
 #import "LLRearViewController.h"
 #import "LLRevealController.h"
 
-#import "LLCommandPrototypeTableViewController.h"
-#import "LLCreateCommandTableViewController.h"
-
 @interface LLRearViewController ()
 - (LLRevealController *)revealController;
 @end
@@ -91,37 +88,11 @@
     LLRevealController *revealController = [self revealController];
     int row = indexPath.row;
     if (row == 0) {
-        if (revealController.showingGroup == GROUP_CREATE) {
-            // Showing the same group. Toggle the view instead.
-            [revealController revealToggle:self];
-        } else {
-            LLCommandPrototypeTableViewController *controller = [LLCommandPrototypeTableViewController newInstance];
-            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
-            [revealController setFrontViewController:navigationController];
-            revealController.showingGroup = GROUP_CREATE;
-        }
+        [revealController showCreateGroup];
     } else if (row == 1) {
-        if (revealController.showingGroup == GROUP_HISTORY) {
-            // Showing the same group. Toggle the view instead.
-            [revealController revealToggle:self];
-        } else {
-            //@TODO change this to show HISTORY view
-            LLCommandPrototypeTableViewController *controller = [LLCommandPrototypeTableViewController newInstance];
-            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
-            [revealController setFrontViewController:navigationController];
-            revealController.showingGroup = GROUP_HISTORY;
-        }
+        [revealController showHistoryGroup];
     } else if (row == 2) {
-        if (revealController.showingGroup == GROUP_FAVORITE) {
-            // Showing the same group. Toggle the view instead.
-            [revealController revealToggle:self];
-        } else {
-            //@TODO change this to show FAVORITE view
-            LLCommandPrototypeTableViewController *controller = [LLCommandPrototypeTableViewController newInstance];
-            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
-            [revealController setFrontViewController:navigationController];
-            revealController.showingGroup = GROUP_FAVORITE;
-        }
+        [revealController showFavoriteGroup];
     }
 }
 

@@ -23,8 +23,11 @@
     
     LLCommandPrototypeTableViewController *frontViewController = [LLCommandPrototypeTableViewController newInstance];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
+    
     LLRearViewController *rearViewController = [LLRearViewController newInstance];
+
     self.revealController = [[LLRevealController alloc] initWithFrontViewController:navigationController rearViewController:rearViewController];
+    self.revealController.showingGroup = GROUP_CREATE;
     
     self.window.rootViewController = self.revealController;
     [self.window makeKeyAndVisible];
