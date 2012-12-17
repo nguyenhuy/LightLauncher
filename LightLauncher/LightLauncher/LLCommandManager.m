@@ -98,14 +98,14 @@
     request.entity = entity;
     
     NSError *error = nil;
-    NSArray *fetchedCommands = [context executeFetchRequest:request error:&error];
+    NSArray *fetchedReceipts = [context executeFetchRequest:request error:&error];
     
     if (error) {
         //@TODO log to Crittercism here
         return nil;
     }
     
-    //@TODO rename Command to Receipt
+    return fetchedReceipts;
 }
 
 @end

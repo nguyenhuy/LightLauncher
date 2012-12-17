@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class Receipt;
 @interface LLHistoryTableViewController : UITableViewController
+
+@property (nonatomic, strong) NSArray* receipts;
 
 @end
