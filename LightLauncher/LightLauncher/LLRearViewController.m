@@ -34,10 +34,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -98,6 +98,7 @@
             LLCommandPrototypeTableViewController *controller = [LLCommandPrototypeTableViewController newInstance];
             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
             [revealController setFrontViewController:navigationController];
+            revealController.showingGroup = GROUP_CREATE;
         }
     } else if (row == 1) {
         if (revealController.showingGroup == GROUP_HISTORY) {
@@ -108,6 +109,7 @@
             LLCommandPrototypeTableViewController *controller = [LLCommandPrototypeTableViewController newInstance];
             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
             [revealController setFrontViewController:navigationController];
+            revealController.showingGroup = GROUP_HISTORY;
         }
     } else if (row == 2) {
         if (revealController.showingGroup == GROUP_FAVORITE) {
@@ -118,6 +120,7 @@
             LLCommandPrototypeTableViewController *controller = [LLCommandPrototypeTableViewController newInstance];
             UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
             [revealController setFrontViewController:navigationController];
+            revealController.showingGroup = GROUP_FAVORITE;
         }
     }
 }
