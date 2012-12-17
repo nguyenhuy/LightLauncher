@@ -7,21 +7,22 @@
 //
 
 #import "LLCommandParser.h"
-#import "NSObject+IsEmpty.h"
 #import "JSONKit.h"
+#import "NSObject+IsEmpty.h"
+
+#import "LLCommandPrototypeFactory.h"
+#import "LLOptionPrototypeFactory.h"
+
 #import "LLCommandPrototype.h"
 #import "LLOptionPrototype.h"
 #import "LLOptionValuePrototype.h"
 #import "LLCommand.h"
-#import "LLEmailCommand.h"
-#import "LLFacebookCommand.h"
-#import "LLTwitterCommand.h"
 
 #define JSON_COMMAND @"command"
 #define JSON_OPTIONS @"options"
 
 #define JSON_KEY @"key"
-#define JSON_PISSIBLE_VALUES @"possible_values"
+#define JSON_POSSIBLE_VALUES @"possible_values"
 
 #define JSON_SELECTED @"selected"
 #define JSON_VALUE @"value"
@@ -29,6 +30,7 @@
 @interface LLCommandParser ()
 + (NSArray *)encodeOptionPrototypes:(NSArray *)optionPrototypes;
 + (NSArray *)encodeOptionValuePrototypes:(NSArray *)optionValuePrototypes;
++ (NSDictionary *)optionPrototypeDictFromJsonArray:(NSArray *)jsonArray;
 @end
 
 @implementation LLCommandParser
@@ -48,25 +50,30 @@
 }
 
 + (LLCommandPrototype *)decode:(NSString *)json {
-    //    if ([json isEmpty]) {
-    //        return nil;
-    //    }
-    //
-    //    NSMutableDictionary *dict = [json mutableObjectFromJSONString];
-    //
-    //    NSString *commandString = [dict objectForKey:JSON_KEY_COMMAND];
-    //    if ([commandString isEmpty]) {
-    //        return nil;
-    //    }
-    //
-    //    Class commandClass = [self commandClassFromString:commandString];
-    //    if (commandClass == nil || ![commandClass isSubclassOfClass:[LLCommand class]]) {
-    //        return nil;
-    //    }
-    //
-    //    LLCommand *command = [[commandClass alloc] init];
-    //    command.options = [dict objectForKey:JSON_KEY_OPTIONS];
-    //    return command;
+    if ([json isEmpty]) {
+        return nil;
+    }
+
+    NSDictionary *commandPrototypeJsonDict = [json objectFromJSONString];
+    
+    NSString *command = [commandPrototypeJsonDict objectForKey:JSON_COMMAND];
+    NSDictionary *optionJsonDict = [self optionPrototypeDictFromJsonArray:[commandPrototypeJsonDict objectForKey:JSON_OPTIONS]];
+
+    LLCommandPrototype *commandPrototype = [LLCommandPrototypeFactory commandPrototypeForCommand:command];
+
+    // Set value of OptionValuePrototyes to each OptionPrototype
+    NSArray *possibleValueJsonArray;
+    LLOptionValuePrototype *optionValuePrototype;
+    for (LLOptionPrototype *o in commandPrototype.options) {
+        possibleValueJsonArray = [optionJsonDict objectForKey:o.key];
+        for (NSDictionary *v in possibleValueJsonArray) {
+            optionValuePrototype = [o.possibleValues objectForKey:[v objectForKey:JSON_KEY]];
+            optionValuePrototype.selected = [[v objectForKey:JSON_SELECTED] boolValue];
+            optionValuePrototype.value = [v objectForKey:JSON_VALUE];
+        }
+    }
+    
+    return commandPrototype;
 }
 
 + (NSArray *)encodeOptionPrototypes:(NSArray *)optionPrototypes {
@@ -77,7 +84,7 @@
         temp = [[NSMutableDictionary alloc] initWithCapacity:2];
         // dataType and displayName is not encoded because they can be got back (and updated) at run time
         [temp setObject:o.key forKey:JSON_KEY];
-        [temp setObject:[self encodeOptionValuePrototypes:o.possibleValues.allValues] forKey:JSON_PISSIBLE_VALUES];
+        [temp setObject:[self encodeOptionValuePrototypes:o.possibleValues.allValues] forKey:JSON_POSSIBLE_VALUES];
         [result addObject:temp];
     }
     
@@ -102,6 +109,15 @@
         }
     }
     
+    return result;
+}
+
+// Transforms an array of optionsPrototypes in json format into a dictionary with key is optionPrototype's key and value is an array of possibleValuePrototypes in json format.
++ (NSDictionary *)optionPrototypeDictFromJsonArray:(NSArray *)jsonArray {
+    NSMutableDictionary *result = [[NSMutableDictionary alloc] initWithCapacity:[jsonArray count]];
+    for (NSDictionary *d in jsonArray) {
+        [result setObject:[d objectForKey:JSON_POSSIBLE_VALUES] forKey:[d objectForKey:JSON_KEY]];
+    }
     return result;
 }
 

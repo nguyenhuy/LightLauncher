@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) NSArray* receipts;
 
++ (LLHistoryTableViewController *)newInstance;
+
 @end

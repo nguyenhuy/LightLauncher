@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong, readonly) NSString *command;
 // An array of LLOptionPrototype
+//@TODO should this be a dictionary???
 @property (nonatomic, strong, readonly) NSArray *options;
 @property (nonatomic, strong, readonly) NSString *desc;
 @property (nonatomic, strong, readonly) NSString *iconFileName;

@@ -14,23 +14,23 @@
 
 @implementation LLOptionPrototypeFactory
 
-+ (LLOptionPrototype *)optionPrototypeWithName:(NSString *)name {
-    if ([name isEqualToString:OPTION_SUBJECT]) {
++ (LLOptionPrototype *)optionPrototypeWithKey:(NSString *)key {
+    if ([key isEqualToString:OPTION_SUBJECT]) {
         return [self subjectOptionPrototype];
     }
-    if ([name isEqualToString:OPTION_BODY]) {
+    if ([key isEqualToString:OPTION_BODY]) {
         return [self bodyOptionPrototype];
     }
-    if([name isEqualToString:OPTION_TO_ADDRESSES]) {
+    if([key isEqualToString:OPTION_TO_ADDRESSES]) {
         return [self toAddressesOptionPrototype];
     }
-    if([name isEqualToString:OPTION_CC_ADDRESSES]) {
+    if([key isEqualToString:OPTION_CC_ADDRESSES]) {
         return [self ccAddressesOptionPrototype];
     }
-    if([name isEqualToString:OPTION_BCC_ADDRESSES]) {
+    if([key isEqualToString:OPTION_BCC_ADDRESSES]) {
         return [self bccAddressesOptionPrototype];
     }
-    if ([name isEqualToString:OPTION_FILE_ATTACHMENTS]) {
+    if ([key isEqualToString:OPTION_FILE_ATTACHMENTS]) {
         return [self fileAttachmentsOptionPrototype];
     }
     return nil;

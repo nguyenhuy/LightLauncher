@@ -73,7 +73,7 @@
 + (BOOL)saveReceiptToDbFromCommandPrototype:(LLCommandPrototype *)commandPrototype {
     NSManagedObjectContext *context = [LLAppDelegate sharedInstance].managedObjectContext;
     
-    Receipt *command = [NSEntityDescription insertNewObjectForEntityForName:ENTITY_NAME_COMMAND inManagedObjectContext:context];
+    Receipt *command = [NSEntityDescription insertNewObjectForEntityForName:ENTITY_NAME_RECEIPT inManagedObjectContext:context];
     command.liked = NO;
     command.data = [LLCommandParser encode:commandPrototype];
     command.executedDate = [NSDate date];
@@ -92,7 +92,7 @@
 + (NSArray *)loadReceiptsFromDB {
     NSManagedObjectContext *context = [LLAppDelegate sharedInstance].managedObjectContext;
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:ENTITY_NAME_COMMAND inManagedObjectContext:context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:ENTITY_NAME_RECEIPT inManagedObjectContext:context];
     
     NSFetchRequest *request = [NSFetchRequest new];
     request.entity = entity;

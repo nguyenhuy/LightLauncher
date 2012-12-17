@@ -8,7 +8,7 @@
 
 #import <CoreData/CoreData.h>
 
-#define ENTITY_NAME_COMMAND @"Command"
+#define ENTITY_NAME_RECEIPT @"Receipt"
 
 @interface Receipt : NSManagedObject
 

@@ -10,7 +10,7 @@
 
 @interface LLOptionPrototypeFactory : NSObject
 
-+ (LLOptionPrototype *)optionPrototypeWithName:(NSString *)name;
++ (LLOptionPrototype *)optionPrototypeWithKey:(NSString *)key;
 + (LLOptionPrototype *)subjectOptionPrototype;
 + (LLOptionPrototype *)bodyOptionPrototype;
 + (LLOptionPrototype *)toAddressesOptionPrototype;

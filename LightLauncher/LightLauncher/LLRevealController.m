@@ -9,8 +9,7 @@
 #import "LLRevealController.h"
 
 #import "LLCommandPrototypeTableViewController.h"
-#import "LLCreateCommandTableViewController.h"
-
+#import "LLHistoryTableViewController.h"
 
 @interface LLRevealController ()
 @end
@@ -60,8 +59,7 @@
         // Showing the same group. Toggle the view instead.
         [self revealToggle:self];
     } else {
-        //@TODO change this to show HISTORY view
-        LLCommandPrototypeTableViewController *controller = [LLCommandPrototypeTableViewController newInstance];
+        LLHistoryTableViewController *controller = [LLHistoryTableViewController newInstance];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
         [self setFrontViewController:navigationController];
         self.showingGroup = GROUP_HISTORY;
