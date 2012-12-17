@@ -1,3 +1,6 @@
 [submodule "JSONKit"]
 	path = JSONKit
 	url = git://github.com/johnezang/JSONKit.git
+[submodule "ZUUIRevealController"]
+	path = ZUUIRevealController
+	url = git://github.com/pkluz/ZUUIRevealController.git

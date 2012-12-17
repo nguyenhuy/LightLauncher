@@ -98,6 +98,8 @@
 		788A4872167DC317009401DD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		788A4882167DD5C7009401DD /* LLCommandFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandFactory.h; sourceTree = "<group>"; };
 		788A4883167DD5C8009401DD /* LLCommandFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandFactory.m; sourceTree = "<group>"; };
+		788A48B1167ED905009401DD /* ZUUIRevealController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ZUUIRevealController.h; path = ../ZUUIRevealController/ZUUIRevealController/ZUUIRevealController.h; sourceTree = "<group>"; };
+		788A48B2167ED905009401DD /* ZUUIRevealController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ZUUIRevealController.m; path = ../ZUUIRevealController/ZUUIRevealController/ZUUIRevealController.m; sourceTree = "<group>"; };
 		788FBF85163CE93C005A444E /* LLCommandParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandParser.h; sourceTree = "<group>"; };
 		788FBF86163CE93C005A444E /* LLCommandParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandParser.m; sourceTree = "<group>"; };
 		788FBF8B163CEC59005A444E /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
@@ -331,9 +333,19 @@
 			name = "Table View Cells";
 			sourceTree = "<group>";
 		};
+		788A48AF167ED8E8009401DD /* ZUUIRevealController */ = {
+			isa = PBXGroup;
+			children = (
+				788A48B1167ED905009401DD /* ZUUIRevealController.h */,
+				788A48B2167ED905009401DD /* ZUUIRevealController.m */,
+			);
+			name = ZUUIRevealController;
+			sourceTree = "<group>";
+		};
 		788FBF89163CEC1D005A444E /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				788A48AF167ED8E8009401DD /* ZUUIRevealController */,
 				788FBF8A163CEC44005A444E /* JSONKit */,
 			);
 			name = Libraries;
