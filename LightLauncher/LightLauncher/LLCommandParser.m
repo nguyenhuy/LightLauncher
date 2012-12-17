@@ -27,8 +27,8 @@
 #define JSON_VALUE @"value"
 
 @interface LLCommandParser ()
-+ (NSArray *)jsonArrayFromOptionPrototypes:(NSArray *)optionPrototypes;
-+ (NSArray *)jsonArrayFromOptionValuePrototypes:(NSArray *)optionValuePrototypes;
++ (NSArray *)encodeOptionPrototypes:(NSArray *)optionPrototypes;
++ (NSArray *)encodeOptionValuePrototypes:(NSArray *)optionValuePrototypes;
 @end
 
 @implementation LLCommandParser
@@ -41,35 +41,35 @@
     // Desc and iconFileName of commandPrototype is not encoded because it can be got back (and updated) at run time.
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:2];
     [dict setObject:commandPrototype.command forKey:JSON_COMMAND];
-    [dict setObject:[self jsonArrayFromOptionPrototypes:commandPrototype.options] forKey:JSON_OPTIONS];
+    [dict setObject:[self encodeOptionPrototypes:commandPrototype.options] forKey:JSON_OPTIONS];
     
     NSString *jsonString = [dict JSONString];
     return jsonString;
 }
 
 + (LLCommandPrototype *)decode:(NSString *)json {
-//    if ([json isEmpty]) {
-//        return nil;
-//    }
-//    
-//    NSMutableDictionary *dict = [json mutableObjectFromJSONString];
-//    
-//    NSString *commandString = [dict objectForKey:JSON_KEY_COMMAND];
-//    if ([commandString isEmpty]) {
-//        return nil;
-//    }
-//
-//    Class commandClass = [self commandClassFromString:commandString];
-//    if (commandClass == nil || ![commandClass isSubclassOfClass:[LLCommand class]]) {
-//        return nil;
-//    }
-//
-//    LLCommand *command = [[commandClass alloc] init];
-//    command.options = [dict objectForKey:JSON_KEY_OPTIONS];
-//    return command;
+    //    if ([json isEmpty]) {
+    //        return nil;
+    //    }
+    //
+    //    NSMutableDictionary *dict = [json mutableObjectFromJSONString];
+    //
+    //    NSString *commandString = [dict objectForKey:JSON_KEY_COMMAND];
+    //    if ([commandString isEmpty]) {
+    //        return nil;
+    //    }
+    //
+    //    Class commandClass = [self commandClassFromString:commandString];
+    //    if (commandClass == nil || ![commandClass isSubclassOfClass:[LLCommand class]]) {
+    //        return nil;
+    //    }
+    //
+    //    LLCommand *command = [[commandClass alloc] init];
+    //    command.options = [dict objectForKey:JSON_KEY_OPTIONS];
+    //    return command;
 }
 
-+ (NSArray *)jsonArrayFromOptionPrototypes:(NSArray *)optionPrototypes {
++ (NSArray *)encodeOptionPrototypes:(NSArray *)optionPrototypes {
     NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:optionPrototypes.count];
     NSMutableDictionary *temp;
     
@@ -77,28 +77,31 @@
         temp = [[NSMutableDictionary alloc] initWithCapacity:2];
         // dataType and displayName is not encoded because they can be got back (and updated) at run time
         [temp setObject:o.key forKey:JSON_KEY];
-        [temp setObject:[self jsonArrayFromOptionValuePrototypes:o.possibleValues.allValues] forKey:JSON_PISSIBLE_VALUES];
+        [temp setObject:[self encodeOptionValuePrototypes:o.possibleValues.allValues] forKey:JSON_PISSIBLE_VALUES];
         [result addObject:temp];
     }
     
     return result;
 }
 
-+ (NSArray *)jsonArrayFromOptionValuePrototypes:(NSArray *)optionValuePrototypes {
++ (NSArray *)encodeOptionValuePrototypes:(NSArray *)optionValuePrototypes {
     NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:optionValuePrototypes.count];
     NSMutableDictionary *temp;
     
     for (LLOptionValuePrototype *o in optionValuePrototypes) {
-        temp = [[NSMutableDictionary alloc] initWithCapacity:3];
-        // displayName and type is not encoded, because they can be got back (and updated) at run time
-        [temp setObject:o.key forKey:JSON_KEY];
-        [temp setObject:[NSNumber numberWithBool:o.selected] forKey:JSON_SELECTED];
-        if (o.value) {
-            [temp setObject:o.value forKey:JSON_VALUE];
+        // Only encode selected value, since others can be added (and updated) at run time
+        if (o.selected) {
+            temp = [[NSMutableDictionary alloc] initWithCapacity:3];
+            // displayName and type is not encoded, because they can be got back (and updated) at run time
+            [temp setObject:o.key forKey:JSON_KEY];
+            [temp setObject:[NSNumber numberWithBool:o.selected] forKey:JSON_SELECTED];
+            if (o.value) {
+                [temp setObject:o.value forKey:JSON_VALUE];
+            }
+            [result addObject:temp];
         }
-        [result addObject:temp];
     }
-
+    
     return result;
 }
 
