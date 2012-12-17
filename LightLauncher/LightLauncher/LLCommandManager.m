@@ -12,7 +12,7 @@
 #import "LLCommandParser.h"
 #import "LLCommandCompiler.h"
 #import "LLCommandPrototypeFactory.h"
-#import "Command.h"
+#import "Receipt.h"
 
 @interface LLCommandManager ()
 @property (nonatomic, strong, readwrite) NSMutableArray *receipts;
@@ -37,14 +37,9 @@
 - (id)init {
     self = [super init];
     if (self != nil) {
-        [self initReceipts];
         [self initCommandPrototypes];
     }
     return self;
-}
-
-- (void)initReceipts {
-    self.receipts = [NSMutableArray new];
 }
 
 - (void)initCommandPrototypes {
@@ -71,14 +66,14 @@
 
 - (void)onCommandFinished:(id)command {
     self.executingCommand = nil;
-    [LLCommandManager saveToDbCommandPrototype:self.executingCommandPrototype];
+    [LLCommandManager saveReceiptToDbFromCommandPrototype:self.executingCommandPrototype];
     self.executingCommandPrototype = nil;
 }
 
-+ (BOOL)saveToDbCommandPrototype:(LLCommandPrototype *)commandPrototype {
++ (BOOL)saveReceiptToDbFromCommandPrototype:(LLCommandPrototype *)commandPrototype {
     NSManagedObjectContext *context = [LLAppDelegate sharedInstance].managedObjectContext;
     
-    Command *command = [NSEntityDescription insertNewObjectForEntityForName:ENTITY_NAME_COMMAND inManagedObjectContext:context];
+    Receipt *command = [NSEntityDescription insertNewObjectForEntityForName:ENTITY_NAME_COMMAND inManagedObjectContext:context];
     command.liked = NO;
     command.data = [LLCommandParser encode:commandPrototype];
     command.executedDate = [NSDate date];
@@ -92,6 +87,25 @@
         NSLog(@"The save wasn't successful: %@", [error userInfo]);
     }
     return saved;
+}
+
++ (NSArray *)loadReceiptsFromDB {
+    NSManagedObjectContext *context = [LLAppDelegate sharedInstance].managedObjectContext;
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:ENTITY_NAME_COMMAND inManagedObjectContext:context];
+    
+    NSFetchRequest *request = [NSFetchRequest new];
+    request.entity = entity;
+    
+    NSError *error = nil;
+    NSArray *fetchedCommands = [context executeFetchRequest:request error:&error];
+    
+    if (error) {
+        //@TODO log to Crittercism here
+        return nil;
+    }
+    
+    //@TODO rename Command to Receipt
 }
 
 @end

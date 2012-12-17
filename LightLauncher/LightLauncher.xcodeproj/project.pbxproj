@@ -30,13 +30,15 @@
 		785EBB68162AC70F00ADE85F /* LLServiceCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EBB67162AC70F00ADE85F /* LLServiceCommand.m */; };
 		785EBB6A162B15C000ADE85F /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 785EBB69162B15C000ADE85F /* facebook.png */; };
 		788A483B167D976E009401DD /* LightLauncher.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 788A4839167D976E009401DD /* LightLauncher.xcdatamodeld */; };
-		788A4840167D9D3E009401DD /* Command.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A483F167D9D3E009401DD /* Command.m */; };
+		788A4840167D9D3E009401DD /* Receipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A483F167D9D3E009401DD /* Receipt.m */; };
 		788A4873167DC317009401DD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 788A4872167DC317009401DD /* CoreData.framework */; };
 		788A4884167DD5C9009401DD /* LLCommandFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A4883167DD5C8009401DD /* LLCommandFactory.m */; };
 		788A48B5167EDB26009401DD /* LLRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A48B4167EDB26009401DD /* LLRevealController.m */; };
 		788A48B9167EDC77009401DD /* LLRearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A48B7167EDC76009401DD /* LLRearViewController.m */; };
 		788A48BA167EDC77009401DD /* LLRearViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788A48B8167EDC76009401DD /* LLRearViewController.xib */; };
 		788A48C2167EE8E2009401DD /* ZUUIRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A48B2167ED905009401DD /* ZUUIRevealController.m */; };
+		788A48D0167F06F5009401DD /* LLHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A48CE167F06F5009401DD /* LLHistoryTableViewController.m */; };
+		788A48D1167F06F5009401DD /* LLHistoryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788A48CF167F06F5009401DD /* LLHistoryTableViewController.xib */; };
 		788FBF87163CE93C005A444E /* LLCommandParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF86163CE93C005A444E /* LLCommandParser.m */; };
 		788FBF8D163CEC59005A444E /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF8C163CEC59005A444E /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		788FBF90163D1038005A444E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0E2615E9F0AC002C6F78 /* MessageUI.framework */; };
@@ -97,8 +99,8 @@
 		785EBB69162B15C000ADE85F /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		788295FB1616A4EA0072B584 /* Log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		788A483A167D976E009401DD /* LightLauncher.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LightLauncher.xcdatamodel; sourceTree = "<group>"; };
-		788A483E167D9D3E009401DD /* Command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Command.h; sourceTree = "<group>"; };
-		788A483F167D9D3E009401DD /* Command.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Command.m; sourceTree = "<group>"; };
+		788A483E167D9D3E009401DD /* Receipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Receipt.h; sourceTree = "<group>"; };
+		788A483F167D9D3E009401DD /* Receipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Receipt.m; sourceTree = "<group>"; };
 		788A4872167DC317009401DD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		788A4882167DD5C7009401DD /* LLCommandFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandFactory.h; sourceTree = "<group>"; };
 		788A4883167DD5C8009401DD /* LLCommandFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandFactory.m; sourceTree = "<group>"; };
@@ -109,6 +111,9 @@
 		788A48B6167EDC76009401DD /* LLRearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLRearViewController.h; sourceTree = "<group>"; };
 		788A48B7167EDC76009401DD /* LLRearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLRearViewController.m; sourceTree = "<group>"; };
 		788A48B8167EDC76009401DD /* LLRearViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLRearViewController.xib; sourceTree = "<group>"; };
+		788A48CD167F06F5009401DD /* LLHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLHistoryTableViewController.h; sourceTree = "<group>"; };
+		788A48CE167F06F5009401DD /* LLHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLHistoryTableViewController.m; sourceTree = "<group>"; };
+		788A48CF167F06F5009401DD /* LLHistoryTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLHistoryTableViewController.xib; sourceTree = "<group>"; };
 		788FBF85163CE93C005A444E /* LLCommandParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandParser.h; sourceTree = "<group>"; };
 		788FBF86163CE93C005A444E /* LLCommandParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandParser.m; sourceTree = "<group>"; };
 		788FBF8B163CEC59005A444E /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
@@ -218,7 +223,8 @@
 		785A0DC215E9BEE4002C6F78 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				788A48BC167EDC9C009401DD /* Create Command Controllers */,
+				788A48BC167EDC9C009401DD /* Create Group */,
+				788A48CB167F06D3009401DD /* History Group */,
 				788A48BB167EDC81009401DD /* Side Menu */,
 			);
 			name = Controller;
@@ -288,8 +294,8 @@
 		788A483D167D9CC2009401DD /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				788A483E167D9D3E009401DD /* Command.h */,
-				788A483F167D9D3E009401DD /* Command.m */,
+				788A483E167D9D3E009401DD /* Receipt.h */,
+				788A483F167D9D3E009401DD /* Receipt.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -359,7 +365,7 @@
 			name = "Side Menu";
 			sourceTree = "<group>";
 		};
-		788A48BC167EDC9C009401DD /* Create Command Controllers */ = {
+		788A48BC167EDC9C009401DD /* Create Group */ = {
 			isa = PBXGroup;
 			children = (
 				788FBFA3163D91CF005A444E /* LLCommandPrototypeTableViewController.h */,
@@ -369,7 +375,17 @@
 				788FBFC1163DA3F3005A444E /* LLCreateCommandTableViewController.m */,
 				788FBFC2163DA3F3005A444E /* LLCreateCommandTableViewController.xib */,
 			);
-			name = "Create Command Controllers";
+			name = "Create Group";
+			sourceTree = "<group>";
+		};
+		788A48CB167F06D3009401DD /* History Group */ = {
+			isa = PBXGroup;
+			children = (
+				788A48CD167F06F5009401DD /* LLHistoryTableViewController.h */,
+				788A48CE167F06F5009401DD /* LLHistoryTableViewController.m */,
+				788A48CF167F06F5009401DD /* LLHistoryTableViewController.xib */,
+			);
+			name = "History Group";
 			sourceTree = "<group>";
 		};
 		788FBF89163CEC1D005A444E /* Libraries */ = {
@@ -463,6 +479,7 @@
 				788FBFC4163DA3F3005A444E /* LLCreateCommandTableViewController.xib in Resources */,
 				789EE199166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib in Resources */,
 				788A48BA167EDC77009401DD /* LLRearViewController.xib in Resources */,
+				788A48D1167F06F5009401DD /* LLHistoryTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,10 +518,11 @@
 				780E20FF16682C7500AE63EA /* LLCommandCompiler.m in Sources */,
 				789EE197166C9D7000CD4B92 /* LLPrefillOptionValuePrototypeCell.m in Sources */,
 				788A483B167D976E009401DD /* LightLauncher.xcdatamodeld in Sources */,
-				788A4840167D9D3E009401DD /* Command.m in Sources */,
+				788A4840167D9D3E009401DD /* Receipt.m in Sources */,
 				788A4884167DD5C9009401DD /* LLCommandFactory.m in Sources */,
 				788A48B5167EDB26009401DD /* LLRevealController.m in Sources */,
 				788A48B9167EDC77009401DD /* LLRearViewController.m in Sources */,
+				788A48D0167F06F5009401DD /* LLHistoryTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

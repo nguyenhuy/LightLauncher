@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
-#import "Command.h"
+#import "Receipt.h"
 
 
-@implementation Command
+@implementation Receipt
 
 @dynamic data;
 @dynamic executedDate;

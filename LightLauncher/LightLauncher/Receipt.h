@@ -10,7 +10,7 @@
 
 #define ENTITY_NAME_COMMAND @"Command"
 
-@interface Command : NSManagedObject
+@interface Receipt : NSManagedObject
 
 @property (nonatomic, retain) NSString * data;
 @property (nonatomic, retain) NSDate * executedDate;
