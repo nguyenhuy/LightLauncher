@@ -33,6 +33,10 @@
 		788A4840167D9D3E009401DD /* Command.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A483F167D9D3E009401DD /* Command.m */; };
 		788A4873167DC317009401DD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 788A4872167DC317009401DD /* CoreData.framework */; };
 		788A4884167DD5C9009401DD /* LLCommandFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A4883167DD5C8009401DD /* LLCommandFactory.m */; };
+		788A48B5167EDB26009401DD /* LLRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A48B4167EDB26009401DD /* LLRevealController.m */; };
+		788A48B9167EDC77009401DD /* LLRearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A48B7167EDC76009401DD /* LLRearViewController.m */; };
+		788A48BA167EDC77009401DD /* LLRearViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788A48B8167EDC76009401DD /* LLRearViewController.xib */; };
+		788A48C2167EE8E2009401DD /* ZUUIRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A48B2167ED905009401DD /* ZUUIRevealController.m */; };
 		788FBF87163CE93C005A444E /* LLCommandParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF86163CE93C005A444E /* LLCommandParser.m */; };
 		788FBF8D163CEC59005A444E /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF8C163CEC59005A444E /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		788FBF90163D1038005A444E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0E2615E9F0AC002C6F78 /* MessageUI.framework */; };
@@ -100,6 +104,11 @@
 		788A4883167DD5C8009401DD /* LLCommandFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandFactory.m; sourceTree = "<group>"; };
 		788A48B1167ED905009401DD /* ZUUIRevealController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ZUUIRevealController.h; path = ../ZUUIRevealController/ZUUIRevealController/ZUUIRevealController.h; sourceTree = "<group>"; };
 		788A48B2167ED905009401DD /* ZUUIRevealController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ZUUIRevealController.m; path = ../ZUUIRevealController/ZUUIRevealController/ZUUIRevealController.m; sourceTree = "<group>"; };
+		788A48B3167EDB26009401DD /* LLRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLRevealController.h; sourceTree = "<group>"; };
+		788A48B4167EDB26009401DD /* LLRevealController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLRevealController.m; sourceTree = "<group>"; };
+		788A48B6167EDC76009401DD /* LLRearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLRearViewController.h; sourceTree = "<group>"; };
+		788A48B7167EDC76009401DD /* LLRearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLRearViewController.m; sourceTree = "<group>"; };
+		788A48B8167EDC76009401DD /* LLRearViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLRearViewController.xib; sourceTree = "<group>"; };
 		788FBF85163CE93C005A444E /* LLCommandParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandParser.h; sourceTree = "<group>"; };
 		788FBF86163CE93C005A444E /* LLCommandParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandParser.m; sourceTree = "<group>"; };
 		788FBF8B163CEC59005A444E /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
@@ -209,12 +218,8 @@
 		785A0DC215E9BEE4002C6F78 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				788FBFA3163D91CF005A444E /* LLCommandPrototypeTableViewController.h */,
-				788FBFA4163D91CF005A444E /* LLCommandPrototypeTableViewController.m */,
-				788FBFA5163D91CF005A444E /* LLCommandPrototypeTableViewController.xib */,
-				788FBFC0163DA3F3005A444E /* LLCreateCommandTableViewController.h */,
-				788FBFC1163DA3F3005A444E /* LLCreateCommandTableViewController.m */,
-				788FBFC2163DA3F3005A444E /* LLCreateCommandTableViewController.xib */,
+				788A48BC167EDC9C009401DD /* Create Command Controllers */,
+				788A48BB167EDC81009401DD /* Side Menu */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -342,6 +347,31 @@
 			name = ZUUIRevealController;
 			sourceTree = "<group>";
 		};
+		788A48BB167EDC81009401DD /* Side Menu */ = {
+			isa = PBXGroup;
+			children = (
+				788A48B3167EDB26009401DD /* LLRevealController.h */,
+				788A48B4167EDB26009401DD /* LLRevealController.m */,
+				788A48B6167EDC76009401DD /* LLRearViewController.h */,
+				788A48B7167EDC76009401DD /* LLRearViewController.m */,
+				788A48B8167EDC76009401DD /* LLRearViewController.xib */,
+			);
+			name = "Side Menu";
+			sourceTree = "<group>";
+		};
+		788A48BC167EDC9C009401DD /* Create Command Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				788FBFA3163D91CF005A444E /* LLCommandPrototypeTableViewController.h */,
+				788FBFA4163D91CF005A444E /* LLCommandPrototypeTableViewController.m */,
+				788FBFA5163D91CF005A444E /* LLCommandPrototypeTableViewController.xib */,
+				788FBFC0163DA3F3005A444E /* LLCreateCommandTableViewController.h */,
+				788FBFC1163DA3F3005A444E /* LLCreateCommandTableViewController.m */,
+				788FBFC2163DA3F3005A444E /* LLCreateCommandTableViewController.xib */,
+			);
+			name = "Create Command Controllers";
+			sourceTree = "<group>";
+		};
 		788FBF89163CEC1D005A444E /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,6 +462,7 @@
 				788FBFA7163D91CF005A444E /* LLCommandPrototypeTableViewController.xib in Resources */,
 				788FBFC4163DA3F3005A444E /* LLCreateCommandTableViewController.xib in Resources */,
 				789EE199166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib in Resources */,
+				788A48BA167EDC77009401DD /* LLRearViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				788A48C2167EE8E2009401DD /* ZUUIRevealController.m in Sources */,
 				785A0DAE15E9A3B6002C6F78 /* main.m in Sources */,
 				785A0DB215E9A3B6002C6F78 /* LLAppDelegate.m in Sources */,
 				785A0DCD15E9BFC9002C6F78 /* LLReceipt.m in Sources */,
@@ -471,6 +503,8 @@
 				788A483B167D976E009401DD /* LightLauncher.xcdatamodeld in Sources */,
 				788A4840167D9D3E009401DD /* Command.m in Sources */,
 				788A4884167DD5C9009401DD /* LLCommandFactory.m in Sources */,
+				788A48B5167EDB26009401DD /* LLRevealController.m in Sources */,
+				788A48B9167EDC77009401DD /* LLRearViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

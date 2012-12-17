@@ -17,6 +17,10 @@
 
 @implementation LLCommandPrototypeTableViewController
 
++ (LLCommandPrototypeTableViewController *)newInstance {
+    return [[LLCommandPrototypeTableViewController alloc] initWithNibName:NIB_COMMAND_PROTOTYPE_TABLE_VIEW_CONTROLLER bundle:nil];
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -32,11 +36,14 @@
     self.title = @"Commands";
     [self.tableView registerClass:[LLCommandPrototypeCell class] forCellReuseIdentifier:IDENTIFIER_COMMAND_PROTOTYPE_CELL];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //@TODO may abstract this.
+    if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)])
+	{
+		UIPanGestureRecognizer *navigationBarPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self.navigationController.parentViewController action:@selector(revealGesture:)];
+		[self.navigationController.navigationBar addGestureRecognizer:navigationBarPanGestureRecognizer];
+        
+		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Reveal", @"Reveal") style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
+	}
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

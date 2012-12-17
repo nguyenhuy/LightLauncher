@@ -99,7 +99,7 @@
 - (void)addAttachmentDatasToMailComposeViewController:(MFMailComposeViewController *)controller {
     for (NSString *path in self.attachments) {
         NSData *data = [NSData dataWithContentsOfFile:path];
-#warning get mimetype and filename
+        //@TODO get mimetype and filename
         [controller addAttachmentData:data mimeType:@"image/png" fileName:@"path"];
     }
 }

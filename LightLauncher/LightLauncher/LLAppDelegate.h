@@ -9,14 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
+@class LLRevealController;
 @class LLCommandPrototypeTableViewController;
 
 @interface LLAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
-
-@property (nonatomic, strong) LLCommandPrototypeTableViewController *viewController;
-@property (nonatomic, strong) UINavigationController *navigationController;
+@property (nonatomic, strong) LLRevealController *revealController;
 
 // CoreData
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;

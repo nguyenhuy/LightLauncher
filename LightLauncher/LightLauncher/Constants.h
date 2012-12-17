@@ -47,4 +47,10 @@ typedef enum {
     TYPE_IMAGE
 } OptionValueType;
 
+typedef enum {
+    GROUP_CREATE,
+    GROUP_HISTORY,
+    GROUP_FAVORITE,
+} ViewControllerGroup;
+
 #endif

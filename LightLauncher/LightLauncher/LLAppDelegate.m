@@ -8,6 +8,8 @@
 
 #import "LLAppDelegate.h"
 #import "LLCommandPrototypeTableViewController.h"
+#import "LLRearViewController.h"
+#import "LLRevealController.h"
 
 @implementation LLAppDelegate
 
@@ -18,10 +20,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.viewController = [[LLCommandPrototypeTableViewController alloc] initWithNibName:NIB_COMMAND_PROTOTYPE_TABLE_VIEW_CONTROLLER bundle:nil];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
-    self.window.rootViewController = self.navigationController;
+    
+    LLCommandPrototypeTableViewController *frontViewController = [LLCommandPrototypeTableViewController newInstance];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
+    LLRearViewController *rearViewController = [LLRearViewController newInstance];
+    self.revealController = [[LLRevealController alloc] initWithFrontViewController:navigationController rearViewController:rearViewController];
+    
+    self.window.rootViewController = self.revealController;
     [self.window makeKeyAndVisible];
     return YES;
 }
