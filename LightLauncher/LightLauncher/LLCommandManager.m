@@ -92,10 +92,15 @@
 + (NSArray *)loadReceiptsFromDB {
     NSManagedObjectContext *context = [LLAppDelegate sharedInstance].managedObjectContext;
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:ENTITY_NAME_RECEIPT inManagedObjectContext:context];
-    
     NSFetchRequest *request = [NSFetchRequest new];
+    
+    // Receipt entity
+    NSEntityDescription *entity = [NSEntityDescription entityForName:ENTITY_NAME_RECEIPT inManagedObjectContext:context];
     request.entity = entity;
+    
+    // Sort using executedDate, in descending order
+    NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:ENTITY_KEY_EXECUTED_DATE ascending:NO];
+    request.sortDescriptors = [NSArray arrayWithObject:sortDesc];
     
     NSError *error = nil;
     NSArray *fetchedReceipts = [context executeFetchRequest:request error:&error];

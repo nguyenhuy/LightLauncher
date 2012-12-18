@@ -9,6 +9,7 @@
 #import <CoreData/CoreData.h>
 
 #define ENTITY_NAME_RECEIPT @"Receipt"
+#define ENTITY_KEY_EXECUTED_DATE @"executedDate"
 
 @interface Receipt : NSManagedObject
 
