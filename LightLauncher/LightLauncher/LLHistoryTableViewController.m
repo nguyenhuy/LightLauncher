@@ -13,6 +13,10 @@
 #import "Receipt.h"
 
 @interface LLHistoryTableViewController ()
+- (void)loadReceipts;
+- (void)showRightEditBarButtonItem;
+- (void)showRightDoneBarButtonItem;
+- (void)deleteReceiptAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @implementation LLHistoryTableViewController
@@ -24,7 +28,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.receipts = [LLCommandManager loadReceiptsFromDB];
+        //@TODO may reload all receipts in viewDidLoad or viewWillAppear
+        [self loadReceipts];
     }
     return self;
 }
@@ -32,7 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     //@TODO may abstract this.
     if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)])
 	{
@@ -41,6 +46,8 @@
         
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Reveal", @"Reveal") style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
 	}
+    
+    [self showRightEditBarButtonItem];
 }
 
 #pragma mark - Table view data source
@@ -69,6 +76,10 @@
     return cell;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -78,6 +89,48 @@
     LLCommandPrototype *commandPrototype = [LLCommandParser decode:receipt.data];
     LLCommandManager *commandManager = [LLCommandManager sharedInstance];
     [commandManager executeFromCommandPrototype:commandPrototype withViewController:self];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self deleteReceiptAtIndexPath:indexPath];
+    }
+}
+
+#pragma mark - Instance methods
+
+- (void)loadReceipts {
+    NSArray *temp = [LLCommandManager loadReceiptsFromDB];
+    self.receipts = [NSMutableArray arrayWithArray:temp];
+}
+
+- (void)showRightEditBarButtonItem {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(edit)];
+}
+
+- (void)showRightDoneBarButtonItem {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneEditting)];
+}
+
+- (void)deleteReceiptAtIndexPath:(NSIndexPath *)indexPath {
+    BOOL deleted = [LLCommandManager deleteReceipt:[self.receipts objectAtIndex:indexPath.row]];
+    if (deleted) {
+        [self.receipts removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+    } else {
+        //@TODO log to Crittercism
+        //@TODO may handle error here
+    }
+}
+
+- (void)edit {
+    [self.tableView setEditing:YES animated:YES];
+    [self showRightDoneBarButtonItem];
+}
+
+- (void)doneEditting {
+    [self.tableView setEditing:NO animated:YES];
+    [self showRightEditBarButtonItem];
 }
 
 @end

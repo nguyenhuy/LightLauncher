@@ -19,8 +19,8 @@
 @property (nonatomic, strong, readwrite) NSMutableArray *commandPrototypes;
 @property (nonatomic, strong, readwrite) LLCommand *executingCommand;
 @property (nonatomic, strong, readwrite) LLCommandPrototype *executingCommandPrototype;
-- (void)initReceipts;
 - (void)initCommandPrototypes;
++ (BOOL)saveManagedObjectContext:(NSManagedObjectContext *)context;
 @end
 
 @implementation LLCommandManager
@@ -71,6 +71,10 @@
 }
 
 + (BOOL)saveReceiptToDbFromCommandPrototype:(LLCommandPrototype *)commandPrototype {
+    if (!commandPrototype) {
+        return NO;
+    }
+    
     NSManagedObjectContext *context = [LLAppDelegate sharedInstance].managedObjectContext;
     
     Receipt *command = [NSEntityDescription insertNewObjectForEntityForName:ENTITY_NAME_RECEIPT inManagedObjectContext:context];
@@ -78,15 +82,7 @@
     command.data = [LLCommandParser encode:commandPrototype];
     command.executedDate = [NSDate date];
     
-    NSError *error = nil;
-    BOOL saved = [context save:&error];
-    //@TODO save to Crittercism
-    if (saved) {
-        NSLog(@"The save was successful!");
-    } else {
-        NSLog(@"The save wasn't successful: %@", [error userInfo]);
-    }
-    return saved;
+    return [self saveManagedObjectContext:context];
 }
 
 + (NSArray *)loadReceiptsFromDB {
@@ -111,6 +107,49 @@
     }
     
     return fetchedReceipts;
+}
+
++ (BOOL)deleteAllReceipts {
+    NSArray *receipts = [self loadReceiptsFromDB];
+    
+    if (!receipts || [receipts count] == 0) {
+        // Nothing to delete, return YES to indicate that there is no receipt in DB.
+        return YES;
+    }
+    
+    NSManagedObjectContext *context = [LLAppDelegate sharedInstance].managedObjectContext;
+    
+    for (Receipt *r in receipts) {
+        [context deleteObject:r];
+    }
+    
+    return [self saveManagedObjectContext:context];
+}
+
++ (BOOL)deleteReceipt:(Receipt *)receipt {
+    if (!receipt) {
+        return NO;
+    }
+    
+    NSManagedObjectContext *context = [LLAppDelegate sharedInstance].managedObjectContext;
+    [context deleteObject:receipt];
+    return [self saveManagedObjectContext:context];
+}
+
++ (BOOL)saveManagedObjectContext:(NSManagedObjectContext *)context {
+    if (!context) {
+        return NO;
+    }
+    
+    NSError *error = nil;
+    BOOL saved = [context save:&error];
+    //@TODO save to Crittercism
+    if (saved) {
+        NSLog(@"The save was successful!");
+    } else {
+        NSLog(@"The save wasn't successful: %@", [error userInfo]);
+    }
+    return saved;
 }
 
 @end

@@ -9,6 +9,7 @@
 #import "LLCommand.h"
 
 @class LLCommandPrototype;
+@class Receipt;
 
 @interface LLCommandManager : NSObject <LLCommandDelegate>
 
@@ -24,5 +25,7 @@
 + (BOOL)saveReceiptToDbFromCommandPrototype:(LLCommandPrototype *)commandPrototype;
 //@TODO may cache in this instance
 + (NSArray *)loadReceiptsFromDB;
++ (BOOL)deleteAllReceipts;
++ (BOOL)deleteReceipt:(Receipt *)receipt;
 
 @end
