@@ -54,16 +54,16 @@
                         [LLOptionPrototypeFactory fileAttachmentsOptionPrototype],
                         nil];
     
-    LLCommandPrototype *commandPrototype = [[LLCommandPrototype alloc] initWithCommand:COMMAND_EMAIL andOptions:options andDesc:@"Email" andIconFileName:@"mail.png"];
+    LLCommandPrototype *commandPrototype = [[LLCommandPrototype alloc] initWithCommand:COMMAND_EMAIL andOptions:options andDesc:@"Email" andIconFileName:IMAGE_MAIL];
     return commandPrototype;
 }
 
 + (LLCommandPrototype *)facebookCommandPrototype {
-    return [self socialCommandPrototypeForCommand:COMMAND_FACEBOOK withDesc:@"Facebook" andIconFileName:@"facebook.png"];
+    return [self socialCommandPrototypeForCommand:COMMAND_FACEBOOK withDesc:@"Facebook" andIconFileName:IMAGE_FACEBOOK];
 }
 
 + (LLCommandPrototype *)twitterCommandPrototype {
-    return [self socialCommandPrototypeForCommand:COMMAND_TWITTER withDesc:@"Twitter" andIconFileName:@"twitter.png"];
+    return [self socialCommandPrototypeForCommand:COMMAND_TWITTER withDesc:@"Twitter" andIconFileName:IMAGE_TWITTER];
 }
 
 @end

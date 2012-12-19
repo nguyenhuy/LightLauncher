@@ -33,6 +33,12 @@
 
 #define COMPONENTS_SEPARATOR @","
 
+#define IMAGE_MAIL @"mail.png"
+#define IMAGE_TWITTER @"twitter.png"
+#define IMAGE_FACEBOOK @"facebook.png"
+#define IMAGE_LIKE_SELECTED @"like_selected.png"
+#define IMAGE_LIKE_UNSELECTED @"like_unselected.png"
+
 typedef enum {
     DATA_STRING,
     DATA_ARRAY,

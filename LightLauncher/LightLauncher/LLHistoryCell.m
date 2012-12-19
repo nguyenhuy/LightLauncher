@@ -40,9 +40,9 @@
     
     UIImage *likeImage;
     if ([receipt.liked boolValue]) {
-        likeImage = [UIImage imageNamed:@"facebook"];
+        likeImage = [UIImage imageNamed:IMAGE_LIKE_SELECTED];
     } else {
-        likeImage = [UIImage imageNamed:@"twitter"];
+        likeImage = [UIImage imageNamed:IMAGE_LIKE_UNSELECTED];
     }
     self.imageView.image = likeImage;
     

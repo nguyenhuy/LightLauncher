@@ -39,6 +39,8 @@
 		788A48D0167F06F5009401DD /* LLHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A48CE167F06F5009401DD /* LLHistoryTableViewController.m */; };
 		788A48D1167F06F5009401DD /* LLHistoryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788A48CF167F06F5009401DD /* LLHistoryTableViewController.xib */; };
 		788A48D416815F9E009401DD /* LLHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A48D316815F9E009401DD /* LLHistoryCell.m */; };
+		788F63721681CF9B00C25E32 /* like_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 788F63701681CF9B00C25E32 /* like_unselected.png */; };
+		788F63731681CF9B00C25E32 /* like_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 788F63711681CF9B00C25E32 /* like_selected.png */; };
 		788FBF87163CE93C005A444E /* LLCommandParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF86163CE93C005A444E /* LLCommandParser.m */; };
 		788FBF8D163CEC59005A444E /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF8C163CEC59005A444E /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		788FBF90163D1038005A444E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0E2615E9F0AC002C6F78 /* MessageUI.framework */; };
@@ -114,6 +116,8 @@
 		788A48CF167F06F5009401DD /* LLHistoryTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLHistoryTableViewController.xib; sourceTree = "<group>"; };
 		788A48D216815F9E009401DD /* LLHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLHistoryCell.h; sourceTree = "<group>"; };
 		788A48D316815F9E009401DD /* LLHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLHistoryCell.m; sourceTree = "<group>"; };
+		788F63701681CF9B00C25E32 /* like_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like_unselected.png; path = "../../../../../Downloads/Keyamoon-IcoMoon--limited--4f4e8f2/Icons/PNG/32px/like_unselected.png"; sourceTree = "<group>"; };
+		788F63711681CF9B00C25E32 /* like_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like_selected.png; path = "../../../../../Downloads/Keyamoon-IcoMoon--limited--4f4e8f2/Icons/PNG/32px/like_selected.png"; sourceTree = "<group>"; };
 		788FBF85163CE93C005A444E /* LLCommandParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandParser.h; sourceTree = "<group>"; };
 		788FBF86163CE93C005A444E /* LLCommandParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandParser.m; sourceTree = "<group>"; };
 		788FBF8B163CEC59005A444E /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
@@ -274,6 +278,8 @@
 		785A0E1115E9D135002C6F78 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				788F63701681CF9B00C25E32 /* like_unselected.png */,
+				788F63711681CF9B00C25E32 /* like_selected.png */,
 				785EBB69162B15C000ADE85F /* facebook.png */,
 				785A0E2415E9EFEC002C6F78 /* mail.png */,
 				785A0E1215E9D157002C6F78 /* twitter.png */,
@@ -480,6 +486,8 @@
 				789EE199166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib in Resources */,
 				788A48BA167EDC77009401DD /* LLRearViewController.xib in Resources */,
 				788A48D1167F06F5009401DD /* LLHistoryTableViewController.xib in Resources */,
+				788F63721681CF9B00C25E32 /* like_unselected.png in Resources */,
+				788F63731681CF9B00C25E32 /* like_selected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
