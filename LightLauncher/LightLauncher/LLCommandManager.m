@@ -129,13 +129,6 @@
         return nil;
     }
     
-    // Parse all receipts
-    //@TODO should we do it here???
-    // If don't parse them here, should do it in LLHistoryTableViewController:tableView: didSelectRowAtIndexPath:
-    for (Receipt *r in fetchedReceipts) {
-        r.commandPrototype = [LLCommandParser decode:r.data];
-    }
-    
     return fetchedReceipts;
 }
 

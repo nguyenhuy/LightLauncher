@@ -70,7 +70,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
-
+    //@TODO parse the receipt.data here. Shall we???
+    receipt.commandPrototype = [LLCommandParser decode:receipt.data];
+    
     LLHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_HISTORY_CELL forIndexPath:indexPath];
     [cell updateViewWithReceipt:receipt atIndexPath:indexPath andDelegate:self];
     
@@ -85,9 +87,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     // Execute the command
     Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
-    //@TODO the data is parsed in LLCommandManager, after loading from db so no need to parse here
+    // The data is already parsed in self:tableView:cellForRowAtIndexPath:, so don't need to parse here
     LLCommandManager *commandManager = [LLCommandManager sharedInstance];
     [commandManager executeFromCommandPrototype:receipt.commandPrototype withViewController:self];
 }
