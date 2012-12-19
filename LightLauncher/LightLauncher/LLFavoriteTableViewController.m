@@ -6,13 +6,17 @@
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
-#import "LLFavoriteViewController.h"
+#import "LLFavoriteTableViewController.h"
 
-@interface LLFavoriteViewController ()
+@interface LLFavoriteTableViewController ()
 
 @end
 
-@implementation LLFavoriteViewController
+@implementation LLFavoriteTableViewController
+
++ (LLFavoriteTableViewController *)newInstance {
+    return [[LLFavoriteTableViewController alloc] initWithNibName:@"LLFavoriteTableViewController" bundle:nil];
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LLFavoriteViewController : UITableViewController
+@interface LLFavoriteTableViewController : UITableViewController
+
++ (LLFavoriteTableViewController *)newInstance;
 
 @end
