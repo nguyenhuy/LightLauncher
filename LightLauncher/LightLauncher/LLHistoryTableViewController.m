@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     
-    self.navigationController.title = @"History";
+    self.title = @"History";
     [self.tableView registerClass:[LLHistoryCell class] forCellReuseIdentifier:IDENTIFIER_HISTORY_CELL];
     
     //@TODO may abstract this.

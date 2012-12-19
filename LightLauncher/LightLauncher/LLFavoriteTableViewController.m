@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
     
-    self.navigationController.title = @"Favorite";
+    self.title = @"Favorite";
     [self.tableView registerClass:[LLFavoriteCell class] forCellReuseIdentifier:IDENTIFIER_FAVORITE_CELL];
 
     //@TODO may abstract this.
