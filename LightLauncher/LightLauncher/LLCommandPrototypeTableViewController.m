@@ -21,14 +21,6 @@
     return [[LLCommandPrototypeTableViewController alloc] initWithNibName:NIB_COMMAND_PROTOTYPE_TABLE_VIEW_CONTROLLER bundle:nil];
 }
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -51,12 +43,6 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -71,8 +57,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    LLCommandPrototype *commandPrototype = [[LLCommandManager commandPrototypes] objectAtIndex:indexPath.row];
+
     LLCommandPrototypeCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_COMMAND_PROTOTYPE_CELL forIndexPath:indexPath];
-    cell.commandPrototype = [[[LLCommandManager sharedInstance] commandPrototypes] objectAtIndex:indexPath.row];
+    [cell updateViewWithCommandPrototype:commandPrototype];
     
     return cell;
 }

@@ -16,4 +16,12 @@
 @dynamic liked;
 @synthesize commandPrototype = _commandPrototype;
 
+- (BOOL)likedValue {
+    return [self.liked boolValue];
+}
+
+- (void)setLikedValue:(BOOL)likedValue {
+    self.liked = [NSNumber numberWithBool:likedValue];
+}
+
 @end

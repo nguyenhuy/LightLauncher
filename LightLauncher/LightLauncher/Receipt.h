@@ -22,4 +22,7 @@
 // This is not available, until we parse the data and store the result here
 @property (nonatomic, strong) LLCommandPrototype *commandPrototype;
 
+- (BOOL)likedValue;
+- (void)setLikedValue:(BOOL)likedValue;
+
 @end

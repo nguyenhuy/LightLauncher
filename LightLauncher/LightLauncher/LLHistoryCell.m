@@ -39,7 +39,7 @@
     self.textLabel.text = receipt.commandPrototype.desc;
     
     UIImage *likeImage;
-    if ([receipt.liked boolValue]) {
+    if (receipt.likedValue) {
         likeImage = [UIImage imageNamed:IMAGE_LIKE_SELECTED];
     } else {
         likeImage = [UIImage imageNamed:IMAGE_LIKE_UNSELECTED];

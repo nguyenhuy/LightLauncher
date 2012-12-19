@@ -15,15 +15,20 @@
 #import "Receipt.h"
 
 @interface LLCommandManager ()
+
 @property (nonatomic, strong, readwrite) NSMutableArray *receipts;
+@property (nonatomic, strong, readwrite) NSMutableArray *favReceipts;
 @property (nonatomic, strong, readwrite) NSMutableArray *commandPrototypes;
 @property (nonatomic, strong, readwrite) LLCommand *executingCommand;
 @property (nonatomic, strong, readwrite) LLCommandPrototype *executingCommandPrototype;
-- (void)initReceipts;
-- (void)initCommandPrototypes;
+
 + (NSMutableArray *)loadReceiptsFromDB;
 + (BOOL)save;
 + (BOOL)saveManagedObjectContext:(NSManagedObjectContext *)context;
+
+- (void)initReceipts;
+- (void)initFavReceipts;
+- (void)initCommandPrototypes;
 @end
 
 @implementation LLCommandManager
@@ -39,6 +44,14 @@
 
 + (NSMutableArray *)receipts {
     return [[LLCommandManager sharedInstance] receipts];
+}
+
++ (NSMutableArray *)favReceipts {
+    return [[LLCommandManager sharedInstance] favReceipts];
+}
+
++ (NSMutableArray *)commandPrototypes {
+    return [[LLCommandManager sharedInstance] commandPrototypes];
 }
 
 + (BOOL)save {
@@ -72,7 +85,7 @@
     request.entity = entity;
     
     // Sort using executedDate, in descending order
-    NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:ENTITY_KEY_EXECUTED_DATE ascending:NO];
+    NSSortDescriptor *sortDesc = [[NSSortDescriptor alloc] initWithKey:ENTITY_KEY_EXECUTED_DATE ascending:YES];
     request.sortDescriptors = [NSArray arrayWithObject:sortDesc];
     
     NSError *error = nil;
@@ -90,6 +103,7 @@
     self = [super init];
     if (self != nil) {
         [self initReceipts];
+        [self initFavReceipts];
         [self initCommandPrototypes];
     }
     return self;
@@ -97,6 +111,15 @@
 
 - (void)initReceipts {
     self.receipts = [LLCommandManager loadReceiptsFromDB];
+}
+
+- (void)initFavReceipts {
+    self.favReceipts = [[NSMutableArray alloc] init];
+    for (Receipt* r in self.receipts) {
+        if (r.likedValue) {
+            [self.favReceipts addObject:r];
+        }
+    }
 }
 
 - (void)initCommandPrototypes {
@@ -137,13 +160,16 @@
     NSManagedObjectContext *context = [LLAppDelegate sharedInstance].managedObjectContext;
     
     Receipt *receipt = [NSEntityDescription insertNewObjectForEntityForName:ENTITY_NAME_RECEIPT inManagedObjectContext:context];
-    receipt.liked = [NSNumber numberWithBool:NO];
+    receipt.likedValue = NO;
     receipt.data = [LLCommandParser encode:commandPrototype];
     receipt.executedDate = [NSDate date];
     
     BOOL saved = [LLCommandManager saveManagedObjectContext:context];
     if (saved) {
         [self.receipts addObject:receipt];
+        if (receipt.likedValue) {
+            [self.favReceipts addObject:receipt];
+        }
     }
     return saved;
 }
@@ -163,6 +189,7 @@
     BOOL saved = [LLCommandManager saveManagedObjectContext:context];
     if (saved) {
         [self.receipts removeAllObjects];
+        [self.favReceipts removeAllObjects];
     }
     return saved;
 }
@@ -178,6 +205,7 @@
     BOOL saved = [LLCommandManager saveManagedObjectContext:context];
     if (saved) {
         [self.receipts removeObjectAtIndex:index];
+        [self.favReceipts removeObject:receipt];
     }
     return saved;
 }
@@ -190,10 +218,17 @@
         return NO;
     }
     
-    BOOL liked = [receipt.liked boolValue];
-    receipt.liked = [NSNumber numberWithBool:!liked];
+    receipt.likedValue = !receipt.likedValue;
     
-    return [LLCommandManager save];
+    BOOL saved = [LLCommandManager save];
+    if (saved) {
+        if (receipt.likedValue) {
+            [self.favReceipts addObject:receipt];
+        } else {
+            [self.favReceipts removeObject:receipt];
+        }
+    }
+    return saved;
 }
 
 @end

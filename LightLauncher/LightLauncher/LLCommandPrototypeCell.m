@@ -21,17 +21,9 @@
     return self;
 }
 
-- (void)setCommandPrototype:(LLCommandPrototype *)commandPrototype {
-    if (_commandPrototype) {
-        _commandPrototype = nil;
-    }
-    
-    _commandPrototype = commandPrototype;
-    
-    if (_commandPrototype) {
-        self.imageView.image = [UIImage imageNamed:commandPrototype.iconFileName];
-        self.textLabel.text = commandPrototype.desc;
-    }
+- (void)updateViewWithCommandPrototype:(LLCommandPrototype *)commandPrototype {
+    self.imageView.image = [UIImage imageNamed:commandPrototype.iconFileName];
+    self.textLabel.text = commandPrototype.desc;
 }
 
 @end
