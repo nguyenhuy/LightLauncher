@@ -16,7 +16,6 @@
 {
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.frame = CGRectMake(0, 0, 320, 100);
         self.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     }
     return self;
@@ -33,13 +32,6 @@
         self.imageView.image = [UIImage imageNamed:commandPrototype.iconFileName];
         self.textLabel.text = commandPrototype.desc;
     }
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

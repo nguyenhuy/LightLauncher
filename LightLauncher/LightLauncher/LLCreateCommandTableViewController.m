@@ -80,10 +80,10 @@
     LLOptionValuePrototypeCell *cell;
     
     if ([optionValuePrototype.key isEqualToString:OPTION_VALUE_PREFILL]) {
-        cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_PREFILL_OPTION_VALUE_PROTOTYPE_CELL];
+        cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_PREFILL_OPTION_VALUE_PROTOTYPE_CELL forIndexPath:indexPath];
         ((LLPrefillOptionValuePrototypeCell *) cell).delegate = self;
     } else {
-        cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_OPTION_VALUE_PROTOTYPE_CELL];
+        cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_OPTION_VALUE_PROTOTYPE_CELL forIndexPath:indexPath];
     }
     
     [cell updateViewWithOptionValuePrototype:optionValuePrototype atIndexPath:indexPath];

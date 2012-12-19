@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LLHistoryCell.h"
 
 @class Receipt;
-@interface LLHistoryTableViewController : UITableViewController
+@interface LLHistoryTableViewController : UITableViewController <LLHistoryCellDelegate>
 
 @property (nonatomic, strong) NSMutableArray* receipts;
 

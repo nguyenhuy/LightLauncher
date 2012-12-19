@@ -7,9 +7,12 @@
 //
 
 #import "LLHistoryTableViewController.h"
+
 #import "LLCommandManager.h"
 #import "LLCommandParser.h"
+
 #import "LLCommandPrototype.h"
+
 #import "Receipt.h"
 
 @interface LLHistoryTableViewController ()
@@ -38,6 +41,8 @@
 {
     [super viewDidLoad];
     
+    [self.tableView registerClass:[LLHistoryCell class] forCellReuseIdentifier:IDENTIFIER_HISTORY_CELL];
+    
     //@TODO may abstract this.
     if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)])
 	{
@@ -64,14 +69,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
     Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
-    cell.textLabel.text = receipt.data;
+
+    LLHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_HISTORY_CELL forIndexPath:indexPath];
+    [cell updateViewWithReceipt:receipt atIndexPath:indexPath andDelegate:self];
     
     return cell;
 }
@@ -86,14 +87,26 @@
 {
     // Execute the command
     Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
-    LLCommandPrototype *commandPrototype = [LLCommandParser decode:receipt.data];
+    //@TODO the data is parsed in LLCommandManager, after loading from db so no need to parse here
     LLCommandManager *commandManager = [LLCommandManager sharedInstance];
-    [commandManager executeFromCommandPrototype:commandPrototype withViewController:self];
+    [commandManager executeFromCommandPrototype:receipt.commandPrototype withViewController:self];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self deleteReceiptAtIndexPath:indexPath];
+    }
+}
+
+#pragma mark - History cell delegate
+
+- (void)onLikeReceiptAtIndexPath:(NSIndexPath *)indexPath {
+    Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
+    BOOL liked = [receipt.liked boolValue];
+    receipt.liked = [NSNumber numberWithBool:!liked];
+
+    if ([LLCommandManager save]) {
+        [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:NO];
     }
 }
 
@@ -117,6 +130,11 @@
     if (deleted) {
         [self.receipts removeObjectAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+        
+        // Done editing if there is no more receipt
+        if (self.receipts.count == 0) {
+            [self doneEditting];
+        }
     } else {
         //@TODO log to Crittercism
         //@TODO may handle error here

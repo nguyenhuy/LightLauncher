@@ -18,7 +18,6 @@
 		785A0DCD15E9BFC9002C6F78 /* LLReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DCC15E9BFC9002C6F78 /* LLReceipt.m */; };
 		785A0DD015E9BFD1002C6F78 /* LLCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DCF15E9BFD1002C6F78 /* LLCommand.m */; };
 		785A0DD615E9C165002C6F78 /* LLCommandManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DD515E9C165002C6F78 /* LLCommandManager.m */; };
-		785A0DDD15E9C39E002C6F78 /* LLReceiptCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DDC15E9C39E002C6F78 /* LLReceiptCell.m */; };
 		785A0DE215E9C662002C6F78 /* LLCommandPrototypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DE115E9C662002C6F78 /* LLCommandPrototypeCell.m */; };
 		785A0E1015E9CF02002C6F78 /* LLTwitterCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0E0F15E9CF02002C6F78 /* LLTwitterCommand.m */; };
 		785A0E1315E9D157002C6F78 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 785A0E1215E9D157002C6F78 /* twitter.png */; };
@@ -39,6 +38,7 @@
 		788A48C2167EE8E2009401DD /* ZUUIRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A48B2167ED905009401DD /* ZUUIRevealController.m */; };
 		788A48D0167F06F5009401DD /* LLHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A48CE167F06F5009401DD /* LLHistoryTableViewController.m */; };
 		788A48D1167F06F5009401DD /* LLHistoryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788A48CF167F06F5009401DD /* LLHistoryTableViewController.xib */; };
+		788A48D416815F9E009401DD /* LLHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A48D316815F9E009401DD /* LLHistoryCell.m */; };
 		788FBF87163CE93C005A444E /* LLCommandParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF86163CE93C005A444E /* LLCommandParser.m */; };
 		788FBF8D163CEC59005A444E /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF8C163CEC59005A444E /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		788FBF90163D1038005A444E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0E2615E9F0AC002C6F78 /* MessageUI.framework */; };
@@ -78,8 +78,6 @@
 		785A0DCF15E9BFD1002C6F78 /* LLCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommand.m; sourceTree = "<group>"; };
 		785A0DD415E9C164002C6F78 /* LLCommandManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandManager.h; sourceTree = "<group>"; };
 		785A0DD515E9C165002C6F78 /* LLCommandManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandManager.m; sourceTree = "<group>"; };
-		785A0DDB15E9C39E002C6F78 /* LLReceiptCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLReceiptCell.h; sourceTree = "<group>"; };
-		785A0DDC15E9C39E002C6F78 /* LLReceiptCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLReceiptCell.m; sourceTree = "<group>"; };
 		785A0DE015E9C662002C6F78 /* LLCommandPrototypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandPrototypeCell.h; sourceTree = "<group>"; };
 		785A0DE115E9C662002C6F78 /* LLCommandPrototypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandPrototypeCell.m; sourceTree = "<group>"; };
 		785A0E0E15E9CF02002C6F78 /* LLTwitterCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLTwitterCommand.h; sourceTree = "<group>"; };
@@ -114,6 +112,8 @@
 		788A48CD167F06F5009401DD /* LLHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLHistoryTableViewController.h; sourceTree = "<group>"; };
 		788A48CE167F06F5009401DD /* LLHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLHistoryTableViewController.m; sourceTree = "<group>"; };
 		788A48CF167F06F5009401DD /* LLHistoryTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLHistoryTableViewController.xib; sourceTree = "<group>"; };
+		788A48D216815F9E009401DD /* LLHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLHistoryCell.h; sourceTree = "<group>"; };
+		788A48D316815F9E009401DD /* LLHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLHistoryCell.m; sourceTree = "<group>"; };
 		788FBF85163CE93C005A444E /* LLCommandParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandParser.h; sourceTree = "<group>"; };
 		788FBF86163CE93C005A444E /* LLCommandParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandParser.m; sourceTree = "<group>"; };
 		788FBF8B163CEC59005A444E /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
@@ -331,8 +331,6 @@
 		788A4890167DDC4E009401DD /* Table View Cells */ = {
 			isa = PBXGroup;
 			children = (
-				785A0DDB15E9C39E002C6F78 /* LLReceiptCell.h */,
-				785A0DDC15E9C39E002C6F78 /* LLReceiptCell.m */,
 				785A0DE015E9C662002C6F78 /* LLCommandPrototypeCell.h */,
 				785A0DE115E9C662002C6F78 /* LLCommandPrototypeCell.m */,
 				7817D154164A2481007DEC5E /* LLOptionValuePrototypeCell.h */,
@@ -340,6 +338,8 @@
 				789EE195166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.h */,
 				789EE196166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.m */,
 				789EE198166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib */,
+				788A48D216815F9E009401DD /* LLHistoryCell.h */,
+				788A48D316815F9E009401DD /* LLHistoryCell.m */,
 			);
 			name = "Table View Cells";
 			sourceTree = "<group>";
@@ -496,7 +496,6 @@
 				785A0DCD15E9BFC9002C6F78 /* LLReceipt.m in Sources */,
 				785A0DD015E9BFD1002C6F78 /* LLCommand.m in Sources */,
 				785A0DD615E9C165002C6F78 /* LLCommandManager.m in Sources */,
-				785A0DDD15E9C39E002C6F78 /* LLReceiptCell.m in Sources */,
 				785A0DE215E9C662002C6F78 /* LLCommandPrototypeCell.m in Sources */,
 				785A0E1015E9CF02002C6F78 /* LLTwitterCommand.m in Sources */,
 				785A0E2215E9EF1A002C6F78 /* LLEmailCommand.m in Sources */,
@@ -523,6 +522,7 @@
 				788A48B5167EDB26009401DD /* LLRevealController.m in Sources */,
 				788A48B9167EDC77009401DD /* LLRearViewController.m in Sources */,
 				788A48D0167F06F5009401DD /* LLHistoryTableViewController.m in Sources */,
+				788A48D416815F9E009401DD /* LLHistoryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

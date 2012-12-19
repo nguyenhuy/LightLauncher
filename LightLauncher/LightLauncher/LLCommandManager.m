@@ -20,7 +20,6 @@
 @property (nonatomic, strong, readwrite) LLCommand *executingCommand;
 @property (nonatomic, strong, readwrite) LLCommandPrototype *executingCommandPrototype;
 - (void)initCommandPrototypes;
-+ (BOOL)saveManagedObjectContext:(NSManagedObjectContext *)context;
 @end
 
 @implementation LLCommandManager
@@ -70,6 +69,30 @@
     self.executingCommandPrototype = nil;
 }
 
+#pragma mark - Static methods
+
++ (BOOL)save {
+    NSManagedObjectContext *context = [LLAppDelegate sharedInstance].managedObjectContext;
+    return [self saveManagedObjectContext:context];
+}
+
++ (BOOL)saveManagedObjectContext:(NSManagedObjectContext *)context {
+    if (!context) {
+        return NO;
+    }
+    
+    NSError *error = nil;
+    BOOL saved = [context save:&error];
+    //@TODO save to Crittercism
+    if (saved) {
+        NSLog(@"The save was successful!");
+    } else {
+        NSLog(@"The save wasn't successful: %@", [error userInfo]);
+    }
+    return saved;
+}
+
+
 + (BOOL)saveReceiptToDbFromCommandPrototype:(LLCommandPrototype *)commandPrototype {
     if (!commandPrototype) {
         return NO;
@@ -78,7 +101,7 @@
     NSManagedObjectContext *context = [LLAppDelegate sharedInstance].managedObjectContext;
     
     Receipt *command = [NSEntityDescription insertNewObjectForEntityForName:ENTITY_NAME_RECEIPT inManagedObjectContext:context];
-    command.liked = NO;
+    command.liked = [NSNumber numberWithBool:NO];
     command.data = [LLCommandParser encode:commandPrototype];
     command.executedDate = [NSDate date];
     
@@ -104,6 +127,13 @@
     if (error) {
         //@TODO log to Crittercism here
         return nil;
+    }
+    
+    // Parse all receipts
+    //@TODO should we do it here???
+    // If don't parse them here, should do it in LLHistoryTableViewController:tableView: didSelectRowAtIndexPath:
+    for (Receipt *r in fetchedReceipts) {
+        r.commandPrototype = [LLCommandParser decode:r.data];
     }
     
     return fetchedReceipts;
@@ -134,22 +164,6 @@
     NSManagedObjectContext *context = [LLAppDelegate sharedInstance].managedObjectContext;
     [context deleteObject:receipt];
     return [self saveManagedObjectContext:context];
-}
-
-+ (BOOL)saveManagedObjectContext:(NSManagedObjectContext *)context {
-    if (!context) {
-        return NO;
-    }
-    
-    NSError *error = nil;
-    BOOL saved = [context save:&error];
-    //@TODO save to Crittercism
-    if (saved) {
-        NSLog(@"The save was successful!");
-    } else {
-        NSLog(@"The save wasn't successful: %@", [error userInfo]);
-    }
-    return saved;
 }
 
 @end

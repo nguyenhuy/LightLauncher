@@ -14,6 +14,7 @@
 
 @interface LLCommandPrototypeCell : UITableViewCell
 
+//@TODO store indexPath instead
 @property (nonatomic, strong) LLCommandPrototype *commandPrototype;
 
 @end

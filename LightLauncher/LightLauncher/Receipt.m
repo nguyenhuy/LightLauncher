@@ -14,5 +14,6 @@
 @dynamic data;
 @dynamic executedDate;
 @dynamic liked;
+@synthesize commandPrototype = _commandPrototype;
 
 @end
