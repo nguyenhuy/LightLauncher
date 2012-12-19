@@ -12,8 +12,6 @@
 @class Receipt;
 @interface LLHistoryTableViewController : UITableViewController <LLHistoryCellDelegate>
 
-@property (nonatomic, strong) NSMutableArray* receipts;
-
 + (LLHistoryTableViewController *)newInstance;
 
 - (void)edit;

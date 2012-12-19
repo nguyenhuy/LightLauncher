@@ -13,21 +13,23 @@
 
 @interface LLCommandManager : NSObject <LLCommandDelegate>
 
+@property (nonatomic, strong, readonly) NSMutableArray* receipts;
 @property (nonatomic, strong, readonly) NSMutableArray *commandPrototypes;
 
 @property (nonatomic, strong, readonly) LLCommandPrototype *executingCommandPrototype;
 @property (nonatomic, strong, readonly) LLCommand *executingCommand;
 
 + (LLCommandManager *)sharedInstance;
++ (NSMutableArray *)receipts;
 
 - (void)executeFromString:(NSString *)string withCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController;
 - (void)executeFromCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController;
-+ (BOOL)save;
-+ (BOOL)saveManagedObjectContext:(NSManagedObjectContext *)context;
-+ (BOOL)saveReceiptToDbFromCommandPrototype:(LLCommandPrototype *)commandPrototype;
-//@TODO may cache in this instance
-+ (NSArray *)loadReceiptsFromDB;
-+ (BOOL)deleteAllReceipts;
-+ (BOOL)deleteReceipt:(Receipt *)receipt;
+
+- (BOOL)saveReceiptToDbFromCommandPrototype:(LLCommandPrototype *)commandPrototype;
+- (BOOL)deleteAllReceipts;
+- (BOOL)deleteReceiptAtIndex:(int)index;
+
+#pragma mark - Update receipt methods
+- (BOOL)toggleLikeOfReceiptAtIndex:(int)index;
 
 @end

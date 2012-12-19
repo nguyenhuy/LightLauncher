@@ -16,7 +16,6 @@
 #import "Receipt.h"
 
 @interface LLHistoryTableViewController ()
-- (void)loadReceipts;
 - (void)showRightEditBarButtonItem;
 - (void)showRightDoneBarButtonItem;
 - (void)deleteReceiptAtIndexPath:(NSIndexPath *)indexPath;
@@ -31,8 +30,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        //@TODO may reload all receipts in viewDidLoad or viewWillAppear
-        [self loadReceipts];
     }
     return self;
 }
@@ -64,12 +61,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.receipts.count;
+    return [LLCommandManager receipts].count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
+    Receipt *receipt = [[LLCommandManager receipts] objectAtIndex:indexPath.row];
     //@TODO parse the receipt.data here. Shall we???
     receipt.commandPrototype = [LLCommandParser decode:receipt.data];
     
@@ -90,7 +87,7 @@
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     // Execute the command
-    Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
+    Receipt *receipt = [[LLCommandManager receipts] objectAtIndex:indexPath.row];
     // The data is already parsed in self:tableView:cellForRowAtIndexPath:, so don't need to parse here
     LLCommandManager *commandManager = [LLCommandManager sharedInstance];
     [commandManager executeFromCommandPrototype:receipt.commandPrototype withViewController:self];
@@ -105,21 +102,14 @@
 #pragma mark - History cell delegate
 
 - (void)onLikeReceiptAtIndexPath:(NSIndexPath *)indexPath {
-    Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
-    BOOL liked = [receipt.liked boolValue];
-    receipt.liked = [NSNumber numberWithBool:!liked];
-
-    if ([LLCommandManager save]) {
+    BOOL changed = [[LLCommandManager sharedInstance] toggleLikeOfReceiptAtIndex:indexPath.row];
+    
+    if (changed) {
         [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:NO];
     }
 }
 
 #pragma mark - Instance methods
-
-- (void)loadReceipts {
-    NSArray *temp = [LLCommandManager loadReceiptsFromDB];
-    self.receipts = [NSMutableArray arrayWithArray:temp];
-}
 
 - (void)showRightEditBarButtonItem {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(edit)];
@@ -130,13 +120,12 @@
 }
 
 - (void)deleteReceiptAtIndexPath:(NSIndexPath *)indexPath {
-    BOOL deleted = [LLCommandManager deleteReceipt:[self.receipts objectAtIndex:indexPath.row]];
+    BOOL deleted = [[LLCommandManager sharedInstance] deleteReceiptAtIndex:indexPath.row];
     if (deleted) {
-        [self.receipts removeObjectAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
         
         // Done editing if there is no more receipt
-        if (self.receipts.count == 0) {
+        if ([[LLCommandManager receipts] count] == 0) {
             [self doneEditting];
         }
     } else {
