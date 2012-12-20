@@ -25,6 +25,11 @@
     
     [self.tableViewInsideCell registerNib:[UINib nibWithNibName:NIB_FAVORITE_RECEIPT_CELL bundle:nil] forCellReuseIdentifier:IDENTIFIER_FAVORITE_RECEIPT_CELL];
     self.tableViewInsideCell.allowsSelection = NO;
+
+    CGAffineTransform rotateTable = CGAffineTransformMakeRotation(-M_PI_2);
+    self.tableViewInsideCell.transform = rotateTable;
+    self.tableViewInsideCell.frame = CGRectMake(0, 0, self.tableViewInsideCell.frame.size.width, self.tableViewInsideCell.frame.size.height);
+    
     [self.tableViewInsideCell reloadData];
 }
 
@@ -41,11 +46,11 @@
 #pragma mark - Table view datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return self.receipts.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.receipts.count;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
