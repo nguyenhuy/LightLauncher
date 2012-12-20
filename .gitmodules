@@ -4,3 +4,6 @@
 [submodule "ZUUIRevealController"]
 	path = ZUUIRevealController
 	url = git://github.com/pkluz/ZUUIRevealController.git
+[submodule "MagicalRecord"]
+	path = MagicalRecord
+	url = git://github.com/magicalpanda/MagicalRecord.git
