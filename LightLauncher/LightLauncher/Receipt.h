@@ -1,29 +1,20 @@
 //
-//  Command.h
+//  Receipt.h
 //  LightLauncher
 //
-//  Created by Huy Nguyen on 12/16/12.
+//  Created by Huy Nguyen on 12/20/12.
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-#define ENTITY_NAME_RECEIPT @"Receipt"
-#define ENTITY_KEY_EXECUTED_DATE @"executedDate"
-
-@class LLCommandPrototype;
+@class Group;
 
 @interface Receipt : NSManagedObject
 
-@property (nonatomic, retain) NSString * data;
-@property (nonatomic, retain) NSDate * executedDate;
-@property (nonatomic, retain) NSNumber * liked;
-
-// This is not available, until we parse the data and store the result here
-//@TODO may provide a method to check and only parse data if not available
-@property (nonatomic, strong) LLCommandPrototype *commandPrototype;
-
-- (BOOL)likedValue;
-- (void)setLikedValue:(BOOL)likedValue;
+@property (nonatomic, retain) NSString *data;
+@property (nonatomic, retain) NSDate *executedDate;
+@property (nonatomic, retain) Group *group;
 
 @end
