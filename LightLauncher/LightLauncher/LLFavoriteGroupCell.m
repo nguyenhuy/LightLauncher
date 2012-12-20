@@ -8,21 +8,22 @@
 
 #import "LLFavoriteGroupCell.h"
 #import "LLFavoriteReceiptCell.h"
+#import "LLCommandManager.h"
 #import "LLCommandParser.h"
+#import "Group.h"
 #import "Receipt.h"
 
 @implementation LLFavoriteGroupCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        [self.tableViewInsideCell registerNib:[UINib nibWithNibName:NIB_FAVORITE_RECEIPT_CELL bundle:nil] forCellReuseIdentifier:IDENTIFIER_FAVORITE_RECEIPT_CELL];
-    }
-    return self;
-}
-
-- (void)updateViewWithReceipts:(NSArray *)receipts {
-    self.receipts = receipts;
+- (void)updateViewWithGroup:(Group *)group andDelegate:(id<LLFavoriteGroupCellDelegate>)delegate {
+    self.delegate = delegate;
+    self.group = group;
+    
+    // Sort receipts
+    NSSortDescriptor *sortDesctiptor = [[NSSortDescriptor alloc] initWithKey:@"executedDate" ascending:YES];
+    self.receipts = [self.group.receipts sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDesctiptor]];
+    
+    [self.tableViewInsideCell registerNib:[UINib nibWithNibName:NIB_FAVORITE_RECEIPT_CELL bundle:nil] forCellReuseIdentifier:IDENTIFIER_FAVORITE_RECEIPT_CELL];
     [self.tableViewInsideCell reloadData];
 }
 
@@ -32,7 +33,8 @@
     self.tableViewInsideCell.delegate = nil;
     self.tableViewInsideCell = nil;
     // Doesn't hurt anything :D
-    self.receipts = nil;
+    self.delegate = nil;
+    self.group = nil;
 }
 
 #pragma mark - Table view datasource
@@ -47,14 +49,24 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
-    //@TODO should we parse it here???
-    receipt.commandPrototype = [LLCommandParser decode:receipt.data
-     ];
     
     LLFavoriteReceiptCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_FAVORITE_RECEIPT_CELL forIndexPath:indexPath];
     [cell updateViewWithCommandPrototype:receipt.commandPrototype];
     
     return cell;
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    // Execute the command
+    Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
+    UIViewController *viewController = [self.delegate viewControllerToExecuteCommand];
+
+    LLCommandManager *commandManager = [LLCommandManager sharedInstance];
+    [commandManager executeFromCommandPrototype:receipt.commandPrototype withViewController:viewController];
 }
 
 @end

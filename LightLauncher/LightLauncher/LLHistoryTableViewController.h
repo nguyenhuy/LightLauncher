@@ -6,11 +6,13 @@
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "LLHistoryCell.h"
 
 @class Receipt;
+
 @interface LLHistoryTableViewController : UITableViewController <LLHistoryCellDelegate>
+
+@property (nonatomic, strong) NSArray *receipts;
 
 + (LLHistoryTableViewController *)newInstance;
 

@@ -10,7 +10,7 @@
 
 #import "LLCommandPrototypeTableViewController.h"
 #import "LLHistoryTableViewController.h"
-#import "LLFavoriteTableViewController.h"
+#import "LLFavoriteGroupTableViewController.h"
 
 @interface LLRevealController ()
 @end
@@ -72,7 +72,7 @@
         // Showing the same group. Toggle the view instead.
         [self revealToggle:self];
     } else {
-        LLFavoriteTableViewController *controller = [LLFavoriteTableViewController newInstance];
+        LLFavoriteGroupTableViewController *controller = [LLFavoriteGroupTableViewController newInstance];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
         [self setFrontViewController:navigationController];
         self.showingGroup = GROUP_FAVORITE;

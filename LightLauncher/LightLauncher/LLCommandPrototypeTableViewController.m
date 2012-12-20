@@ -57,7 +57,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LLCommandPrototype *commandPrototype = [[LLCommandManager commandPrototypes] objectAtIndex:indexPath.row];
+    LLCommandPrototype *commandPrototype = [[[LLCommandManager sharedInstance] commandPrototypes] objectAtIndex:indexPath.row];
 
     LLCommandPrototypeCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_COMMAND_PROTOTYPE_CELL forIndexPath:indexPath];
     [cell updateViewWithCommandPrototype:commandPrototype];

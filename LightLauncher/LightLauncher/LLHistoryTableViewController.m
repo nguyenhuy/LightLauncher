@@ -44,6 +44,8 @@
 	}
     
     [self showRightEditBarButtonItem];
+    
+    self.receipts = [LLCommandManager loadReceiptsFromDB];
 }
 
 #pragma mark - Table view data source
@@ -55,14 +57,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [LLCommandManager receipts].count;
+    return self.receipts.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Receipt *receipt = [[LLCommandManager receipts] objectAtIndex:indexPath.row];
-    //@TODO parse the receipt.data here. Shall we???
-    receipt.commandPrototype = [LLCommandParser decode:receipt.data];
+    Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
     
     LLHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_HISTORY_CELL forIndexPath:indexPath];
     [cell updateViewWithReceipt:receipt atIndexPath:indexPath andDelegate:self];
@@ -80,11 +80,14 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    // Execute the command
-    Receipt *receipt = [[LLCommandManager receipts] objectAtIndex:indexPath.row];
-    // The data is already parsed in self:tableView:cellForRowAtIndexPath:, so don't need to parse here
+    Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
+
     LLCommandManager *commandManager = [LLCommandManager sharedInstance];
     [commandManager executeFromCommandPrototype:receipt.commandPrototype withViewController:self];
+    
+    // Load again from DB
+    //@TODO may use model observer for CommandManager
+    self.receipts = [LLCommandManager loadReceiptsFromDB];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -95,8 +98,16 @@
 
 #pragma mark - History cell delegate
 
-- (void)onLikeReceiptAtIndexPath:(NSIndexPath *)indexPath {
-    BOOL changed = [[LLCommandManager sharedInstance] toggleLikeOfReceiptAtIndex:indexPath.row];
+- (void)onToggleGroupOfReceiptAtIndexPath:(NSIndexPath *)indexPath {
+    Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
+    BOOL changed = NO;
+    if ([receipt liked]) {
+        // Unlike it
+        changed = [LLCommandManager removeGroupOfReceipt:receipt];
+    } else {
+        // Like it
+        changed = [LLCommandManager assignDefaultGroupForReceipt:receipt];
+    }
     
     if (changed) {
         [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:NO];
@@ -114,12 +125,15 @@
 }
 
 - (void)deleteReceiptAtIndexPath:(NSIndexPath *)indexPath {
-    BOOL deleted = [[LLCommandManager sharedInstance] deleteReceiptAtIndex:indexPath.row];
+    Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
+    BOOL deleted = [LLCommandManager deleteReceipt:receipt];
     if (deleted) {
+        // Load again from DB
+        self.receipts = [LLCommandManager loadReceiptsFromDB];
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
         
         // Done editing if there is no more receipt
-        if ([[LLCommandManager receipts] count] == 0) {
+        if ([self.receipts isEmpty]) {
             [self doneEditting];
         }
     } else {

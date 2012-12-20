@@ -9,15 +9,23 @@
 #define NIB_FAVORITE_GROUP_CELL @"LLFavoriteGroupCell"
 #define IDENTIFIER_FAVORITE_GROUP_CELL @"LLFavoriteGroupCell"
 
-@class Receipt;
+@class Group;
+
+@protocol LLFavoriteGroupCellDelegate <NSObject>
+
+- (UIViewController *)viewControllerToExecuteCommand;
+
+@end
 
 // Cell for a group of favorite commands, which contains a -90 degree rotated UITableView
 // Size is 64x320, so we can contain 5 cells with size of 64x64 after rotating.
 @interface LLFavoriteGroupCell : UITableViewCell <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *tableViewInsideCell;
+@property (nonatomic, strong) Group *group;
 @property (nonatomic, strong) NSArray *receipts;
+@property (nonatomic, weak) id<LLFavoriteGroupCellDelegate> delegate;
 
-- (void)updateViewWithReceipts:(NSArray *)receipts;
+- (void)updateViewWithGroup:(Group *)group andDelegate:(id<LLFavoriteGroupCellDelegate>)delegate;
 
 @end

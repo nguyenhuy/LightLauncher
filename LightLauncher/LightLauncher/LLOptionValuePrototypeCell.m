@@ -9,15 +9,31 @@
 #import "LLOptionValuePrototypeCell.h"
 #import "LLOptionValuePrototype.h"
 
+@interface LLOptionValuePrototypeCell ()
+- (void)setup;
+@end
+
 @implementation LLOptionValuePrototypeCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.accessoryType = UITableViewCellAccessoryCheckmark;
+        [self setup];
     }
     return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (void)setup {
+    self.accessoryType = UITableViewCellAccessoryCheckmark;
 }
 
 - (void)updateViewWithOptionValuePrototype:(LLOptionValuePrototype *)optionValuePrototype atIndexPath:(NSIndexPath *)indexPath {

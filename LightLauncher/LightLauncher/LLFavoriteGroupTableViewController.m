@@ -13,10 +13,9 @@
 
 #import "LLFavoriteGroupCell.h"
 
-#import "Receipt.h"
+#import "Group.h"
 
 @interface LLFavoriteGroupTableViewController ()
-
 @end
 
 @implementation LLFavoriteGroupTableViewController
@@ -40,6 +39,8 @@
         
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Reveal", @"Reveal") style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
 	}
+    
+    self.groups = [LLCommandManager loadGroupsFromDB];
 }
 
 #pragma mark - Table view data source
@@ -51,16 +52,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[LLCommandManager favReceipts] count];
+    return self.groups.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Receipt *receipt = [[LLCommandManager favReceipts] objectAtIndex:indexPath.row];
-    //@TODO parse the receipt.data here. Shall we???
-    receipt.commandPrototype = [LLCommandParser decode:receipt.data];
+    Group *group = [self.groups objectAtIndex:indexPath.row];
     
     LLFavoriteGroupCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_FAVORITE_GROUP_CELL forIndexPath:indexPath];
+    [cell updateViewWithGroup:group andDelegate:self];
     
     return cell;
 }
@@ -70,11 +70,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    // Execute the command
-    Receipt *receipt = [[LLCommandManager favReceipts] objectAtIndex:indexPath.row];
-    // The data is already parsed in self:tableView:cellForRowAtIndexPath:, so don't need to parse here
-    LLCommandManager *commandManager = [LLCommandManager sharedInstance];
-    [commandManager executeFromCommandPrototype:receipt.commandPrototype withViewController:self];
+}
+
+#pragma mark - Favorite group cell delegate
+
+- (UIViewController *)viewControllerToExecuteCommand {
+    return self;
 }
 
 @end

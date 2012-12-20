@@ -11,7 +11,7 @@
 #define IDENTIFIER_HISTORY_CELL @"LLHistoryCell"
 
 @protocol LLHistoryCellDelegate <NSObject>
-- (void)onLikeReceiptAtIndexPath:(NSIndexPath *)indexPath;
+- (void)onToggleGroupOfReceiptAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @class Receipt;

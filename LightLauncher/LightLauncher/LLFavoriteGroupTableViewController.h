@@ -6,9 +6,11 @@
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "LLFavoriteGroupCell.h"
 
-@interface LLFavoriteGroupTableViewController : UITableViewController
+@interface LLFavoriteGroupTableViewController : UITableViewController <LLFavoriteGroupCellDelegate>
+
+@property (nonatomic, strong) NSArray *groups;
 
 + (LLFavoriteGroupTableViewController *)newInstance;
 

@@ -26,7 +26,7 @@
 }
 
 - (void)like {
-    [self.delegate onLikeReceiptAtIndexPath:self.indexPath];
+    [self.delegate onToggleGroupOfReceiptAtIndexPath:self.indexPath];
 }
 
 - (void)updateViewWithReceipt:(Receipt *)receipt atIndexPath:(NSIndexPath *)indexPath andDelegate:(id<LLHistoryCellDelegate>)delegate {
@@ -39,7 +39,7 @@
     self.textLabel.text = receipt.commandPrototype.desc;
     
     UIImage *likeImage;
-    if (receipt.likedValue) {
+    if ([receipt liked]) {
         likeImage = [UIImage imageNamed:IMAGE_LIKE_SELECTED];
     } else {
         likeImage = [UIImage imageNamed:IMAGE_LIKE_UNSELECTED];

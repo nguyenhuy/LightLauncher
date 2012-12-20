@@ -39,6 +39,8 @@
 #define IMAGE_LIKE_SELECTED @"like_selected.png"
 #define IMAGE_LIKE_UNSELECTED @"like_unselected.png"
 
+#define DEFAULT_GROUP_NAME @"New"
+
 typedef enum {
     DATA_STRING,
     DATA_ARRAY,
