@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSNumber * liked;
 
 // This is not available, until we parse the data and store the result here
+//@TODO may provide a method to check and only parse data if not available
 @property (nonatomic, strong) LLCommandPrototype *commandPrototype;
 
 - (BOOL)likedValue;

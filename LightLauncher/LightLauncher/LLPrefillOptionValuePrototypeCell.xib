@@ -100,6 +100,7 @@
 				<string key="IBUIRestorationIdentifier">PrefillOptionValuePrototypeCell</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<reference key="IBUIContentView" ref="250152203"/>
+				<string key="IBUIReuseIdentifier">PrefillOptionValuePrototypeCell</string>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
