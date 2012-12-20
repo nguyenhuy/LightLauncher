@@ -24,7 +24,6 @@
     self.receipts = [self.group.receipts sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDesctiptor]];
     
     [self.tableViewInsideCell registerNib:[UINib nibWithNibName:NIB_FAVORITE_RECEIPT_CELL bundle:nil] forCellReuseIdentifier:IDENTIFIER_FAVORITE_RECEIPT_CELL];
-    self.tableViewInsideCell.allowsSelection = NO;
 
     CGAffineTransform rotateTable = CGAffineTransformMakeRotation(-M_PI_2);
     self.tableViewInsideCell.transform = rotateTable;
