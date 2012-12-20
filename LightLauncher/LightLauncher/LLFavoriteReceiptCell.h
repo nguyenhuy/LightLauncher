@@ -6,8 +6,9 @@
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
-#define NIB_FAVORITE_RECEIPT_CELL @"LLFavoriteReceiptCell"
 #define IDENTIFIER_FAVORITE_RECEIPT_CELL @"LLFavoriteReceiptCell"
+#define WIDTH_FAVORITE_RECEIPT_CELL 64
+#define HEIGHT_FAVORITE_RECEIPT_CELL 64
 
 @class LLCommandPrototype;
 
@@ -15,8 +16,8 @@
 //@TODO maybe the size is too small
 @interface LLFavoriteReceiptCell : UITableViewCell
 
-@property (nonatomic, strong) IBOutlet UIImageView *imageView;
-@property (nonatomic, strong) IBOutlet UILabel *textLabel;
+@property (nonatomic, strong) UIImageView *thumbnail;
+@property (nonatomic, strong) UILabel *titleLabel;
 
 - (void)updateViewWithCommandPrototype:(LLCommandPrototype *)commandPrototype;
 
