@@ -7,13 +7,11 @@
 //
 
 #define IDENTIFIER_FAVORITE_RECEIPT_CELL @"LLFavoriteReceiptCell"
-#define WIDTH_FAVORITE_RECEIPT_CELL 64
-#define HEIGHT_FAVORITE_RECEIPT_CELL 64
+#define WIDTH_FAVORITE_RECEIPT_CELL 100
+#define HEIGHT_FAVORITE_RECEIPT_CELL 100
 
 @class LLCommandPrototype;
 
-// Size is 64x64
-//@TODO maybe the size is too small
 @interface LLFavoriteReceiptCell : UITableViewCell
 
 @property (nonatomic, strong) UIImageView *thumbnail;

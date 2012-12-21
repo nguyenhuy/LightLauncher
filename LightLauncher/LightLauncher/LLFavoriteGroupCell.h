@@ -18,7 +18,7 @@
 @end
 
 // Cell for a group of favorite commands, which contains a -90 degree rotated UITableView
-// Size is 64x320, so we can contain 5 cells with size of 64x64 after rotating.
+// Size tableViewInsideCell is 100x320, so we can contain 3 cells with size of 100x100 after rotating. And we still have 20pixels on the left to indicate the next cell
 @interface LLFavoriteGroupCell : UITableViewCell <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *tableViewInsideCell;

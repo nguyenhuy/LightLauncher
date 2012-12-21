@@ -14,7 +14,6 @@
 #import "Receipt.h"
 
 @interface LLFavoriteGroupCell ()
-- (void)setup;
 @end
 
 @implementation LLFavoriteGroupCell
