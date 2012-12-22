@@ -55,6 +55,11 @@
     return self.groups.count;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    Group *group = [self.groups objectAtIndex:section];
+    return group.name;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Group *group = [self.groups objectAtIndex:indexPath.row];
