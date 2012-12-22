@@ -75,7 +75,6 @@
 		788FBF87163CE93C005A444E /* LLCommandParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF86163CE93C005A444E /* LLCommandParser.m */; };
 		788FBF8D163CEC59005A444E /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF8C163CEC59005A444E /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		788FBF90163D1038005A444E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0E2615E9F0AC002C6F78 /* MessageUI.framework */; };
-		788FBF99163D4E49005A444E /* NSObject+IsEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF98163D4E49005A444E /* NSObject+IsEmpty.m */; };
 		788FBFA6163D91CF005A444E /* LLCommandPrototypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBFA4163D91CF005A444E /* LLCommandPrototypeTableViewController.m */; };
 		788FBFA7163D91CF005A444E /* LLCommandPrototypeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788FBFA5163D91CF005A444E /* LLCommandPrototypeTableViewController.xib */; };
 		788FBFC3163DA3F3005A444E /* LLCreateCommandTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBFC1163DA3F3005A444E /* LLCreateCommandTableViewController.m */; };
@@ -215,8 +214,6 @@
 		788FBF86163CE93C005A444E /* LLCommandParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandParser.m; sourceTree = "<group>"; };
 		788FBF8B163CEC59005A444E /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		788FBF8C163CEC59005A444E /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
-		788FBF97163D4E49005A444E /* NSObject+IsEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+IsEmpty.h"; sourceTree = "<group>"; };
-		788FBF98163D4E49005A444E /* NSObject+IsEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+IsEmpty.m"; sourceTree = "<group>"; };
 		788FBFA3163D91CF005A444E /* LLCommandPrototypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandPrototypeTableViewController.h; sourceTree = "<group>"; };
 		788FBFA4163D91CF005A444E /* LLCommandPrototypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandPrototypeTableViewController.m; sourceTree = "<group>"; };
 		788FBFA5163D91CF005A444E /* LLCommandPrototypeTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLCommandPrototypeTableViewController.xib; sourceTree = "<group>"; };
@@ -383,8 +380,6 @@
 			isa = PBXGroup;
 			children = (
 				788295FB1616A4EA0072B584 /* Log.h */,
-				788FBF97163D4E49005A444E /* NSObject+IsEmpty.h */,
-				788FBF98163D4E49005A444E /* NSObject+IsEmpty.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -749,7 +744,6 @@
 				785EBB68162AC70F00ADE85F /* LLServiceCommand.m in Sources */,
 				788FBF87163CE93C005A444E /* LLCommandParser.m in Sources */,
 				788FBF8D163CEC59005A444E /* JSONKit.m in Sources */,
-				788FBF99163D4E49005A444E /* NSObject+IsEmpty.m in Sources */,
 				788FBFA6163D91CF005A444E /* LLCommandPrototypeTableViewController.m in Sources */,
 				788FBFC3163DA3F3005A444E /* LLCreateCommandTableViewController.m in Sources */,
 				78BA2D3416435C950057AD58 /* LLCommandPrototype.m in Sources */,

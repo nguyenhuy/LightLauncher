@@ -8,7 +8,6 @@
 
 #import "LLCommandParser.h"
 #import "JSONKit.h"
-#import "NSObject+IsEmpty.h"
 
 #import "LLCommandPrototypeFactory.h"
 #import "LLOptionPrototypeFactory.h"
@@ -44,7 +43,7 @@
     // iconFileName of commandPrototype is not encoded because it can be got back (and updated) at run time.
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:2];
     [dict setObject:commandPrototype.command forKey:JSON_COMMAND];
-    if (![commandPrototype.desc isEmpty]) {
+    if (commandPrototype.desc && commandPrototype.desc.length != 0) {
         [dict setObject:commandPrototype.desc forKey:JSON_DESC];
     }
     [dict setObject:[self encodeOptionPrototypes:commandPrototype.options] forKey:JSON_OPTIONS];
@@ -54,7 +53,7 @@
 }
 
 + (LLCommandPrototype *)decode:(NSString *)json {
-    if ([json isEmpty]) {
+    if (!json || json.length == 0) {
         return nil;
     }
 
@@ -65,7 +64,7 @@
     NSDictionary *optionJsonDict = [self optionPrototypeDictFromJsonArray:[commandPrototypeJsonDict objectForKey:JSON_OPTIONS]];
 
     LLCommandPrototype *commandPrototype = [LLCommandPrototypeFactory commandPrototypeForCommand:command];
-    if (![desc isEmpty]) {
+    if (desc && desc.length != 0) {
         commandPrototype.desc = desc;
     }
 

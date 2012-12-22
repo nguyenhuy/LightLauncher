@@ -132,7 +132,7 @@
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
         
         // Done editing if there is no more receipt
-        if ([self.receipts isEmpty]) {
+        if (!self.receipts || self.receipts.count == 0) {
             [self doneEditting];
         }
     } else {

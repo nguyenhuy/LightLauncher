@@ -72,7 +72,7 @@
 }
 
 + (Group *)createGroupWithName:(NSString *)name {
-    if ([name isEmpty]) {
+    if (!name || name.length == 0) {
         return NO;
     }
     
@@ -122,7 +122,7 @@
     }
     
     receipt.group = group;
-    if (![description isEmpty]) {
+    if (description && description.length != 0) {
         // This call can be expensive, so only set if neccessary for now
         [receipt setDesc:description];
     }

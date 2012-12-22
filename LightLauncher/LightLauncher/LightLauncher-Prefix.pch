@@ -14,5 +14,4 @@
     #import <Foundation/Foundation.h>
     #import "Constants.h"
     #import "CoreData+MagicalRecord.h"
-    #import "NSObject+IsEmpty.h"
 #endif
