@@ -27,9 +27,9 @@
 + (BOOL)createReceiptInDbFromCommandPrototype:(LLCommandPrototype *)commandPrototype;
 + (BOOL)deleteAllReceipts;
 + (BOOL)deleteReceipt:(Receipt *)receipt;
-+ (BOOL)assignDefaultGroupForReceipt:(Receipt *)receipt;
-+ (BOOL)assignGroup:(Group *)group forReceipt:(Receipt *)receipt;
-+ (BOOL)removeGroupOfReceipt:(Receipt *)receipt;
++ (BOOL)assignDefaultGroupForReceipt:(Receipt *)receipt withDescription:(NSString *)description;
++ (BOOL)assignGroup:(Group *)group forReceipt:(Receipt *)receipt withDescription:(NSString *)description;
++ (BOOL)removeGroupForReceipt:(Receipt *)receipt;
 
 - (void)executeFromString:(NSString *)string withCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController;
 - (void)executeFromCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController;

@@ -9,6 +9,7 @@
 #import "Receipt.h"
 #import "Group.h"
 #import "LLCommandParser.h"
+#import "LLCommandPrototype.h"
 
 @implementation Receipt
 
@@ -27,6 +28,13 @@
 
 - (BOOL)liked {
     return self.group != nil;
+}
+
+- (void)setDesc:(NSString *)desc {
+    // Call to commandPrototype getter will parse the data if needed
+    self.commandPrototype.desc = desc;
+    // Encode back to data
+    self.data = [LLCommandParser encode:self.commandPrototype];
 }
 
 @end

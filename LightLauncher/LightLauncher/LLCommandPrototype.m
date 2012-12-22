@@ -12,7 +12,6 @@
 @property (nonatomic, strong, readwrite) NSString *command;
 // An array of LLOptionPrototype
 @property (nonatomic, strong, readwrite) NSArray *options;
-@property (nonatomic, strong, readwrite) NSString *desc;
 @property (nonatomic, strong, readwrite) NSString *iconFileName;
 @end
 

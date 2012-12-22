@@ -10,7 +10,7 @@
 
 @class Receipt;
 
-@interface LLHistoryTableViewController : UITableViewController <LLHistoryCellDelegate>
+@interface LLHistoryTableViewController : UITableViewController <LLHistoryCellDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSArray *receipts;
 

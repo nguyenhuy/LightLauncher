@@ -64,7 +64,7 @@
 }
 
 + (NSArray *)loadReceiptsFromDB {
-    return [Receipt MR_findAllSortedBy:@"executedDate" ascending:YES];
+    return [Receipt MR_findAllSortedBy:@"executedDate" ascending:NO];
 }
 
 + (NSArray *)loadGroupsFromDB {
@@ -112,21 +112,25 @@
     return deleted && [LLCommandManager save];
 }
 
-+ (BOOL)assignDefaultGroupForReceipt:(Receipt *)receipt {
-    return [LLCommandManager assignGroup:[LLCommandManager defaultGroup] forReceipt:receipt];
++ (BOOL)assignDefaultGroupForReceipt:(Receipt *)receipt withDescription:(NSString *)description {
+    return [LLCommandManager assignGroup:[LLCommandManager defaultGroup] forReceipt:receipt withDescription:description];
 }
 
-+ (BOOL)assignGroup:(Group *)group forReceipt:(Receipt *)receipt {
++ (BOOL)assignGroup:(Group *)group forReceipt:(Receipt *)receipt withDescription:(NSString *)description {
     if (!receipt) {
         return NO;
     }
     
     receipt.group = group;
+    if (![description isEmpty]) {
+        // This call can be expensive, so only set if neccessary for now
+        [receipt setDesc:description];
+    }
     return [LLCommandManager save];
 }
 
-+ (BOOL)removeGroupOfReceipt:(Receipt *)receipt {
-    return [LLCommandManager assignGroup:nil forReceipt:receipt];
++ (BOOL)removeGroupForReceipt:(Receipt *)receipt {
+    return [LLCommandManager assignGroup:nil forReceipt:receipt withDescription:nil];
 }
 
 #pragma mark - Instance methods

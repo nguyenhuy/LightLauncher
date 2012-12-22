@@ -19,6 +19,7 @@
 #import "LLCommand.h"
 
 #define JSON_COMMAND @"command"
+#define JSON_DESC @"desc"
 #define JSON_OPTIONS @"options"
 
 #define JSON_KEY @"key"
@@ -40,9 +41,12 @@
         return nil;
     }
     
-    // Desc and iconFileName of commandPrototype is not encoded because it can be got back (and updated) at run time.
+    // iconFileName of commandPrototype is not encoded because it can be got back (and updated) at run time.
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:2];
     [dict setObject:commandPrototype.command forKey:JSON_COMMAND];
+    if (![commandPrototype.desc isEmpty]) {
+        [dict setObject:commandPrototype.desc forKey:JSON_DESC];
+    }
     [dict setObject:[self encodeOptionPrototypes:commandPrototype.options] forKey:JSON_OPTIONS];
     
     NSString *jsonString = [dict JSONString];
@@ -57,9 +61,13 @@
     NSDictionary *commandPrototypeJsonDict = [json objectFromJSONString];
     
     NSString *command = [commandPrototypeJsonDict objectForKey:JSON_COMMAND];
+    NSString *desc = [commandPrototypeJsonDict objectForKey:JSON_DESC];
     NSDictionary *optionJsonDict = [self optionPrototypeDictFromJsonArray:[commandPrototypeJsonDict objectForKey:JSON_OPTIONS]];
 
     LLCommandPrototype *commandPrototype = [LLCommandPrototypeFactory commandPrototypeForCommand:command];
+    if (![desc isEmpty]) {
+        commandPrototype.desc = desc;
+    }
 
     // Set value of OptionValuePrototyes to each OptionPrototype
     NSArray *possibleValueJsonArray;

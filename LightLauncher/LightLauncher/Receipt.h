@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
 @class Group;
@@ -20,6 +19,10 @@
 
 // Non-CoreData properties
 @property (nonatomic, strong) LLCommandPrototype *commandPrototype;
+
 - (BOOL)liked;
+// Save desc of receipt to data and commandPrototype
+// By decoding the data (if needed), save desc to commandPrototype and encode it again
+- (void)setDesc:(NSString *)desc;
 
 @end
