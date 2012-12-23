@@ -12,8 +12,10 @@
 #import "LLCommandParser.h"
 #import "Group.h"
 #import "Receipt.h"
+#import "DnDManager.h"
 
 @interface LLFavoriteGroupCell ()
+- (NSString *)overlayId;
 @end
 
 @implementation LLFavoriteGroupCell
@@ -36,7 +38,13 @@
     [self.tableViewInsideCell reloadData];
 }
 
+- (NSString *)overlayId {
+    //@TODO check if this need to be unique across groups
+    return @"1";
+}
+
 - (void)dealloc {
+    [[DnDManager instance] deregisterDnDItem:self fromOverlayId:[self overlayId]];
     // self and tableViewInsideCell points to each other, release connections here
     self.tableViewInsideCell.dataSource = nil;
     self.tableViewInsideCell.delegate = nil;
@@ -82,6 +90,111 @@
 
 - (void)onEditReceiptAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"Edit now");
+}
+
+#pragma mark - DragSource delegate
+
+- (UIView*)popItemForDragFrom:(CGPoint)point {
+    // Find the cell under the touch point.
+    NSIndexPath* indexPath = [self.tableViewInsideCell indexPathForRowAtPoint:point];
+    LLFavoriteReceiptCell* cell = (LLFavoriteReceiptCell *)[self.tableViewInsideCell cellForRowAtIndexPath:indexPath];
+    if( cell == nil ) return nil;
+    
+    // Return a copy of the cell, then delete the cell from the table.
+    //
+    // We can't just return the cell itself, because it'll still be controlled by the table while
+    // the delete animation is going on. So we create & return a copy instead.
+    // @TODO clone the view here
+//    UIView* cellCopy = [self createViewForDragFrom:cell];
+
+    Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
+    // Save the receipt temtporatery, should remove it in droppedAtPoint:
+    cell.tempReceipt = receipt;
+    //Remove the group of receipt
+    [LLCommandManager removeGroupForReceipt:receipt];
+    [self.receipts removeObject:receipt];
+    [self.tableViewInsideCell deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    
+    return cell;
+}
+
+#pragma mark - DropTarget methods
+
+// This gives you a chance to filter what type of draggable objects you accept.
+- (BOOL)acceptsDraggable:(UIView *)draggable {
+    return YES;
+}
+
+// Returns the center of the table row where an item hovered at this point would be dropped.
+- (CGPoint)actualDropPointForLocation:(CGPoint)point {
+    NSIndexPath* newIndexPath = [self.tableViewInsideCell indexPathForRowAtPoint:point];
+    // If the point is past the last cell, return the rectangle of the last cell (which
+    // will be the placeholder)
+    if( newIndexPath == nil ) newIndexPath = [NSIndexPath indexPathForRow:(self.receipts.count -1) inSection:0];
+    
+    CGRect rowRect = [self.tableViewInsideCell rectForRowAtIndexPath:newIndexPath];
+    return CGPointMake( CGRectGetMidX( rowRect ), CGRectGetMidY( rowRect ));
+}
+
+// Insert a placeholder at the appropriate row to show where the draggable would
+// be dropped.
+- (void)draggable:(UIView *)draggable enteredAtPoint:(CGPoint)point {
+    NSIndexPath* newIndexPath = [self.tableViewInsideCell indexPathForRowAtPoint:point];
+    if( newIndexPath == nil ) newIndexPath = [NSIndexPath indexPathForRow:self.receipts.count inSection:0];
+    
+    // Temporatery insert data and the cell here
+    [self.receipts insertObject:nil atIndex:newIndexPath.row];
+    [self.tableViewInsideCell insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+    
+    self.hoveringIndexPath = newIndexPath;
+}
+
+// Move the placeholder if necessary.
+- (void)draggable:(UIView*)draggable hoveringAtPoint:(CGPoint)point {
+    NSIndexPath* newIndexPath = [self.tableViewInsideCell indexPathForRowAtPoint:point];
+    // If row is past the last cell, use the last cell (because we don't want to add a new cell,
+    // just remove the existing placeholder to the end)
+    if( newIndexPath == nil ) newIndexPath = [NSIndexPath indexPathForRow:(self.receipts.count -1) inSection:0];
+    
+    // If the draggable is still over the same row, do nothing.  If it's moved up or down, move the
+    // placeholder to the appropriate row.
+    if( newIndexPath.row != self.hoveringIndexPath.row ) {
+        [self.receipts removeObjectAtIndex:newIndexPath.row];
+        [self.tableViewInsideCell deleteRowsAtIndexPaths:[NSArray arrayWithObject:self.hoveringIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        [self.receipts insertObject:nil atIndex:newIndexPath.row];
+        [self.tableViewInsideCell insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        self.hoveringIndexPath = newIndexPath;
+    }
+}
+
+// Get rid of the placeholder.
+- (void)draggableExited:(UIView*)draggable {
+    [self.receipts removeObjectAtIndex:self.hoveringIndexPath.row];
+    [self.tableViewInsideCell deleteRowsAtIndexPaths:[NSArray arrayWithObject:self.hoveringIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+    self.hoveringIndexPath = nil;
+}
+
+// Remove the placeholder and insert the dragged item.
+- (void)draggable:(UIView*)draggable droppedAtPoint:(CGPoint)point {
+    if( self.hoveringIndexPath != nil ) {
+        [self.receipts removeObjectAtIndex:self.hoveringIndexPath.row];
+        [self.tableViewInsideCell deleteRowsAtIndexPaths:[NSArray arrayWithObject:self.hoveringIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+        self.hoveringIndexPath = nil;
+    }
+    
+    NSIndexPath* newIndexPath = [self.tableViewInsideCell indexPathForRowAtPoint:point];
+    if( newIndexPath == nil ) {
+        newIndexPath = [NSIndexPath indexPathForRow:self.receipts.count inSection:0];
+    }
+    
+    NSLog( @"Dropping object at row %d", newIndexPath.row );
+    
+    LLFavoriteReceiptCell* draggedCell = (LLFavoriteReceiptCell *)draggable;
+    [self.receipts insertObject:draggedCell.tempReceipt atIndex:newIndexPath.row];
+    [self.tableViewInsideCell insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+    draggedCell.tempReceipt = nil;
 }
 
 @end

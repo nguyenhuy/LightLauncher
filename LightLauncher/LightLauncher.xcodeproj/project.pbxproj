@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		780E20FF16682C7500AE63EA /* LLCommandCompiler.m in Sources */ = {isa = PBXBuildFile; fileRef = 780E20FE16682C7500AE63EA /* LLCommandCompiler.m */; };
 		7817D156164A2481007DEC5E /* LLOptionValuePrototypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7817D155164A2481007DEC5E /* LLOptionValuePrototypeCell.m */; };
+		782008191686B77E005114E7 /* DnDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 782008131686B68B005114E7 /* DnDManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7820081A1686B77E005114E7 /* DnDOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 782008151686B68B005114E7 /* DnDOverlayView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		785A0DA215E9A3B6002C6F78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0DA115E9A3B6002C6F78 /* UIKit.framework */; };
 		785A0DA415E9A3B6002C6F78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0DA315E9A3B6002C6F78 /* Foundation.framework */; };
 		785A0DA615E9A3B6002C6F78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785A0DA515E9A3B6002C6F78 /* CoreGraphics.framework */; };
@@ -749,6 +751,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				782008191686B77E005114E7 /* DnDManager.m in Sources */,
+				7820081A1686B77E005114E7 /* DnDOverlayView.m in Sources */,
 				788A48C2167EE8E2009401DD /* ZUUIRevealController.m in Sources */,
 				785A0DAE15E9A3B6002C6F78 /* main.m in Sources */,
 				785A0DB215E9A3B6002C6F78 /* LLAppDelegate.m in Sources */,

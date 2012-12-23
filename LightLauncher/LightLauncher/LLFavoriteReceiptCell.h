@@ -11,6 +11,7 @@
 #define HEIGHT_FAVORITE_RECEIPT_CELL 100
 
 @class LLCommandPrototype;
+@class Receipt;
 
 @protocol LLFavoriteReceiptCellDelegate <NSObject>
 - (void)onEditReceiptAtIndexPath:(NSIndexPath *)indexPath;
@@ -19,6 +20,7 @@
 @interface LLFavoriteReceiptCell : UITableViewCell
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
+@property (nonatomic, weak) Receipt *tempReceipt;
 @property (nonatomic, weak) id<LLFavoriteReceiptCellDelegate> delegate;
 
 @property (nonatomic, strong) UIImageView *thumbnail;
