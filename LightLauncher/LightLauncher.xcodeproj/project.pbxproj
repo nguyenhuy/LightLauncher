@@ -94,6 +94,11 @@
 		780E20FE16682C7500AE63EA /* LLCommandCompiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandCompiler.m; sourceTree = "<group>"; };
 		7817D154164A2481007DEC5E /* LLOptionValuePrototypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLOptionValuePrototypeCell.h; sourceTree = "<group>"; };
 		7817D155164A2481007DEC5E /* LLOptionValuePrototypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLOptionValuePrototypeCell.m; sourceTree = "<group>"; };
+		782008121686B68B005114E7 /* DnDManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DnDManager.h; path = ../DragAndDrop/DnDManager.h; sourceTree = "<group>"; };
+		782008131686B68B005114E7 /* DnDManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DnDManager.m; path = ../DragAndDrop/DnDManager.m; sourceTree = "<group>"; };
+		782008141686B68B005114E7 /* DnDOverlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DnDOverlayView.h; path = ../DragAndDrop/DnDOverlayView.h; sourceTree = "<group>"; };
+		782008151686B68B005114E7 /* DnDOverlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DnDOverlayView.m; path = ../DragAndDrop/DnDOverlayView.m; sourceTree = "<group>"; };
+		782008161686B68B005114E7 /* DnDProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DnDProtocols.h; path = ../DragAndDrop/DnDProtocols.h; sourceTree = "<group>"; };
 		785A0D9D15E9A3B6002C6F78 /* LightLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		785A0DA115E9A3B6002C6F78 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		785A0DA315E9A3B6002C6F78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -255,6 +260,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		782008181686B691005114E7 /* DragNDrop */ = {
+			isa = PBXGroup;
+			children = (
+				782008121686B68B005114E7 /* DnDManager.h */,
+				782008131686B68B005114E7 /* DnDManager.m */,
+				782008141686B68B005114E7 /* DnDOverlayView.h */,
+				782008151686B68B005114E7 /* DnDOverlayView.m */,
+				782008161686B68B005114E7 /* DnDProtocols.h */,
+			);
+			name = DragNDrop;
+			sourceTree = "<group>";
+		};
 		785A0D9215E9A3B6002C6F78 = {
 			isa = PBXGroup;
 			children = (
@@ -627,6 +644,7 @@
 		788FBF89163CEC1D005A444E /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				782008181686B691005114E7 /* DragNDrop */,
 				788F63A1168312D200C25E32 /* MagicalRecord */,
 				788A48AF167ED8E8009401DD /* ZUUIRevealController */,
 				788FBF8A163CEC44005A444E /* JSONKit */,
