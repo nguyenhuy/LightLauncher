@@ -20,7 +20,7 @@
 @interface LLFavoriteReceiptCell : UITableViewCell
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
-@property (nonatomic, weak) Receipt *tempReceipt;
+@property (nonatomic, strong) Receipt *tempReceipt;
 @property (nonatomic, weak) id<LLFavoriteReceiptCellDelegate> delegate;
 
 @property (nonatomic, strong) UIImageView *thumbnail;

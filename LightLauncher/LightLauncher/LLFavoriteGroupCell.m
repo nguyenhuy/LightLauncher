@@ -15,10 +15,17 @@
 #import "DnDManager.h"
 
 @interface LLFavoriteGroupCell ()
-- (NSString *)overlayId;
 @end
 
 @implementation LLFavoriteGroupCell
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [[DnDManager instance] registerDnDItem:self withOverlayId:OVERLAY_ID_FAV_GROUP];
+    }
+    return self;
+}
 
 - (void)updateViewWithGroup:(Group *)group andDelegate:(id<LLFavoriteGroupCellDelegate>)delegate {
     self.delegate = delegate;
@@ -26,8 +33,8 @@
     
     // Sort receipts
     NSSortDescriptor *sortDesctiptor = [[NSSortDescriptor alloc] initWithKey:@"executedDate" ascending:NO];
-    self.receipts = [self.group.receipts sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDesctiptor]];
-
+    self.receipts = [NSMutableArray arrayWithArray:[self.group.receipts sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDesctiptor]]];
+    
     // Can't do these things in setup ???
     self.tableViewInsideCell.showsHorizontalScrollIndicator = NO;
     self.tableViewInsideCell.showsVerticalScrollIndicator = NO;
@@ -44,12 +51,11 @@
 }
 
 - (void)dealloc {
-    [[DnDManager instance] deregisterDnDItem:self fromOverlayId:[self overlayId]];
+    [[DnDManager instance] deregisterDnDItem:self fromOverlayId:OVERLAY_ID_FAV_GROUP];
     // self and tableViewInsideCell points to each other, release connections here
     self.tableViewInsideCell.dataSource = nil;
     self.tableViewInsideCell.delegate = nil;
     self.tableViewInsideCell = nil;
-    // Doesn't hurt anything :D
     self.delegate = nil;
     self.group = nil;
 }
@@ -92,6 +98,30 @@
     NSLog(@"Edit now");
 }
 
+#pragma mark - DragModeView delegate
+
+- (void)setDragModeActive:(BOOL)active {
+    if( active ) {
+        // Fade into view
+        
+        self.hidden = NO;
+        self.alpha = 0.0f;
+        
+        [UIView animateWithDuration:0.3f animations:^{
+            self.alpha = 1.0f;
+        }];
+    } else {
+        // Fade out of view
+        
+        [UIView animateWithDuration:0.3f animations:^{
+            self.alpha = 0.0f;
+        }
+                         completion:^( BOOL finished ) {
+                             self.hidden = YES;
+                         }];
+    }
+}
+
 #pragma mark - DragSource delegate
 
 - (UIView*)popItemForDragFrom:(CGPoint)point {
@@ -99,17 +129,18 @@
     NSIndexPath* indexPath = [self.tableViewInsideCell indexPathForRowAtPoint:point];
     LLFavoriteReceiptCell* cell = (LLFavoriteReceiptCell *)[self.tableViewInsideCell cellForRowAtIndexPath:indexPath];
     if( cell == nil ) return nil;
-    
+
+    Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
+
     // Return a copy of the cell, then delete the cell from the table.
     //
     // We can't just return the cell itself, because it'll still be controlled by the table while
-    // the delete animation is going on. So we create & return a copy instead.
-    // @TODO clone the view here
-//    UIView* cellCopy = [self createViewForDragFrom:cell];
-
-    Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
-    // Save the receipt temtporatery, should remove it in droppedAtPoint:
+    // the delete animation is going on. So we create & return a copy instead.    
+    LLFavoriteReceiptCell* cellCopy = [[LLFavoriteReceiptCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:IDENTIFIER_FAVORITE_RECEIPT_CELL];
+    [cellCopy updateViewWithCommandPrototype:receipt.commandPrototype atIndexPath:nil withDelegate:nil];
+    // Save the receipt temporatery, should remove it in droppedAtPoint:
     cell.tempReceipt = receipt;
+    
     //Remove the group of receipt
     [LLCommandManager removeGroupForReceipt:receipt];
     [self.receipts removeObject:receipt];
@@ -143,7 +174,8 @@
     if( newIndexPath == nil ) newIndexPath = [NSIndexPath indexPathForRow:self.receipts.count inSection:0];
     
     // Temporatery insert data and the cell here
-    [self.receipts insertObject:nil atIndex:newIndexPath.row];
+    LLFavoriteReceiptCell *cell = (LLFavoriteReceiptCell *)draggable;
+    [self.receipts insertObject:cell.tempReceipt atIndex:newIndexPath.row];
     [self.tableViewInsideCell insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
     
     self.hoveringIndexPath = newIndexPath;
@@ -159,10 +191,11 @@
     // If the draggable is still over the same row, do nothing.  If it's moved up or down, move the
     // placeholder to the appropriate row.
     if( newIndexPath.row != self.hoveringIndexPath.row ) {
-        [self.receipts removeObjectAtIndex:newIndexPath.row];
+        [self.receipts removeObjectAtIndex:self.hoveringIndexPath.row];
         [self.tableViewInsideCell deleteRowsAtIndexPaths:[NSArray arrayWithObject:self.hoveringIndexPath] withRowAnimation:UITableViewRowAnimationFade];
         
-        [self.receipts insertObject:nil atIndex:newIndexPath.row];
+        LLFavoriteReceiptCell *cell = (LLFavoriteReceiptCell *)draggable;
+        [self.receipts insertObject:cell.tempReceipt atIndex:newIndexPath.row];
         [self.tableViewInsideCell insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
         
         self.hoveringIndexPath = newIndexPath;
@@ -192,8 +225,12 @@
     NSLog( @"Dropping object at row %d", newIndexPath.row );
     
     LLFavoriteReceiptCell* draggedCell = (LLFavoriteReceiptCell *)draggable;
-    [self.receipts insertObject:draggedCell.tempReceipt atIndex:newIndexPath.row];
+    Receipt *receipt = draggedCell.tempReceipt;
+    
+    [LLCommandManager assignGroup:self.group forReceipt:receipt withDescription:nil];
+    [self.receipts insertObject:receipt atIndex:newIndexPath.row];
     [self.tableViewInsideCell insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+    
     draggedCell.tempReceipt = nil;
 }
 

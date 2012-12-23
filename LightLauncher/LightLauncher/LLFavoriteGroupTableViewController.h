@@ -8,9 +8,13 @@
 
 #import "LLFavoriteGroupCell.h"
 
-@interface LLFavoriteGroupTableViewController : UITableViewController <LLFavoriteGroupCellDelegate>
+@class DnDOverlayView;
+
+@interface LLFavoriteGroupTableViewController : UIViewController <LLFavoriteGroupCellDelegate>
 
 @property (nonatomic, strong) NSArray *groups;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) IBOutlet DnDOverlayView *overlayView;
 
 + (LLFavoriteGroupTableViewController *)newInstance;
 

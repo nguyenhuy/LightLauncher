@@ -41,6 +41,9 @@
 
 #define DEFAULT_GROUP_NAME @"New"
 
+// Used in FavoriteGroupTableViewController and other cells in that controller's tableviews
+#define OVERLAY_ID_FAV_GROUP @"overlay_fav"
+
 typedef enum {
     DATA_STRING,
     DATA_ARRAY,

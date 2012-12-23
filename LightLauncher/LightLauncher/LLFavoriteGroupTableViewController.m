@@ -15,6 +15,8 @@
 
 #import "Group.h"
 
+#import "DnDOverlayView.h"
+
 @interface LLFavoriteGroupTableViewController ()
 @end
 
@@ -29,7 +31,14 @@
     [super viewDidLoad];
     
     self.title = @"Favorite";
+    
     [self.tableView registerNib:[UINib nibWithNibName:NIB_FAVORITE_GROUP_CELL bundle:nil] forCellReuseIdentifier:IDENTIFIER_FAVORITE_GROUP_CELL];
+    // Don't need table view anymore, remove the reference
+    self.tableView = nil;
+    
+    self.overlayView.overlayId = OVERLAY_ID_FAV_GROUP;
+    // Don't need the view anymore, remove the reference
+    self.overlayView = nil;
     
     //@TODO may abstract this.
     if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)])

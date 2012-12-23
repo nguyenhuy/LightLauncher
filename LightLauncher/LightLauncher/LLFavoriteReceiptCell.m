@@ -40,8 +40,8 @@
     self.transform = CGAffineTransformMakeRotation(M_PI * 0.5);
     
     // setup long click delegate
-    UIGestureRecognizer *gestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onLongPress)];
-    self.contentView.gestureRecognizers = [NSArray arrayWithObject:gestureRecognizer];
+//    UIGestureRecognizer *gestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onLongPress)];
+//    self.contentView.gestureRecognizers = [NSArray arrayWithObject:gestureRecognizer];
 }
 
 - (void)updateViewWithCommandPrototype:(LLCommandPrototype *)commandPrototype atIndexPath:(NSIndexPath *)indexPath withDelegate:(id<LLFavoriteReceiptCellDelegate>)delegate {
@@ -58,6 +58,7 @@
 - (void)dealloc {
     self.delegate = nil;
     self.contentView.gestureRecognizers = nil;
+    self.tempReceipt = nil;
 }
 
 @end
