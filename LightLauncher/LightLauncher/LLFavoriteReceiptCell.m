@@ -38,11 +38,26 @@
     [self.thumbnail addSubview:self.titleLabel];
     
     self.transform = CGAffineTransformMakeRotation(M_PI * 0.5);
+    
+    // setup long click delegate
+    UIGestureRecognizer *gestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onLongPress)];
+    self.contentView.gestureRecognizers = [NSArray arrayWithObject:gestureRecognizer];
 }
 
-- (void)updateViewWithCommandPrototype:(LLCommandPrototype *)commandPrototype {
+- (void)updateViewWithCommandPrototype:(LLCommandPrototype *)commandPrototype atIndexPath:(NSIndexPath *)indexPath withDelegate:(id<LLFavoriteReceiptCellDelegate>)delegate {
+    self.indexPath = indexPath;
+    self.delegate = delegate;
     self.thumbnail.image = [UIImage imageNamed:commandPrototype.iconFileName];
     self.titleLabel.text = commandPrototype.desc;
+}
+
+- (void)onLongPress {
+    [self.delegate onEditReceiptAtIndexPath:self.indexPath];
+}
+
+- (void)dealloc {
+    self.delegate = nil;
+    self.contentView.gestureRecognizers = nil;
 }
 
 @end

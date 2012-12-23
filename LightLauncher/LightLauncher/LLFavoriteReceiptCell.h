@@ -12,11 +12,19 @@
 
 @class LLCommandPrototype;
 
+@protocol LLFavoriteReceiptCellDelegate <NSObject>
+- (void)onEditReceiptAtIndexPath:(NSIndexPath *)indexPath;
+@end
+
 @interface LLFavoriteReceiptCell : UITableViewCell
+
+@property (nonatomic, strong) NSIndexPath *indexPath;
+@property (nonatomic, weak) id<LLFavoriteReceiptCellDelegate> delegate;
 
 @property (nonatomic, strong) UIImageView *thumbnail;
 @property (nonatomic, strong) UILabel *titleLabel;
 
-- (void)updateViewWithCommandPrototype:(LLCommandPrototype *)commandPrototype;
+- (void)updateViewWithCommandPrototype:(LLCommandPrototype *)commandPrototype atIndexPath:(NSIndexPath *)indexPath withDelegate:(id<LLFavoriteReceiptCellDelegate>)delegate;
+- (void)onLongPress;
 
 @end

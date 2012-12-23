@@ -60,7 +60,7 @@
     Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
     
     LLFavoriteReceiptCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_FAVORITE_RECEIPT_CELL forIndexPath:indexPath];
-    [cell updateViewWithCommandPrototype:receipt.commandPrototype];
+    [cell updateViewWithCommandPrototype:receipt.commandPrototype atIndexPath:indexPath withDelegate:self];
     
     return cell;
 }
@@ -76,6 +76,12 @@
 
     LLCommandManager *commandManager = [LLCommandManager sharedInstance];
     [commandManager executeFromCommandPrototype:receipt.commandPrototype withViewController:viewController];
+}
+
+#pragma mark - Favorite receipt cell delegate
+
+- (void)onEditReceiptAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Edit now");
 }
 
 @end
