@@ -18,7 +18,7 @@
 #import "LLOptionValuePrototypeCell.h"
 
 @interface LLCreateCommandTableViewController ()
-
+- (void)setupToolbar;
 - (LLOptionPrototype *)optionPrototypeAtIndexPath:(NSIndexPath *)indexPath;
 - (LLOptionPrototype *)optionPrototypeAtIndex:(int)index;
 - (LLOptionValuePrototype *)optionValuePrototypeAtIndexPath:(NSIndexPath *)indexPath;
@@ -32,13 +32,14 @@
     [super viewDidLoad];
     
     self.title = self.commandPrototype.desc;
+    [self setupToolbar];
     
     [self.tableView registerClass:[LLOptionValuePrototypeCell class] forCellReuseIdentifier:IDENTIFIER_OPTION_VALUE_PROTOTYPE_CELL];
     [self.tableView registerNib:[UINib nibWithNibName:NIB_PREFILL_OPTION_VALUE_PROTOTYPE_CELL bundle:nil] forCellReuseIdentifier:IDENTIFIER_PREFILL_OPTION_VALUE_PROTOTYPE_CELL];
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    UIBarButtonItem *executeBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(executeCommand)];
-    self.navigationItem.rightBarButtonItem = executeBarButtonItem;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
 #pragma mark - Table view data source
@@ -114,8 +115,21 @@
 
 #pragma mark - Instance methods
 
+- (void)setupToolbar {
+    UIBarButtonItem *flexibleSpaceBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *executeBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(executeCommand)];
+    UIBarButtonItem *likeBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(likeCommand)];
+
+    [self.navigationController setToolbarHidden:NO animated:YES];
+    self.toolbarItems = [NSArray arrayWithObjects:flexibleSpaceBarButtonItem, likeBarButtonItem, flexibleSpaceBarButtonItem, executeBarButtonItem, flexibleSpaceBarButtonItem, nil];
+}
+
 - (void)executeCommand {
     [[LLCommandManager sharedInstance] executeFromCommandPrototype:self.commandPrototype withViewController:self];
+}
+
+- (void)likeCommand {
+    //@TODO implement this
 }
 
 - (LLOptionPrototype *)optionPrototypeAtIndexPath:(NSIndexPath *)indexPath {
