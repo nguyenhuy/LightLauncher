@@ -34,6 +34,7 @@
     [super viewDidLoad];
     
     self.title = @"Commands";
+    
     [self.tableView registerClass:[LLCommandPrototypeCell class] forCellReuseIdentifier:IDENTIFIER_COMMAND_PROTOTYPE_CELL];
 
     //@TODO may abstract this.
@@ -44,6 +45,12 @@
         
 		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Reveal", @"Reveal") style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
 	}
+    
+    
+    self.hidesBottomBarWhenPushed = YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) LLCommandPrototype *commandPrototype;
 
+- (void)likeCommand;
 - (void)executeCommand;
 
 @end
