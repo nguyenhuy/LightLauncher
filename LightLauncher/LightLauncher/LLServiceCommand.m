@@ -64,12 +64,24 @@
     }
 }
 
+- (void)onFinished {
+    [self.viewController dismissViewControllerAnimated:YES completion:nil];
+    self.viewController = nil;
+
+    [super onFinished];
+}
+
+- (void)onCanceled {
+    [self.viewController dismissViewControllerAnimated:YES completion:nil];
+    self.viewController = nil;
+
+    [super onCanceled];
+}
+
 - (void)onErrorWithTitle:(NSString *)title andDesc:(NSString *)desc {
     [self.viewController dismissViewControllerAnimated:YES completion:nil];
     self.viewController = nil;
     
-    // We should call this lastly, since it will unbind this command in CommandManager
-    // and this command will be dealloced shortly
     [super onErrorWithTitle:title andDesc:desc];
 }
 

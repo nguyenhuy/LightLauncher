@@ -170,15 +170,20 @@
     self.executingCommand = nil;
     self.executingCommandPrototype = nil;
     [self.executingCommandDelegate onFinishedCommand:command];
+    self.executingCommandDelegate = nil;
 }
 
 - (void)onCanceledCommand:(id)command {
+    //@TODO should we save it???
     [LLCommandManager createReceiptInDbFromCommandPrototype:self.executingCommandPrototype];
     
     self.executingCommand = nil;
     self.executingCommandPrototype = nil;
    
-    [self.executingCommandDelegate onCanceledCommand:command];
+    if ([self.executingCommandDelegate respondsToSelector:@selector(onCanceledCommand:)]) {
+        [self.executingCommandDelegate onCanceledCommand:command];
+    }
+    self.executingCommandDelegate = nil;
 }
 
 - (void)onStoppedCommand:(id)command withErrorTitle:(NSString *)title andErrorDesc:(NSString *)desc {
@@ -188,6 +193,7 @@
     self.executingCommand = nil;
     self.executingCommandPrototype = nil;
     [self.executingCommandDelegate onStoppedCommand:command withErrorTitle:title andErrorDesc:desc];
+    self.executingCommandDelegate = nil;
 }
 
 @end
