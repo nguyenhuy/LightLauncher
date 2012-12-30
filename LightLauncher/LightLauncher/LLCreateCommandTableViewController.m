@@ -17,12 +17,17 @@
 
 #import "LLOptionValuePrototypeCell.h"
 
+#import "MBProgressHUD.h"
+
 @interface LLCreateCommandTableViewController ()
 - (void)setupToolbar;
 - (LLOptionPrototype *)optionPrototypeAtIndexPath:(NSIndexPath *)indexPath;
 - (LLOptionPrototype *)optionPrototypeAtIndex:(int)index;
 - (LLOptionValuePrototype *)optionValuePrototypeAtIndexPath:(NSIndexPath *)indexPath;
 - (void)updateTableViewAndReloadOptionValueAtIndexPath:(NSIndexPath *)indexPath WithValue:(id)value;
+- (MBProgressHUD *)showAutoHideHUD;
+- (void)showCheckmarkHUDWithLabelText:(NSString *)labelText;
+- (void)showTextHUDWithLabelText:(NSString *)labelText;
 @end
 
 @implementation LLCreateCommandTableViewController
@@ -122,13 +127,12 @@
 
 - (void)onFinishedLiking:(Receipt *)receipt {
     self.likeReceiptHelper = nil;
-    //@TODO Show "Added" HUD
-    [self.navigationController popViewControllerAnimated:YES];
+    [self showCheckmarkHUDWithLabelText:@"Added"];
 }
 
 - (void)onFailedLiking:(Receipt *)receipt {
     self.likeReceiptHelper = nil;
-    //@TODO show user something
+    [self showTextHUDWithLabelText:@"Error. Try later"];
 }
 
 #pragma mark - Instance methods
@@ -183,6 +187,26 @@
     optionValue.selected = YES;
     optionValue.value = value;
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:YES];    
+}
+
+- (MBProgressHUD *)showAutoHideHUD {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.removeFromSuperViewOnHide = YES;
+    [hud hide:YES afterDelay:HUD_DELAY_INTERVAL];
+    return hud;
+}
+
+- (void)showCheckmarkHUDWithLabelText:(NSString *)labelText {
+    MBProgressHUD *hud = [self showAutoHideHUD];
+    hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:IMAGE_HUD_CHECKMARK] ];
+    hud.mode = MBProgressHUDModeCustomView;
+    hud.labelText = labelText;
+}
+
+- (void)showTextHUDWithLabelText:(NSString *)labelText {
+    MBProgressHUD *hud = [self showAutoHideHUD];
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = labelText;
 }
 
 @end
