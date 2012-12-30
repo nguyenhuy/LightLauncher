@@ -29,6 +29,6 @@
 - (void)updateViewWithReceipt:(Receipt *)receipt;
 - (IBAction)like:(id)sender;
 - (IBAction)duplicate:(id)sender;
-- (void)onSwipe;
+- (void)hide;
 
 @end

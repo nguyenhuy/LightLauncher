@@ -42,7 +42,9 @@
 #define IMAGE_HUD_CHECKMARK @"37x-Checkmark.png"
 
 #define HUD_DELAY_INTERVAL 2
-#define FADE_ANIMATIONS_DURATION 0.5
+
+#define FADE_IN_DURATION 0.2
+#define FADE_OUT_DURATION 0.2
 
 #define DEFAULT_GROUP_NAME @"New"
 

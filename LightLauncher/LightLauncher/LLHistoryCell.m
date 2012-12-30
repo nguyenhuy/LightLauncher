@@ -9,7 +9,6 @@
 #import "LLHistoryCell.h"
 #import "LLCommandPrototype.h"
 #import "Receipt.h"
-#import "UIView+FadeAnimations.h"
 
 @implementation LLHistoryCell
 
@@ -51,23 +50,37 @@
 }
 
 - (void)onShowSwipeSideMenu {
-    [self addSubview:self.menu];
-    [self.menu fadeIn];
+    [self insertSubview:self.menu aboveSubview:self.contentView];
+    self.menu.alpha = 0.0;
+
+    [UIView animateWithDuration:FADE_IN_DURATION
+                     animations:^{
+                         self.menu.alpha = 1;
+                     }
+     ];
 }
 
 #pragma mark - Side swipe menu delegate
 
 - (void)onLike {
     [self.delegate onToggleGroupOfReceiptAtIndexPath:self.indexPath];
+    [self onHideSideSwipeMenu];
 }
 
 - (void)onDuplicate {
     [self.delegate onDuplicateReceiptAtIndexPath:self.indexPath];
+    [self onHideSideSwipeMenu];
 }
 
 - (void)onHideSideSwipeMenu {
-    [self.menu fadeOut];
-    [self.menu removeFromSuperview];
+    [UIView animateWithDuration:FADE_OUT_DURATION
+                     animations:^{
+                         self.menu.alpha = 0.0;
+                     }
+                     completion:^(BOOL finished){
+                         [self.menu removeFromSuperview];
+                     }
+     ];
 }
 
 @end

@@ -21,14 +21,15 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipe)];
+        UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(hide)];
         swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
         
-        
-        UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipe)];
+        UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(hide)];
         swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
         
-        self.gestureRecognizers = [NSArray arrayWithObjects:swipeLeft, swipeRight, nil];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide)];
+        
+        self.gestureRecognizers = [NSArray arrayWithObjects:swipeLeft, swipeRight, tap, nil];
     }
     return self;
 }
@@ -40,7 +41,7 @@
     } else {
         likeImage = [UIImage imageNamed:IMAGE_LIKE_UNSELECTED];
     }
-    self.btnLike.imageView.image = likeImage;
+    [self.btnLike setImage:likeImage forState:UIControlStateNormal];
 }
 
 - (IBAction)like:(id)sender {
@@ -51,7 +52,7 @@
     [self.delegate onDuplicate];
 }
 
-- (void)onSwipe {
+- (void)hide {
     [self.delegate onHideSideSwipeMenu];
 }
 
