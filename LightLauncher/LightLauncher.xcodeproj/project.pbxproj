@@ -226,6 +226,8 @@
 		789EE198166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLPrefillOptionValuePrototypeCell.xib; sourceTree = "<group>"; };
 		78A90ACC168FEEA00057289E /* LLLikeReceiptHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLLikeReceiptHelper.h; sourceTree = "<group>"; };
 		78A90ACD168FEEA00057289E /* LLLikeReceiptHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLLikeReceiptHelper.m; sourceTree = "<group>"; };
+		78A90AD9168FF67E0057289E /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = ../MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
+		78A90ADA168FF67E0057289E /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = ../MBProgressHUD/MBProgressHUD.m; sourceTree = "<group>"; };
 		78BA2D3116435A420057AD58 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		78BA2D3216435C950057AD58 /* LLCommandPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandPrototype.h; sourceTree = "<group>"; };
 		78BA2D3316435C950057AD58 /* LLCommandPrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandPrototype.m; sourceTree = "<group>"; };
@@ -632,6 +634,7 @@
 		788FBF89163CEC1D005A444E /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				78A90ADC168FF6820057289E /* MBProgressHUD */,
 				788F63A1168312D200C25E32 /* MagicalRecord */,
 				788A48AF167ED8E8009401DD /* ZUUIRevealController */,
 				788FBF8A163CEC44005A444E /* JSONKit */,
@@ -659,6 +662,15 @@
 				785EBB5E16297FBF00ADE85F /* LLSocialCommand.m */,
 			);
 			name = "Abstract Commands";
+			sourceTree = "<group>";
+		};
+		78A90ADC168FF6820057289E /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				78A90AD9168FF67E0057289E /* MBProgressHUD.h */,
+				78A90ADA168FF67E0057289E /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
