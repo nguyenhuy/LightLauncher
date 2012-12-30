@@ -7,6 +7,7 @@
 //
 
 #import "LLHistoryTableViewController.h"
+#import "LLCreateCommandTableViewController.h"
 
 #import "LLCommandManager.h"
 #import "LLCommandParser.h"
@@ -37,8 +38,11 @@
     [self.tableView registerClass:[LLHistoryCell class] forCellReuseIdentifier:IDENTIFIER_HISTORY_CELL];
     [self setupSideMenu];
     [self showRightEditBarButtonItem];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     self.receipts = [LLCommandManager loadReceiptsFromDB];
+    [self.tableView reloadData];
 }
 
 - (void)dealloc {
@@ -112,7 +116,11 @@
 }
 
 - (void)onDuplicateReceiptAtIndexPath:(NSIndexPath *)indexPath {
-    //@TODO implement it
+    Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
+    
+    LLCreateCommandTableViewController *controller = [[LLCreateCommandTableViewController alloc] initWithNibName:NIB_CREATE_COMMAND_VIEW_CONTROLLER bundle:nil];
+    controller.commandPrototype = receipt.commandPrototype;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - Like receipt helper delegate
@@ -126,7 +134,7 @@
 
 - (void)onFailedLiking:(Receipt *)receipt {
     self.likeReceiptHelper = nil;
-    //@TODO show user
+    [self showErrorHUDWithTitle:@"Failed" andDesc:nil];
 }
 
 #pragma mark - Command delegate
