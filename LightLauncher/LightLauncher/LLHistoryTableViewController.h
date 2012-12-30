@@ -7,12 +7,14 @@
 //
 
 #import "LLHistoryCell.h"
+#import "LLLikeReceiptHelper.h"
 
 @class Receipt;
 
-@interface LLHistoryTableViewController : UITableViewController <LLHistoryCellDelegate, UIAlertViewDelegate>
+@interface LLHistoryTableViewController : UITableViewController <LLHistoryCellDelegate, LLLikeReceiptHelperDelegate>
 
 @property (nonatomic, strong) NSArray *receipts;
+@property (nonatomic, strong) LLLikeReceiptHelper* likeReceiptHelper;
 
 + (LLHistoryTableViewController *)newInstance;
 

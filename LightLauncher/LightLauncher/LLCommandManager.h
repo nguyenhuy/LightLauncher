@@ -24,7 +24,7 @@
 + (NSArray *)loadGroupsFromDB;
 + (NSArray *)loadReceiptsFromDB;
 + (Group *)createGroupWithName:(NSString *)name;
-+ (BOOL)createReceiptInDbFromCommandPrototype:(LLCommandPrototype *)commandPrototype;
++ (Receipt *)createReceiptInDbFromCommandPrototype:(LLCommandPrototype *)commandPrototype;
 + (BOOL)deleteAllReceipts;
 + (BOOL)deleteReceipt:(Receipt *)receipt;
 + (BOOL)assignDefaultGroupForReceipt:(Receipt *)receipt withDescription:(NSString *)description;

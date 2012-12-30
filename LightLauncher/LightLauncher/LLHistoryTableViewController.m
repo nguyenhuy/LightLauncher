@@ -19,7 +19,6 @@
 - (void)showRightEditBarButtonItem;
 - (void)showRightDoneBarButtonItem;
 - (void)deleteReceiptAtIndexPath:(NSIndexPath *)indexPath;
-- (void)askDescForReceiptAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @implementation LLHistoryTableViewController
@@ -47,6 +46,11 @@
     [self showRightEditBarButtonItem];
     
     self.receipts = [LLCommandManager loadReceiptsFromDB];
+}
+
+- (void)dealloc {
+    self.likeReceiptHelper = nil;
+    self.receipts = nil;
 }
 
 #pragma mark - Table view data source
@@ -109,8 +113,23 @@
         }
     } else {
         // Like
-        [self askDescForReceiptAtIndexPath:indexPath];
+        self.likeReceiptHelper = [[LLLikeReceiptHelper alloc] init];
+        [self.likeReceiptHelper likeReceipt:receipt withDelegate:self];
     }
+}
+
+#pragma mark - Like receipt helper delegate
+
+- (void)onFinishedLiking:(Receipt *)receipt {
+    self.likeReceiptHelper = nil;
+    int index = [self.receipts indexOfObject:receipt];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:NO];
+}
+
+- (void)onFailedLiking:(Receipt *)receipt {
+    self.likeReceiptHelper = nil;
+    //@TODO show user
 }
 
 #pragma mark - Instance methods
@@ -149,35 +168,6 @@
 - (void)doneEditting {
     [self.tableView setEditing:NO animated:YES];
     [self showRightEditBarButtonItem];
-}
-
-- (void)askDescForReceiptAtIndexPath:(NSIndexPath *)indexPath {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Description:" message:@"Enter description for the command" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Done", nil];
-    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
-    // Use tag to remember index of the receipt for now. Later if we show more alert views, may consider to use a property.
-    alertView.tag = indexPath.row;
-    [alertView show];
-}
-
-#pragma mark - Alert View delegate
-
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    // Only 1 alert view (ask receipt desc) is showed for now, so don't need to check the tag
-    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
-    if ([title isEqualToString:@"Done"]) {
-        UITextField *descTextField = [alertView textFieldAtIndex:0];
-        NSString *desc = descTextField.text;
-        
-        int index  = alertView.tag;
-        Receipt *receipt = [self.receipts objectAtIndex:index];
-        
-        BOOL changed = [LLCommandManager assignDefaultGroupForReceipt:receipt withDescription:desc];
-        if (changed) {
-            // There is only section, so 0 is hardcoded here
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:NO];
-        }
-    }
 }
 
 @end

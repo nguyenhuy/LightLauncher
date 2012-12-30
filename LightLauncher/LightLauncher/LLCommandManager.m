@@ -85,7 +85,7 @@
     return nil;
 }
 
-+ (BOOL)createReceiptInDbFromCommandPrototype:(LLCommandPrototype *)commandPrototype {
++ (Receipt *)createReceiptInDbFromCommandPrototype:(LLCommandPrototype *)commandPrototype {
     if (!commandPrototype) {
         return NO;
     }
@@ -95,7 +95,11 @@
     receipt.executedDate = [NSDate date];
     receipt.group = nil;
     
-    return [LLCommandManager save];
+    if ([LLCommandManager save]) {
+        return receipt;
+    }
+    //@TODO can't save, show user something
+    return nil;
 }
 
 + (BOOL)deleteAllReceipts {

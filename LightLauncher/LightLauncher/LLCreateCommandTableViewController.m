@@ -42,6 +42,11 @@
     [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
+- (void)dealloc {
+    self.likeReceiptHelper = nil;
+    self.commandPrototype = nil;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -113,6 +118,19 @@
     }
 }
 
+#pragma mark - Like receipt helper delegate
+
+- (void)onFinishedLiking:(Receipt *)receipt {
+    self.likeReceiptHelper = nil;
+    //@TODO Show "Added" HUD
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)onFailedLiking:(Receipt *)receipt {
+    self.likeReceiptHelper = nil;
+    //@TODO show user something
+}
+
 #pragma mark - Instance methods
 
 - (void)setupToolbar {
@@ -129,7 +147,12 @@
 }
 
 - (void)likeCommand {
-    //@TODO implement this
+    Receipt *receipt = [LLCommandManager createReceiptInDbFromCommandPrototype:self.commandPrototype];
+    if (receipt) {
+        //@TODO retain helper
+        self.likeReceiptHelper = [[LLLikeReceiptHelper alloc] init];
+        [self.likeReceiptHelper likeReceipt:receipt withDelegate:self];
+    }
 }
 
 - (LLOptionPrototype *)optionPrototypeAtIndexPath:(NSIndexPath *)indexPath {
