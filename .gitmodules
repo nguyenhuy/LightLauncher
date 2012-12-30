@@ -10,3 +10,6 @@
 [submodule "MBProgressHUD"]
 	path = MBProgressHUD
 	url = https://github.com/jdg/MBProgressHUD.git
+[submodule "KNPathTableViewController"]
+	path = KNPathTableViewController
+	url = git://github.com/kentnguyen/KNPathTableViewController.git
