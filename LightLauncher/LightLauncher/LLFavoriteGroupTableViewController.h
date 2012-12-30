@@ -7,8 +7,9 @@
 //
 
 #import "LLFavoriteGroupCell.h"
+#import "LLCommand.h"
 
-@interface LLFavoriteGroupTableViewController : UITableViewController <LLFavoriteGroupCellDelegate>
+@interface LLFavoriteGroupTableViewController : UITableViewController <LLFavoriteGroupCellDelegate, LLCommandDelegate>
 
 @property (nonatomic, strong) NSArray *groups;
 

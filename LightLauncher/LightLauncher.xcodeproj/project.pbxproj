@@ -85,6 +85,7 @@
 		78A90ADE168FF7FA0057289E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A90ADA168FF67E0057289E /* MBProgressHUD.m */; };
 		78A90AE1168FF9150057289E /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 78A90ADF168FF9150057289E /* 37x-Checkmark.png */; };
 		78A90AE2168FF9150057289E /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 78A90AE0168FF9150057289E /* 37x-Checkmark@2x.png */; };
+		78A90AE6169006370057289E /* UIViewController+ShowHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A90AE5169006370057289E /* UIViewController+ShowHUD.m */; };
 		78BA2D3416435C950057AD58 /* LLCommandPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BA2D3316435C950057AD58 /* LLCommandPrototype.m */; };
 		78F12CF21646B0020068F9E4 /* LLOptionPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */; };
 		78F12CF51646B11F0068F9E4 /* LLCommandPrototypeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */; };
@@ -233,6 +234,8 @@
 		78A90ADA168FF67E0057289E /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = ../MBProgressHUD/MBProgressHUD.m; sourceTree = "<group>"; };
 		78A90ADF168FF9150057289E /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "37x-Checkmark.png"; path = "../../MBProgressHUD/Demo/Images/37x-Checkmark.png"; sourceTree = "<group>"; };
 		78A90AE0168FF9150057289E /* 37x-Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "37x-Checkmark@2x.png"; path = "../../MBProgressHUD/Demo/Images/37x-Checkmark@2x.png"; sourceTree = "<group>"; };
+		78A90AE4169006370057289E /* UIViewController+ShowHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShowHUD.h"; sourceTree = "<group>"; };
+		78A90AE5169006370057289E /* UIViewController+ShowHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ShowHUD.m"; sourceTree = "<group>"; };
 		78BA2D3116435A420057AD58 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		78BA2D3216435C950057AD58 /* LLCommandPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandPrototype.h; sourceTree = "<group>"; };
 		78BA2D3316435C950057AD58 /* LLCommandPrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandPrototype.m; sourceTree = "<group>"; };
@@ -684,6 +687,8 @@
 			children = (
 				78A90ACC168FEEA00057289E /* LLLikeReceiptHelper.h */,
 				78A90ACD168FEEA00057289E /* LLLikeReceiptHelper.m */,
+				78A90AE4169006370057289E /* UIViewController+ShowHUD.h */,
+				78A90AE5169006370057289E /* UIViewController+ShowHUD.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -828,6 +833,7 @@
 				788F640B168318B200C25E32 /* Group.m in Sources */,
 				788F640E168319BB00C25E32 /* Receipt.m in Sources */,
 				78A90ACE168FEEA00057289E /* LLLikeReceiptHelper.m in Sources */,
+				78A90AE6169006370057289E /* UIViewController+ShowHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

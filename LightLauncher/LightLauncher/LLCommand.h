@@ -9,7 +9,13 @@
 @class LLCommandPrototype;
 
 @protocol LLCommandDelegate <NSObject>
-- (void)onCommandFinished:(id)command;
+
+- (void)onFinishedCommand:(id)command;
+- (void)onStoppedCommand:(id)command withErrorTitle:(NSString *)title andErrorDesc:(NSString *)desc;
+
+@optional
+- (void)onCanceledCommand:(id)command;
+
 @end
 
 @interface LLCommand : NSObject <NSCopying>
@@ -49,5 +55,7 @@
 
 - (void)executeWithViewController:(UIViewController *)viewController withCommandDelegate:(id<LLCommandDelegate>) delegate;
 - (void)onFinished;
+- (void)onCanceled;
+- (void)onErrorWithTitle:(NSString *)title andDesc:(NSString *)desc;
 
 @end

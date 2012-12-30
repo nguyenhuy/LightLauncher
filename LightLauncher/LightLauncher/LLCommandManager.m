@@ -155,24 +155,39 @@
                               nil];
 }
 
-- (void)executeFromString:(NSString *)string withCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController {
-    // @TODO: maybe need to decompile instead
-    //    LLCommand *command = [LLCommandParser decode:string];
-    //    [self executeFromCommand:command withCommandPrototype:commandPrototype withViewController:viewController];
-}
-
-- (void)executeFromCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController {
+- (void)executeFromCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController andDelegate:(id<LLCommandDelegate>)delegate {
     self.executingCommandPrototype = commandPrototype;
     self.executingCommand = [LLCommandCompiler compile:self.executingCommandPrototype];
+    self.executingCommandDelegate = delegate;
     [self.executingCommand executeWithViewController:viewController withCommandDelegate:self];
 }
 
 #pragma mark Command Delegate
 
-- (void)onCommandFinished:(id)command {
-    self.executingCommand = nil;
+- (void)onFinishedCommand:(id)command {
     [LLCommandManager createReceiptInDbFromCommandPrototype:self.executingCommandPrototype];
+
+    self.executingCommand = nil;
     self.executingCommandPrototype = nil;
+    [self.executingCommandDelegate onFinishedCommand:command];
+}
+
+- (void)onCanceledCommand:(id)command {
+    [LLCommandManager createReceiptInDbFromCommandPrototype:self.executingCommandPrototype];
+    
+    self.executingCommand = nil;
+    self.executingCommandPrototype = nil;
+   
+    [self.executingCommandDelegate onCanceledCommand:command];
+}
+
+- (void)onStoppedCommand:(id)command withErrorTitle:(NSString *)title andErrorDesc:(NSString *)desc {
+    //@TODO should we save it???
+    [LLCommandManager createReceiptInDbFromCommandPrototype:self.executingCommandPrototype];
+    
+    self.executingCommand = nil;
+    self.executingCommandPrototype = nil;
+    [self.executingCommandDelegate onStoppedCommand:command withErrorTitle:title andErrorDesc:desc];
 }
 
 @end

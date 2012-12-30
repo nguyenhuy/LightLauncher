@@ -108,25 +108,19 @@
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
 
-    NSString *message;
     switch (result) {
         case MFMailComposeResultCancelled:
-            message = @"Message Canceled";
+            [self onCanceled];
             break;
         case MFMailComposeResultSaved:
-            message = @"Message Saved";
-            break;
         case MFMailComposeResultSent:
-            message = @"Message Sent";
+            [self onFinished];
             break;
         case MFMailComposeResultFailed:
-            message = @"Message Failed";
-            break;
-        default:
-            message = @"Message Not Sent";
+            //@TODO how, when and why this failed???
+            [self onErrorWithTitle:@"Failed" andDesc:nil];
             break;
     }
-    [self onFinishedWithStatusTitle:@"Email" andMessage:message];
 }
 
 @end

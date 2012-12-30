@@ -58,15 +58,14 @@
     [self addAllUrlsToComposeViewController:composeViewController];
     
     [composeViewController setCompletionHandler:^(SLComposeViewControllerResult result) {
-        NSString *message;
         switch (result) {
             case SLComposeViewControllerResultCancelled:
-                message = @"Canceled";
+                [self onCanceled];
                 break;
             case SLComposeViewControllerResultDone:
-                message = @"Done";
+                [self onFinished];
+                break;
         }
-        [self onFinishedWithStatusTitle:[self serviceName] andMessage:message];
     }];
     
     return composeViewController;

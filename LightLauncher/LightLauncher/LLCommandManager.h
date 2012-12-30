@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong, readonly) LLCommandPrototype *executingCommandPrototype;
 @property (nonatomic, strong, readonly) LLCommand *executingCommand;
+@property (nonatomic, weak) id<LLCommandDelegate> executingCommandDelegate;
 
 + (LLCommandManager *)sharedInstance;
 + (Group *)defaultGroup;
@@ -31,7 +32,6 @@
 + (BOOL)assignGroup:(Group *)group forReceipt:(Receipt *)receipt withDescription:(NSString *)description;
 + (BOOL)removeGroupForReceipt:(Receipt *)receipt;
 
-- (void)executeFromString:(NSString *)string withCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController;
-- (void)executeFromCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController;
+- (void)executeFromCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController andDelegate:(id<LLCommandDelegate>)delegate;
 
 @end

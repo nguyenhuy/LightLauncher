@@ -40,7 +40,17 @@
 }
 
 - (void)onFinished {
-    [self.delegate onCommandFinished:self];
+    [self.delegate onFinishedCommand:self];
+    self.delegate = nil;
+}
+
+- (void)onCanceled {
+    [self.delegate onCanceledCommand:self];
+    self.delegate = nil;
+}
+
+- (void)onErrorWithTitle:(NSString *)title andDesc:(NSString *)desc {
+    [self.delegate onStoppedCommand:self withErrorTitle:title andErrorDesc:desc];
     self.delegate = nil;
 }
 

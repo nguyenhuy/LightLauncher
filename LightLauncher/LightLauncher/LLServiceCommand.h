@@ -18,7 +18,6 @@
 - (NSString *)serviceName;
 - (BOOL)isServiceAvailable;
 - (UIViewController *)constructComposeViewContrroller;
-- (void)onFinishedWithStatusTitle:(NSString *)title andMessage:(NSString *)message;
 - (void)onServiceNotAvailable;
 
 @end

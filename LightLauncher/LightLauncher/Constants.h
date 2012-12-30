@@ -64,4 +64,7 @@ typedef enum {
     GROUP_FAVORITE,
 } ViewControllerGroup;
 
+//@TODO check all delegates are weak
+//@TODO check memory leak
+
 #endif

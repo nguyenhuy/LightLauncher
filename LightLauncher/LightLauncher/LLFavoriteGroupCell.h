@@ -10,12 +10,14 @@
 #define IDENTIFIER_FAVORITE_GROUP_CELL @"LLFavoriteGroupCell"
 
 #import "LLFavoriteReceiptCell.h"
+#import "LLCommand.h"
 
 @class Group;
 
 @protocol LLFavoriteGroupCellDelegate <NSObject>
 
 - (UIViewController *)viewControllerToExecuteCommand;
+- (id<LLCommandDelegate>)commandDelegate;
 
 @end
 

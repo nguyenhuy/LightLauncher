@@ -14,6 +14,7 @@
 #import "LLCommandPrototype.h"
 
 #import "Receipt.h"
+#import "UIViewController+ShowHUD.h"
 
 @interface LLHistoryTableViewController ()
 - (void)showRightEditBarButtonItem;
@@ -88,7 +89,7 @@
     Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
 
     LLCommandManager *commandManager = [LLCommandManager sharedInstance];
-    [commandManager executeFromCommandPrototype:receipt.commandPrototype withViewController:self];
+    [commandManager executeFromCommandPrototype:receipt.commandPrototype withViewController:self andDelegate:self];
     
     // Load again from DB
     //@TODO may use model observer for CommandManager
@@ -130,6 +131,19 @@
 - (void)onFailedLiking:(Receipt *)receipt {
     self.likeReceiptHelper = nil;
     //@TODO show user
+}
+
+#pragma mark - Command delegate
+
+- (void)onFinishedCommand:(id)command {
+    [self showExecutedCommandHUD];
+
+    self.receipts = [LLCommandManager loadReceiptsFromDB];
+    [self.tableView reloadData];
+}
+
+- (void)onStoppedCommand:(id)command withErrorTitle:(NSString *)title andErrorDesc:(NSString *)desc {
+    [self showErrorHUDWithTitle:title andDesc:desc];
 }
 
 #pragma mark - Instance methods

@@ -64,21 +64,18 @@
     }
 }
 
-- (void)onFinishedWithStatusTitle:(NSString *)title andMessage:(NSString *)message {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
-    
+- (void)onErrorWithTitle:(NSString *)title andDesc:(NSString *)desc {
     [self.viewController dismissViewControllerAnimated:YES completion:nil];
     self.viewController = nil;
     
     // We should call this lastly, since it will unbind this command in CommandManager
-    // and this command will be collected shortly
-    [super onFinished];
+    // and this command will be dealloced shortly
+    [super onErrorWithTitle:title andDesc:desc];
 }
 
 - (void)onServiceNotAvailable {
     NSString *title = [NSString stringWithFormat:@"%@ not available", [self serviceName]];
-    [self onFinishedWithStatusTitle:title andMessage:@"Please check your Settings"];
+    [self onErrorWithTitle:title andDesc:@"Please check your Settings"];
 }
 
 @end

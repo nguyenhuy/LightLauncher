@@ -73,9 +73,10 @@
     // Execute the command
     Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
     UIViewController *viewController = [self.delegate viewControllerToExecuteCommand];
+    id<LLCommandDelegate> commandDelegate = [self.delegate commandDelegate];
 
     LLCommandManager *commandManager = [LLCommandManager sharedInstance];
-    [commandManager executeFromCommandPrototype:receipt.commandPrototype withViewController:viewController];
+    [commandManager executeFromCommandPrototype:receipt.commandPrototype withViewController:viewController andDelegate:commandDelegate];
 }
 
 #pragma mark - Favorite receipt cell delegate

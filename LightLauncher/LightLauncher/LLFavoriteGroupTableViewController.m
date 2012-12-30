@@ -15,6 +15,8 @@
 
 #import "Group.h"
 
+#import "UIViewController+ShowHUD.h"
+
 @interface LLFavoriteGroupTableViewController ()
 @end
 
@@ -47,12 +49,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return self.groups.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.groups.count;
+    return 1;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -62,7 +64,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Group *group = [self.groups objectAtIndex:indexPath.row];
+    Group *group = [self.groups objectAtIndex:indexPath.section];
     
     LLFavoriteGroupCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_FAVORITE_GROUP_CELL forIndexPath:indexPath];
     [cell updateViewWithGroup:group andDelegate:self];
@@ -81,6 +83,20 @@
 
 - (UIViewController *)viewControllerToExecuteCommand {
     return self;
+}
+
+- (id<LLCommandDelegate>)commandDelegate {
+    return self;
+}
+
+#pragma mark - Command delegate
+
+- (void)onFinishedCommand:(id)command {
+    [self showExecutedCommandHUD];
+}
+
+- (void)onStoppedCommand:(id)command withErrorTitle:(NSString *)title andErrorDesc:(NSString *)desc {
+    [self showErrorHUDWithTitle:title andDesc:desc];
 }
 
 @end
