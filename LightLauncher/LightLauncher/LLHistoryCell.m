@@ -14,7 +14,7 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Swipe right regconizer for the cell, to show the menu
         UISwipeGestureRecognizer *reg = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onShowSwipeSideMenu)];
@@ -35,11 +35,6 @@
     self.indexPath = indexPath;
     self.delegate = delegate;
     self.textLabel.text = receipt.commandPrototype.desc;
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.timeStyle = NSDateFormatterMediumStyle;
-    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
-    self.detailTextLabel.text = [dateFormatter stringFromDate:receipt.executedDate];
     
     [self.menu updateViewWithReceipt:receipt];
 }

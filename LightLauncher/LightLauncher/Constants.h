@@ -40,6 +40,7 @@
 #define IMAGE_LIKE_UNSELECTED @"like_unselected.png"
 #define IMAGE_MENU_ICON @"menu-icon.png"
 #define IMAGE_HUD_CHECKMARK @"37x-Checkmark.png"
+#define IMAGE_PATH_OVERLAY @"KNTableOverlay.png"
 
 #define HUD_DELAY_INTERVAL 2
 

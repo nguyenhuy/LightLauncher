@@ -79,6 +79,7 @@
 		788FBFA7163D91CF005A444E /* LLCommandPrototypeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788FBFA5163D91CF005A444E /* LLCommandPrototypeTableViewController.xib */; };
 		788FBFC3163DA3F3005A444E /* LLCreateCommandTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBFC1163DA3F3005A444E /* LLCreateCommandTableViewController.m */; };
 		788FBFC4163DA3F3005A444E /* LLCreateCommandTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788FBFC2163DA3F3005A444E /* LLCreateCommandTableViewController.xib */; };
+		78945FE516908FEC00A89D61 /* KNPathTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78945FE016908E4800A89D61 /* KNPathTableViewController.m */; };
 		789948E516904F92008406ED /* LLSideSwipeMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 789948E416904F92008406ED /* LLSideSwipeMenu.xib */; };
 		789948E816904FA9008406ED /* LLSideSwipeMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 789948E716904FA9008406ED /* LLSideSwipeMenu.m */; };
 		789948EA1690515F008406ED /* copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 789948E91690515F008406ED /* copy.png */; };
@@ -231,6 +232,10 @@
 		788FBFC0163DA3F3005A444E /* LLCreateCommandTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCreateCommandTableViewController.h; sourceTree = "<group>"; };
 		788FBFC1163DA3F3005A444E /* LLCreateCommandTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCreateCommandTableViewController.m; sourceTree = "<group>"; };
 		788FBFC2163DA3F3005A444E /* LLCreateCommandTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLCreateCommandTableViewController.xib; sourceTree = "<group>"; };
+		78945FDF16908E4800A89D61 /* KNPathTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KNPathTableViewController.h; path = ../KNPathTableViewController/KNPathTableViewController/KNPathTableViewController.h; sourceTree = "<group>"; };
+		78945FE016908E4800A89D61 /* KNPathTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = KNPathTableViewController.m; path = ../KNPathTableViewController/KNPathTableViewController/KNPathTableViewController.m; sourceTree = "<group>"; };
+		78945FE116908E4800A89D61 /* KNTableOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = KNTableOverlay.png; path = ../../KNPathTableViewController/KNPathTableViewController/KNTableOverlay.png; sourceTree = "<group>"; };
+		78945FE216908E4800A89D61 /* KNTableOverlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "KNTableOverlay@2x.png"; path = "../../KNPathTableViewController/KNPathTableViewController/KNTableOverlay@2x.png"; sourceTree = "<group>"; };
 		789948E416904F92008406ED /* LLSideSwipeMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLSideSwipeMenu.xib; sourceTree = "<group>"; };
 		789948E616904FA9008406ED /* LLSideSwipeMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSideSwipeMenu.h; sourceTree = "<group>"; };
 		789948E716904FA9008406ED /* LLSideSwipeMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSideSwipeMenu.m; sourceTree = "<group>"; };
@@ -396,6 +401,8 @@
 		785A0E1115E9D135002C6F78 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				78945FE116908E4800A89D61 /* KNTableOverlay.png */,
+				78945FE216908E4800A89D61 /* KNTableOverlay@2x.png */,
 				789948E91690515F008406ED /* copy.png */,
 				78A90AEF169045480057289E /* menu-icon.png */,
 				78A90AF0169045480057289E /* menu-icon@2x.png */,
@@ -664,6 +671,7 @@
 		788FBF89163CEC1D005A444E /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				78945FE416908E4F00A89D61 /* KBPathTableViewController */,
 				78A90ADC168FF6820057289E /* MBProgressHUD */,
 				788F63A1168312D200C25E32 /* MagicalRecord */,
 				788A48AF167ED8E8009401DD /* ZUUIRevealController */,
@@ -692,6 +700,15 @@
 				785EBB5E16297FBF00ADE85F /* LLSocialCommand.m */,
 			);
 			name = "Abstract Commands";
+			sourceTree = "<group>";
+		};
+		78945FE416908E4F00A89D61 /* KBPathTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				78945FDF16908E4800A89D61 /* KNPathTableViewController.h */,
+				78945FE016908E4800A89D61 /* KNPathTableViewController.m */,
+			);
+			name = KBPathTableViewController;
 			sourceTree = "<group>";
 		};
 		789948EE16906BA2008406ED /* Extensions */ = {
@@ -804,6 +821,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78945FE516908FEC00A89D61 /* KNPathTableViewController.m in Sources */,
 				78A90ADE168FF7FA0057289E /* MBProgressHUD.m in Sources */,
 				788A48C2167EE8E2009401DD /* ZUUIRevealController.m in Sources */,
 				785A0DAE15E9A3B6002C6F78 /* main.m in Sources */,

@@ -22,6 +22,11 @@
 - (void)showRightEditBarButtonItem;
 - (void)showRightDoneBarButtonItem;
 - (void)deleteReceiptAtIndexPath:(NSIndexPath *)indexPath;
+#pragma mark - KNPathTableViewController
+-(void)setupWithInfoPanelSize:(CGSize)size;
+-(void)moveInfoPanelToSuperView;
+-(void)moveInfoPanelToIndicatorView;
+-(void)slideOutInfoPanel;
 @end
 
 @implementation LLHistoryTableViewController
@@ -38,6 +43,7 @@
     [self.tableView registerClass:[LLHistoryCell class] forCellReuseIdentifier:IDENTIFIER_HISTORY_CELL];
     [self setupSideMenu];
     [self showRightEditBarButtonItem];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -83,7 +89,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
-
+    
     LLCommandManager *commandManager = [LLCommandManager sharedInstance];
     [commandManager executeFromCommandPrototype:receipt.commandPrototype withViewController:self andDelegate:self];
     
@@ -141,7 +147,7 @@
 
 - (void)onFinishedCommand:(id)command {
     [self showExecutedCommandHUD];
-
+    
     self.receipts = [LLCommandManager loadReceiptsFromDB];
     [self.tableView reloadData];
 }
@@ -192,6 +198,149 @@
 - (void)doneEditting {
     [self.tableView setEditing:NO animated:YES];
     [self showRightEditBarButtonItem];
+}
+
+#pragma mark - KNPathTableViewController
+
+- (void)setupWithInfoPanelSize:(CGSize)size {
+    // The panel
+    self.infoPanelSize = size;
+    self.infoPanelInitialFrame = CGRectMake(-self.infoPanelSize.width, 0, self.infoPanelSize.width, self.infoPanelSize.height);
+    self.infoPanel = [[UIView alloc] initWithFrame:self.infoPanelInitialFrame];
+    
+    // Initialize overlay panel with stretchable background
+    UIImageView * bg = [[UIImageView alloc] initWithFrame:self.infoPanel.bounds];
+    UIImage * overlay = [UIImage imageNamed:@"KNTableOverlay"];
+    bg.image = [overlay stretchableImageWithLeftCapWidth:overlay.size.width/2.0 topCapHeight:overlay.size.height/2.0];
+    [self.infoPanel setAlpha:0];
+    [self.infoPanel addSubview:bg];
+    
+    //@TODO make InfoPanel a custom view
+}
+
+#pragma mark - Meant to be override
+
+-(void)infoPanelWillAppear:(UIScrollView*)scrollView {}
+-(void)infoPanelDidAppear:(UIScrollView*)scrollView {}
+-(void)infoPanelWillDisappear:(UIScrollView*)scrollView {}
+-(void)infoPanelDidDisappear:(UIScrollView*)scrollView {}
+-(void)infoPanelDidStopScrolling:(UIScrollView*)scrollView {}
+
+-(void)infoPanelDidScroll:(UIScrollView*)scrollView atPoint:(CGPoint)point {
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:point];
+    Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
+
+    //@TODO show infor here
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.timeStyle = NSDateFormatterMediumStyle;
+    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+    self.infoPanel.text = [dateFormatter stringFromDate:receipt.executedDate];
+}
+
+#pragma mark - Scroll view delegate
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    // Store height of indicator
+    UIView * indicator = [[self.tableView subviews] lastObject];
+    self.initalScrollIndicatorHeight = indicator.frame.size.height;
+    
+    // Starting from beginning
+    if ([self.infoPanel superview] == nil) {
+        // Add it to indicator
+        [self moveInfoPanelToIndicatorView];
+        
+		// Prepare to slide in
+        CGRect f = self.infoPanel.frame;
+        CGRect f2= f;
+        f2.origin.x += KNPathTableSlideInOffset;
+		[self.infoPanel setFrame:f2];
+        
+        // Fade in and slide left
+        [self infoPanelWillAppear:scrollView];
+        [UIView animateWithDuration:KNPathTableFadeInDuration
+                         animations:^{
+                             self.infoPanel.alpha = 1;
+                             self.infoPanel.frame = f;
+                         } completion:^(BOOL finished) {
+                             [self infoPanelDidAppear:scrollView];
+                         }];
+	}
+    
+    // If it is waiting to fade out, then maintain position
+    else if ([self.infoPanel superview] == self.view) {
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(slideOutInfoPanel) object:nil];
+        [self moveInfoPanelToIndicatorView];
+    }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    UIView * indicator = [[scrollView subviews] lastObject];
+    
+    // Make sure the panel is visible
+    if (self.infoPanel.alpha == 0) self.infoPanel.alpha = 1;
+    
+	// Current position is near bottom
+	if (indicator.frame.size.height < self.initalScrollIndicatorHeight) {
+        if (scrollView.contentOffset.y > 0 && [self.infoPanel superview] != self.view) {
+            // Move panel to a fixed position
+            [self.infoPanel removeFromSuperview];
+            CGRect f = [self.view convertRect:self.infoPanel.frame fromView:indicator];
+            self.infoPanel.frame = CGRectMake(f.origin.x, self.tableView.frame.size.height-f.size.height, f.size.width, f.size.height);
+            [self.view addSubview:self.infoPanel];
+        }
+	}
+    
+    // Return the panel to indicator
+    else if ([self.infoPanel superview] != indicator) {
+        [self moveInfoPanelToIndicatorView];
+    }
+    
+    // The current center of panel
+    if (scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.size.height) {
+        [self infoPanelDidScroll:scrollView atPoint:CGPointMake(indicator.center.x,scrollView.contentSize.height-1)];
+    } else {
+        [self infoPanelDidScroll:scrollView atPoint:indicator.center];
+    }
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    // Remove it from indicator view but maintain position
+    if ([self.infoPanel superview] != self.view) [self moveInfoPanelToSuperView];
+    [self performSelector:@selector(slideOutInfoPanel) withObject:nil afterDelay:KNPathTableFadeOutDelay];
+    [self infoPanelDidStopScrolling:scrollView];
+}
+
+#pragma mark - Helper methods
+
+-(void)moveInfoPanelToSuperView {
+    UIView * indicator = [[self.tableView subviews] lastObject];
+    CGRect f = [self.view convertRect:self.infoPanel.frame fromView:indicator];
+    if ([self.infoPanel superview]) [self.infoPanel removeFromSuperview];
+    self.infoPanel.frame = f;
+    [self.view addSubview:self.infoPanel];
+}
+
+-(void)moveInfoPanelToIndicatorView {
+    UIView * indicator = [[self.tableView subviews] lastObject];
+    CGRect f = self.infoPanelInitialFrame;
+    f.origin.y = indicator.frame.size.height/2 - f.size.height/2;
+    if ([self.infoPanel superview]) [self.infoPanel removeFromSuperview];
+    [indicator addSubview:self.infoPanel];
+    self.infoPanel.frame = f;
+}
+
+-(void)slideOutInfoPanel {
+    CGRect f = self.infoPanel.frame;
+    f.origin.x += KNPathTableSlideInOffset;
+    [self infoPanelWillDisappear:self.tableView];
+    [UIView animateWithDuration:KNPathTableFadeOutDuration
+                     animations:^{
+                         self.infoPanel.alpha = 0;
+                         self.infoPanel.frame = f;
+                     } completion:^(BOOL finished) {
+                         [self.infoPanel removeFromSuperview];
+                         [self infoPanelDidDisappear:self.tableView];
+                     }];
 }
 
 @end
