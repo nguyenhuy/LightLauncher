@@ -38,11 +38,11 @@
 #define IMAGE_FACEBOOK @"facebook.png"
 #define IMAGE_LIKE_SELECTED @"like_selected.png"
 #define IMAGE_LIKE_UNSELECTED @"like_unselected.png"
-
 #define IMAGE_MENU_ICON @"menu-icon.png"
-
 #define IMAGE_HUD_CHECKMARK @"37x-Checkmark.png"
+
 #define HUD_DELAY_INTERVAL 2
+#define FADE_ANIMATIONS_DURATION 0.5
 
 #define DEFAULT_GROUP_NAME @"New"
 

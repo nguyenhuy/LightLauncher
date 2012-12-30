@@ -14,6 +14,7 @@
 #import "LLFavoriteGroupCell.h"
 
 #import "Group.h"
+#import "Receipt.h"
 
 #import "UIViewController+ShowHUD.h"
 #import "UIViewController+SetupSideMenu.h"
@@ -90,6 +91,13 @@
 
 - (void)onStoppedCommand:(id)command withErrorTitle:(NSString *)title andErrorDesc:(NSString *)desc {
     [self showErrorHUDWithTitle:title andDesc:desc];
+}
+
+#pragma mark - Favorite receipt cell delegate
+
+- (void)onTappedReciept:(Receipt *)receipt {
+    LLCommandManager *commandManager = [LLCommandManager sharedInstance];
+    [commandManager executeFromCommandPrototype:receipt.commandPrototype withViewController:self andDelegate:self];
 }
 
 @end

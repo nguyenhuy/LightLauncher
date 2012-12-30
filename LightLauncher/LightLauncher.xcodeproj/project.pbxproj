@@ -79,6 +79,10 @@
 		788FBFA7163D91CF005A444E /* LLCommandPrototypeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788FBFA5163D91CF005A444E /* LLCommandPrototypeTableViewController.xib */; };
 		788FBFC3163DA3F3005A444E /* LLCreateCommandTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBFC1163DA3F3005A444E /* LLCreateCommandTableViewController.m */; };
 		788FBFC4163DA3F3005A444E /* LLCreateCommandTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788FBFC2163DA3F3005A444E /* LLCreateCommandTableViewController.xib */; };
+		789948E516904F92008406ED /* LLSideSwipeMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 789948E416904F92008406ED /* LLSideSwipeMenu.xib */; };
+		789948E816904FA9008406ED /* LLSideSwipeMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 789948E716904FA9008406ED /* LLSideSwipeMenu.m */; };
+		789948EA1690515F008406ED /* copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 789948E91690515F008406ED /* copy.png */; };
+		789948ED16906B93008406ED /* UIView+FadeAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 789948EC16906B93008406ED /* UIView+FadeAnimations.m */; };
 		789EE197166C9D7000CD4B92 /* LLPrefillOptionValuePrototypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 789EE196166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.m */; };
 		789EE199166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 789EE198166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib */; };
 		78A90ACE168FEEA00057289E /* LLLikeReceiptHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A90ACD168FEEA00057289E /* LLLikeReceiptHelper.m */; };
@@ -228,6 +232,12 @@
 		788FBFC0163DA3F3005A444E /* LLCreateCommandTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCreateCommandTableViewController.h; sourceTree = "<group>"; };
 		788FBFC1163DA3F3005A444E /* LLCreateCommandTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCreateCommandTableViewController.m; sourceTree = "<group>"; };
 		788FBFC2163DA3F3005A444E /* LLCreateCommandTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLCreateCommandTableViewController.xib; sourceTree = "<group>"; };
+		789948E416904F92008406ED /* LLSideSwipeMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLSideSwipeMenu.xib; sourceTree = "<group>"; };
+		789948E616904FA9008406ED /* LLSideSwipeMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSideSwipeMenu.h; sourceTree = "<group>"; };
+		789948E716904FA9008406ED /* LLSideSwipeMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSideSwipeMenu.m; sourceTree = "<group>"; };
+		789948E91690515F008406ED /* copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = copy.png; sourceTree = "<group>"; };
+		789948EB16906B93008406ED /* UIView+FadeAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FadeAnimations.h"; sourceTree = "<group>"; };
+		789948EC16906B93008406ED /* UIView+FadeAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FadeAnimations.m"; sourceTree = "<group>"; };
 		789EE195166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLPrefillOptionValuePrototypeCell.h; sourceTree = "<group>"; };
 		789EE196166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLPrefillOptionValuePrototypeCell.m; sourceTree = "<group>"; };
 		789EE198166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLPrefillOptionValuePrototypeCell.xib; sourceTree = "<group>"; };
@@ -337,6 +347,7 @@
 		785A0DC215E9BEE4002C6F78 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				789948EE16906BA2008406ED /* Extensions */,
 				78A90ADD168FF7C50057289E /* Helpers */,
 				788A48BC167EDC9C009401DD /* Create Group */,
 				788A48CB167F06D3009401DD /* History Group */,
@@ -366,6 +377,7 @@
 		785A0DD715E9C329002C6F78 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				789948EF16906BAE008406ED /* Extensions */,
 				788A4890167DDC4E009401DD /* Table View Cells */,
 			);
 			name = View;
@@ -388,6 +400,7 @@
 		785A0E1115E9D135002C6F78 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				789948E91690515F008406ED /* copy.png */,
 				78A90AEF169045480057289E /* menu-icon.png */,
 				78A90AF0169045480057289E /* menu-icon@2x.png */,
 				78A90ADF168FF9150057289E /* 37x-Checkmark.png */,
@@ -531,6 +544,9 @@
 			children = (
 				788A48D216815F9E009401DD /* LLHistoryCell.h */,
 				788A48D316815F9E009401DD /* LLHistoryCell.m */,
+				789948E416904F92008406ED /* LLSideSwipeMenu.xib */,
+				789948E616904FA9008406ED /* LLSideSwipeMenu.h */,
+				789948E716904FA9008406ED /* LLSideSwipeMenu.m */,
 			);
 			name = "History Group";
 			sourceTree = "<group>";
@@ -682,6 +698,26 @@
 			name = "Abstract Commands";
 			sourceTree = "<group>";
 		};
+		789948EE16906BA2008406ED /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				78A90AE4169006370057289E /* UIViewController+ShowHUD.h */,
+				78A90AE5169006370057289E /* UIViewController+ShowHUD.m */,
+				78A90AF4169045BE0057289E /* UIViewController+SetupSideMenu.h */,
+				78A90AF5169045BE0057289E /* UIViewController+SetupSideMenu.m */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		789948EF16906BAE008406ED /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				789948EB16906B93008406ED /* UIView+FadeAnimations.h */,
+				789948EC16906B93008406ED /* UIView+FadeAnimations.m */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		78A90ADC168FF6820057289E /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -696,10 +732,6 @@
 			children = (
 				78A90ACC168FEEA00057289E /* LLLikeReceiptHelper.h */,
 				78A90ACD168FEEA00057289E /* LLLikeReceiptHelper.m */,
-				78A90AE4169006370057289E /* UIViewController+ShowHUD.h */,
-				78A90AE5169006370057289E /* UIViewController+ShowHUD.m */,
-				78A90AF4169045BE0057289E /* UIViewController+SetupSideMenu.h */,
-				78A90AF5169045BE0057289E /* UIViewController+SetupSideMenu.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -773,6 +805,8 @@
 				78A90AE2168FF9150057289E /* 37x-Checkmark@2x.png in Resources */,
 				78A90AF1169045480057289E /* menu-icon.png in Resources */,
 				78A90AF2169045480057289E /* menu-icon@2x.png in Resources */,
+				789948E516904F92008406ED /* LLSideSwipeMenu.xib in Resources */,
+				789948EA1690515F008406ED /* copy.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -848,6 +882,8 @@
 				78A90ACE168FEEA00057289E /* LLLikeReceiptHelper.m in Sources */,
 				78A90AE6169006370057289E /* UIViewController+ShowHUD.m in Sources */,
 				78A90AF6169045BF0057289E /* UIViewController+SetupSideMenu.m in Sources */,
+				789948E816904FA9008406ED /* LLSideSwipeMenu.m in Sources */,
+				789948ED16906B93008406ED /* UIView+FadeAnimations.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

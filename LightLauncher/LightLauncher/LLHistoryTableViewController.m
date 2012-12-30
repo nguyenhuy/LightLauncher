@@ -36,7 +36,6 @@
     self.title = @"History";
     [self.tableView registerClass:[LLHistoryCell class] forCellReuseIdentifier:IDENTIFIER_HISTORY_CELL];
     [self setupSideMenu];
-    
     [self showRightEditBarButtonItem];
     
     self.receipts = [LLCommandManager loadReceiptsFromDB];
@@ -112,6 +111,10 @@
     }
 }
 
+- (void)onDuplicateReceiptAtIndexPath:(NSIndexPath *)indexPath {
+    //@TODO implement it
+}
+
 #pragma mark - Like receipt helper delegate
 
 - (void)onFinishedLiking:(Receipt *)receipt {
@@ -137,6 +140,12 @@
 
 - (void)onStoppedCommand:(id)command withErrorTitle:(NSString *)title andErrorDesc:(NSString *)desc {
     [self showErrorHUDWithTitle:title andDesc:desc];
+}
+
+#pragma mark - Swipe detectors
+
+- (void)onSwipeRight {
+    
 }
 
 #pragma mark - Instance methods

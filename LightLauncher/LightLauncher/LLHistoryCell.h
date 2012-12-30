@@ -7,21 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LLSideSwipeMenu.h"
 
 #define IDENTIFIER_HISTORY_CELL @"LLHistoryCell"
 
 @protocol LLHistoryCellDelegate <NSObject>
 - (void)onToggleGroupOfReceiptAtIndexPath:(NSIndexPath *)indexPath;
+- (void)onDuplicateReceiptAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
 @class Receipt;
 
-@interface LLHistoryCell : UITableViewCell
+@interface LLHistoryCell : UITableViewCell <LLSideSwipeMenuDelegate>
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
 @property (nonatomic, weak) id<LLHistoryCellDelegate> delegate;
+@property (nonatomic, strong) LLSideSwipeMenu *menu;
 
 - (void)updateViewWithReceipt:(Receipt *)receipt atIndexPath:(NSIndexPath *)indexPath andDelegate:(id<LLHistoryCellDelegate>)delegate;
-- (void)like;
+- (void)onShowSwipeSideMenu;
 
 @end

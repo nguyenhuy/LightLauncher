@@ -13,11 +13,11 @@
 #import "LLCommand.h"
 
 @class Group;
+@class Receipt;
 
 @protocol LLFavoriteGroupCellDelegate <NSObject>
 
-- (UIViewController *)viewControllerToExecuteCommand;
-- (id<LLCommandDelegate>)commandDelegate;
+- (void)onTappedReciept:(Receipt *)receipt;
 
 @end
 
