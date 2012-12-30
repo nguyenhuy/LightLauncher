@@ -86,6 +86,9 @@
 		78A90AE1168FF9150057289E /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 78A90ADF168FF9150057289E /* 37x-Checkmark.png */; };
 		78A90AE2168FF9150057289E /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 78A90AE0168FF9150057289E /* 37x-Checkmark@2x.png */; };
 		78A90AE6169006370057289E /* UIViewController+ShowHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A90AE5169006370057289E /* UIViewController+ShowHUD.m */; };
+		78A90AF1169045480057289E /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 78A90AEF169045480057289E /* menu-icon.png */; };
+		78A90AF2169045480057289E /* menu-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 78A90AF0169045480057289E /* menu-icon@2x.png */; };
+		78A90AF6169045BF0057289E /* UIViewController+SetupSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A90AF5169045BE0057289E /* UIViewController+SetupSideMenu.m */; };
 		78BA2D3416435C950057AD58 /* LLCommandPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BA2D3316435C950057AD58 /* LLCommandPrototype.m */; };
 		78F12CF21646B0020068F9E4 /* LLOptionPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */; };
 		78F12CF51646B11F0068F9E4 /* LLCommandPrototypeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */; };
@@ -236,6 +239,10 @@
 		78A90AE0168FF9150057289E /* 37x-Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "37x-Checkmark@2x.png"; path = "../../MBProgressHUD/Demo/Images/37x-Checkmark@2x.png"; sourceTree = "<group>"; };
 		78A90AE4169006370057289E /* UIViewController+ShowHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShowHUD.h"; sourceTree = "<group>"; };
 		78A90AE5169006370057289E /* UIViewController+ShowHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ShowHUD.m"; sourceTree = "<group>"; };
+		78A90AEF169045480057289E /* menu-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon.png"; sourceTree = "<group>"; };
+		78A90AF0169045480057289E /* menu-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon@2x.png"; sourceTree = "<group>"; };
+		78A90AF4169045BE0057289E /* UIViewController+SetupSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SetupSideMenu.h"; sourceTree = "<group>"; };
+		78A90AF5169045BE0057289E /* UIViewController+SetupSideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SetupSideMenu.m"; sourceTree = "<group>"; };
 		78BA2D3116435A420057AD58 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		78BA2D3216435C950057AD58 /* LLCommandPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandPrototype.h; sourceTree = "<group>"; };
 		78BA2D3316435C950057AD58 /* LLCommandPrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandPrototype.m; sourceTree = "<group>"; };
@@ -381,6 +388,8 @@
 		785A0E1115E9D135002C6F78 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				78A90AEF169045480057289E /* menu-icon.png */,
+				78A90AF0169045480057289E /* menu-icon@2x.png */,
 				78A90ADF168FF9150057289E /* 37x-Checkmark.png */,
 				78A90AE0168FF9150057289E /* 37x-Checkmark@2x.png */,
 				788F63701681CF9B00C25E32 /* like_unselected.png */,
@@ -689,6 +698,8 @@
 				78A90ACD168FEEA00057289E /* LLLikeReceiptHelper.m */,
 				78A90AE4169006370057289E /* UIViewController+ShowHUD.h */,
 				78A90AE5169006370057289E /* UIViewController+ShowHUD.m */,
+				78A90AF4169045BE0057289E /* UIViewController+SetupSideMenu.h */,
+				78A90AF5169045BE0057289E /* UIViewController+SetupSideMenu.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -760,6 +771,8 @@
 				788F63961682D44E00C25E32 /* LLFavoriteGroupTableViewController.xib in Resources */,
 				78A90AE1168FF9150057289E /* 37x-Checkmark.png in Resources */,
 				78A90AE2168FF9150057289E /* 37x-Checkmark@2x.png in Resources */,
+				78A90AF1169045480057289E /* menu-icon.png in Resources */,
+				78A90AF2169045480057289E /* menu-icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -834,6 +847,7 @@
 				788F640E168319BB00C25E32 /* Receipt.m in Sources */,
 				78A90ACE168FEEA00057289E /* LLLikeReceiptHelper.m in Sources */,
 				78A90AE6169006370057289E /* UIViewController+ShowHUD.m in Sources */,
+				78A90AF6169045BF0057289E /* UIViewController+SetupSideMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

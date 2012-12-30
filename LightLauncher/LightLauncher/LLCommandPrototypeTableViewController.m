@@ -10,6 +10,7 @@
 #import "LLCommandManager.h"
 #import "LLCommandPrototypeCell.h"
 #import "LLCreateCommandTableViewController.h"
+#import "UIViewController+SetupSideMenu.h"
 
 @interface LLCommandPrototypeTableViewController ()
 
@@ -28,16 +29,7 @@
     self.title = @"Commands";
     
     [self.tableView registerClass:[LLCommandPrototypeCell class] forCellReuseIdentifier:IDENTIFIER_COMMAND_PROTOTYPE_CELL];
-
-    //@TODO may abstract this.
-    if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)])
-	{
-		UIPanGestureRecognizer *navigationBarPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self.navigationController.parentViewController action:@selector(revealGesture:)];
-		[self.navigationController.navigationBar addGestureRecognizer:navigationBarPanGestureRecognizer];
-        
-		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Reveal", @"Reveal") style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
-	}
-    
+    [self setupSideMenu];
     
     self.hidesBottomBarWhenPushed = YES;
 }

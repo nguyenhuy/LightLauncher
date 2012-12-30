@@ -16,6 +16,7 @@
 #import "Group.h"
 
 #import "UIViewController+ShowHUD.h"
+#import "UIViewController+SetupSideMenu.h"
 
 @interface LLFavoriteGroupTableViewController ()
 @end
@@ -32,15 +33,7 @@
     
     self.title = @"Favorite";
     [self.tableView registerNib:[UINib nibWithNibName:NIB_FAVORITE_GROUP_CELL bundle:nil] forCellReuseIdentifier:IDENTIFIER_FAVORITE_GROUP_CELL];
-    
-    //@TODO may abstract this.
-    if ([self.navigationController.parentViewController respondsToSelector:@selector(revealGesture:)] && [self.navigationController.parentViewController respondsToSelector:@selector(revealToggle:)])
-	{
-		UIPanGestureRecognizer *navigationBarPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self.navigationController.parentViewController action:@selector(revealGesture:)];
-		[self.navigationController.navigationBar addGestureRecognizer:navigationBarPanGestureRecognizer];
-        
-		self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Reveal", @"Reveal") style:UIBarButtonItemStylePlain target:self.navigationController.parentViewController action:@selector(revealToggle:)];
-	}
+    [self setupSideMenu];
     
     self.groups = [LLCommandManager loadGroupsFromDB];
 }
