@@ -38,7 +38,6 @@
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.timeStyle = NSDateFormatterMediumStyle;
-    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
     self.detailTextLabel.text = [dateFormatter stringFromDate:receipt.executedDate];
     
     [self.menu updateViewWithReceipt:receipt];

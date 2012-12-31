@@ -39,7 +39,7 @@
 
 - (NSString *)stringFromExecutedDate {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateStyle = NSDateFormatterFullStyle;
+    formatter.dateStyle = NSDateFormatterMediumStyle;
     return [formatter stringFromDate:self.executedDate];
 }
 
