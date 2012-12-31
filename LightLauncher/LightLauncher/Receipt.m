@@ -37,4 +37,10 @@
     self.data = [LLCommandParser encode:self.commandPrototype];
 }
 
+- (NSString *)stringFromExecutedDate {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateStyle = NSDateFormatterFullStyle;
+    return [formatter stringFromDate:self.executedDate];
+}
+
 @end

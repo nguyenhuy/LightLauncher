@@ -12,9 +12,9 @@
 
 @class Receipt;
 
-@interface LLHistoryTableViewController : UITableViewController <LLHistoryCellDelegate, LLLikeReceiptHelperDelegate, LLCommandDelegate>
+@interface LLHistoryTableViewController : UITableViewController <LLHistoryCellDelegate, LLLikeReceiptHelperDelegate, LLCommandDelegate, NSFetchedResultsControllerDelegate>
 
-@property (nonatomic, strong) NSArray *receipts;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, strong) LLLikeReceiptHelper* likeReceiptHelper;
 
 + (LLHistoryTableViewController *)newInstance;

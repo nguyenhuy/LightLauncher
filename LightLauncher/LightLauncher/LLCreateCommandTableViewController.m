@@ -192,7 +192,7 @@
     LLOptionValuePrototype *optionValue = [self optionValuePrototypeAtIndexPath:indexPath];
     optionValue.selected = YES;
     optionValue.value = value;
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:YES];    
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 @end
