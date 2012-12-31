@@ -13,6 +13,7 @@
 
 @interface Group : NSManagedObject
 
+//@TODO should this be unique???
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSSet *receipts;
 

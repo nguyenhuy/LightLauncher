@@ -22,8 +22,6 @@
 
 + (LLCommandManager *)sharedInstance;
 + (Group *)defaultGroup;
-+ (NSArray *)loadGroupsFromDB;
-+ (NSArray *)loadReceiptsFromDB;
 + (Group *)createGroupWithName:(NSString *)name;
 + (Receipt *)createReceiptInDbFromCommandPrototype:(LLCommandPrototype *)commandPrototype;
 + (BOOL)deleteAllReceipts;

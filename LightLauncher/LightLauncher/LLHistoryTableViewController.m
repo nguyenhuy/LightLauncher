@@ -22,7 +22,6 @@
 - (void)showRightEditBarButtonItem;
 - (void)showRightDoneBarButtonItem;
 - (void)updateCell:(LLHistoryCell *)cell atIndexPath:(NSIndexPath *)indexPath;
-//@TODO remove this???
 - (void)deleteReceiptAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
@@ -179,7 +178,7 @@
     [self showErrorHUDWithTitle:title andDesc:desc];
 }
 
-#pragma mark - Fetched results controller
+#pragma mark - Fetched results controller delegate
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView beginUpdates];

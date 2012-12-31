@@ -9,7 +9,6 @@
 #import "Group.h"
 #import "Receipt.h"
 
-
 @implementation Group
 
 @dynamic name;

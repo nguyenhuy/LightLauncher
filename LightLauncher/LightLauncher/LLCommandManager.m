@@ -63,14 +63,6 @@
     return [LLCommandManager createGroupWithName:DEFAULT_GROUP_NAME];
 }
 
-+ (NSArray *)loadReceiptsFromDB {
-    return [Receipt MR_findAllSortedBy:@"executedDate" ascending:NO];
-}
-
-+ (NSArray *)loadGroupsFromDB {
-    return [Group MR_findAllSortedBy:@"name" ascending:YES];
-}
-
 + (Group *)createGroupWithName:(NSString *)name {
     if (!name || name.length == 0) {
         return NO;

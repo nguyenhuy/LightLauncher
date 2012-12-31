@@ -9,9 +9,9 @@
 #import "LLFavoriteGroupCell.h"
 #import "LLCommand.h"
 
-@interface LLFavoriteGroupTableViewController : UITableViewController <LLFavoriteGroupCellDelegate, LLCommandDelegate>
+@interface LLFavoriteGroupTableViewController : UITableViewController <LLFavoriteGroupCellDelegate, LLCommandDelegate, NSFetchedResultsControllerDelegate>
 
-@property (nonatomic, strong) NSArray *groups;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 + (LLFavoriteGroupTableViewController *)newInstance;
 
