@@ -15,20 +15,15 @@
 #define KNPathTableFadeOutDuration        0.3
 #define KNPathTableFadeOutDelay           0.5
 #define KNPathTableSlideInOffset         16.0
-#define KNPathTableOverlayDefaultSize    CGSizeMake(150, 32)
 
 @class Receipt;
+@class LLInfoPanelView;
 
 @interface LLHistoryTableViewController : UITableViewController <LLHistoryCellDelegate, LLLikeReceiptHelperDelegate, LLCommandDelegate>
 
 @property (nonatomic, strong) NSArray *receipts;
 @property (nonatomic, strong) LLLikeReceiptHelper* likeReceiptHelper;
-
-#pragma mark - for Path overlay
-@property (nonatomic, strong) UIView * infoPanel;
-@property (nonatomic) CGSize infoPanelSize;
-@property (nonatomic) CGRect infoPanelInitialFrame;
-@property (nonatomic) CGFloat initalScrollIndicatorHeight;
+@property (nonatomic, strong) LLInfoPanelView * infoPanel;
 
 + (LLHistoryTableViewController *)newInstance;
 

@@ -79,7 +79,10 @@
 		788FBFA7163D91CF005A444E /* LLCommandPrototypeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788FBFA5163D91CF005A444E /* LLCommandPrototypeTableViewController.xib */; };
 		788FBFC3163DA3F3005A444E /* LLCreateCommandTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBFC1163DA3F3005A444E /* LLCreateCommandTableViewController.m */; };
 		788FBFC4163DA3F3005A444E /* LLCreateCommandTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788FBFC2163DA3F3005A444E /* LLCreateCommandTableViewController.xib */; };
-		78945FE516908FEC00A89D61 /* KNPathTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78945FE016908E4800A89D61 /* KNPathTableViewController.m */; };
+		78945FE81690A57300A89D61 /* LLInfoPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 78945FE71690A57300A89D61 /* LLInfoPanelView.m */; };
+		78945FEA1690A58600A89D61 /* LLInfoPanelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78945FE91690A58600A89D61 /* LLInfoPanelView.xib */; };
+		78945FEB1690AE3900A89D61 /* KNTableOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 78945FE116908E4800A89D61 /* KNTableOverlay.png */; };
+		78945FEC1690AE3900A89D61 /* KNTableOverlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 78945FE216908E4800A89D61 /* KNTableOverlay@2x.png */; };
 		789948E516904F92008406ED /* LLSideSwipeMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 789948E416904F92008406ED /* LLSideSwipeMenu.xib */; };
 		789948E816904FA9008406ED /* LLSideSwipeMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 789948E716904FA9008406ED /* LLSideSwipeMenu.m */; };
 		789948EA1690515F008406ED /* copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 789948E91690515F008406ED /* copy.png */; };
@@ -236,6 +239,9 @@
 		78945FE016908E4800A89D61 /* KNPathTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = KNPathTableViewController.m; path = ../KNPathTableViewController/KNPathTableViewController/KNPathTableViewController.m; sourceTree = "<group>"; };
 		78945FE116908E4800A89D61 /* KNTableOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = KNTableOverlay.png; path = ../../KNPathTableViewController/KNPathTableViewController/KNTableOverlay.png; sourceTree = "<group>"; };
 		78945FE216908E4800A89D61 /* KNTableOverlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "KNTableOverlay@2x.png"; path = "../../KNPathTableViewController/KNPathTableViewController/KNTableOverlay@2x.png"; sourceTree = "<group>"; };
+		78945FE61690A57300A89D61 /* LLInfoPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLInfoPanelView.h; sourceTree = "<group>"; };
+		78945FE71690A57300A89D61 /* LLInfoPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLInfoPanelView.m; sourceTree = "<group>"; };
+		78945FE91690A58600A89D61 /* LLInfoPanelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLInfoPanelView.xib; sourceTree = "<group>"; };
 		789948E416904F92008406ED /* LLSideSwipeMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLSideSwipeMenu.xib; sourceTree = "<group>"; };
 		789948E616904FA9008406ED /* LLSideSwipeMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSideSwipeMenu.h; sourceTree = "<group>"; };
 		789948E716904FA9008406ED /* LLSideSwipeMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSideSwipeMenu.m; sourceTree = "<group>"; };
@@ -514,6 +520,9 @@
 				788A48CD167F06F5009401DD /* LLHistoryTableViewController.h */,
 				788A48CE167F06F5009401DD /* LLHistoryTableViewController.m */,
 				788A48CF167F06F5009401DD /* LLHistoryTableViewController.xib */,
+				78945FE61690A57300A89D61 /* LLInfoPanelView.h */,
+				78945FE91690A58600A89D61 /* LLInfoPanelView.xib */,
+				78945FE71690A57300A89D61 /* LLInfoPanelView.m */,
 			);
 			name = "History Group";
 			sourceTree = "<group>";
@@ -792,6 +801,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78945FEB1690AE3900A89D61 /* KNTableOverlay.png in Resources */,
+				78945FEC1690AE3900A89D61 /* KNTableOverlay@2x.png in Resources */,
 				785A0DAC15E9A3B6002C6F78 /* InfoPlist.strings in Resources */,
 				785A0E1315E9D157002C6F78 /* twitter.png in Resources */,
 				785A0E2515E9EFEC002C6F78 /* mail.png in Resources */,
@@ -811,6 +822,7 @@
 				78A90AF2169045480057289E /* menu-icon@2x.png in Resources */,
 				789948E516904F92008406ED /* LLSideSwipeMenu.xib in Resources */,
 				789948EA1690515F008406ED /* copy.png in Resources */,
+				78945FEA1690A58600A89D61 /* LLInfoPanelView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -821,7 +833,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78945FE516908FEC00A89D61 /* KNPathTableViewController.m in Sources */,
 				78A90ADE168FF7FA0057289E /* MBProgressHUD.m in Sources */,
 				788A48C2167EE8E2009401DD /* ZUUIRevealController.m in Sources */,
 				785A0DAE15E9A3B6002C6F78 /* main.m in Sources */,
@@ -888,6 +899,7 @@
 				78A90AE6169006370057289E /* UIViewController+ShowHUD.m in Sources */,
 				78A90AF6169045BF0057289E /* UIViewController+SetupSideMenu.m in Sources */,
 				789948E816904FA9008406ED /* LLSideSwipeMenu.m in Sources */,
+				78945FE81690A57300A89D61 /* LLInfoPanelView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 #import "LLHistoryTableViewController.h"
 #import "LLCreateCommandTableViewController.h"
+#import "LLInfoPanelView.h"
 
 #import "LLCommandManager.h"
 #import "LLCommandParser.h"
@@ -15,6 +16,7 @@
 #import "LLCommandPrototype.h"
 
 #import "Receipt.h"
+
 #import "UIViewController+ShowHUD.h"
 #import "UIViewController+SetupSideMenu.h"
 
@@ -23,10 +25,10 @@
 - (void)showRightDoneBarButtonItem;
 - (void)deleteReceiptAtIndexPath:(NSIndexPath *)indexPath;
 #pragma mark - KNPathTableViewController
--(void)setupWithInfoPanelSize:(CGSize)size;
--(void)moveInfoPanelToSuperView;
--(void)moveInfoPanelToIndicatorView;
--(void)slideOutInfoPanel;
+- (void)setupInfoPanel;
+- (void)moveInfoPanelToSuperView;
+- (void)moveInfoPanelToIndicatorView;
+- (void)slideOutInfoPanel;
 @end
 
 @implementation LLHistoryTableViewController
@@ -43,7 +45,7 @@
     [self.tableView registerClass:[LLHistoryCell class] forCellReuseIdentifier:IDENTIFIER_HISTORY_CELL];
     [self setupSideMenu];
     [self showRightEditBarButtonItem];
-    
+    [self setupInfoPanel];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -156,12 +158,6 @@
     [self showErrorHUDWithTitle:title andDesc:desc];
 }
 
-#pragma mark - Swipe detectors
-
-- (void)onSwipeRight {
-    
-}
-
 #pragma mark - Instance methods
 
 - (void)showRightEditBarButtonItem {
@@ -202,20 +198,12 @@
 
 #pragma mark - KNPathTableViewController
 
-- (void)setupWithInfoPanelSize:(CGSize)size {
-    // The panel
-    self.infoPanelSize = size;
-    self.infoPanelInitialFrame = CGRectMake(-self.infoPanelSize.width, 0, self.infoPanelSize.width, self.infoPanelSize.height);
-    self.infoPanel = [[UIView alloc] initWithFrame:self.infoPanelInitialFrame];
-    
-    // Initialize overlay panel with stretchable background
-    UIImageView * bg = [[UIImageView alloc] initWithFrame:self.infoPanel.bounds];
-    UIImage * overlay = [UIImage imageNamed:@"KNTableOverlay"];
-    bg.image = [overlay stretchableImageWithLeftCapWidth:overlay.size.width/2.0 topCapHeight:overlay.size.height/2.0];
+- (void)setupInfoPanel {
+    self.infoPanel = [LLInfoPanelView newInstance];
     [self.infoPanel setAlpha:0];
-    [self.infoPanel addSubview:bg];
     
-    //@TODO make InfoPanel a custom view
+    UIImage * overlay = [UIImage imageNamed:IMAGE_PATH_OVERLAY];
+    self.infoPanel.backgroundImage.image = [overlay stretchableImageWithLeftCapWidth:overlay.size.width/2.0 topCapHeight:overlay.size.height/2.0];
 }
 
 #pragma mark - Meant to be override
@@ -229,12 +217,7 @@
 -(void)infoPanelDidScroll:(UIScrollView*)scrollView atPoint:(CGPoint)point {
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:point];
     Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
-
-    //@TODO show infor here
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.timeStyle = NSDateFormatterMediumStyle;
-    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
-    self.infoPanel.text = [dateFormatter stringFromDate:receipt.executedDate];
+    [self.infoPanel updateViewWithDate:receipt.executedDate];
 }
 
 #pragma mark - Scroll view delegate
@@ -242,7 +225,7 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     // Store height of indicator
     UIView * indicator = [[self.tableView subviews] lastObject];
-    self.initalScrollIndicatorHeight = indicator.frame.size.height;
+    self.infoPanel.initalScrollIndicatorHeight = indicator.frame.size.height;
     
     // Starting from beginning
     if ([self.infoPanel superview] == nil) {
@@ -280,7 +263,7 @@
     if (self.infoPanel.alpha == 0) self.infoPanel.alpha = 1;
     
 	// Current position is near bottom
-	if (indicator.frame.size.height < self.initalScrollIndicatorHeight) {
+	if (indicator.frame.size.height < self.infoPanel.initalScrollIndicatorHeight) {
         if (scrollView.contentOffset.y > 0 && [self.infoPanel superview] != self.view) {
             // Move panel to a fixed position
             [self.infoPanel removeFromSuperview];
@@ -322,11 +305,13 @@
 
 -(void)moveInfoPanelToIndicatorView {
     UIView * indicator = [[self.tableView subviews] lastObject];
-    CGRect f = self.infoPanelInitialFrame;
+    CGRect f = self.infoPanel.initialFrame;
     f.origin.y = indicator.frame.size.height/2 - f.size.height/2;
     if ([self.infoPanel superview]) [self.infoPanel removeFromSuperview];
     [indicator addSubview:self.infoPanel];
     self.infoPanel.frame = f;
+    
+    self.tableView.in
 }
 
 -(void)slideOutInfoPanel {
