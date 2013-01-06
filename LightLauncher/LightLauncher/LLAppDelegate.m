@@ -7,7 +7,7 @@
 //
 
 #import "LLAppDelegate.h"
-#import "LLCommandPrototypeTableViewController.h"
+#import "LLFavoriteGroupTableViewController.h"
 #import "LLRearViewController.h"
 #import "LLRevealController.h"
 
@@ -21,13 +21,13 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    LLCommandPrototypeTableViewController *frontViewController = [LLCommandPrototypeTableViewController newInstance];
+    LLFavoriteGroupTableViewController *frontViewController = [LLFavoriteGroupTableViewController newInstance];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
     
     LLRearViewController *rearViewController = [LLRearViewController newInstance];
 
     self.revealController = [[LLRevealController alloc] initWithFrontViewController:navigationController rearViewController:rearViewController];
-    self.revealController.showingGroup = GROUP_CREATE;
+    self.revealController.showingGroup = GROUP_FAVORITE;
     
     self.window.rootViewController = self.revealController;
     [self.window makeKeyAndVisible];
