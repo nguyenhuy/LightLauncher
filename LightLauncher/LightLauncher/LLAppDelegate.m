@@ -21,6 +21,8 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"LightLauncher.sqlite"];
+    
     LLFavoriteGroupTableViewController *frontViewController = [LLFavoriteGroupTableViewController newInstance];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
     
@@ -32,7 +34,6 @@
     self.window.rootViewController = self.revealController;
     [self.window makeKeyAndVisible];
     
-    [MagicalRecord setupCoreDataStackWithStoreNamed:@"LightLauncher.sqlite"];
     return YES;
 }
 
