@@ -27,6 +27,7 @@
 		785EBB651629858C00ADE85F /* LLFacebookCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EBB641629858C00ADE85F /* LLFacebookCommand.m */; };
 		785EBB68162AC70F00ADE85F /* LLServiceCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EBB67162AC70F00ADE85F /* LLServiceCommand.m */; };
 		785EBB6A162B15C000ADE85F /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 785EBB69162B15C000ADE85F /* facebook.png */; };
+		787B243C1699B18800302788 /* LLSavingTimeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 787B243B1699B18800302788 /* LLSavingTimeManager.m */; };
 		788A483B167D976E009401DD /* LightLauncher.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 788A4839167D976E009401DD /* LightLauncher.xcdatamodeld */; };
 		788A4873167DC317009401DD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 788A4872167DC317009401DD /* CoreData.framework */; };
 		788A4884167DD5C9009401DD /* LLCommandFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A4883167DD5C8009401DD /* LLCommandFactory.m */; };
@@ -136,6 +137,8 @@
 		785EBB66162AC70E00ADE85F /* LLServiceCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLServiceCommand.h; sourceTree = "<group>"; };
 		785EBB67162AC70F00ADE85F /* LLServiceCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLServiceCommand.m; sourceTree = "<group>"; };
 		785EBB69162B15C000ADE85F /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		787B243A1699B18800302788 /* LLSavingTimeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSavingTimeManager.h; sourceTree = "<group>"; };
+		787B243B1699B18800302788 /* LLSavingTimeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSavingTimeManager.m; sourceTree = "<group>"; };
 		788295FB1616A4EA0072B584 /* Log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		788A483A167D976E009401DD /* LightLauncher.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LightLauncher.xcdatamodel; sourceTree = "<group>"; };
 		788A4872167DC317009401DD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -367,6 +370,8 @@
 				780E20FE16682C7500AE63EA /* LLCommandCompiler.m */,
 				788FBF85163CE93C005A444E /* LLCommandParser.h */,
 				788FBF86163CE93C005A444E /* LLCommandParser.m */,
+				787B243A1699B18800302788 /* LLSavingTimeManager.h */,
+				787B243B1699B18800302788 /* LLSavingTimeManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -870,6 +875,7 @@
 				78A90AE6169006370057289E /* UIViewController+ShowHUD.m in Sources */,
 				78A90AF6169045BF0057289E /* UIViewController+SetupSideMenu.m in Sources */,
 				789948E816904FA9008406ED /* LLSideSwipeMenu.m in Sources */,
+				787B243C1699B18800302788 /* LLSavingTimeManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

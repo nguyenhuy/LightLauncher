@@ -7,6 +7,7 @@
 //
 
 #import "LLCommandManager.h"
+#import "LLSavingTimeManager.h"
 #import "LLAppDelegate.h"
 #import "LLCommandPrototype.h"
 #import "LLCommandParser.h"
@@ -129,11 +130,6 @@
     return [LLCommandManager assignGroup:nil forReceipt:receipt withDescription:nil];
 }
 
-+ (NSTimeInterval)calculateSavingTimeForCommand:(LLCommand *)command {
-    // Let's make it simple, each option value worths 5 seconds
-    return command.options.count * 5;
-}
-
 #pragma mark - Instance methods
 
 - (id)init {
@@ -163,7 +159,7 @@
 
 - (void)onFinishedCommand:(id)command {
     [LLCommandManager createReceiptInDbFromCommandPrototype:self.executingCommandPrototype];
-    NSTimeInterval savingTime = [LLCommandManager savingTimeForCommand:self.executingCommand];
+    [LLSavingTimeManager increaseSavingTimeWithCommand:self.executingCommand];
     
     self.executingCommand = nil;
     self.executingCommandPrototype = nil;

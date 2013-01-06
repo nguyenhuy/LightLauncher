@@ -30,8 +30,6 @@
 + (BOOL)assignGroup:(Group *)group forReceipt:(Receipt *)receipt withDescription:(NSString *)description;
 + (BOOL)removeGroupForReceipt:(Receipt *)receipt;
 
-+ (NSTimeInterval)savingTimeForCommand:(LLCommand *)command;
-
 - (void)executeFromCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController andDelegate:(id<LLCommandDelegate>)delegate;
 
 @end

@@ -25,6 +25,10 @@
     return self;
 }
 
+- (void)dealloc {
+    self.delegate = nil;
+}
+
 #pragma mark - ZUUIRevealControllerDelegate Protocol.
 
 /*
