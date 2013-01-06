@@ -85,7 +85,6 @@
     NSString *title;
     if ([self.indexPathSavingTime compare:indexPath] == NSOrderedSame) {
         NSUInteger seconds = [LLSavingTimeManager totalSavingTime];
-        //@TODO test this format with big hours
         title = [NSString stringWithFormat:@"%02u:%02u:%02u", seconds / 3600, (seconds / 60) % 60, seconds % 60];
     } else if ([self.indexPathFavorite compare:indexPath] == NSOrderedSame) {
         title = @"Favorite";
