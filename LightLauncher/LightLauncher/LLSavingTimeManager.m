@@ -35,7 +35,8 @@
 
 + (NSUInteger)savingTimeForCommand:(LLCommand *)command {
     // Let's make it simple, each option value worths 5 seconds
-    return command.options.count * 5;
+    //@TODO fix this #6
+    return 15;
 }
 
 + (NSUInteger)totalSavingTime {
