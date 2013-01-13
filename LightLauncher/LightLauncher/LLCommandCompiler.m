@@ -59,7 +59,9 @@
         for (LLOptionValuePrototype *optionValue in option.possibleValues.allValues) {
             if (optionValue.selected) {
                 self.compilingCounter++;
-                continue;
+                if (option.dataType != DATA_ARRAY) {
+                    continue;
+                }
             }
         }
     }
@@ -68,7 +70,9 @@
         for (LLOptionValuePrototype *optionValue in option.possibleValues.allValues) {
             if (optionValue.selected) {
                 [self compileValueForOption:option fromOptionValuePrototype:optionValue];
-                continue;
+                if (option.dataType != DATA_ARRAY) {
+                    continue;
+                }
             }
         }
     }
@@ -96,10 +100,6 @@
 }
 
 - (void)setCompiledValue:(id)compiledValue forOption:(LLOptionPrototype *)option {
-    //@TODO do we need this? probably should be handled by each command
-    if (option.dataType == DATA_ARRAY && [compiledValue isKindOfClass:[NSString class]]) {
-        compiledValue = [compiledValue componentsSeparatedByString:COMPONENTS_SEPARATOR];
-    }
     [self.compilingCommand setValue:compiledValue forKey:option.key];
     [self decreaseCompilingCounter];
 }
