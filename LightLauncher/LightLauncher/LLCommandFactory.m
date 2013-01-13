@@ -12,6 +12,7 @@
 #import "LLEmailCommand.h"
 #import "LLFacebookCommand.h"
 #import "LLTwitterCommand.h"
+#import "LLMultipleSocialsCommand.h"
 
 @implementation LLCommandFactory
 
@@ -24,6 +25,9 @@
     }
     if([command isEqualToString:COMMAND_TWITTER]) {
         return [[LLTwitterCommand alloc] init];
+    }
+    if ([command isEqualToString:COMMAND_MULTIPLE_SOCIALS]) {
+        return [[LLMultipleSocialsCommand alloc] init];
     }
     return nil;
 }
