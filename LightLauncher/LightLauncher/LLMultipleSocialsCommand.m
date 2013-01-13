@@ -51,6 +51,7 @@
     LLSocialCommand *command;
     for (NSString *serviceType in self.serviceTypes) {
         command = [[LLSocialCommand alloc] init];
+        command.serviceType = serviceType;
         command.body = self.body;
         command.urls = self.urls;
         command.images = self.images;

@@ -89,8 +89,10 @@
         } else if([optionValue.key isEqualToString:OPTION_VALUE_CAMERA_ROLL]) {
             [self lastPhotoOptionValueForOption:option];
         } else if([optionValue.key isEqualToString:OPTION_VALUE_SERVICE_TYPE_FACEBOOK]) {
+            //@TODO should this be handled here or in MultipleSocialsCommand?
             [self setCompiledValue:SLServiceTypeFacebook forOption:option];
         } else if([optionValue.key isEqualToString:OPTION_VALUE_SERVICE_TYPE_TWITTER]) {
+            //@TODO should this be handled here or in MultipleSocialsCommand?
             [self setCompiledValue:SLServiceTypeTwitter forOption:option];
         }
     } else {
