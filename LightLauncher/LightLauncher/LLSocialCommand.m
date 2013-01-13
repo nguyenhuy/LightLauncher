@@ -15,30 +15,25 @@
 
 @implementation LLSocialCommand
 
-#pragma mark - Getters and Setters
-
-- (NSString *)body {
-    return [self valueForKey:OPTION_BODY];
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.urls = [[NSMutableArray alloc] init];
+        self.images = [[NSMutableArray alloc] init];
+    }
+    return self;
 }
 
-- (NSArray *)urls {
-    return [self valueForKey:OPTION_URLS];
-}
-
-- (NSArray *)images {
-    return [self valueForKey:OPTION_IMAGE_ATTACHMENTS];
-}
-
-- (void)setBody:(NSString *)body {
-    [self setValue:body forKey:OPTION_BODY];
-}
-
-- (void)addUrl:(NSString *)url {
-    [self addValue:url forKey:OPTION_URLS];
-}
-
-- (void)addImage:(NSString *)path {
-    [self addValue:path forKey:OPTION_IMAGE_ATTACHMENTS];
+- (void)setValue:(id)value forKey:(NSString *)key {
+    if ([key isEqualToString:OPTION_BODY] && [value isKindOfClass:[NSString class]]) {
+        self.body = value;
+    } else if ([key isEqualToString:OPTION_URLS] && [value isKindOfClass:[NSURL class]]) {
+        [self.urls addObject:value];
+    } else if ([key isEqualToString:OPTION_IMAGE_ATTACHMENTS] && [value isKindOfClass:[UIImage class]]) {
+        [self.images addObject:value];
+    } else {
+        [super setValue:value forKey:key];
+    }
 }
 
 #pragma mark - Service methods
@@ -72,14 +67,14 @@
 }
 
 - (void)addAllImageToComposeViewController:(SLComposeViewController *)composeViewController {
-    for(NSString *path in self.images) {
-        [composeViewController addImage:[UIImage imageNamed:path]];
+    for(UIImage *image in self.images) {
+        [composeViewController addImage:image];
     }
 }
 
 - (void)addAllUrlsToComposeViewController:(SLComposeViewController *)composeViewController {
-    for (NSString *url in self.urls) {
-        [composeViewController addURL:[NSURL URLWithString:url]];
+    for (NSURL *url in self.urls) {
+        [composeViewController addURL:url];
     }
 }
 

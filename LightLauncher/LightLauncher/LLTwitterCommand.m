@@ -11,7 +11,11 @@
 @implementation LLTwitterCommand
 
 - (id)init {
-    self = [super initWithServiceType:SLServiceTypeTwitter andServiceName:@"Twitter"];
+    self = [super init];
+    if (self) {
+        self.serviceType = SLServiceTypeTwitter;
+        self.serviceName = @"Twitter";
+    }
     return self;
 }
 

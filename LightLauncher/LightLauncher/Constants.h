@@ -28,6 +28,7 @@
 
 #define OPTION_VALUE_PREFILL @"prefill"
 #define OPTION_VALUE_PASTEBOARD @"pasteboard"
+#define OPTION_VALUE_CAMERA_ROLL @"camera_roll"
 
 #define DISPLAY_NAME_PASTEBOARD_OPTION_VALUE @"from Pasteboard"
 

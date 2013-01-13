@@ -16,58 +16,34 @@
 @implementation LLEmailCommand
 
 - (id)init {
-    self = [super initWithServiceType:COMMAND_EMAIL andServiceName:@"Email"];
+    self = [super init];
+    if (self) {
+        self.serviceType = COMMAND_EMAIL;
+        self.serviceName = @"Email";
+        self.toAddresses = [[NSMutableArray alloc] init];
+        self.ccAddresses = [[NSMutableArray alloc] init];
+        self.bccAddresses = [[NSMutableArray alloc] init];
+        self.attachments = [[NSMutableArray alloc] init];
+    }
     return self;
 }
 
-#pragma mark - Getters and Setters
-
-- (NSArray *)toAddresses {
-    return [self valueForKey:OPTION_TO_ADDRESSES];
-}
-
-- (NSArray *)ccAddresses {
-    return [self valueForKey:OPTION_CC_ADDRESSES];
-}
-
-- (NSArray *)bccAddresses {
-    return [self valueForKey:OPTION_BCC_ADDRESSES];
-}
-
-- (NSString *)subject {
-    return [self valueForKey:OPTION_SUBJECT];
-}
-
-- (NSString *)body {
-    return [self valueForKey:OPTION_BODY];
-}
-
-- (NSArray *)attachments {
-    return [self valueForKey:OPTION_FILE_ATTACHMENTS];
-}
-
-- (void)addToAddress:(NSString *)address {
-    [self addValue:address forKey:OPTION_TO_ADDRESSES];
-}
-
-- (void)addCcAddress:(NSString *)address {
-    [self addValue:address forKey:OPTION_CC_ADDRESSES];
-}
-
-- (void)addBccAddress:(NSString *)address {
-    [self addValue:address forKey:OPTION_BCC_ADDRESSES];
-}
-
-- (void)setSubject:(NSString *)subject {
-    [self setValue:subject forKey:OPTION_SUBJECT];
-}
-
-- (void)setBody:(NSString *)body {
-    [self setValue:body forKey:OPTION_BODY];
-}
-
-- (void)addAttachment:(NSString *)attachment {
-    [self addValue:attachment forKey:OPTION_FILE_ATTACHMENTS];
+- (void)setValue:(id)value forKey:(NSString *)key {
+    if ([key isEqualToString:OPTION_TO_ADDRESSES] && [value isKindOfClass:[NSString class]]) {
+        [self.toAddresses addObject:value];
+    } else if ([key isEqualToString:OPTION_CC_ADDRESSES] && [value isKindOfClass:[NSString class]]) {
+        [self.ccAddresses addObject:value];
+    } else if ([key isEqualToString:OPTION_BCC_ADDRESSES] && [value isKindOfClass:[NSString class]]) {
+        [self.bccAddresses addObject:value];
+    } else if ([key isEqualToString:OPTION_SUBJECT] && [value isKindOfClass:[NSString class]]) {
+        self.subject = value;
+    } else if ([key isEqualToString:OPTION_BODY] && [value isKindOfClass:[NSString class]]) {
+        self.body = value;
+    } else if ([key isEqualToString:OPTION_FILE_ATTACHMENTS] && [value isKindOfClass:[NSData class]]) {
+        [self.attachments addObject:value];
+    } else {
+        [super setValue:value forKey:key];
+    }
 }
 
 #pragma mark - Service methods

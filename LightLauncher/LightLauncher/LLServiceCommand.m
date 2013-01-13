@@ -9,37 +9,18 @@
 #import "LLServiceCommand.h"
 
 @interface LLServiceCommand ()
-- (void)setServiceType:(NSString *)serviceType;
-- (void)setServiceName:(NSString *)serviceName;
 @end
 
 @implementation LLServiceCommand
 
-- (id)initWithServiceType:(NSString *)serviceType andServiceName:(NSString *)serviceName {
-    self = [super init];
-    if (self) {
-        self.serviceType = serviceType;
-        self.serviceName = serviceName;
+- (void)setValue:(id)value forKey:(NSString *)key {
+    if ([key isEqualToString:OPTION_SERVICE_NAME] && [value isKindOfClass:[NSString class]]) {
+        self.serviceName = value;
+    } else if ([key isEqualToString:OPTION_SERVICE_TYPE] && [value isKindOfClass:[NSString class]]) {
+        self.serviceType = value;
+    } else {
+        [super setValue:value forKey:key];
     }
-    return self;
-}
-
-#pragma mark - Getters and Setters
-
-- (NSString *)serviceType {
-    return [self valueForKey:OPTION_SERVICE_TYPE];
-}
-
-- (NSString *)serviceName {
-    return [self valueForKey:OPTION_SERVICE_NAME];
-}
-
-- (void)setServiceType:(NSString *)serviceType {
-    [self setValue:serviceType forKey:OPTION_SERVICE_TYPE];
-}
-
-- (void)setServiceName:(NSString *)serviceName {
-    [self setValue:serviceName forKey:OPTION_SERVICE_NAME];
 }
 
 #pragma mark - Service related methods

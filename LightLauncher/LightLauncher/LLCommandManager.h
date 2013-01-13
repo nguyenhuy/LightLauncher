@@ -7,17 +7,19 @@
 //
 
 #import "LLCommand.h"
+#import "LLCommandCompiler.h"
 
 @class LLCommandPrototype;
 @class Group;
 @class Receipt;
 
-@interface LLCommandManager : NSObject <LLCommandDelegate>
+@interface LLCommandManager : NSObject <LLCommandDelegate, LLCommandCompilerDelegate>
 
 @property (nonatomic, strong, readonly) NSMutableArray *commandPrototypes;
 
 @property (nonatomic, strong, readonly) LLCommandPrototype *executingCommandPrototype;
 @property (nonatomic, strong, readonly) LLCommand *executingCommand;
+@property (nonatomic, strong, readonly) UIViewController *executingViewController;
 @property (nonatomic, weak) id<LLCommandDelegate> executingCommandDelegate;
 
 + (LLCommandManager *)sharedInstance;

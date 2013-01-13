@@ -11,12 +11,10 @@
 
 @interface LLSocialCommand : LLServiceCommand
 
-- (NSString *)body;
-- (NSArray *)urls;
-- (NSArray *)images;
-
-- (void)setBody:(NSString *)body;
-- (void)addUrl:(NSString *)url;
-- (void)addImage:(NSString *)path;
+@property (nonatomic, strong) NSString *body;
+// Array of NSURLs
+@property (nonatomic, strong) NSMutableArray *urls;
+// Array of UIImages
+@property (nonatomic, strong) NSMutableArray *images;
 
 @end

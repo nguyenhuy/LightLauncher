@@ -11,7 +11,6 @@
 #import "LLAppDelegate.h"
 #import "LLCommandPrototype.h"
 #import "LLCommandParser.h"
-#import "LLCommandCompiler.h"
 #import "LLCommandPrototypeFactory.h"
 #import "Group.h"
 #import "Receipt.h"
@@ -21,11 +20,13 @@
 @property (nonatomic, strong, readwrite) NSMutableArray *commandPrototypes;
 @property (nonatomic, strong, readwrite) LLCommand *executingCommand;
 @property (nonatomic, strong, readwrite) LLCommandPrototype *executingCommandPrototype;
+@property (nonatomic, strong, readwrite) UIViewController *executingViewController;
 
 + (BOOL)save;
 + (BOOL)saveManagedObjectContext:(NSManagedObjectContext *)context;
 
 - (void)initCommandPrototypes;
+- (void)cleanUpAfterExecutingCommand;
 @end
 
 @implementation LLCommandManager
@@ -150,43 +151,53 @@
 
 - (void)executeFromCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController andDelegate:(id<LLCommandDelegate>)delegate {
     self.executingCommandPrototype = commandPrototype;
-    self.executingCommand = [LLCommandCompiler compile:self.executingCommandPrototype];
     self.executingCommandDelegate = delegate;
-    [self.executingCommand executeWithViewController:viewController withCommandDelegate:self];
+    self.executingViewController = viewController;
+
+    [[[LLCommandCompiler alloc] init] compile:self.executingCommandPrototype withDelegate:self];
+}
+
+#pragma mark - Command compiler delegate
+
+- (void)onFinishedCompilingCommandPrototype:(LLCommandPrototype *)commandPrototype withCompiledValue:(id)compiledValue {
+    self.executingCommand = compiledValue;
+    [self.executingCommand executeWithViewController:self.executingViewController withCommandDelegate:self];
+}
+
+- (void)onFailedCompilingCommandPrototype:(LLCommandPrototype *)commandPrototype withError:(NSError *)error {
+    //@TODO change this to handle error better
+    [self onStoppedCommand:nil withErrorTitle:@"Failed compiling command" andErrorDesc:@"Failed compiling command"];
 }
 
 #pragma mark Command Delegate
 
-- (void)onFinishedCommand:(id)command {
+- (void)onFinishedCommand:(LLCommand *)command {
     [LLCommandManager createReceiptInDbFromCommandPrototype:self.executingCommandPrototype];
     [LLSavingTimeManager increaseSavingTimeWithCommand:self.executingCommand];
-    
-    self.executingCommand = nil;
-    self.executingCommandPrototype = nil;
     [self.executingCommandDelegate onFinishedCommand:command];
-    self.executingCommandDelegate = nil;
+    [self cleanUpAfterExecutingCommand];
 }
 
-- (void)onCanceledCommand:(id)command {
+- (void)onCanceledCommand:(LLCommand *)command {
     //@TODO should we save it???
     [LLCommandManager createReceiptInDbFromCommandPrototype:self.executingCommandPrototype];
-    
-    self.executingCommand = nil;
-    self.executingCommandPrototype = nil;
-   
     if ([self.executingCommandDelegate respondsToSelector:@selector(onCanceledCommand:)]) {
         [self.executingCommandDelegate onCanceledCommand:command];
     }
-    self.executingCommandDelegate = nil;
+    [self cleanUpAfterExecutingCommand];
 }
 
-- (void)onStoppedCommand:(id)command withErrorTitle:(NSString *)title andErrorDesc:(NSString *)desc {
+- (void)onStoppedCommand:(LLCommand *)command withErrorTitle:(NSString *)title andErrorDesc:(NSString *)desc {
     //@TODO should we save it???
     [LLCommandManager createReceiptInDbFromCommandPrototype:self.executingCommandPrototype];
-    
+    [self.executingCommandDelegate onStoppedCommand:command withErrorTitle:title andErrorDesc:desc];
+    [self cleanUpAfterExecutingCommand];
+}
+
+- (void)cleanUpAfterExecutingCommand {
     self.executingCommand = nil;
     self.executingCommandPrototype = nil;
-    [self.executingCommandDelegate onStoppedCommand:command withErrorTitle:title andErrorDesc:desc];
+    self.executingViewController = nil;
     self.executingCommandDelegate = nil;
 }
 
