@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
+#import <AssetsLibrary/AssetsLibrary.h>
+
 #import "LLCommandCompiler.h"
-
 #import "LLCommandFactory.h"
-
 #import "LLCommand.h"
 #import "LLCommandPrototype.h"
 #import "LLOptionPrototype.h"
@@ -21,6 +21,7 @@
 - (void)cleanUpAfterCompiling;
 - (void)compileValueForOption:(LLOptionPrototype *)option fromOptionValuePrototype:(LLOptionValuePrototype *)optionValue;
 - (void)setCompiledValue:(id)compiledValue forOption:(LLOptionPrototype *)option;
+- (void)onFailedCompilingValueForOption:(LLOptionPrototype *)option withError:(NSError *)error;
 - (void)pasteboardOptionValueForOption:(LLOptionPrototype *)option;
 - (void)lastPhotoOptionValueForOption:(LLOptionPrototype *)option;
 @end
@@ -37,7 +38,6 @@
     }
 }
 
-//@TODO call this when failed compiling as well
 - (void)cleanUpAfterCompiling {
     @synchronized(self) {
         self.compilingCounter = 0;
@@ -100,6 +100,12 @@
     [self decreaseCompilingCounter];
 }
 
+- (void)onFailedCompilingValueForOption:(LLOptionPrototype *)option withError:(NSError *)error {
+    [self.delegate onFailedCompilingCommandPrototype:self.compilingCommandPrototype withError:error];
+    // Still call decrease, so that onFinishedCompilingCommandPrototype:withCompiledValue is still called if the counter reaches 0, because we want to ignore any failure.
+    [self decreaseCompilingCounter];
+}
+
 - (void)pasteboardOptionValueForOption:(LLOptionPrototype *)option {
     // TODO: support different type (images, colors, data)
     UIPasteboard *pastebboard = [UIPasteboard generalPasteboard];
@@ -107,7 +113,27 @@
 }
 
 - (void)lastPhotoOptionValueForOption:(LLOptionPrototype *)option {
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
     
+    //Enumerate just saved photos and videos group
+    [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+        // Within the group, get all photos
+        [group setAssetsFilter:[ALAssetsFilter allPhotos]];
+        
+        // Last photo is the one has the last index
+        NSIndexSet *indexes = [NSIndexSet indexSetWithIndex:([group numberOfAssets] - 1)];
+        [group enumerateAssetsAtIndexes:indexes options:0 usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+            // The end of enumeration is a null asset
+            if (result) {
+                ALAssetRepresentation *representation = [result defaultRepresentation];
+                UIImage *image = [UIImage imageWithCGImage:[representation fullScreenImage]];
+                
+                [self setCompiledValue:image forOption:option];
+            }
+        }];
+    } failureBlock:^(NSError *error) {
+        [self onFailedCompilingValueForOption:option withError:error];
+    }];
 }
 
 @end

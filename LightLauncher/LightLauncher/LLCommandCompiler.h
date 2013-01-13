@@ -12,7 +12,8 @@
 @protocol LLCommandCompilerDelegate <NSObject>
 
 - (void)onFinishedCompilingCommandPrototype:(LLCommandPrototype *)commandPrototype withCompiledValue:(id)compiledValue;
-- (void)onFailedCompilingCommandPrototype:(LLCommandPrototype *)commandPrototype;
+// This is called whenever a option is failed to compiled. To make use of as most options as possible and ignore errors, this is called multiple times and at the end, onFinishedCompilingCommandPrototype:withCompiledValue is still called.
+- (void)onFailedCompilingCommandPrototype:(LLCommandPrototype *)commandPrototype withError:(NSError *)error;
 
 @end
 

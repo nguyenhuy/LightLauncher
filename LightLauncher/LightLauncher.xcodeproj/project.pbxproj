@@ -92,6 +92,7 @@
 		78A90AF1169045480057289E /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 78A90AEF169045480057289E /* menu-icon.png */; };
 		78A90AF2169045480057289E /* menu-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 78A90AF0169045480057289E /* menu-icon@2x.png */; };
 		78A90AF6169045BF0057289E /* UIViewController+SetupSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A90AF5169045BE0057289E /* UIViewController+SetupSideMenu.m */; };
+		78B2F4D216A278BF00EF31C6 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B2F4D116A278BF00EF31C6 /* AssetsLibrary.framework */; };
 		78BA2D3416435C950057AD58 /* LLCommandPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BA2D3316435C950057AD58 /* LLCommandPrototype.m */; };
 		78F12CF21646B0020068F9E4 /* LLOptionPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */; };
 		78F12CF51646B11F0068F9E4 /* LLCommandPrototypeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */; };
@@ -250,6 +251,7 @@
 		78A90AF0169045480057289E /* menu-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon@2x.png"; sourceTree = "<group>"; };
 		78A90AF4169045BE0057289E /* UIViewController+SetupSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SetupSideMenu.h"; sourceTree = "<group>"; };
 		78A90AF5169045BE0057289E /* UIViewController+SetupSideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SetupSideMenu.m"; sourceTree = "<group>"; };
+		78B2F4D116A278BF00EF31C6 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		78BA2D3116435A420057AD58 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		78BA2D3216435C950057AD58 /* LLCommandPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandPrototype.h; sourceTree = "<group>"; };
 		78BA2D3316435C950057AD58 /* LLCommandPrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandPrototype.m; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78B2F4D216A278BF00EF31C6 /* AssetsLibrary.framework in Frameworks */,
 				788A4873167DC317009401DD /* CoreData.framework in Frameworks */,
 				788FBF90163D1038005A444E /* MessageUI.framework in Frameworks */,
 				785EBB621629805E00ADE85F /* Social.framework in Frameworks */,
@@ -285,6 +288,7 @@
 		785A0D9215E9A3B6002C6F78 = {
 			isa = PBXGroup;
 			children = (
+				78B2F4D116A278BF00EF31C6 /* AssetsLibrary.framework */,
 				785A0DA715E9A3B6002C6F78 /* LightLauncher */,
 				785A0DA015E9A3B6002C6F78 /* Frameworks */,
 				788FBF89163CEC1D005A444E /* Libraries */,
