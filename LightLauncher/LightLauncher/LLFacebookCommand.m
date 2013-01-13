@@ -11,7 +11,11 @@
 @implementation LLFacebookCommand
 
 - (id)init {
-    self = [super initWithServiceType:SLServiceTypeFacebook andServiceName:@"Facebook"];
+    self = [super init];
+    if (self) {
+        self.serviceType = SLServiceTypeFacebook;
+        self.serviceName = @"Facebook";
+    }
     return self;
 }
 

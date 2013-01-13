@@ -16,7 +16,6 @@
 #import "LLOptionValuePrototype.h"
 
 @interface LLCommandCompiler ()
-- (void)increaseCompilingCounter;
 - (void)decreaseCompilingCounter;
 - (void)cleanUpAfterCompiling;
 - (void)compileValueForOption:(LLOptionPrototype *)option fromOptionValuePrototype:(LLOptionValuePrototype *)optionValue;
@@ -124,12 +123,14 @@
         NSIndexSet *indexes = [NSIndexSet indexSetWithIndex:([group numberOfAssets] - 1)];
         [group enumerateAssetsAtIndexes:indexes options:0 usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
             // The end of enumeration is a null asset
+            UIImage *image;
             if (result) {
                 ALAssetRepresentation *representation = [result defaultRepresentation];
-                UIImage *image = [UIImage imageWithCGImage:[representation fullScreenImage]];
-                
-                [self setCompiledValue:image forOption:option];
+                image = [UIImage imageWithCGImage:[representation fullScreenImage]];
             }
+            
+            //@TODO: may handle error when image can't be loaded.
+            [self setCompiledValue:image forOption:option];
         }];
     } failureBlock:^(NSError *error) {
         [self onFailedCompilingValueForOption:option withError:error];

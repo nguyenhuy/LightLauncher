@@ -163,7 +163,7 @@
     [self.executingCommand executeWithViewController:self.executingViewController withCommandDelegate:self];
 }
 
-- (void)onFailedCompilingCommandPrototype:(LLCommandPrototype *)commandPrototype {
+- (void)onFailedCompilingCommandPrototype:(LLCommandPrototype *)commandPrototype withError:(NSError *)error {
     //@TODO change this to handle error better
     [self onStoppedCommand:nil withErrorTitle:@"Failed compiling command" andErrorDesc:@"Failed compiling command"];
 }

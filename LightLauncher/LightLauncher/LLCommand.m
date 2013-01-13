@@ -10,29 +10,9 @@
 
 @implementation LLCommand
 
-- (id)init {
-    self = [super init];
-    if(self) {
-        self.options = [NSMutableDictionary new];
-    }
-    return self;
-}
-
-- (id)valueForKey:(NSString *)key {
-    return [self.options valueForKey:key];
-}
-
 - (void)setValue:(id)value forKey:(NSString *)key {
-    [self.options setValue:value forKey:key];
-}
-
-- (void)addValue:(id)value forKey:(NSString *)key {
-    NSMutableArray *array = [self.options valueForKey:key];
-    if (array == nil) {
-        array = [NSMutableArray new];
-        [self.options setValue:array forKey:key];
-    }
-    [array addObject:value];
+    NSString *reason = [NSString stringWithFormat:@"setValue:forKey:%@ must be implemented", key, nil];
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:reason userInfo:nil];
 }
 
 - (void)executeWithViewController:(UIViewController *)viewController withCommandDelegate:(id<LLCommandDelegate>)delegate {
@@ -52,12 +32,6 @@
 - (void)onErrorWithTitle:(NSString *)title andDesc:(NSString *)desc {
     [self.delegate onStoppedCommand:self withErrorTitle:title andErrorDesc:desc];
     self.delegate = nil;
-}
-
-- (id)copyWithZone:(NSZone *)zone {
-    LLCommand *newCopy = [[self.class alloc] init];
-    newCopy.options = [[NSMutableDictionary alloc] initWithDictionary:self.options copyItems:YES];
-    return newCopy;
 }
 
 @end
