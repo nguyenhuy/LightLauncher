@@ -66,4 +66,16 @@
     return [self socialCommandPrototypeForCommand:COMMAND_TWITTER withDesc:@"Twitter" andIconFileName:IMAGE_TWITTER];
 }
 
++ (LLCommandPrototype *)multipleSocialsCommandPrototype {
+    NSArray *options = [[NSArray alloc] initWithObjects:
+                        [LLOptionPrototypeFactory socialsOptionPrototype],
+                        [LLOptionPrototypeFactory bodyOptionPrototype],
+                        [LLOptionPrototypeFactory imageAttachmentsOptionPrototype],
+                        [LLOptionPrototypeFactory urlAddressesOptionPrototype],
+                        nil];
+    
+    LLCommandPrototype *commandPrototype = [[LLCommandPrototype alloc] initWithCommand:COMMAND_MULTIPLE_SOCIALS andOptions:options andDesc:@"Multiple Social Networks" andIconFileName:@"Facebook"];
+    return commandPrototype;
+}
+
 @end

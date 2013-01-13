@@ -14,5 +14,6 @@
 + (LLCommandPrototype *)emailCommandPrototype;
 + (LLCommandPrototype *)facebookCommandPrototype;
 + (LLCommandPrototype *)twitterCommandPrototype;
++ (LLCommandPrototype *)multipleSocialsCommandPrototype;
 
 @end

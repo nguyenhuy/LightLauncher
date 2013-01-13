@@ -14,6 +14,7 @@
 #define COMMAND_EMAIL @"email"
 #define COMMAND_FACEBOOK @"facebook"
 #define COMMAND_TWITTER @"twitter"
+#define COMMAND_MULTIPLE_SOCIALS @"multiple_socials"
 
 #define OPTION_SERVICE_TYPE @"service_type"
 #define OPTION_SERVICE_NAME @"service_name"
@@ -25,10 +26,13 @@
 #define OPTION_SUBJECT @"subject"
 #define OPTION_FILE_ATTACHMENTS @"file_attachments"
 #define OPTION_IMAGE_ATTACHMENTS @"image_attachments"
+#define OPTION_SERVICE_TYPES @"service_types"
 
 #define OPTION_VALUE_PREFILL @"prefill"
 #define OPTION_VALUE_PASTEBOARD @"pasteboard"
 #define OPTION_VALUE_CAMERA_ROLL @"camera_roll"
+#define OPTION_VALUE_SERVICE_TYPE_FACEBOOK @"facebok"
+#define OPTION_VALUE_SERVICE_TYPE_TWITTER @"twitter"
 
 #define DISPLAY_NAME_PASTEBOARD_OPTION_VALUE @"from Pasteboard"
 
@@ -69,6 +73,7 @@ typedef enum {
     GROUP_FAVORITE,
 } ViewControllerGroup;
 
+//@TODO test addresses in email
 //@TODO check all delegates are weak
 //@TODO check memory leak
 

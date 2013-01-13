@@ -146,6 +146,7 @@
                               [LLCommandPrototypeFactory emailCommandPrototype],
                               [LLCommandPrototypeFactory facebookCommandPrototype],
                               [LLCommandPrototypeFactory twitterCommandPrototype],
+                              [LLCommandPrototypeFactory multipleSocialsCommandPrototype],
                               nil];
 }
 

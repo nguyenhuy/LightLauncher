@@ -7,6 +7,7 @@
 //
 
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <Social/Social.h>
 
 #import "LLCommandCompiler.h"
 #import "LLCommandFactory.h"
@@ -83,6 +84,10 @@
             [self pasteboardOptionValueForOption:option];
         } else if([optionValue.key isEqualToString:OPTION_VALUE_CAMERA_ROLL]) {
             [self lastPhotoOptionValueForOption:option];
+        } else if([optionValue.key isEqualToString:OPTION_VALUE_SERVICE_TYPE_FACEBOOK]) {
+            [self setCompiledValue:SLServiceTypeFacebook forOption:option];
+        } else if([optionValue.key isEqualToString:OPTION_VALUE_SERVICE_TYPE_TWITTER]) {
+            [self setCompiledValue:SLServiceTypeTwitter forOption:option];
         }
     } else {
         // Value is already there, don't need to wait for compiling, set it now
