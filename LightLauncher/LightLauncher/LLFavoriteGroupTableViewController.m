@@ -104,11 +104,11 @@
 
 #pragma mark - Command delegate
 
-- (void)onFinishedCommand:(id)command {
+- (void)onFinishedCommand:(LLCommand *)command {
     [self showExecutedCommandHUD];
 }
 
-- (void)onStoppedCommand:(id)command withErrorTitle:(NSString *)title andErrorDesc:(NSString *)desc {
+- (void)onStoppedCommand:(LLCommand *)command withErrorTitle:(NSString *)title andErrorDesc:(NSString *)desc {
     [self showErrorHUDWithTitle:title andDesc:desc];
 }
 

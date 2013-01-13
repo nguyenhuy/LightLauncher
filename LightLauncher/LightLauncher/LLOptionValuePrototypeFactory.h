@@ -16,5 +16,6 @@
 + (LLOptionValuePrototype *)fileAttachmentsOptionValuePrototypeWithDisplayName:(NSString *)displayName;
 + (LLOptionValuePrototype *)imageAttachmentsOptionValuePrototypeWithDisplayName:(NSString *)displayName;
 + (LLOptionValuePrototype *)pasteboardOptionValuePrototype;
++ (LLOptionValuePrototype *)imageFromCameraRollOptionValuePrototypeWithDisplayName:(NSString *)displayName;
 
 @end

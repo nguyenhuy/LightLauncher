@@ -7,14 +7,15 @@
 //
 
 @class LLCommandPrototype;
+@class LLCommand;
 
 @protocol LLCommandDelegate <NSObject>
 
-- (void)onFinishedCommand:(id)command;
-- (void)onStoppedCommand:(id)command withErrorTitle:(NSString *)title andErrorDesc:(NSString *)desc;
+- (void)onFinishedCommand:(LLCommand *)command;
+- (void)onStoppedCommand:(LLCommand *)command withErrorTitle:(NSString *)title andErrorDesc:(NSString *)desc;
 
 @optional
-- (void)onCanceledCommand:(id)command;
+- (void)onCanceledCommand:(LLCommand *)command;
 
 @end
 

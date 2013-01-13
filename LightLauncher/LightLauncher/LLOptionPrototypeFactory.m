@@ -118,10 +118,12 @@
 + (LLOptionPrototype *)fileAttachmentsOptionPrototype {
     LLOptionValuePrototype *fileValue = [LLOptionValuePrototypeFactory fileAttachmentsOptionValuePrototypeWithDisplayName:@"Pick now"];
     LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
+    LLOptionValuePrototype *imageFromCameraRoll = [LLOptionValuePrototypeFactory imageFromCameraRollOptionValuePrototypeWithDisplayName:@"Last Photo"];
     
     NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
                                     fileValue, fileValue.key,
                                     pasteboardValue, pasteboardValue.key,
+                                    imageFromCameraRoll, imageFromCameraRoll.key,
                                     nil];
     
     LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_FILE_ATTACHMENTS andDisplayName:@"File attachments" andDataType:DATA_ARRAY andPossibleValues:possibleValues];
@@ -131,10 +133,12 @@
 + (LLOptionPrototype *)imageAttachmentsOptionPrototype {
     LLOptionValuePrototype *imageValue = [LLOptionValuePrototypeFactory imageAttachmentsOptionValuePrototypeWithDisplayName:@"Pick now"];
     LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
+    LLOptionValuePrototype *imageFromCameraRoll = [LLOptionValuePrototypeFactory imageFromCameraRollOptionValuePrototypeWithDisplayName:@"Last Photo"];
     
     NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
                                     imageValue, imageValue.key,
                                     pasteboardValue, pasteboardValue.key,
+                                    imageFromCameraRoll, imageFromCameraRoll.key,
                                     nil];
 
     LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_IMAGE_ATTACHMENTS andDisplayName:@"Images" andDataType:DATA_ARRAY andPossibleValues:possibleValues];

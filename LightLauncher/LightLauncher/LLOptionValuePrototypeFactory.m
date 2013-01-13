@@ -35,4 +35,8 @@
     return [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_PASTEBOARD andDisplayName:DISPLAY_NAME_PASTEBOARD_OPTION_VALUE andType:TYPE_STRING];
 }
 
++ (LLOptionValuePrototype *)imageFromCameraRollOptionValuePrototypeWithDisplayName:(NSString *)displayName {
+    return [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_CAMERA_ROLL andDisplayName:displayName andType:TYPE_IMAGE];
+}
+
 @end
