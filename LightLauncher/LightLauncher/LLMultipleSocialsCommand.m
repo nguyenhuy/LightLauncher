@@ -8,6 +8,13 @@
 
 #import "LLMultipleSocialsCommand.h"
 
+@interface LLMultipleSocialsCommand ()
+
+- (void)increaseExecutedServicesCounter;
+- (void)executeService;
+
+@end
+
 @implementation LLMultipleSocialsCommand
 
 - (id)init {
@@ -47,17 +54,48 @@
 }
 
 - (void)executeWithViewController:(UIViewController *)viewController withCommandDelegate:(id<LLCommandDelegate>)delegate {
-    
-    LLSocialCommand *command;
-    for (NSString *serviceType in self.serviceTypes) {
-        command = [[LLSocialCommand alloc] init];
-        command.serviceType = serviceType;
-        command.body = self.body;
-        command.urls = self.urls;
-        command.images = self.images;
-        
-        [command executeWithViewController:viewController withCommandDelegate:delegate];
+    [super executeWithViewController:viewController withCommandDelegate:delegate];
+    self.executedServicesCounter = 0;
+    [self executeService];
+}
+
+- (void)executeService {
+    if (self.executedServicesCounter == self.serviceTypes.count) {
+        //@TODO may check for result
+        [self onFinished];
+        return;
     }
+    
+    LLSocialCommand *command = [[LLSocialCommand alloc] init];
+    command.serviceType = [self.serviceTypes objectAtIndex:self.executedServicesCounter];
+    command.body = self.body;
+    command.urls = self.urls;
+    command.images = self.images;
+
+    [self increaseExecutedServicesCounter];
+    [command executeWithViewController:self.viewController withCommandDelegate:self];
+}
+
+// Increases executed command, returns true when the counter equals num of services.
+- (void)increaseExecutedServicesCounter {
+    @synchronized(self) {
+        self.executedServicesCounter++;
+    }
+}
+
+#pragma mark - Command Delegate
+
+- (void)onFinishedCommand:(LLCommand *)command {
+    
+    [self executeService];
+}
+
+- (void)onStoppedCommand:(LLCommand *)command withErrorTitle:(NSString *)title andErrorDesc:(NSString *)desc {
+    [self executeService];
+}
+
+- (void)onCanceledCommand:(LLCommand *)command {
+    [self executeService];
 }
 
 @end

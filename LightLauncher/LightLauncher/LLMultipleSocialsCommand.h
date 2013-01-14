@@ -8,7 +8,7 @@
 
 #import "LLSocialCommand.h"
 
-@interface LLMultipleSocialsCommand : LLCommand
+@interface LLMultipleSocialsCommand : LLCommand <LLCommandDelegate>
 
 // Array of NSStrings
 @property (nonatomic, strong) NSMutableArray *serviceTypes;
@@ -17,5 +17,6 @@
 @property (nonatomic, strong) NSMutableArray *urls;
 // Array of UIImages
 @property (nonatomic, strong) NSMutableArray *images;
+@property (nonatomic) int executedServicesCounter;
 
 @end
