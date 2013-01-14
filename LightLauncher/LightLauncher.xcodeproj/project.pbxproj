@@ -80,6 +80,8 @@
 		788FBFA7163D91CF005A444E /* LLCommandPrototypeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788FBFA5163D91CF005A444E /* LLCommandPrototypeTableViewController.xib */; };
 		788FBFC3163DA3F3005A444E /* LLCreateCommandTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBFC1163DA3F3005A444E /* LLCreateCommandTableViewController.m */; };
 		788FBFC4163DA3F3005A444E /* LLCreateCommandTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788FBFC2163DA3F3005A444E /* LLCreateCommandTableViewController.xib */; };
+		7891306F16A47DD1005E12C8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7891306E16A47DD1005E12C8 /* Security.framework */; };
+		7891307116A47DE1005E12C8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7891307016A47DE1005E12C8 /* SystemConfiguration.framework */; };
 		789948E516904F92008406ED /* LLSideSwipeMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 789948E416904F92008406ED /* LLSideSwipeMenu.xib */; };
 		789948E816904FA9008406ED /* LLSideSwipeMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 789948E716904FA9008406ED /* LLSideSwipeMenu.m */; };
 		789948EA1690515F008406ED /* copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 789948E91690515F008406ED /* copy.png */; };
@@ -235,6 +237,8 @@
 		788FBFC0163DA3F3005A444E /* LLCreateCommandTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCreateCommandTableViewController.h; sourceTree = "<group>"; };
 		788FBFC1163DA3F3005A444E /* LLCreateCommandTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCreateCommandTableViewController.m; sourceTree = "<group>"; };
 		788FBFC2163DA3F3005A444E /* LLCreateCommandTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLCreateCommandTableViewController.xib; sourceTree = "<group>"; };
+		7891306E16A47DD1005E12C8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7891307016A47DE1005E12C8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		789948E416904F92008406ED /* LLSideSwipeMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLSideSwipeMenu.xib; sourceTree = "<group>"; };
 		789948E616904FA9008406ED /* LLSideSwipeMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSideSwipeMenu.h; sourceTree = "<group>"; };
 		789948E716904FA9008406ED /* LLSideSwipeMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSideSwipeMenu.m; sourceTree = "<group>"; };
@@ -275,6 +279,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7891307116A47DE1005E12C8 /* SystemConfiguration.framework in Frameworks */,
+				7891306F16A47DD1005E12C8 /* Security.framework in Frameworks */,
 				78B2F4D216A278BF00EF31C6 /* AssetsLibrary.framework in Frameworks */,
 				788A4873167DC317009401DD /* CoreData.framework in Frameworks */,
 				788FBF90163D1038005A444E /* MessageUI.framework in Frameworks */,
@@ -291,7 +297,8 @@
 		785A0D9215E9A3B6002C6F78 = {
 			isa = PBXGroup;
 			children = (
-				78B2F4D116A278BF00EF31C6 /* AssetsLibrary.framework */,
+				7891307016A47DE1005E12C8 /* SystemConfiguration.framework */,
+				7891306E16A47DD1005E12C8 /* Security.framework */,
 				785A0DA715E9A3B6002C6F78 /* LightLauncher */,
 				785A0DA015E9A3B6002C6F78 /* Frameworks */,
 				788FBF89163CEC1D005A444E /* Libraries */,
@@ -310,6 +317,7 @@
 		785A0DA015E9A3B6002C6F78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				78B2F4D116A278BF00EF31C6 /* AssetsLibrary.framework */,
 				788A4872167DC317009401DD /* CoreData.framework */,
 				785EBB611629805E00ADE85F /* Social.framework */,
 				785A0E2615E9F0AC002C6F78 /* MessageUI.framework */,
