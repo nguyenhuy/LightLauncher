@@ -29,12 +29,16 @@
 @implementation LLCommandCompiler
 
 - (void)decreaseCompilingCounter {
+    BOOL done;
+    
     @synchronized(self) {
         self.compilingCounter--;
-        if (self.compilingCounter <= 0) {
-            [self.delegate onFinishedCompilingCommandPrototype:self.compilingCommandPrototype withCompiledValue:self.compilingCommand];
-            [self cleanUpAfterCompiling];
-        }
+        done = self.compilingCounter <= 0;
+    }
+    
+    if (done) {
+        [self.delegate onFinishedCompilingCommandPrototype:self.compilingCommandPrototype withCompiledValue:self.compilingCommand];
+        [self cleanUpAfterCompiling];
     }
 }
 

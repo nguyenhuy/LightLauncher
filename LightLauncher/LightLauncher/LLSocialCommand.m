@@ -61,6 +61,7 @@
     [self addAllUrlsToComposeViewController:composeViewController];
     
     [composeViewController setCompletionHandler:^(SLComposeViewControllerResult result) {
+        //@TODO: Note that completion handlers are not called on any particular thread.
         switch (result) {
             case SLComposeViewControllerResultCancelled:
                 [self onCanceled];
