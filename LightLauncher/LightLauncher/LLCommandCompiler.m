@@ -18,6 +18,7 @@
 
 @interface LLCommandCompiler ()
 - (void)decreaseCompilingCounter;
+- (void)doneCompiling;
 - (void)cleanUpAfterCompiling;
 - (void)compileValueForOption:(LLOptionPrototype *)option fromOptionValuePrototype:(LLOptionValuePrototype *)optionValue;
 - (void)setCompiledValue:(id)compiledValue forOption:(LLOptionPrototype *)option;
@@ -37,9 +38,13 @@
     }
     
     if (done) {
-        [self.delegate onFinishedCompilingCommandPrototype:self.compilingCommandPrototype withCompiledValue:self.compilingCommand];
-        [self cleanUpAfterCompiling];
+        [self doneCompiling];
     }
+}
+
+- (void)doneCompiling {
+    [self.delegate onFinishedCompilingCommandPrototype:self.compilingCommandPrototype withCompiledValue:self.compilingCommand];
+    [self cleanUpAfterCompiling];
 }
 
 - (void)cleanUpAfterCompiling {
@@ -68,6 +73,11 @@
                 }
             }
         }
+    }
+    
+    if (self.compilingCounter == 0) {
+        [self doneCompiling];
+        return;
     }
 
     for (LLOptionPrototype *option in commandPrototype.options) {
