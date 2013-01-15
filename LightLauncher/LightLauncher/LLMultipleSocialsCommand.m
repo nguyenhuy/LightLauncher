@@ -20,8 +20,6 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.urls = [[NSMutableArray alloc] init];
-        self.images = [[NSMutableArray alloc] init];
         self.serviceTypes = [[NSMutableArray alloc] init];
     }
     return self;
@@ -36,18 +34,14 @@
         }
     } else if ([key isEqualToString:OPTION_BODY] && [value isKindOfClass:[NSString class]]) {
         self.body = value;
-    } else if ([key isEqualToString:OPTION_URLS]) {
+    } else if ([key isEqualToString:OPTION_URL]) {
         if ([value isKindOfClass:[NSString class]]) {
-            [self.urls addObject:value];
-        } else if ([value isKindOfClass:[NSArray class]]) {
-            [self.urls addObjectsFromArray:value];
+            self.url = [NSURL URLWithString:value];
+        } else if ([value isKindOfClass:[NSURL class]]) {
+            self.url = value;
         }
-    } else if ([key isEqualToString:OPTION_IMAGE_ATTACHMENTS]) {
-        if ([value isKindOfClass:[UIImage class]]) {
-            [self.images addObject:value];
-        } else if ([value isKindOfClass:[NSArray class]]) {
-            [self.images addObjectsFromArray:value];
-        }
+    } else if ([key isEqualToString:OPTION_IMAGE] && [value isKindOfClass:[UIImage class]]) {
+        self.image = value;
     } else {
         [super setValue:value forKey:key];
     }
@@ -69,8 +63,8 @@
     LLSocialCommand *command = [[LLSocialCommand alloc] init];
     command.serviceType = [self.serviceTypes objectAtIndex:self.executedServicesCounter];
     command.body = self.body;
-    command.urls = self.urls;
-    command.images = self.images;
+    command.url = self.url;
+    command.image = self.image;
 
     [self increaseExecutedServicesCounter];
     [command executeWithViewController:self.viewController withCommandDelegate:self];

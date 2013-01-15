@@ -13,10 +13,8 @@
 // Array of NSStrings
 @property (nonatomic, strong) NSMutableArray *serviceTypes;
 @property (nonatomic, strong) NSString *body;
-// Array of NSURLs
-@property (nonatomic, strong) NSMutableArray *urls;
-// Array of UIImages
-@property (nonatomic, strong) NSMutableArray *images;
+@property (nonatomic, strong) NSURL *url;
+@property (nonatomic, strong) UIImage *image;
 @property (nonatomic) int executedServicesCounter;
 
 @end

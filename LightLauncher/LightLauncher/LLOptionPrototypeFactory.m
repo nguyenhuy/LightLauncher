@@ -45,7 +45,7 @@
                                     pasteboardValue, pasteboardValue.key,
                                     nil];
     
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_SUBJECT andDisplayName:@"Subject" andDataType:DATA_STRING andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_SUBJECT andDisplayName:@"Subject" andDataType:DATA_OBJECT andPossibleValues:possibleValues];
     return optionPrototype;
 }
 
@@ -59,7 +59,7 @@
                                     pasteboardValue, pasteboardValue.key,
                                     nil];
     
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_BODY andDisplayName:@"Body" andDataType:DATA_STRING andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_BODY andDisplayName:@"Body" andDataType:DATA_OBJECT andPossibleValues:possibleValues];
     return optionPrototype;
 }
 
@@ -102,19 +102,6 @@
     return optionPrototype;
 }
 
-+ (LLOptionPrototype *)urlAddressesOptionPrototype {
-    LLOptionValuePrototype *prefillUrlvalue = [LLOptionValuePrototypeFactory urlsOptionValuePrototypeWithDisplayName:@"http://lightlauncher.com"];
-    LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
-    
-    NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                    prefillUrlvalue, prefillUrlvalue.key,
-                                    pasteboardValue, pasteboardValue.key,
-                                    nil];
-    
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_URLS andDisplayName:@"URLs" andDataType:DATA_ARRAY andPossibleValues:possibleValues];
-    return optionPrototype;
-}
-
 + (LLOptionPrototype *)urlOptionPrototype {
     LLOptionValuePrototype *prefillUrlvalue = [LLOptionValuePrototypeFactory urlOptionValuePrototypeWithDisplayName:@"http://lightlauncher.com"];
     LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
@@ -124,7 +111,7 @@
                                     pasteboardValue, pasteboardValue.key,
                                     nil];
     
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_URL andDisplayName:@"URL" andDataType:DATA_STRING andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_URL andDisplayName:@"URL" andDataType:DATA_OBJECT andPossibleValues:possibleValues];
     return optionPrototype;
 }
 
@@ -143,7 +130,7 @@
     return optionPrototype;
 }
 
-+ (LLOptionPrototype *)imageAttachmentsOptionPrototype {
++ (LLOptionPrototype *)imageOptionPrototype {
     LLOptionValuePrototype *imageValue = [LLOptionValuePrototypeFactory imageAttachmentsOptionValuePrototypeWithDisplayName:@"Pick now"];
     LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
     LLOptionValuePrototype *imageFromCameraRoll = [LLOptionValuePrototypeFactory imageFromCameraRollOptionValuePrototypeWithDisplayName:@"Last Photo"];
@@ -154,7 +141,7 @@
                                     imageFromCameraRoll, imageFromCameraRoll.key,
                                     nil];
 
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_IMAGE_ATTACHMENTS andDisplayName:@"Images" andDataType:DATA_ARRAY andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_IMAGE andDisplayName:@"Image" andDataType:DATA_OBJECT andPossibleValues:possibleValues];
     return optionPrototype;
 }
 

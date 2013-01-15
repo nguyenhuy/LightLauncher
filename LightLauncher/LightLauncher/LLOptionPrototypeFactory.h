@@ -16,11 +16,10 @@
 + (LLOptionPrototype *)toAddressesOptionPrototype;
 + (LLOptionPrototype *)ccAddressesOptionPrototype;
 + (LLOptionPrototype *)bccAddressesOptionPrototype;
-+ (LLOptionPrototype *)urlAddressesOptionPrototype;
 + (LLOptionPrototype *)urlOptionPrototype;
 
 + (LLOptionPrototype *)fileAttachmentsOptionPrototype;
-+ (LLOptionPrototype *)imageAttachmentsOptionPrototype;
++ (LLOptionPrototype *)imageOptionPrototype;
 
 + (LLOptionPrototype *)socialsOptionPrototype;
 

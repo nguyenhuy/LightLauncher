@@ -9,36 +9,21 @@
 #import "LLSocialCommand.h"
 
 @interface LLSocialCommand ()
-- (void)addAllImageToComposeViewController:(SLComposeViewController *) composeViewController;
-- (void)addAllUrlsToComposeViewController:(SLComposeViewController *) composeViewController;
 @end
 
 @implementation LLSocialCommand
 
-- (id)init {
-    self = [super init];
-    if (self) {
-        self.urls = [[NSMutableArray alloc] init];
-        self.images = [[NSMutableArray alloc] init];
-    }
-    return self;
-}
-
 - (void)setValue:(id)value forKey:(NSString *)key {
     if ([key isEqualToString:OPTION_BODY] && [value isKindOfClass:[NSString class]]) {
         self.body = value;
-    } else if ([key isEqualToString:OPTION_URLS]) {
+    } else if ([key isEqualToString:OPTION_URL]) {
         if ([value isKindOfClass:[NSString class]]) {
-            [self.urls addObject:value];
-        } else if ([value isKindOfClass:[NSArray class]]) {
-            [self.urls addObjectsFromArray:value];
+            self.url = [NSURL URLWithString:value];
+        } else if ([value isKindOfClass:[NSURL class]]) {
+            self.url = value;
         }
-    } else if ([key isEqualToString:OPTION_IMAGE_ATTACHMENTS]) {
-        if ([value isKindOfClass:[UIImage class]]) {
-            [self.images addObject:value];
-        } else if ([value isKindOfClass:[NSArray class]]) {
-            [self.images addObjectsFromArray:value];
-        }
+    } else if ([key isEqualToString:OPTION_IMAGE] && [value isKindOfClass:[UIImage class]]) {
+        self.image = value;
     } else {
         [super setValue:value forKey:key];
     }
@@ -57,8 +42,8 @@
     }
     
     [composeViewController setInitialText:self.body];
-    [self addAllImageToComposeViewController:composeViewController];
-    [self addAllUrlsToComposeViewController:composeViewController];
+    [composeViewController addImage:self.image];
+    [composeViewController addURL:self.url];
     
     [composeViewController setCompletionHandler:^(SLComposeViewControllerResult result) {
         //@TODO: Note that completion handlers are not called on any particular thread.
@@ -73,18 +58,6 @@
     }];
     
     return composeViewController;
-}
-
-- (void)addAllImageToComposeViewController:(SLComposeViewController *)composeViewController {
-    for(UIImage *image in self.images) {
-        [composeViewController addImage:image];
-    }
-}
-
-- (void)addAllUrlsToComposeViewController:(SLComposeViewController *)composeViewController {
-    for (NSURL *url in self.urls) {
-        [composeViewController addURL:url];
-    }
 }
 
 @end

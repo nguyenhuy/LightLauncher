@@ -30,14 +30,20 @@
     if([command isEqualToString:COMMAND_TWITTER]) {
         return [self twitterCommandPrototype];
     }
+    if ([command isEqualToString:COMMAND_MULTIPLE_SOCIALS]) {
+        return [self multipleSocialsCommandPrototype];
+    }
+    if ([command isEqualToString:COMMAND_GOOGLE_PLUS]) {
+        return [self googlePlusCommandPrototype];
+    }
     return nil;
 }
 
 + (LLCommandPrototype *)socialCommandPrototypeForCommand:(NSString *)command withDesc:(NSString *)desc andIconFileName:(NSString *)iconFileName {
     NSArray *options = [[NSArray alloc] initWithObjects:
                         [LLOptionPrototypeFactory bodyOptionPrototype],
-                        [LLOptionPrototypeFactory imageAttachmentsOptionPrototype],
-                        [LLOptionPrototypeFactory urlAddressesOptionPrototype],
+                        [LLOptionPrototypeFactory imageOptionPrototype],
+                        [LLOptionPrototypeFactory urlOptionPrototype],
                         nil];
     
     LLCommandPrototype *commandPrototype = [[LLCommandPrototype alloc] initWithCommand:command andOptions:options andDesc:desc andIconFileName:iconFileName];
@@ -70,8 +76,8 @@
     NSArray *options = [[NSArray alloc] initWithObjects:
                         [LLOptionPrototypeFactory socialsOptionPrototype],
                         [LLOptionPrototypeFactory bodyOptionPrototype],
-                        [LLOptionPrototypeFactory imageAttachmentsOptionPrototype],
-                        [LLOptionPrototypeFactory urlAddressesOptionPrototype],
+                        [LLOptionPrototypeFactory imageOptionPrototype],
+                        [LLOptionPrototypeFactory urlOptionPrototype],
                         nil];
     
     LLCommandPrototype *commandPrototype = [[LLCommandPrototype alloc] initWithCommand:COMMAND_MULTIPLE_SOCIALS andOptions:options andDesc:@"Multiple Social Networks" andIconFileName:IMAGE_FACEBOOK];

@@ -20,14 +20,13 @@
 #define OPTION_SERVICE_TYPE @"service_type"
 #define OPTION_SERVICE_NAME @"service_name"
 #define OPTION_BODY @"body"
-#define OPTION_URLS @"urls"
 #define OPTION_URL @"url"
 #define OPTION_TO_ADDRESSES @"to_addresses"
 #define OPTION_CC_ADDRESSES @"cc_addresses"
 #define OPTION_BCC_ADDRESSES @"bcc_addresses"
 #define OPTION_SUBJECT @"subject"
 #define OPTION_FILE_ATTACHMENTS @"file_attachments"
-#define OPTION_IMAGE_ATTACHMENTS @"image_attachments"
+#define OPTION_IMAGE @"image"
 #define OPTION_SERVICE_TYPES @"service_types"
 
 #define OPTION_VALUE_PREFILL @"prefill"
@@ -59,7 +58,7 @@
 #define GOOGLE_PLUS_CLIENT_ID @"16316205072.apps.googleusercontent.com"
 
 typedef enum {
-    DATA_STRING,
+    DATA_OBJECT,
     DATA_ARRAY,
 } OptionDataType;
 
