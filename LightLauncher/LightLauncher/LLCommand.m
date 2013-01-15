@@ -8,6 +8,15 @@
 
 #import "LLCommand.h"
 
+@interface LLCommand ()
+
+@property (nonatomic, strong, readwrite) UIViewController *viewController;
+@property (nonatomic, strong, readwrite) id<LLCommandDelegate> delegate;
+
+- (void)cleanUpAfterExecuting;
+
+@end
+
 @implementation LLCommand
 
 - (void)setValue:(id)value forKey:(NSString *)key {
@@ -17,21 +26,27 @@
 
 - (void)executeWithViewController:(UIViewController *)viewController withCommandDelegate:(id<LLCommandDelegate>)delegate {
     self.delegate = delegate;
+    self.viewController = viewController;
 }
 
 - (void)onFinished {
     [self.delegate onFinishedCommand:self];
-    self.delegate = nil;
+    [self cleanUpAfterExecuting];
 }
 
 - (void)onCanceled {
     [self.delegate onCanceledCommand:self];
-    self.delegate = nil;
+    [self cleanUpAfterExecuting];
 }
 
 - (void)onErrorWithTitle:(NSString *)title andDesc:(NSString *)desc {
     [self.delegate onStoppedCommand:self withErrorTitle:title andErrorDesc:desc];
+    [self cleanUpAfterExecuting];
+}
+
+- (void)cleanUpAfterExecuting {
     self.delegate = nil;
+    self.viewController = nil;
 }
 
 @end

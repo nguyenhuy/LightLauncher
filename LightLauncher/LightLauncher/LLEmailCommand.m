@@ -29,18 +29,34 @@
 }
 
 - (void)setValue:(id)value forKey:(NSString *)key {
-    if ([key isEqualToString:OPTION_TO_ADDRESSES] && [value isKindOfClass:[NSString class]]) {
-        [self.toAddresses addObject:value];
-    } else if ([key isEqualToString:OPTION_CC_ADDRESSES] && [value isKindOfClass:[NSString class]]) {
-        [self.ccAddresses addObject:value];
-    } else if ([key isEqualToString:OPTION_BCC_ADDRESSES] && [value isKindOfClass:[NSString class]]) {
-        [self.bccAddresses addObject:value];
+    if ([key isEqualToString:OPTION_TO_ADDRESSES]) {
+        if ([value isKindOfClass:[NSString class]]) {
+            [self.toAddresses addObject:value];
+        } else if ([value isKindOfClass:[NSArray class]]) {
+            [self.toAddresses addObjectsFromArray:value];
+        }
+    } else if ([key isEqualToString:OPTION_CC_ADDRESSES]) {
+        if ([value isKindOfClass:[NSString class]]) {
+            [self.ccAddresses addObject:value];
+        } else if ([value isKindOfClass:[NSArray class]]) {
+            [self.ccAddresses addObjectsFromArray:value];
+        }
+    } else if ([key isEqualToString:OPTION_BCC_ADDRESSES]) {
+        if ([value isKindOfClass:[NSString class]]) {
+            [self.bccAddresses addObject:value];
+        } else if ([value isKindOfClass:[NSArray class]]) {
+            [self.bccAddresses addObjectsFromArray:value];
+        }
     } else if ([key isEqualToString:OPTION_SUBJECT] && [value isKindOfClass:[NSString class]]) {
         self.subject = value;
     } else if ([key isEqualToString:OPTION_BODY] && [value isKindOfClass:[NSString class]]) {
         self.body = value;
-    } else if ([key isEqualToString:OPTION_FILE_ATTACHMENTS] && [value isKindOfClass:[NSData class]]) {
-        [self.attachments addObject:value];
+    } else if ([key isEqualToString:OPTION_FILE_ATTACHMENTS]) {
+        if ([value isKindOfClass:[NSData class]]) {
+            [self.attachments addObject:value];
+        } else if ([value isKindOfClass:[NSArray class]]) {
+            [self.attachments addObjectsFromArray:value];
+        }
     } else {
         [super setValue:value forKey:key];
     }

@@ -7,6 +7,7 @@
 //
 
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <Social/Social.h>
 
 #import "LLCommandCompiler.h"
 #import "LLCommandFactory.h"
@@ -28,12 +29,16 @@
 @implementation LLCommandCompiler
 
 - (void)decreaseCompilingCounter {
+    BOOL done;
+    
     @synchronized(self) {
         self.compilingCounter--;
-        if (self.compilingCounter <= 0) {
-            [self.delegate onFinishedCompilingCommandPrototype:self.compilingCommandPrototype withCompiledValue:self.compilingCommand];
-            [self cleanUpAfterCompiling];
-        }
+        done = self.compilingCounter <= 0;
+    }
+    
+    if (done) {
+        [self.delegate onFinishedCompilingCommandPrototype:self.compilingCommandPrototype withCompiledValue:self.compilingCommand];
+        [self cleanUpAfterCompiling];
     }
 }
 
@@ -58,7 +63,9 @@
         for (LLOptionValuePrototype *optionValue in option.possibleValues.allValues) {
             if (optionValue.selected) {
                 self.compilingCounter++;
-                continue;
+                if (option.dataType != DATA_ARRAY) {
+                    continue;
+                }
             }
         }
     }
@@ -67,7 +74,9 @@
         for (LLOptionValuePrototype *optionValue in option.possibleValues.allValues) {
             if (optionValue.selected) {
                 [self compileValueForOption:option fromOptionValuePrototype:optionValue];
-                continue;
+                if (option.dataType != DATA_ARRAY) {
+                    continue;
+                }
             }
         }
     }
@@ -83,6 +92,12 @@
             [self pasteboardOptionValueForOption:option];
         } else if([optionValue.key isEqualToString:OPTION_VALUE_CAMERA_ROLL]) {
             [self lastPhotoOptionValueForOption:option];
+        } else if([optionValue.key isEqualToString:OPTION_VALUE_SERVICE_TYPE_FACEBOOK]) {
+            //@TODO should this be handled here or in MultipleSocialsCommand?
+            [self setCompiledValue:SLServiceTypeFacebook forOption:option];
+        } else if([optionValue.key isEqualToString:OPTION_VALUE_SERVICE_TYPE_TWITTER]) {
+            //@TODO should this be handled here or in MultipleSocialsCommand?
+            [self setCompiledValue:SLServiceTypeTwitter forOption:option];
         }
     } else {
         // Value is already there, don't need to wait for compiling, set it now
@@ -91,10 +106,6 @@
 }
 
 - (void)setCompiledValue:(id)compiledValue forOption:(LLOptionPrototype *)option {
-    //@TODO do we need this? probably should be handled by each command
-    if (option.dataType == DATA_ARRAY && [compiledValue isKindOfClass:[NSString class]]) {
-        compiledValue = [compiledValue componentsSeparatedByString:COMPONENTS_SEPARATOR];
-    }
     [self.compilingCommand setValue:compiledValue forKey:option.key];
     [self decreaseCompilingCounter];
 }

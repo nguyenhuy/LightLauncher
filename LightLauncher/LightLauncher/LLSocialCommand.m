@@ -27,10 +27,18 @@
 - (void)setValue:(id)value forKey:(NSString *)key {
     if ([key isEqualToString:OPTION_BODY] && [value isKindOfClass:[NSString class]]) {
         self.body = value;
-    } else if ([key isEqualToString:OPTION_URLS] && [value isKindOfClass:[NSURL class]]) {
-        [self.urls addObject:value];
-    } else if ([key isEqualToString:OPTION_IMAGE_ATTACHMENTS] && [value isKindOfClass:[UIImage class]]) {
-        [self.images addObject:value];
+    } else if ([key isEqualToString:OPTION_URLS]) {
+        if ([value isKindOfClass:[NSString class]]) {
+            [self.urls addObject:value];
+        } else if ([value isKindOfClass:[NSArray class]]) {
+            [self.urls addObjectsFromArray:value];
+        }
+    } else if ([key isEqualToString:OPTION_IMAGE_ATTACHMENTS]) {
+        if ([value isKindOfClass:[UIImage class]]) {
+            [self.images addObject:value];
+        } else if ([value isKindOfClass:[NSArray class]]) {
+            [self.images addObjectsFromArray:value];
+        }
     } else {
         [super setValue:value forKey:key];
     }
@@ -53,6 +61,7 @@
     [self addAllUrlsToComposeViewController:composeViewController];
     
     [composeViewController setCompletionHandler:^(SLComposeViewControllerResult result) {
+        //@TODO: Note that completion handlers are not called on any particular thread.
         switch (result) {
             case SLComposeViewControllerResultCancelled:
                 [self onCanceled];

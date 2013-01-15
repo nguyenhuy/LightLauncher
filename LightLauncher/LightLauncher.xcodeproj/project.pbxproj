@@ -129,6 +129,7 @@
 		78A90AF6169045BF0057289E /* UIViewController+SetupSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A90AF5169045BE0057289E /* UIViewController+SetupSideMenu.m */; };
 		78B2F4D216A278BF00EF31C6 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B2F4D116A278BF00EF31C6 /* AssetsLibrary.framework */; };
 		78BA2D3416435C950057AD58 /* LLCommandPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BA2D3316435C950057AD58 /* LLCommandPrototype.m */; };
+		78EAC95C16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAC95B16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m */; };
 		78F12CF21646B0020068F9E4 /* LLOptionPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */; };
 		78F12CF51646B11F0068F9E4 /* LLCommandPrototypeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */; };
 		78F12CF81646B43A0068F9E4 /* LLOptionPrototypeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF71646B43A0068F9E4 /* LLOptionPrototypeFactory.m */; };
@@ -362,6 +363,8 @@
 		78BA2D3116435A420057AD58 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		78BA2D3216435C950057AD58 /* LLCommandPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandPrototype.h; sourceTree = "<group>"; };
 		78BA2D3316435C950057AD58 /* LLCommandPrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandPrototype.m; sourceTree = "<group>"; };
+		78EAC95A16A2BEA9004C4B39 /* LLMultipleSocialsCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLMultipleSocialsCommand.h; sourceTree = "<group>"; };
+		78EAC95B16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLMultipleSocialsCommand.m; sourceTree = "<group>"; };
 		78F12CF01646B0020068F9E4 /* LLOptionPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLOptionPrototype.h; sourceTree = "<group>"; };
 		78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLOptionPrototype.m; sourceTree = "<group>"; };
 		78F12CF31646B11F0068F9E4 /* LLCommandPrototypeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandPrototypeFactory.h; sourceTree = "<group>"; };
@@ -506,6 +509,8 @@
 				785EBB641629858C00ADE85F /* LLFacebookCommand.m */,
 				785A0E0E15E9CF02002C6F78 /* LLTwitterCommand.h */,
 				785A0E0F15E9CF02002C6F78 /* LLTwitterCommand.m */,
+				78EAC95A16A2BEA9004C4B39 /* LLMultipleSocialsCommand.h */,
+				78EAC95B16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -1120,6 +1125,7 @@
 				789130D516A47F93005E12C8 /* GTMOAuth2SignIn.m in Sources */,
 				789130D616A47F93005E12C8 /* GTMOAuth2ViewControllerTouch.m in Sources */,
 				789130D816A47F93005E12C8 /* GTMObjC2Runtime.m in Sources */,
+				78EAC95C16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

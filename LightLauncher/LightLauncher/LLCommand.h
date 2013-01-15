@@ -21,8 +21,8 @@
 
 @interface LLCommand : NSObject
 
-@property (nonatomic, strong) UIViewController *viewController;
-@property (nonatomic, strong) id<LLCommandDelegate> delegate;
+@property (nonatomic, strong, readonly) UIViewController *viewController;
+@property (nonatomic, strong, readonly) id<LLCommandDelegate> delegate;
 
 - (void)setValue:(id)value forKey:(NSString *)key;
 - (void)executeWithViewController:(UIViewController *)viewController withCommandDelegate:(id<LLCommandDelegate>) delegate;

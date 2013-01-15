@@ -23,7 +23,7 @@
 - (LLOptionPrototype *)optionPrototypeAtIndexPath:(NSIndexPath *)indexPath;
 - (LLOptionPrototype *)optionPrototypeAtIndex:(int)index;
 - (LLOptionValuePrototype *)optionValuePrototypeAtIndexPath:(NSIndexPath *)indexPath;
-- (void)updateTableViewAndReloadOptionValueAtIndexPath:(NSIndexPath *)indexPath WithValue:(id)value;
+- (void)updateTableViewAndReloadOptionValueAtIndexPath:(NSIndexPath *)indexPath withValue:(id)value;
 @end
 
 @implementation LLCreateCommandTableViewController
@@ -103,7 +103,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self updateTableViewAndReloadOptionValueAtIndexPath:indexPath WithValue:nil];
+    [self updateTableViewAndReloadOptionValueAtIndexPath:indexPath withValue:nil];
 }
 
 #pragma mark - Prefill option value prototype cell delegate
@@ -115,7 +115,7 @@
     
     // Only update the option value prototype if text was set
     if ([value length] != 0) {
-        [self updateTableViewAndReloadOptionValueAtIndexPath:indexPath WithValue:value];
+        [self updateTableViewAndReloadOptionValueAtIndexPath:indexPath withValue:value];
     }
 }
 
@@ -180,18 +180,23 @@
 }
 
 // @TODO is it a good name?
-- (void)updateTableViewAndReloadOptionValueAtIndexPath:(NSIndexPath *)indexPath WithValue:(id)value {
+- (void)updateTableViewAndReloadOptionValueAtIndexPath:(NSIndexPath *)indexPath withValue:(id)value {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    // Deselect all option values
     LLOptionPrototype *option = [self optionPrototypeAtIndexPath:indexPath];
-    for (LLOptionValuePrototype *optionValue in option.possibleValues.allValues) {
-        optionValue.selected = NO;
+    LLOptionValuePrototype *optionValue = [self optionValuePrototypeAtIndexPath:indexPath];
+
+    // Deselect all other option values if this option value will be selected and not an array option
+    if (!optionValue.selected && option.dataType != DATA_ARRAY) {
+        for (LLOptionValuePrototype *optionValue in option.possibleValues.allValues) {
+            optionValue.selected = NO;
+        }
     }
     
-    LLOptionValuePrototype *optionValue = [self optionValuePrototypeAtIndexPath:indexPath];
-    optionValue.selected = YES;
+    // Toggle selected value
+    optionValue.selected = !optionValue.selected;
     optionValue.value = value;
+    
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
 }
 

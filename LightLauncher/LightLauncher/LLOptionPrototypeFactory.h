@@ -21,5 +21,6 @@
 + (LLOptionPrototype *)fileAttachmentsOptionPrototype;
 + (LLOptionPrototype *)imageAttachmentsOptionPrototype;
 
++ (LLOptionPrototype *)socialsOptionPrototype;
 
 @end

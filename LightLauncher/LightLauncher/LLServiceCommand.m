@@ -35,33 +35,30 @@
 
 - (void)executeWithViewController:(UIViewController *)viewController withCommandDelegate:(id<LLCommandDelegate>)delegate {
     [super executeWithViewController:viewController withCommandDelegate:delegate];
-    self.viewController = viewController;
+
     UIViewController *composeViewController = [self constructComposeViewContrroller];
     
     if (![self isServiceAvailable] || !composeViewController) {
         [self onServiceNotAvailable];
     } else {
-        [viewController presentViewController:composeViewController animated:YES completion:nil];
+        [self.viewController presentViewController:composeViewController animated:YES completion:nil];
     }
 }
 
 - (void)onFinished {
     [self.viewController dismissViewControllerAnimated:YES completion:nil];
-    self.viewController = nil;
 
     [super onFinished];
 }
 
 - (void)onCanceled {
     [self.viewController dismissViewControllerAnimated:YES completion:nil];
-    self.viewController = nil;
 
     [super onCanceled];
 }
 
 - (void)onErrorWithTitle:(NSString *)title andDesc:(NSString *)desc {
     [self.viewController dismissViewControllerAnimated:YES completion:nil];
-    self.viewController = nil;
     
     [super onErrorWithTitle:title andDesc:desc];
 }
