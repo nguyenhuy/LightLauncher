@@ -74,7 +74,7 @@
                         [LLOptionPrototypeFactory urlAddressesOptionPrototype],
                         nil];
     
-    LLCommandPrototype *commandPrototype = [[LLCommandPrototype alloc] initWithCommand:COMMAND_MULTIPLE_SOCIALS andOptions:options andDesc:@"Multiple Social Networks" andIconFileName:@"Facebook"];
+    LLCommandPrototype *commandPrototype = [[LLCommandPrototype alloc] initWithCommand:COMMAND_MULTIPLE_SOCIALS andOptions:options andDesc:@"Multiple Social Networks" andIconFileName:IMAGE_FACEBOOK];
     return commandPrototype;
 }
 
@@ -84,7 +84,7 @@
                         [LLOptionPrototypeFactory urlOptionPrototype],
                         nil];
     
-    LLCommandPrototype *commandPrototype = [[LLCommandPrototype alloc] initWithCommand:COMMAND_GOOGLE_PLUS andOptions:options andDesc:@"Google Plus" andIconFileName:IMAGE_FACEBOOK];
+    LLCommandPrototype *commandPrototype = [[LLCommandPrototype alloc] initWithCommand:COMMAND_GOOGLE_PLUS andOptions:options andDesc:@"Google Plus" andIconFileName:IMAGE_GOOGLE_PLUS];
     return commandPrototype;
 }
 
