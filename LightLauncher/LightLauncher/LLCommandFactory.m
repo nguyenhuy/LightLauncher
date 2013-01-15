@@ -13,6 +13,7 @@
 #import "LLFacebookCommand.h"
 #import "LLTwitterCommand.h"
 #import "LLMultipleSocialsCommand.h"
+#import "LLGooglePlusCommand.h"
 
 @implementation LLCommandFactory
 
@@ -28,6 +29,9 @@
     }
     if ([command isEqualToString:COMMAND_MULTIPLE_SOCIALS]) {
         return [[LLMultipleSocialsCommand alloc] init];
+    }
+    if ([command isEqualToString:COMMAND_GOOGLE_PLUS]) {
+        return [[LLGooglePlusCommand alloc] init];
     }
     return nil;
 }

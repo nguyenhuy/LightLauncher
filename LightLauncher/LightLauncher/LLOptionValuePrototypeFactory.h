@@ -13,6 +13,7 @@
 + (LLOptionValuePrototype *)stringOptionValuePrototypeWithDisplayName:(NSString *)displayName;
 + (LLOptionValuePrototype *)emailsOptionValuePrototypeWithDisplayName:(NSString *)displayName;
 + (LLOptionValuePrototype *)urlsOptionValuePrototypeWithDisplayName:(NSString *)displayName;
++ (LLOptionValuePrototype *)urlOptionValuePrototypeWithDisplayName:(NSString *)displayName;
 + (LLOptionValuePrototype *)fileAttachmentsOptionValuePrototypeWithDisplayName:(NSString *)displayName;
 + (LLOptionValuePrototype *)imageAttachmentsOptionValuePrototypeWithDisplayName:(NSString *)displayName;
 + (LLOptionValuePrototype *)pasteboardOptionValuePrototype;

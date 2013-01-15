@@ -13,8 +13,6 @@
 @property (nonatomic, strong, readwrite) UIViewController *viewController;
 @property (nonatomic, strong, readwrite) id<LLCommandDelegate> delegate;
 
-- (void)cleanUpAfterExecuting;
-
 @end
 
 @implementation LLCommand

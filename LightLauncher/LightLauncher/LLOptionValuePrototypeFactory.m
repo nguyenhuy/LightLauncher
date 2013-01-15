@@ -23,6 +23,10 @@
     return [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_PREFILL andDisplayName:displayName andType:TYPE_URL];
 }
 
++ (LLOptionValuePrototype *)urlOptionValuePrototypeWithDisplayName:(NSString *)displayName {
+    return [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_PREFILL andDisplayName:displayName andType:TYPE_URL];
+}
+
 + (LLOptionValuePrototype *)fileAttachmentsOptionValuePrototypeWithDisplayName:(NSString *)displayName {
     return [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_PREFILL andDisplayName:displayName andType:TYPE_FILE];
 }

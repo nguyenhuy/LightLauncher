@@ -78,4 +78,14 @@
     return commandPrototype;
 }
 
++ (LLCommandPrototype *)googlePlusCommandPrototype {
+    NSArray *options = [[NSArray alloc] initWithObjects:
+                        [LLOptionPrototypeFactory bodyOptionPrototype],
+                        [LLOptionPrototypeFactory urlOptionPrototype],
+                        nil];
+    
+    LLCommandPrototype *commandPrototype = [[LLCommandPrototype alloc] initWithCommand:COMMAND_GOOGLE_PLUS andOptions:options andDesc:@"Google Plus" andIconFileName:IMAGE_FACEBOOK];
+    return commandPrototype;
+}
+
 @end

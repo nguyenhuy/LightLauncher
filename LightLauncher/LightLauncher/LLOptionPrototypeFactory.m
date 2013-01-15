@@ -115,6 +115,19 @@
     return optionPrototype;
 }
 
++ (LLOptionPrototype *)urlOptionPrototype {
+    LLOptionValuePrototype *prefillUrlvalue = [LLOptionValuePrototypeFactory urlOptionValuePrototypeWithDisplayName:@"http://lightlauncher.com"];
+    LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
+    
+    NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    prefillUrlvalue, prefillUrlvalue.key,
+                                    pasteboardValue, pasteboardValue.key,
+                                    nil];
+    
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_URL andDisplayName:@"URL" andDataType:DATA_STRING andPossibleValues:possibleValues];
+    return optionPrototype;
+}
+
 + (LLOptionPrototype *)fileAttachmentsOptionPrototype {
     LLOptionValuePrototype *fileValue = [LLOptionValuePrototypeFactory fileAttachmentsOptionValuePrototypeWithDisplayName:@"Pick now"];
     LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];

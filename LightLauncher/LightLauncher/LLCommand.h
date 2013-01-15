@@ -29,5 +29,6 @@
 - (void)onFinished;
 - (void)onCanceled;
 - (void)onErrorWithTitle:(NSString *)title andDesc:(NSString *)desc;
+- (void)cleanUpAfterExecuting;
 
 @end

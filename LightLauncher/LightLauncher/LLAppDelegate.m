@@ -69,6 +69,15 @@
     if ([self.share handleURL:url sourceApplication:sourceApplication annotation:annotation]) {
         return YES;
     }
+    return NO;
+}
+
+#pragma mark Google Plus
+
+- (void)ensureGppShare {
+    if (!self.share) {
+        self.share = [[GPPShare alloc] initWithClientID:GOOGLE_PLUS_CLIENT_ID];
+    }
 }
 
 @end

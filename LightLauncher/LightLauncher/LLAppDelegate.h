@@ -19,4 +19,6 @@
 
 + (LLAppDelegate *)sharedInstance;
 
+- (void)ensureGppShare;
+
 @end

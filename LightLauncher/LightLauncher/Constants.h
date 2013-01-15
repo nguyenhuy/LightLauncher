@@ -15,11 +15,13 @@
 #define COMMAND_FACEBOOK @"facebook"
 #define COMMAND_TWITTER @"twitter"
 #define COMMAND_MULTIPLE_SOCIALS @"multiple_socials"
+#define COMMAND_GOOGLE_PLUS @"google_plus"
 
 #define OPTION_SERVICE_TYPE @"service_type"
 #define OPTION_SERVICE_NAME @"service_name"
 #define OPTION_BODY @"body"
 #define OPTION_URLS @"urls"
+#define OPTION_URL @"url"
 #define OPTION_TO_ADDRESSES @"to_addresses"
 #define OPTION_CC_ADDRESSES @"cc_addresses"
 #define OPTION_BCC_ADDRESSES @"bcc_addresses"
@@ -53,6 +55,8 @@
 
 #define DEFAULT_GROUP_NAME @"New"
 
+#define GOOGLE_PLUS_CLIENT_ID @"16316205072.apps.googleusercontent.com"
+
 typedef enum {
     DATA_STRING,
     DATA_ARRAY,
@@ -76,5 +80,7 @@ typedef enum {
 //@TODO test addresses in email
 //@TODO check all delegates are weak
 //@TODO check memory leak
+
+//@TODO transform NSString to NSURL for commands that have URLs
 
 #endif
