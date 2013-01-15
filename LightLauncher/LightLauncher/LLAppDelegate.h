@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @class LLRevealController;
+@class GPPShare;
 
 @interface LLAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) LLRevealController *revealController;
+@property (retain, nonatomic) GPPShare *share;
 
 + (LLAppDelegate *)sharedInstance;
 

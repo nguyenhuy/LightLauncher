@@ -10,6 +10,7 @@
 #import "LLFavoriteGroupTableViewController.h"
 #import "LLRearViewController.h"
 #import "LLRevealController.h"
+#import "GPPShare.h"
 
 @implementation LLAppDelegate
 
@@ -62,6 +63,12 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     [MagicalRecord cleanUp];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    if ([self.share handleURL:url sourceApplication:sourceApplication annotation:annotation]) {
+        return YES;
+    }
 }
 
 @end

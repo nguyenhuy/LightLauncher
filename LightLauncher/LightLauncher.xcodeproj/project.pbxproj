@@ -82,6 +82,38 @@
 		788FBFC4163DA3F3005A444E /* LLCreateCommandTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788FBFC2163DA3F3005A444E /* LLCreateCommandTableViewController.xib */; };
 		7891306F16A47DD1005E12C8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7891306E16A47DD1005E12C8 /* Security.framework */; };
 		7891307116A47DE1005E12C8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7891307016A47DE1005E12C8 /* SystemConfiguration.framework */; };
+		789130BA16A47F93005E12C8 /* GTLBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891307816A47F93005E12C8 /* GTLBase64.m */; };
+		789130BB16A47F93005E12C8 /* GTLBatchQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891307A16A47F93005E12C8 /* GTLBatchQuery.m */; };
+		789130BC16A47F93005E12C8 /* GTLBatchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891307C16A47F93005E12C8 /* GTLBatchResult.m */; };
+		789130BD16A47F93005E12C8 /* GTLDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891307E16A47F93005E12C8 /* GTLDateTime.m */; };
+		789130BE16A47F93005E12C8 /* GTLErrorObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891308116A47F93005E12C8 /* GTLErrorObject.m */; };
+		789130BF16A47F93005E12C8 /* GTLFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891308316A47F93005E12C8 /* GTLFramework.m */; };
+		789130C016A47F93005E12C8 /* GTLJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891308516A47F93005E12C8 /* GTLJSONParser.m */; };
+		789130C116A47F93005E12C8 /* GTLObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891308716A47F93005E12C8 /* GTLObject.m */; };
+		789130C216A47F93005E12C8 /* GTLPlusConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891308B16A47F93005E12C8 /* GTLPlusConstants.m */; };
+		789130C316A47F93005E12C8 /* GTLPlusItemScope.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891308D16A47F93005E12C8 /* GTLPlusItemScope.m */; };
+		789130C416A47F93005E12C8 /* GTLPlusMoment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891308F16A47F93005E12C8 /* GTLPlusMoment.m */; };
+		789130C516A47F93005E12C8 /* GTLQueryPlus.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891309116A47F93005E12C8 /* GTLQueryPlus.m */; };
+		789130C616A47F93005E12C8 /* GTLServicePlus.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891309316A47F93005E12C8 /* GTLServicePlus.m */; };
+		789130C716A47F93005E12C8 /* GTLQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891309516A47F93005E12C8 /* GTLQuery.m */; };
+		789130C816A47F93005E12C8 /* GTLRuntimeCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891309716A47F93005E12C8 /* GTLRuntimeCommon.m */; };
+		789130C916A47F93005E12C8 /* GTLService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891309916A47F93005E12C8 /* GTLService.m */; };
+		789130CA16A47F93005E12C8 /* GTLUploadParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891309C16A47F93005E12C8 /* GTLUploadParameters.m */; };
+		789130CB16A47F93005E12C8 /* GTLUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7891309E16A47F93005E12C8 /* GTLUtilities.m */; };
+		789130CC16A47F93005E12C8 /* GTMHTTPFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 789130A216A47F93005E12C8 /* GTMHTTPFetcher.m */; };
+		789130CD16A47F93005E12C8 /* GTMHTTPFetcherLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 789130A416A47F93005E12C8 /* GTMHTTPFetcherLogging.m */; };
+		789130CE16A47F93005E12C8 /* GTMHTTPFetcherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 789130A616A47F93005E12C8 /* GTMHTTPFetcherService.m */; };
+		789130CF16A47F93005E12C8 /* GTMHTTPFetchHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 789130A816A47F93005E12C8 /* GTMHTTPFetchHistory.m */; };
+		789130D016A47F93005E12C8 /* GTMLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 789130AA16A47F93005E12C8 /* GTMLogger.m */; };
+		789130D116A47F93005E12C8 /* GTMMethodCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 789130AC16A47F93005E12C8 /* GTMMethodCheck.m */; };
+		789130D216A47F93005E12C8 /* GTMNSDictionary+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 789130AE16A47F93005E12C8 /* GTMNSDictionary+URLArguments.m */; };
+		789130D316A47F93005E12C8 /* GTMNSString+URLArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = 789130B016A47F93005E12C8 /* GTMNSString+URLArguments.m */; };
+		789130D416A47F93005E12C8 /* GTMOAuth2Authentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 789130B216A47F93005E12C8 /* GTMOAuth2Authentication.m */; };
+		789130D516A47F93005E12C8 /* GTMOAuth2SignIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 789130B416A47F93005E12C8 /* GTMOAuth2SignIn.m */; };
+		789130D616A47F93005E12C8 /* GTMOAuth2ViewControllerTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 789130B616A47F93005E12C8 /* GTMOAuth2ViewControllerTouch.m */; };
+		789130D716A47F93005E12C8 /* GTMOAuth2ViewTouch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 789130B716A47F93005E12C8 /* GTMOAuth2ViewTouch.xib */; };
+		789130D816A47F93005E12C8 /* GTMObjC2Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 789130B916A47F93005E12C8 /* GTMObjC2Runtime.m */; };
+		789130D916A4E722005E12C8 /* GPPShare.h in Sources */ = {isa = PBXBuildFile; fileRef = 7891307216A47F61005E12C8 /* GPPShare.h */; };
 		789948E516904F92008406ED /* LLSideSwipeMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 789948E416904F92008406ED /* LLSideSwipeMenu.xib */; };
 		789948E816904FA9008406ED /* LLSideSwipeMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 789948E716904FA9008406ED /* LLSideSwipeMenu.m */; };
 		789948EA1690515F008406ED /* copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 789948E91690515F008406ED /* copy.png */; };
@@ -239,6 +271,74 @@
 		788FBFC2163DA3F3005A444E /* LLCreateCommandTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLCreateCommandTableViewController.xib; sourceTree = "<group>"; };
 		7891306E16A47DD1005E12C8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7891307016A47DE1005E12C8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7891307216A47F61005E12C8 /* GPPShare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPPShare.h; sourceTree = "<group>"; };
+		7891307316A47F61005E12C8 /* libGooglePlusUniversal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGooglePlusUniversal.a; sourceTree = "<group>"; };
+		7891307716A47F93005E12C8 /* GTLBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLBase64.h; sourceTree = "<group>"; };
+		7891307816A47F93005E12C8 /* GTLBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLBase64.m; sourceTree = "<group>"; };
+		7891307916A47F93005E12C8 /* GTLBatchQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLBatchQuery.h; sourceTree = "<group>"; };
+		7891307A16A47F93005E12C8 /* GTLBatchQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLBatchQuery.m; sourceTree = "<group>"; };
+		7891307B16A47F93005E12C8 /* GTLBatchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLBatchResult.h; sourceTree = "<group>"; };
+		7891307C16A47F93005E12C8 /* GTLBatchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLBatchResult.m; sourceTree = "<group>"; };
+		7891307D16A47F93005E12C8 /* GTLDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLDateTime.h; sourceTree = "<group>"; };
+		7891307E16A47F93005E12C8 /* GTLDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLDateTime.m; sourceTree = "<group>"; };
+		7891307F16A47F93005E12C8 /* GTLDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLDefines.h; sourceTree = "<group>"; };
+		7891308016A47F93005E12C8 /* GTLErrorObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLErrorObject.h; sourceTree = "<group>"; };
+		7891308116A47F93005E12C8 /* GTLErrorObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLErrorObject.m; sourceTree = "<group>"; };
+		7891308216A47F93005E12C8 /* GTLFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLFramework.h; sourceTree = "<group>"; };
+		7891308316A47F93005E12C8 /* GTLFramework.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLFramework.m; sourceTree = "<group>"; };
+		7891308416A47F93005E12C8 /* GTLJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLJSONParser.h; sourceTree = "<group>"; };
+		7891308516A47F93005E12C8 /* GTLJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLJSONParser.m; sourceTree = "<group>"; };
+		7891308616A47F93005E12C8 /* GTLObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLObject.h; sourceTree = "<group>"; };
+		7891308716A47F93005E12C8 /* GTLObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLObject.m; sourceTree = "<group>"; };
+		7891308916A47F93005E12C8 /* GTLPlus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLPlus.h; sourceTree = "<group>"; };
+		7891308A16A47F93005E12C8 /* GTLPlusConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLPlusConstants.h; sourceTree = "<group>"; };
+		7891308B16A47F93005E12C8 /* GTLPlusConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLPlusConstants.m; sourceTree = "<group>"; };
+		7891308C16A47F93005E12C8 /* GTLPlusItemScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLPlusItemScope.h; sourceTree = "<group>"; };
+		7891308D16A47F93005E12C8 /* GTLPlusItemScope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLPlusItemScope.m; sourceTree = "<group>"; };
+		7891308E16A47F93005E12C8 /* GTLPlusMoment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLPlusMoment.h; sourceTree = "<group>"; };
+		7891308F16A47F93005E12C8 /* GTLPlusMoment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLPlusMoment.m; sourceTree = "<group>"; };
+		7891309016A47F93005E12C8 /* GTLQueryPlus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLQueryPlus.h; sourceTree = "<group>"; };
+		7891309116A47F93005E12C8 /* GTLQueryPlus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLQueryPlus.m; sourceTree = "<group>"; };
+		7891309216A47F93005E12C8 /* GTLServicePlus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLServicePlus.h; sourceTree = "<group>"; };
+		7891309316A47F93005E12C8 /* GTLServicePlus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLServicePlus.m; sourceTree = "<group>"; };
+		7891309416A47F93005E12C8 /* GTLQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLQuery.h; sourceTree = "<group>"; };
+		7891309516A47F93005E12C8 /* GTLQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLQuery.m; sourceTree = "<group>"; };
+		7891309616A47F93005E12C8 /* GTLRuntimeCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLRuntimeCommon.h; sourceTree = "<group>"; };
+		7891309716A47F93005E12C8 /* GTLRuntimeCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLRuntimeCommon.m; sourceTree = "<group>"; };
+		7891309816A47F93005E12C8 /* GTLService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLService.h; sourceTree = "<group>"; };
+		7891309916A47F93005E12C8 /* GTLService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLService.m; sourceTree = "<group>"; };
+		7891309A16A47F93005E12C8 /* GTLTargetNamespace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLTargetNamespace.h; sourceTree = "<group>"; };
+		7891309B16A47F93005E12C8 /* GTLUploadParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLUploadParameters.h; sourceTree = "<group>"; };
+		7891309C16A47F93005E12C8 /* GTLUploadParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLUploadParameters.m; sourceTree = "<group>"; };
+		7891309D16A47F93005E12C8 /* GTLUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTLUtilities.h; sourceTree = "<group>"; };
+		7891309E16A47F93005E12C8 /* GTLUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTLUtilities.m; sourceTree = "<group>"; };
+		7891309F16A47F93005E12C8 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		789130A016A47F93005E12C8 /* GTMGarbageCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMGarbageCollection.h; sourceTree = "<group>"; };
+		789130A116A47F93005E12C8 /* GTMHTTPFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMHTTPFetcher.h; sourceTree = "<group>"; };
+		789130A216A47F93005E12C8 /* GTMHTTPFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMHTTPFetcher.m; sourceTree = "<group>"; };
+		789130A316A47F93005E12C8 /* GTMHTTPFetcherLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMHTTPFetcherLogging.h; sourceTree = "<group>"; };
+		789130A416A47F93005E12C8 /* GTMHTTPFetcherLogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMHTTPFetcherLogging.m; sourceTree = "<group>"; };
+		789130A516A47F93005E12C8 /* GTMHTTPFetcherService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMHTTPFetcherService.h; sourceTree = "<group>"; };
+		789130A616A47F93005E12C8 /* GTMHTTPFetcherService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMHTTPFetcherService.m; sourceTree = "<group>"; };
+		789130A716A47F93005E12C8 /* GTMHTTPFetchHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMHTTPFetchHistory.h; sourceTree = "<group>"; };
+		789130A816A47F93005E12C8 /* GTMHTTPFetchHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMHTTPFetchHistory.m; sourceTree = "<group>"; };
+		789130A916A47F93005E12C8 /* GTMLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMLogger.h; sourceTree = "<group>"; };
+		789130AA16A47F93005E12C8 /* GTMLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMLogger.m; sourceTree = "<group>"; };
+		789130AB16A47F93005E12C8 /* GTMMethodCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMMethodCheck.h; sourceTree = "<group>"; };
+		789130AC16A47F93005E12C8 /* GTMMethodCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMMethodCheck.m; sourceTree = "<group>"; };
+		789130AD16A47F93005E12C8 /* GTMNSDictionary+URLArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSDictionary+URLArguments.h"; sourceTree = "<group>"; };
+		789130AE16A47F93005E12C8 /* GTMNSDictionary+URLArguments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSDictionary+URLArguments.m"; sourceTree = "<group>"; };
+		789130AF16A47F93005E12C8 /* GTMNSString+URLArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+URLArguments.h"; sourceTree = "<group>"; };
+		789130B016A47F93005E12C8 /* GTMNSString+URLArguments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+URLArguments.m"; sourceTree = "<group>"; };
+		789130B116A47F93005E12C8 /* GTMOAuth2Authentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMOAuth2Authentication.h; sourceTree = "<group>"; };
+		789130B216A47F93005E12C8 /* GTMOAuth2Authentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMOAuth2Authentication.m; sourceTree = "<group>"; };
+		789130B316A47F93005E12C8 /* GTMOAuth2SignIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMOAuth2SignIn.h; sourceTree = "<group>"; };
+		789130B416A47F93005E12C8 /* GTMOAuth2SignIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMOAuth2SignIn.m; sourceTree = "<group>"; };
+		789130B516A47F93005E12C8 /* GTMOAuth2ViewControllerTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMOAuth2ViewControllerTouch.h; sourceTree = "<group>"; };
+		789130B616A47F93005E12C8 /* GTMOAuth2ViewControllerTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMOAuth2ViewControllerTouch.m; sourceTree = "<group>"; };
+		789130B716A47F93005E12C8 /* GTMOAuth2ViewTouch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GTMOAuth2ViewTouch.xib; sourceTree = "<group>"; };
+		789130B816A47F93005E12C8 /* GTMObjC2Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMObjC2Runtime.h; sourceTree = "<group>"; };
+		789130B916A47F93005E12C8 /* GTMObjC2Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMObjC2Runtime.m; sourceTree = "<group>"; };
 		789948E416904F92008406ED /* LLSideSwipeMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLSideSwipeMenu.xib; sourceTree = "<group>"; };
 		789948E616904FA9008406ED /* LLSideSwipeMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSideSwipeMenu.h; sourceTree = "<group>"; };
 		789948E716904FA9008406ED /* LLSideSwipeMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSideSwipeMenu.m; sourceTree = "<group>"; };
@@ -297,8 +397,6 @@
 		785A0D9215E9A3B6002C6F78 = {
 			isa = PBXGroup;
 			children = (
-				7891307016A47DE1005E12C8 /* SystemConfiguration.framework */,
-				7891306E16A47DD1005E12C8 /* Security.framework */,
 				785A0DA715E9A3B6002C6F78 /* LightLauncher */,
 				785A0DA015E9A3B6002C6F78 /* Frameworks */,
 				788FBF89163CEC1D005A444E /* Libraries */,
@@ -317,6 +415,8 @@
 		785A0DA015E9A3B6002C6F78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7891307016A47DE1005E12C8 /* SystemConfiguration.framework */,
+				7891306E16A47DD1005E12C8 /* Security.framework */,
 				78B2F4D116A278BF00EF31C6 /* AssetsLibrary.framework */,
 				788A4872167DC317009401DD /* CoreData.framework */,
 				785EBB611629805E00ADE85F /* Social.framework */,
@@ -681,6 +781,7 @@
 		788FBF89163CEC1D005A444E /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				7891307416A47F65005E12C8 /* GooglePlus */,
 				78A90ADC168FF6820057289E /* MBProgressHUD */,
 				788F63A1168312D200C25E32 /* MagicalRecord */,
 				788A48AF167ED8E8009401DD /* ZUUIRevealController */,
@@ -709,6 +810,105 @@
 				785EBB5E16297FBF00ADE85F /* LLSocialCommand.m */,
 			);
 			name = "Abstract Commands";
+			sourceTree = "<group>";
+		};
+		7891307416A47F65005E12C8 /* GooglePlus */ = {
+			isa = PBXGroup;
+			children = (
+				7891307516A47F93005E12C8 /* OpenSource */,
+				7891307216A47F61005E12C8 /* GPPShare.h */,
+				7891307316A47F61005E12C8 /* libGooglePlusUniversal.a */,
+			);
+			name = GooglePlus;
+			sourceTree = "<group>";
+		};
+		7891307516A47F93005E12C8 /* OpenSource */ = {
+			isa = PBXGroup;
+			children = (
+				7891307616A47F93005E12C8 /* GTL */,
+				7891309F16A47F93005E12C8 /* GTMDefines.h */,
+				789130A016A47F93005E12C8 /* GTMGarbageCollection.h */,
+				789130A116A47F93005E12C8 /* GTMHTTPFetcher.h */,
+				789130A216A47F93005E12C8 /* GTMHTTPFetcher.m */,
+				789130A316A47F93005E12C8 /* GTMHTTPFetcherLogging.h */,
+				789130A416A47F93005E12C8 /* GTMHTTPFetcherLogging.m */,
+				789130A516A47F93005E12C8 /* GTMHTTPFetcherService.h */,
+				789130A616A47F93005E12C8 /* GTMHTTPFetcherService.m */,
+				789130A716A47F93005E12C8 /* GTMHTTPFetchHistory.h */,
+				789130A816A47F93005E12C8 /* GTMHTTPFetchHistory.m */,
+				789130A916A47F93005E12C8 /* GTMLogger.h */,
+				789130AA16A47F93005E12C8 /* GTMLogger.m */,
+				789130AB16A47F93005E12C8 /* GTMMethodCheck.h */,
+				789130AC16A47F93005E12C8 /* GTMMethodCheck.m */,
+				789130AD16A47F93005E12C8 /* GTMNSDictionary+URLArguments.h */,
+				789130AE16A47F93005E12C8 /* GTMNSDictionary+URLArguments.m */,
+				789130AF16A47F93005E12C8 /* GTMNSString+URLArguments.h */,
+				789130B016A47F93005E12C8 /* GTMNSString+URLArguments.m */,
+				789130B116A47F93005E12C8 /* GTMOAuth2Authentication.h */,
+				789130B216A47F93005E12C8 /* GTMOAuth2Authentication.m */,
+				789130B316A47F93005E12C8 /* GTMOAuth2SignIn.h */,
+				789130B416A47F93005E12C8 /* GTMOAuth2SignIn.m */,
+				789130B516A47F93005E12C8 /* GTMOAuth2ViewControllerTouch.h */,
+				789130B616A47F93005E12C8 /* GTMOAuth2ViewControllerTouch.m */,
+				789130B716A47F93005E12C8 /* GTMOAuth2ViewTouch.xib */,
+				789130B816A47F93005E12C8 /* GTMObjC2Runtime.h */,
+				789130B916A47F93005E12C8 /* GTMObjC2Runtime.m */,
+			);
+			path = OpenSource;
+			sourceTree = "<group>";
+		};
+		7891307616A47F93005E12C8 /* GTL */ = {
+			isa = PBXGroup;
+			children = (
+				7891307716A47F93005E12C8 /* GTLBase64.h */,
+				7891307816A47F93005E12C8 /* GTLBase64.m */,
+				7891307916A47F93005E12C8 /* GTLBatchQuery.h */,
+				7891307A16A47F93005E12C8 /* GTLBatchQuery.m */,
+				7891307B16A47F93005E12C8 /* GTLBatchResult.h */,
+				7891307C16A47F93005E12C8 /* GTLBatchResult.m */,
+				7891307D16A47F93005E12C8 /* GTLDateTime.h */,
+				7891307E16A47F93005E12C8 /* GTLDateTime.m */,
+				7891307F16A47F93005E12C8 /* GTLDefines.h */,
+				7891308016A47F93005E12C8 /* GTLErrorObject.h */,
+				7891308116A47F93005E12C8 /* GTLErrorObject.m */,
+				7891308216A47F93005E12C8 /* GTLFramework.h */,
+				7891308316A47F93005E12C8 /* GTLFramework.m */,
+				7891308416A47F93005E12C8 /* GTLJSONParser.h */,
+				7891308516A47F93005E12C8 /* GTLJSONParser.m */,
+				7891308616A47F93005E12C8 /* GTLObject.h */,
+				7891308716A47F93005E12C8 /* GTLObject.m */,
+				7891308816A47F93005E12C8 /* GTLPlus */,
+				7891309416A47F93005E12C8 /* GTLQuery.h */,
+				7891309516A47F93005E12C8 /* GTLQuery.m */,
+				7891309616A47F93005E12C8 /* GTLRuntimeCommon.h */,
+				7891309716A47F93005E12C8 /* GTLRuntimeCommon.m */,
+				7891309816A47F93005E12C8 /* GTLService.h */,
+				7891309916A47F93005E12C8 /* GTLService.m */,
+				7891309A16A47F93005E12C8 /* GTLTargetNamespace.h */,
+				7891309B16A47F93005E12C8 /* GTLUploadParameters.h */,
+				7891309C16A47F93005E12C8 /* GTLUploadParameters.m */,
+				7891309D16A47F93005E12C8 /* GTLUtilities.h */,
+				7891309E16A47F93005E12C8 /* GTLUtilities.m */,
+			);
+			path = GTL;
+			sourceTree = "<group>";
+		};
+		7891308816A47F93005E12C8 /* GTLPlus */ = {
+			isa = PBXGroup;
+			children = (
+				7891308916A47F93005E12C8 /* GTLPlus.h */,
+				7891308A16A47F93005E12C8 /* GTLPlusConstants.h */,
+				7891308B16A47F93005E12C8 /* GTLPlusConstants.m */,
+				7891308C16A47F93005E12C8 /* GTLPlusItemScope.h */,
+				7891308D16A47F93005E12C8 /* GTLPlusItemScope.m */,
+				7891308E16A47F93005E12C8 /* GTLPlusMoment.h */,
+				7891308F16A47F93005E12C8 /* GTLPlusMoment.m */,
+				7891309016A47F93005E12C8 /* GTLQueryPlus.h */,
+				7891309116A47F93005E12C8 /* GTLQueryPlus.m */,
+				7891309216A47F93005E12C8 /* GTLServicePlus.h */,
+				7891309316A47F93005E12C8 /* GTLServicePlus.m */,
+			);
+			path = GTLPlus;
 			sourceTree = "<group>";
 		};
 		789948EE16906BA2008406ED /* Extensions */ = {
@@ -811,6 +1011,7 @@
 				78A90AF2169045480057289E /* menu-icon@2x.png in Resources */,
 				789948E516904F92008406ED /* LLSideSwipeMenu.xib in Resources */,
 				789948EA1690515F008406ED /* copy.png in Resources */,
+				789130D716A47F93005E12C8 /* GTMOAuth2ViewTouch.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -821,6 +1022,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				789130D916A4E722005E12C8 /* GPPShare.h in Sources */,
 				78A90ADE168FF7FA0057289E /* MBProgressHUD.m in Sources */,
 				788A48C2167EE8E2009401DD /* ZUUIRevealController.m in Sources */,
 				785A0DAE15E9A3B6002C6F78 /* main.m in Sources */,
@@ -888,6 +1090,36 @@
 				78A90AF6169045BF0057289E /* UIViewController+SetupSideMenu.m in Sources */,
 				789948E816904FA9008406ED /* LLSideSwipeMenu.m in Sources */,
 				787B243C1699B18800302788 /* LLSavingTimeManager.m in Sources */,
+				789130BA16A47F93005E12C8 /* GTLBase64.m in Sources */,
+				789130BB16A47F93005E12C8 /* GTLBatchQuery.m in Sources */,
+				789130BC16A47F93005E12C8 /* GTLBatchResult.m in Sources */,
+				789130BD16A47F93005E12C8 /* GTLDateTime.m in Sources */,
+				789130BE16A47F93005E12C8 /* GTLErrorObject.m in Sources */,
+				789130BF16A47F93005E12C8 /* GTLFramework.m in Sources */,
+				789130C016A47F93005E12C8 /* GTLJSONParser.m in Sources */,
+				789130C116A47F93005E12C8 /* GTLObject.m in Sources */,
+				789130C216A47F93005E12C8 /* GTLPlusConstants.m in Sources */,
+				789130C316A47F93005E12C8 /* GTLPlusItemScope.m in Sources */,
+				789130C416A47F93005E12C8 /* GTLPlusMoment.m in Sources */,
+				789130C516A47F93005E12C8 /* GTLQueryPlus.m in Sources */,
+				789130C616A47F93005E12C8 /* GTLServicePlus.m in Sources */,
+				789130C716A47F93005E12C8 /* GTLQuery.m in Sources */,
+				789130C816A47F93005E12C8 /* GTLRuntimeCommon.m in Sources */,
+				789130C916A47F93005E12C8 /* GTLService.m in Sources */,
+				789130CA16A47F93005E12C8 /* GTLUploadParameters.m in Sources */,
+				789130CB16A47F93005E12C8 /* GTLUtilities.m in Sources */,
+				789130CC16A47F93005E12C8 /* GTMHTTPFetcher.m in Sources */,
+				789130CD16A47F93005E12C8 /* GTMHTTPFetcherLogging.m in Sources */,
+				789130CE16A47F93005E12C8 /* GTMHTTPFetcherService.m in Sources */,
+				789130CF16A47F93005E12C8 /* GTMHTTPFetchHistory.m in Sources */,
+				789130D016A47F93005E12C8 /* GTMLogger.m in Sources */,
+				789130D116A47F93005E12C8 /* GTMMethodCheck.m in Sources */,
+				789130D216A47F93005E12C8 /* GTMNSDictionary+URLArguments.m in Sources */,
+				789130D316A47F93005E12C8 /* GTMNSString+URLArguments.m in Sources */,
+				789130D416A47F93005E12C8 /* GTMOAuth2Authentication.m in Sources */,
+				789130D516A47F93005E12C8 /* GTMOAuth2SignIn.m in Sources */,
+				789130D616A47F93005E12C8 /* GTMOAuth2ViewControllerTouch.m in Sources */,
+				789130D816A47F93005E12C8 /* GTMObjC2Runtime.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -962,6 +1194,10 @@
 				GCC_PREFIX_HEADER = "LightLauncher/LightLauncher-Prefix.pch";
 				INFOPLIST_FILE = "LightLauncher/LightLauncher-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				"OTHER_LDFLAGS[sdk=iphoneos6.0]" = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -974,6 +1210,10 @@
 				GCC_PREFIX_HEADER = "LightLauncher/LightLauncher-Prefix.pch";
 				INFOPLIST_FILE = "LightLauncher/LightLauncher-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				"OTHER_LDFLAGS[sdk=iphoneos6.0]" = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
