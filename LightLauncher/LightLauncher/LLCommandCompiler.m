@@ -7,7 +7,6 @@
 //
 
 #import <AssetsLibrary/AssetsLibrary.h>
-#import <Social/Social.h>
 
 #import "LLCommandCompiler.h"
 #import "LLCommandFactory.h"
@@ -103,11 +102,11 @@
         } else if([optionValue.key isEqualToString:OPTION_VALUE_CAMERA_ROLL]) {
             [self lastPhotoOptionValueForOption:option];
         } else if([optionValue.key isEqualToString:OPTION_VALUE_SERVICE_TYPE_FACEBOOK]) {
-            //@TODO should this be handled here or in MultipleSocialsCommand?
-            [self setCompiledValue:SLServiceTypeFacebook forOption:option];
+            [self setCompiledValue:OPTION_VALUE_SERVICE_TYPE_FACEBOOK forOption:option];
         } else if([optionValue.key isEqualToString:OPTION_VALUE_SERVICE_TYPE_TWITTER]) {
-            //@TODO should this be handled here or in MultipleSocialsCommand?
-            [self setCompiledValue:SLServiceTypeTwitter forOption:option];
+            [self setCompiledValue:OPTION_VALUE_SERVICE_TYPE_FACEBOOK forOption:option];
+        } else if ([option.key isEqualToString:OPTION_VALUE_SERVICE_TYPE_GOOGLE_PLUS]) {
+            [self setCompiledValue:OPTION_VALUE_SERVICE_TYPE_GOOGLE_PLUS forOption:option];
         }
     } else {
         // Value is already there, don't need to wait for compiling, set it now

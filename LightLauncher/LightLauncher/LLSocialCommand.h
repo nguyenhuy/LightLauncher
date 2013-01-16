@@ -9,6 +9,7 @@
 #import <Social/Social.h>
 #import "LLServiceCommand.h"
 
+// Command that shares to social networks via SLComposeViewController of Social.framework.
 @interface LLSocialCommand : LLServiceCommand
 
 @property (nonatomic, strong) NSString *body;

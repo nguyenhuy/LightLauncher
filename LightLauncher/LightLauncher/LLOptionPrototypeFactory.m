@@ -148,10 +148,12 @@
 + (LLOptionPrototype *)socialsOptionPrototype {
     LLOptionValuePrototype *facebookValue = [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_SERVICE_TYPE_FACEBOOK andDisplayName:@"Facebook" andType:TYPE_STRING];
     LLOptionValuePrototype *twitterVallue = [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_SERVICE_TYPE_TWITTER andDisplayName:@"Twitter" andType:TYPE_STRING];
+    LLOptionValuePrototype *googlePlusValue = [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_SERVICE_TYPE_GOOGLE_PLUS andDisplayName:@"Google Plus" andType:TYPE_STRING];
     
     NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
                                     facebookValue, facebookValue.key,
                                     twitterVallue, twitterVallue.key,
+                                    googlePlusValue, googlePlusValue.key,
                                     nil];
     LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_SERVICE_TYPES andDisplayName:@"Services" andDataType:DATA_ARRAY andPossibleValues:possibleValues];
     return optionPrototype;

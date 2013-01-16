@@ -34,6 +34,7 @@
 #define OPTION_VALUE_CAMERA_ROLL @"camera_roll"
 #define OPTION_VALUE_SERVICE_TYPE_FACEBOOK @"facebok"
 #define OPTION_VALUE_SERVICE_TYPE_TWITTER @"twitter"
+#define OPTION_VALUE_SERVICE_TYPE_GOOGLE_PLUS @"google_plus"
 
 #define DISPLAY_NAME_PASTEBOARD_OPTION_VALUE @"from Pasteboard"
 
@@ -82,5 +83,6 @@ typedef enum {
 //@TODO check memory leak
 
 //@TODO transform NSString to NSURL for commands that have URLs
+//@TODO abstract all command that have body, url and/or image
 
 #endif

@@ -125,6 +125,7 @@
 		789C7B8C16A635C5007673BD /* REComposeSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789C7B8516A635C5007673BD /* REComposeSheetView.m */; };
 		789C7B8D16A635C5007673BD /* REComposeViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 789C7B8616A635C5007673BD /* REComposeViewController.bundle */; };
 		789C7B8E16A635C5007673BD /* REComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789C7B8816A635C5007673BD /* REComposeViewController.m */; };
+		789C7B9116A6374E007673BD /* LLShareSocialRequestCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 789C7B9016A6374D007673BD /* LLShareSocialRequestCommand.m */; };
 		789EE197166C9D7000CD4B92 /* LLPrefillOptionValuePrototypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 789EE196166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.m */; };
 		789EE199166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 789EE198166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib */; };
 		78A90ACE168FEEA00057289E /* LLLikeReceiptHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A90ACD168FEEA00057289E /* LLLikeReceiptHelper.m */; };
@@ -366,6 +367,8 @@
 		789C7B8616A635C5007673BD /* REComposeViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = REComposeViewController.bundle; sourceTree = "<group>"; };
 		789C7B8716A635C5007673BD /* REComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REComposeViewController.h; sourceTree = "<group>"; };
 		789C7B8816A635C5007673BD /* REComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REComposeViewController.m; sourceTree = "<group>"; };
+		789C7B8F16A6374D007673BD /* LLShareSocialRequestCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLShareSocialRequestCommand.h; sourceTree = "<group>"; };
+		789C7B9016A6374D007673BD /* LLShareSocialRequestCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLShareSocialRequestCommand.m; sourceTree = "<group>"; };
 		789EE195166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLPrefillOptionValuePrototypeCell.h; sourceTree = "<group>"; };
 		789EE196166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLPrefillOptionValuePrototypeCell.m; sourceTree = "<group>"; };
 		789EE198166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLPrefillOptionValuePrototypeCell.xib; sourceTree = "<group>"; };
@@ -532,6 +535,8 @@
 				785A0E2115E9EF1A002C6F78 /* LLEmailCommand.m */,
 				785EBB631629858C00ADE85F /* LLFacebookCommand.h */,
 				785EBB641629858C00ADE85F /* LLFacebookCommand.m */,
+				789C7B8F16A6374D007673BD /* LLShareSocialRequestCommand.h */,
+				789C7B9016A6374D007673BD /* LLShareSocialRequestCommand.m */,
 				785A0E0E15E9CF02002C6F78 /* LLTwitterCommand.h */,
 				785A0E0F15E9CF02002C6F78 /* LLTwitterCommand.m */,
 				78EAC95A16A2BEA9004C4B39 /* LLMultipleSocialsCommand.h */,
@@ -1182,6 +1187,7 @@
 				789C7B8B16A635C5007673BD /* REComposeBackgroundView.m in Sources */,
 				789C7B8C16A635C5007673BD /* REComposeSheetView.m in Sources */,
 				789C7B8E16A635C5007673BD /* REComposeViewController.m in Sources */,
+				789C7B9116A6374E007673BD /* LLShareSocialRequestCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
