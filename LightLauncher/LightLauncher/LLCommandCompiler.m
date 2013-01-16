@@ -89,6 +89,11 @@
             }
         }
     }
+    
+    if (self.compilingCounter == 0) {
+        [self doneCompiling];
+        return;
+    }
 }
 
 - (void)compileValueForOption:(LLOptionPrototype *)option fromOptionValuePrototype:(LLOptionValuePrototype *)optionValue {
@@ -104,8 +109,8 @@
         } else if([optionValue.key isEqualToString:OPTION_VALUE_SERVICE_TYPE_FACEBOOK]) {
             [self setCompiledValue:OPTION_VALUE_SERVICE_TYPE_FACEBOOK forOption:option];
         } else if([optionValue.key isEqualToString:OPTION_VALUE_SERVICE_TYPE_TWITTER]) {
-            [self setCompiledValue:OPTION_VALUE_SERVICE_TYPE_FACEBOOK forOption:option];
-        } else if ([option.key isEqualToString:OPTION_VALUE_SERVICE_TYPE_GOOGLE_PLUS]) {
+            [self setCompiledValue:OPTION_VALUE_SERVICE_TYPE_TWITTER forOption:option];
+        } else if ([optionValue.key isEqualToString:OPTION_VALUE_SERVICE_TYPE_GOOGLE_PLUS]) {
             [self setCompiledValue:OPTION_VALUE_SERVICE_TYPE_GOOGLE_PLUS forOption:option];
         }
     } else {

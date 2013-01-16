@@ -62,7 +62,7 @@
     }
 }
 
-#pragma mark - Service methods
+#pragma mark - Service command protocols
 
 - (BOOL)isServiceAvailable {
     return [MFMailComposeViewController canSendMail];
@@ -79,6 +79,8 @@
     controller.mailComposeDelegate = self;
     return controller;
 }
+
+#pragma mark - Instance methods
 
 - (NSArray *)recipientsFromOptions:(NSArray *)addresses {
     NSMutableArray *recipients = [NSMutableArray arrayWithCapacity:addresses.count];

@@ -78,6 +78,7 @@ typedef enum {
     GROUP_FAVORITE,
 } ViewControllerGroup;
 
+//@TODO decoupling using interface
 //@TODO test addresses in email
 //@TODO check all delegates are weak
 //@TODO check memory leak

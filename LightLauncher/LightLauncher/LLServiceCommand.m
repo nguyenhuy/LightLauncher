@@ -23,7 +23,7 @@
     }
 }
 
-#pragma mark - Service related methods
+#pragma mark - Service command protocol
 
 - (BOOL)isServiceAvailable {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"isServiceAvailable must be implemented" userInfo:nil];

@@ -18,13 +18,11 @@
 		785A0DD015E9BFD1002C6F78 /* LLCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DCF15E9BFD1002C6F78 /* LLCommand.m */; };
 		785A0DD615E9C165002C6F78 /* LLCommandManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DD515E9C165002C6F78 /* LLCommandManager.m */; };
 		785A0DE215E9C662002C6F78 /* LLCommandPrototypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0DE115E9C662002C6F78 /* LLCommandPrototypeCell.m */; };
-		785A0E1015E9CF02002C6F78 /* LLTwitterCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0E0F15E9CF02002C6F78 /* LLTwitterCommand.m */; };
 		785A0E1315E9D157002C6F78 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 785A0E1215E9D157002C6F78 /* twitter.png */; };
 		785A0E2215E9EF1A002C6F78 /* LLEmailCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785A0E2115E9EF1A002C6F78 /* LLEmailCommand.m */; };
 		785A0E2515E9EFEC002C6F78 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 785A0E2415E9EFEC002C6F78 /* mail.png */; };
 		785EBB5F16297FBF00ADE85F /* LLSocialCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EBB5E16297FBF00ADE85F /* LLSocialCommand.m */; };
 		785EBB621629805E00ADE85F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785EBB611629805E00ADE85F /* Social.framework */; };
-		785EBB651629858C00ADE85F /* LLFacebookCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EBB641629858C00ADE85F /* LLFacebookCommand.m */; };
 		785EBB68162AC70F00ADE85F /* LLServiceCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EBB67162AC70F00ADE85F /* LLServiceCommand.m */; };
 		785EBB6A162B15C000ADE85F /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 785EBB69162B15C000ADE85F /* facebook.png */; };
 		787B243C1699B18800302788 /* LLSavingTimeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 787B243B1699B18800302788 /* LLSavingTimeManager.m */; };
@@ -139,6 +137,7 @@
 		78B2F4D216A278BF00EF31C6 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78B2F4D116A278BF00EF31C6 /* AssetsLibrary.framework */; };
 		78BA2D3416435C950057AD58 /* LLCommandPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BA2D3316435C950057AD58 /* LLCommandPrototype.m */; };
 		78CF08B716A4F2EB00ECF02A /* libGooglePlusUniversal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CF08B616A4F2EB00ECF02A /* libGooglePlusUniversal.a */; };
+		78CF89FB16A6FE0600950FFF /* LLShareSocialComposeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CF89FA16A6FE0600950FFF /* LLShareSocialComposeCommand.m */; };
 		78EAC95C16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAC95B16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m */; };
 		78F12CF21646B0020068F9E4 /* LLOptionPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */; };
 		78F12CF51646B11F0068F9E4 /* LLCommandPrototypeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */; };
@@ -168,8 +167,6 @@
 		785A0DD515E9C165002C6F78 /* LLCommandManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandManager.m; sourceTree = "<group>"; };
 		785A0DE015E9C662002C6F78 /* LLCommandPrototypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandPrototypeCell.h; sourceTree = "<group>"; };
 		785A0DE115E9C662002C6F78 /* LLCommandPrototypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandPrototypeCell.m; sourceTree = "<group>"; };
-		785A0E0E15E9CF02002C6F78 /* LLTwitterCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLTwitterCommand.h; sourceTree = "<group>"; };
-		785A0E0F15E9CF02002C6F78 /* LLTwitterCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLTwitterCommand.m; sourceTree = "<group>"; };
 		785A0E1215E9D157002C6F78 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
 		785A0E2015E9EF1A002C6F78 /* LLEmailCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLEmailCommand.h; sourceTree = "<group>"; };
 		785A0E2115E9EF1A002C6F78 /* LLEmailCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLEmailCommand.m; sourceTree = "<group>"; };
@@ -178,8 +175,6 @@
 		785EBB5D16297FBF00ADE85F /* LLSocialCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSocialCommand.h; sourceTree = "<group>"; };
 		785EBB5E16297FBF00ADE85F /* LLSocialCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSocialCommand.m; sourceTree = "<group>"; };
 		785EBB611629805E00ADE85F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		785EBB631629858C00ADE85F /* LLFacebookCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLFacebookCommand.h; sourceTree = "<group>"; };
-		785EBB641629858C00ADE85F /* LLFacebookCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLFacebookCommand.m; sourceTree = "<group>"; };
 		785EBB66162AC70E00ADE85F /* LLServiceCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLServiceCommand.h; sourceTree = "<group>"; };
 		785EBB67162AC70F00ADE85F /* LLServiceCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLServiceCommand.m; sourceTree = "<group>"; };
 		785EBB69162B15C000ADE85F /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
@@ -390,6 +385,8 @@
 		78BA2D3316435C950057AD58 /* LLCommandPrototype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCommandPrototype.m; sourceTree = "<group>"; };
 		78CF08B516A4F2EB00ECF02A /* GPPShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPPShare.h; sourceTree = "<group>"; };
 		78CF08B616A4F2EB00ECF02A /* libGooglePlusUniversal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGooglePlusUniversal.a; sourceTree = "<group>"; };
+		78CF89F916A6FE0600950FFF /* LLShareSocialComposeCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLShareSocialComposeCommand.h; sourceTree = "<group>"; };
+		78CF89FA16A6FE0600950FFF /* LLShareSocialComposeCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLShareSocialComposeCommand.m; sourceTree = "<group>"; };
 		78EAC95A16A2BEA9004C4B39 /* LLMultipleSocialsCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLMultipleSocialsCommand.h; sourceTree = "<group>"; };
 		78EAC95B16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLMultipleSocialsCommand.m; sourceTree = "<group>"; };
 		78F12CF01646B0020068F9E4 /* LLOptionPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLOptionPrototype.h; sourceTree = "<group>"; };
@@ -533,12 +530,10 @@
 				788FBF8F163D0927005A444E /* Abstract Commands */,
 				785A0E2015E9EF1A002C6F78 /* LLEmailCommand.h */,
 				785A0E2115E9EF1A002C6F78 /* LLEmailCommand.m */,
-				785EBB631629858C00ADE85F /* LLFacebookCommand.h */,
-				785EBB641629858C00ADE85F /* LLFacebookCommand.m */,
+				78CF89F916A6FE0600950FFF /* LLShareSocialComposeCommand.h */,
+				78CF89FA16A6FE0600950FFF /* LLShareSocialComposeCommand.m */,
 				789C7B8F16A6374D007673BD /* LLShareSocialRequestCommand.h */,
 				789C7B9016A6374D007673BD /* LLShareSocialRequestCommand.m */,
-				785A0E0E15E9CF02002C6F78 /* LLTwitterCommand.h */,
-				785A0E0F15E9CF02002C6F78 /* LLTwitterCommand.m */,
 				78EAC95A16A2BEA9004C4B39 /* LLMultipleSocialsCommand.h */,
 				78EAC95B16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m */,
 				789130DA16A4E93F005E12C8 /* LLGooglePlusCommand.h */,
@@ -1090,10 +1085,8 @@
 				785A0DD015E9BFD1002C6F78 /* LLCommand.m in Sources */,
 				785A0DD615E9C165002C6F78 /* LLCommandManager.m in Sources */,
 				785A0DE215E9C662002C6F78 /* LLCommandPrototypeCell.m in Sources */,
-				785A0E1015E9CF02002C6F78 /* LLTwitterCommand.m in Sources */,
 				785A0E2215E9EF1A002C6F78 /* LLEmailCommand.m in Sources */,
 				785EBB5F16297FBF00ADE85F /* LLSocialCommand.m in Sources */,
-				785EBB651629858C00ADE85F /* LLFacebookCommand.m in Sources */,
 				785EBB68162AC70F00ADE85F /* LLServiceCommand.m in Sources */,
 				788FBF87163CE93C005A444E /* LLCommandParser.m in Sources */,
 				788FBF8D163CEC59005A444E /* JSONKit.m in Sources */,
@@ -1188,6 +1181,7 @@
 				789C7B8C16A635C5007673BD /* REComposeSheetView.m in Sources */,
 				789C7B8E16A635C5007673BD /* REComposeViewController.m in Sources */,
 				789C7B9116A6374E007673BD /* LLShareSocialRequestCommand.m in Sources */,
+				78CF89FB16A6FE0600950FFF /* LLShareSocialComposeCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

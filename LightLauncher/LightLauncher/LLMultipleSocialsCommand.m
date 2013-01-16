@@ -23,6 +23,7 @@
     self = [super init];
     if (self) {
         self.serviceTypes = [[NSMutableArray alloc] init];
+        self.executedServicesCounter = 0;
     }
     return self;
 }
@@ -34,26 +35,41 @@
         } else if ([value isKindOfClass:[NSArray class]]) {
             [self.serviceTypes addObjectsFromArray:value];
         }
-    } else if ([key isEqualToString:OPTION_BODY] && [value isKindOfClass:[NSString class]]) {
-        self.body = value;
-    } else if ([key isEqualToString:OPTION_URL]) {
-        if ([value isKindOfClass:[NSString class]]) {
-            self.url = [NSURL URLWithString:value];
-        } else if ([value isKindOfClass:[NSURL class]]) {
-            self.url = value;
-        }
-    } else if ([key isEqualToString:OPTION_IMAGE] && [value isKindOfClass:[UIImage class]]) {
-        self.image = value;
     } else {
         [super setValue:value forKey:key];
     }
 }
 
-- (void)executeWithViewController:(UIViewController *)viewController withCommandDelegate:(id<LLCommandDelegate>)delegate {
-    [super executeWithViewController:viewController withCommandDelegate:delegate];
-    self.executedServicesCounter = 0;
-    [self executeService];
+#pragma mark - Service command protocol
+
+- (BOOL)isServiceAvailable {
+    //@TODO may change this
+    return YES;
 }
+
+- (UIViewController *)constructComposeViewContrroller {
+    REComposeViewController *composeViewController = [[REComposeViewController alloc] init];
+    composeViewController.title = @"LightLauncher";
+    composeViewController.hasAttachment = YES;
+    composeViewController.attachmentImage = self.image;
+    composeViewController.text = self.body;
+    composeViewController.delegate = self;
+    //@TODO url!!!
+    
+    return composeViewController;
+}
+
+#pragma mark - RE compose view controller delegate
+
+- (void)composeViewController:(REComposeViewController *)composeViewController didFinishWithResult:(REComposeResult)result {
+    if (result == REComposeResultCancelled) {
+        [self onCanceled];
+    } else if (result == REComposeResultPosted) {
+        [self executeService];
+    }
+}
+
+#pragma mark - Instance methods
 
 - (void)executeService {
     if (self.executedServicesCounter == self.serviceTypes.count) {
@@ -80,7 +96,9 @@
     } else if ([serviceType isEqualToString:COMMAND_GOOGLE_PLUS]) {
         LLGooglePlusCommand *c = [[LLGooglePlusCommand alloc] init];
         c.body = self.body;
-        c.url = self.url;        
+        c.url = self.url;
+        
+        command = c;
     }
         
     [self increaseExecutedServicesCounter];
@@ -97,7 +115,6 @@
 #pragma mark - Command Delegate
 
 - (void)onFinishedCommand:(LLCommand *)command {
-    
     [self executeService];
 }
 

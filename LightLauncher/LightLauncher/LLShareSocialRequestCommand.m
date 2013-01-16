@@ -29,7 +29,8 @@
 }
 
 - (void)executeWithViewController:(UIViewController *)viewController withCommandDelegate:(id<LLCommandDelegate>)delegate {
-    
+    [super executeWithViewController:viewController withCommandDelegate:delegate];
+    [self onFinished];
 }
 
 @end

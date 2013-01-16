@@ -10,10 +10,13 @@
 #import "LLCommand.h"
 
 #import "LLEmailCommand.h"
-#import "LLFacebookCommand.h"
-#import "LLTwitterCommand.h"
 #import "LLMultipleSocialsCommand.h"
 #import "LLGooglePlusCommand.h"
+#import "LLShareSocialComposeCommand.h"
+
+@interface LLCommandFactory ()
++ (LLShareSocialComposeCommand *)shareSocialComposeCommandWithServiceType:(NSString *)serviceType andServiceName:(NSString *)serviceName;
+@end
 
 @implementation LLCommandFactory
 
@@ -22,10 +25,10 @@
         return [[LLEmailCommand alloc] init];
     }
     if ([command isEqualToString:COMMAND_FACEBOOK]) {
-        return [[LLFacebookCommand alloc] init];
+        return [LLCommandFactory shareSocialComposeCommandWithServiceType:SLServiceTypeFacebook andServiceName:@"Facebook"];
     }
     if([command isEqualToString:COMMAND_TWITTER]) {
-        return [[LLTwitterCommand alloc] init];
+        return [LLCommandFactory shareSocialComposeCommandWithServiceType:SLServiceTypeTwitter andServiceName:@"Twitter"];
     }
     if ([command isEqualToString:COMMAND_MULTIPLE_SOCIALS]) {
         return [[LLMultipleSocialsCommand alloc] init];
@@ -34,6 +37,13 @@
         return [[LLGooglePlusCommand alloc] init];
     }
     return nil;
+}
+
++ (LLShareSocialComposeCommand *)shareSocialComposeCommandWithServiceType:(NSString *)serviceType andServiceName:(NSString *)serviceName {
+    LLShareSocialComposeCommand *command = [[LLShareSocialComposeCommand alloc] init];
+    command.serviceType = serviceType;
+    command.serviceName = serviceName;
+    return command;
 }
 
 @end

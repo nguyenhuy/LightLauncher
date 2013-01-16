@@ -7,14 +7,11 @@
 //
 
 #import "LLSocialCommand.h"
+#import "REComposeViewController.h"
 
-@interface LLMultipleSocialsCommand : LLCommand <LLCommandDelegate>
+@interface LLMultipleSocialsCommand : LLSocialCommand <LLCommandDelegate, REComposeViewControllerDelegate>
 
-// Array of NSStrings
 @property (nonatomic, strong) NSMutableArray *serviceTypes;
-@property (nonatomic, strong) NSString *body;
-@property (nonatomic, strong) NSURL *url;
-@property (nonatomic, strong) UIImage *image;
 @property (nonatomic) int executedServicesCounter;
 
 @end

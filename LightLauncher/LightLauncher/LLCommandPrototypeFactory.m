@@ -11,8 +11,7 @@
 #import "LLOptionPrototypeFactory.h"
 #import "LLOptionPrototype.h"
 #import "LLEmailCommand.h"
-#import "LLFacebookCommand.h"
-#import "LLTwitterCommand.h"
+#import "LLShareSocialComposeCommand.h"
 
 @interface LLCommandPrototypeFactory ()
 + (LLCommandPrototype *)socialCommandPrototypeForCommand:(NSString *)command withDesc:(NSString *)desc andIconFileName:(NSString *)iconFileName;
