@@ -119,6 +119,12 @@
 		789948EA1690515F008406ED /* copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 789948E91690515F008406ED /* copy.png */; };
 		789C7B6116A5B37E007673BD /* google_plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 789C7B5F16A5B37E007673BD /* google_plus.png */; };
 		789C7B6216A5B37E007673BD /* google_plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 789C7B6016A5B37E007673BD /* google_plus@2x.png */; };
+		789C7B8916A635C5007673BD /* DEComposeRuledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789C7B7F16A635C5007673BD /* DEComposeRuledView.m */; };
+		789C7B8A16A635C5007673BD /* DEComposeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789C7B8116A635C5007673BD /* DEComposeTextView.m */; };
+		789C7B8B16A635C5007673BD /* REComposeBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789C7B8316A635C5007673BD /* REComposeBackgroundView.m */; };
+		789C7B8C16A635C5007673BD /* REComposeSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 789C7B8516A635C5007673BD /* REComposeSheetView.m */; };
+		789C7B8D16A635C5007673BD /* REComposeViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 789C7B8616A635C5007673BD /* REComposeViewController.bundle */; };
+		789C7B8E16A635C5007673BD /* REComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 789C7B8816A635C5007673BD /* REComposeViewController.m */; };
 		789EE197166C9D7000CD4B92 /* LLPrefillOptionValuePrototypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 789EE196166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.m */; };
 		789EE199166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 789EE198166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib */; };
 		78A90ACE168FEEA00057289E /* LLLikeReceiptHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A90ACD168FEEA00057289E /* LLLikeReceiptHelper.m */; };
@@ -349,6 +355,17 @@
 		789948E91690515F008406ED /* copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = copy.png; sourceTree = "<group>"; };
 		789C7B5F16A5B37E007673BD /* google_plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = google_plus.png; sourceTree = "<group>"; };
 		789C7B6016A5B37E007673BD /* google_plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "google_plus@2x.png"; sourceTree = "<group>"; };
+		789C7B7E16A635C5007673BD /* DEComposeRuledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEComposeRuledView.h; sourceTree = "<group>"; };
+		789C7B7F16A635C5007673BD /* DEComposeRuledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEComposeRuledView.m; sourceTree = "<group>"; };
+		789C7B8016A635C5007673BD /* DEComposeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEComposeTextView.h; sourceTree = "<group>"; };
+		789C7B8116A635C5007673BD /* DEComposeTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEComposeTextView.m; sourceTree = "<group>"; };
+		789C7B8216A635C5007673BD /* REComposeBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REComposeBackgroundView.h; sourceTree = "<group>"; };
+		789C7B8316A635C5007673BD /* REComposeBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REComposeBackgroundView.m; sourceTree = "<group>"; };
+		789C7B8416A635C5007673BD /* REComposeSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REComposeSheetView.h; sourceTree = "<group>"; };
+		789C7B8516A635C5007673BD /* REComposeSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REComposeSheetView.m; sourceTree = "<group>"; };
+		789C7B8616A635C5007673BD /* REComposeViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = REComposeViewController.bundle; sourceTree = "<group>"; };
+		789C7B8716A635C5007673BD /* REComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REComposeViewController.h; sourceTree = "<group>"; };
+		789C7B8816A635C5007673BD /* REComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REComposeViewController.m; sourceTree = "<group>"; };
 		789EE195166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLPrefillOptionValuePrototypeCell.h; sourceTree = "<group>"; };
 		789EE196166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLPrefillOptionValuePrototypeCell.m; sourceTree = "<group>"; };
 		789EE198166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLPrefillOptionValuePrototypeCell.xib; sourceTree = "<group>"; };
@@ -798,6 +815,7 @@
 		788FBF89163CEC1D005A444E /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				789C7B7C16A6358E007673BD /* REConposeViewController */,
 				7891307416A47F65005E12C8 /* GooglePlus */,
 				78A90ADC168FF6820057289E /* MBProgressHUD */,
 				788F63A1168312D200C25E32 /* MagicalRecord */,
@@ -939,6 +957,24 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		789C7B7C16A6358E007673BD /* REConposeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				789C7B7E16A635C5007673BD /* DEComposeRuledView.h */,
+				789C7B7F16A635C5007673BD /* DEComposeRuledView.m */,
+				789C7B8016A635C5007673BD /* DEComposeTextView.h */,
+				789C7B8116A635C5007673BD /* DEComposeTextView.m */,
+				789C7B8216A635C5007673BD /* REComposeBackgroundView.h */,
+				789C7B8316A635C5007673BD /* REComposeBackgroundView.m */,
+				789C7B8416A635C5007673BD /* REComposeSheetView.h */,
+				789C7B8516A635C5007673BD /* REComposeSheetView.m */,
+				789C7B8616A635C5007673BD /* REComposeViewController.bundle */,
+				789C7B8716A635C5007673BD /* REComposeViewController.h */,
+				789C7B8816A635C5007673BD /* REComposeViewController.m */,
+			);
+			name = REConposeViewController;
+			sourceTree = "<group>";
+		};
 		78A90ADC168FF6820057289E /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -1031,6 +1067,7 @@
 				789130D716A47F93005E12C8 /* GTMOAuth2ViewTouch.xib in Resources */,
 				789C7B6116A5B37E007673BD /* google_plus.png in Resources */,
 				789C7B6216A5B37E007673BD /* google_plus@2x.png in Resources */,
+				789C7B8D16A635C5007673BD /* REComposeViewController.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1140,6 +1177,11 @@
 				789130D816A47F93005E12C8 /* GTMObjC2Runtime.m in Sources */,
 				78EAC95C16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m in Sources */,
 				789130DC16A4E93F005E12C8 /* LLGooglePlusCommand.m in Sources */,
+				789C7B8916A635C5007673BD /* DEComposeRuledView.m in Sources */,
+				789C7B8A16A635C5007673BD /* DEComposeTextView.m in Sources */,
+				789C7B8B16A635C5007673BD /* REComposeBackgroundView.m in Sources */,
+				789C7B8C16A635C5007673BD /* REComposeSheetView.m in Sources */,
+				789C7B8E16A635C5007673BD /* REComposeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

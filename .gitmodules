@@ -10,3 +10,6 @@
 [submodule "MBProgressHUD"]
 	path = MBProgressHUD
 	url = https://github.com/jdg/MBProgressHUD.git
+[submodule "REComposeViewController"]
+	path = REComposeViewController
+	url = git@github.com:nguyenhuy/REComposeViewController.git
