@@ -38,7 +38,7 @@
 }
 
 - (MBProgressHUD *)showErrorHUDWithTitle:(NSString *)title andDesc:(NSString *)desc {
-    MBProgressHUD *hud = [self showErrorHUDWithTitle:title andDesc:desc];
+    MBProgressHUD *hud = [self showTextHUDWithLabelText:title];
     hud.detailsLabelText = desc;
     return hud;
 }

@@ -173,7 +173,7 @@
 
 - (void)onFailedCompilingCommandPrototype:(LLCommandPrototype *)commandPrototype withError:(NSError *)error {
     //@TODO change this to handle error better
-    [self onStoppedCommand:nil withErrorTitle:@"Failed compiling command" andErrorDesc:@"Failed compiling command"];
+    [self onStoppedCommand:nil withErrorTitle:@"Failed compiling command" andErrorDesc:error.localizedDescription];
 }
 
 #pragma mark Command Delegate
