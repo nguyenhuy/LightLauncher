@@ -71,9 +71,9 @@
     }
 
     for (LLOptionPrototype *option in commandPrototype.options) {
-        self.compilingOption = option;
         for (LLOptionValuePrototype *optionValue in option.possibleValues.allValues) {
             if (optionValue.selected) {
+                self.compilingOption = option;        
                 [self compileValueFromOptionValuePrototype:optionValue];
                 if (option.dataType != DATA_ARRAY) {
                     continue;
@@ -135,23 +135,25 @@
     
     //Enumerate just saved photos and videos group
     [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-        // Within the group, get all photos
-        [group setAssetsFilter:[ALAssetsFilter allPhotos]];
-        
-        // Last photo is the one has the last index
-        //@TODO handle the case when there is no photo
-        NSIndexSet *indexes = [NSIndexSet indexSetWithIndex:([group numberOfAssets] - 1)];
-        [group enumerateAssetsAtIndexes:indexes options:0 usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
-            // The end of enumeration is a null asset
-            UIImage *image;
-            if (result) {
-                ALAssetRepresentation *representation = [result defaultRepresentation];
-                image = [UIImage imageWithCGImage:[representation fullScreenImage]];
-            }
+        if (group) {
+            // Within the group, get all photos
+            [group setAssetsFilter:[ALAssetsFilter allPhotos]];
             
-            //@TODO: may handle error when image can't be loaded.
-            [self setCompiledValue:image];
-        }];
+            // Last photo is the one has the last index
+            //@TODO handle the case when there is no photo
+            NSIndexSet *indexes = [NSIndexSet indexSetWithIndex:([group numberOfAssets] - 1)];
+            [group enumerateAssetsAtIndexes:indexes options:0 usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+                // The end of enumeration is a null asset
+                UIImage *image;
+                if (result) {
+                    ALAssetRepresentation *representation = [result defaultRepresentation];
+                    image = [UIImage imageWithCGImage:[representation fullScreenImage]];
+                }
+                
+                //@TODO: may handle error when image can't be loaded.
+                [self setCompiledValue:image];
+            }];
+        }
     } failureBlock:^(NSError *error) {
         [self onFailedCompilingValueWithError:error];
     }];
@@ -175,14 +177,16 @@
     
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
     [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-        imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        // Only interested in image
-        imagePickerController.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeImage, nil];
-        imagePickerController.allowsEditing = NO;
-        imagePickerController.delegate = self;
-        
-        [self.viewController presentViewController:imagePickerController animated:YES completion:nil];
+        if (group) {
+            UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+            imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            // Only interested in image
+            imagePickerController.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeImage, nil];
+            imagePickerController.allowsEditing = NO;
+            imagePickerController.delegate = self;
+            
+            [self.viewController presentViewController:imagePickerController animated:YES completion:nil];
+        }
     } failureBlock:^(NSError *error) {
         [self onFailedCompilingValueWithError:error];
     }];
@@ -191,20 +195,19 @@
 #pragma mark - Image Picker Delegate
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [self.viewController dismissViewControllerAnimated:YES completion:nil];
-    picker.delegate = nil;
-    
-    //@TODO may add cancel callback to delegate
-     NSError *error = [NSError errorWithDomain:ERROR_DOMAIN code:2 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"Canceled", NSLocalizedDescriptionKey, nil]];
-    [self onFailedCompilingValueWithError:error];
+    [self.viewController dismissViewControllerAnimated:YES completion:^(){
+        picker.delegate = nil;
+        [self setCompiledValue:nil];
+    }];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    [self.viewController dismissViewControllerAnimated:YES completion:nil];
-    picker.delegate = nil;
-    
-    UIImage *image = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
-    [self setCompiledValue:image];
+    [self.viewController dismissViewControllerAnimated:YES completion:^(){
+        picker.delegate = nil;
+        
+        UIImage *image = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
+        [self setCompiledValue:image];
+    }];
 }
 
 
