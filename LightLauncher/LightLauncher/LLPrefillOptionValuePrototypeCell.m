@@ -14,18 +14,21 @@
 - (void)updateViewWithOptionValuePrototype:(LLOptionValuePrototype *)optionValuePrototype atIndexPath:(NSIndexPath *)indexPath {
     self.indexPath = indexPath;
     
-    self.textField.text = optionValuePrototype.value;
-    self.textField.placeholder = optionValuePrototype.displayName;
     self.textField.returnKeyType = UIReturnKeyDone;
     self.textField.delegate = self;
-    
+
+    NSString *text = optionValuePrototype.value;
+    UIKeyboardType keyboardType = UIKeyboardAppearanceDefault;
     if (optionValuePrototype.type == TYPE_EMAIL) {
-        self.textField.keyboardType = UIKeyboardTypeEmailAddress;
+        keyboardType = UIKeyboardTypeEmailAddress;
     } else if (optionValuePrototype.type == TYPE_URL) {
-        self.textField.keyboardType = UIKeyboardTypeURL;
-    } else {
-        self.textField.keyboardType = UIKeyboardTypeDefault;
+        keyboardType = UIKeyboardTypeURL;
+        if (!text) {
+            text = @"http://";
+        }
     }
+    self.textField.text = text;
+    self.textField.keyboardType = keyboardType;
     
     BOOL selected = optionValuePrototype.selected;
     self.accessoryType = selected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;

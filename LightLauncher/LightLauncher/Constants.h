@@ -56,7 +56,8 @@
 
 #define DEFAULT_GROUP_NAME @"New"
 
-#define GOOGLE_PLUS_CLIENT_ID @"16316205072.apps.googleusercontent.com"
+#define CLIENT_ID_GOOGLE_PLUS @"16316205072.apps.googleusercontent.com"
+#define CLIENT_ID_FACEBOOK @"523390914350483"
 
 typedef enum {
     DATA_OBJECT,

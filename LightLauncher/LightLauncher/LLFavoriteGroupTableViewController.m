@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
+#import <Accounts/Accounts.h>
 #import "LLFavoriteGroupTableViewController.h"
 
 #import "LLCommandManager.h"
@@ -20,6 +21,7 @@
 #import "UIViewController+SetupSideMenu.h"
 
 @interface LLFavoriteGroupTableViewController ()
+- (void)requestFacebookReadPermission;
 - (void)updateCell:(LLFavoriteGroupCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
 
@@ -41,6 +43,8 @@
     if (![[self fetchedResultsController] performFetch:&error]) {
         [self showErrorHUDWithTitle:@"Error" andDesc:[error localizedDescription]];
     }
+    
+    [self requestFacebookReadPermission];
 }
 
 - (void)dealloc {
@@ -177,6 +181,20 @@
 - (void)updateCell:(LLFavoriteGroupCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     Group *group = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [cell updateViewWithGroup:group andDelegate:self];
+}
+
+- (void)requestFacebookReadPermission {
+    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+    ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
+    NSDictionary *options = @{ACFacebookAppIdKey : CLIENT_ID_FACEBOOK, ACFacebookPermissionsKey : @[@"email"]};
+    [accountStore requestAccessToAccountsWithType:accountType options:options completion:^(BOOL granted, NSError *error) {
+        if (granted) {
+            //@TODO may check for granted here
+            NSLog(@"%@", @"Logged in FB", nil);
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
 }
 
 @end

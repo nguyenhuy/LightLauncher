@@ -42,6 +42,8 @@
     }
 }
 
+//@TODO check num of service types and suggest user to use the other commands if there is 1 service type
+
 #pragma mark - Service command protocol
 
 - (BOOL)isServiceAvailable {
@@ -54,9 +56,8 @@
     composeViewController.title = @"LightLauncher";
     composeViewController.hasAttachment = YES;
     composeViewController.attachmentImage = self.image;
-    composeViewController.text = self.body;
+    composeViewController.text = [NSString stringWithFormat:@"%@ %@", self.body, self.url];
     composeViewController.delegate = self;
-    //@TODO url!!!
     
     return composeViewController;
 }

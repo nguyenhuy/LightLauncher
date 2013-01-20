@@ -76,7 +76,7 @@
 
 - (void)ensureGppShare {
     if (!self.share) {
-        self.share = [[GPPShare alloc] initWithClientID:GOOGLE_PLUS_CLIENT_ID];
+        self.share = [[GPPShare alloc] initWithClientID:CLIENT_ID_GOOGLE_PLUS];
     }
 }
 
