@@ -25,15 +25,16 @@
     [composeViewController addURL:self.url];
     
     [composeViewController setCompletionHandler:^(SLComposeViewControllerResult result) {
-        //@TODO: Note that completion handlers are not called on any particular thread.
-        switch (result) {
-            case SLComposeViewControllerResultCancelled:
-                [self onCanceled];
-                break;
-            case SLComposeViewControllerResultDone:
-                [self onFinished];
-                break;
-        }
+        dispatch_async(dispatch_get_main_queue(), ^(){
+            switch (result) {
+                case SLComposeViewControllerResultCancelled:
+                    [self onCanceled];
+                    break;
+                case SLComposeViewControllerResultDone:
+                    [self onFinished];
+                    break;
+            }            
+        });
     }];
     
     return composeViewController;

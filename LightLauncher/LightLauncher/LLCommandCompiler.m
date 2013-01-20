@@ -81,11 +81,6 @@
             }
         }
     }
-    
-    if (self.compilingCounter == 0) {
-        [self doneCompiling];
-        return;
-    }
 }
 
 - (void)compileValueFromOptionValuePrototype:(LLOptionValuePrototype *)optionValue {

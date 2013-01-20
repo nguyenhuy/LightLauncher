@@ -51,19 +51,16 @@
 
 - (void)onFinished {
     [self.viewController dismissViewControllerAnimated:YES completion:nil];
-
     [super onFinished];
 }
 
 - (void)onCanceled {
     [self.viewController dismissViewControllerAnimated:YES completion:nil];
-
     [super onCanceled];
 }
 
 - (void)onErrorWithTitle:(NSString *)title andDesc:(NSString *)desc {
     [self.viewController dismissViewControllerAnimated:YES completion:nil];
-    
     [super onErrorWithTitle:title andDesc:desc];
 }
 
