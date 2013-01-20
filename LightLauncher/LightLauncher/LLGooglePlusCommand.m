@@ -19,8 +19,10 @@
             //@TODO may check if the url is malformed.
             self.url = [NSURL URLWithString:value];
         }
-    } else if ([key isEqualToString:OPTION_BODY] && [value isKindOfClass:[NSString class]]) {
-        self.body = value;
+    } else if ([key isEqualToString:OPTION_BODY]) {
+        if ([value isKindOfClass:[NSString class]]) {
+            self.body = value;
+        }
     }
 }
 

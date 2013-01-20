@@ -14,10 +14,14 @@
 @implementation LLServiceCommand
 
 - (void)setValue:(id)value forKey:(NSString *)key {
-    if ([key isEqualToString:OPTION_SERVICE_NAME] && [value isKindOfClass:[NSString class]]) {
-        self.serviceName = value;
-    } else if ([key isEqualToString:OPTION_SERVICE_TYPE] && [value isKindOfClass:[NSString class]]) {
-        self.serviceType = value;
+    if ([key isEqualToString:OPTION_SERVICE_NAME]) {
+        if ([value isKindOfClass:[NSString class]]) {
+            self.serviceName = value;
+        }
+    } else if ([key isEqualToString:OPTION_SERVICE_TYPE]) {
+        if ([value isKindOfClass:[NSString class]]) {
+            self.serviceType = value;
+        }
     } else {
         [super setValue:value forKey:key];
     }

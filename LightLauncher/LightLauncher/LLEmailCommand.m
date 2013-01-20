@@ -47,10 +47,14 @@
         } else if ([value isKindOfClass:[NSArray class]]) {
             [self.bccAddresses addObjectsFromArray:value];
         }
-    } else if ([key isEqualToString:OPTION_SUBJECT] && [value isKindOfClass:[NSString class]]) {
-        self.subject = value;
-    } else if ([key isEqualToString:OPTION_BODY] && [value isKindOfClass:[NSString class]]) {
-        self.body = value;
+    } else if ([key isEqualToString:OPTION_SUBJECT]) {
+        if ([value isKindOfClass:[NSString class]]) {
+            self.subject = value;
+        }
+    } else if ([key isEqualToString:OPTION_BODY]) {
+        if ([value isKindOfClass:[NSString class]]) {
+            self.body = value;
+        }
     } else if ([key isEqualToString:OPTION_FILE_ATTACHMENTS]) {
         if ([value isKindOfClass:[NSData class]]) {
             [self.attachments addObject:value];
