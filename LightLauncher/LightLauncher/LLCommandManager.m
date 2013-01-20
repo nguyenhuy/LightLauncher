@@ -114,6 +114,7 @@
     receipt.data = [LLCommandParser encode:commandPrototype];
     receipt.group = [LLCommandManager defaultGroup];
     receipt.positionInGroup = 0;
+    [receipt setDesc:description];
     
     //@TODO shift other fav receipts in this group to the right.
     
