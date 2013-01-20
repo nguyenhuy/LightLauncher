@@ -11,17 +11,15 @@
 @interface LLOptionValuePrototype ()
 @property (nonatomic, strong, readwrite) NSString *key;
 @property (nonatomic, strong, readwrite) NSString *displayName;
-@property (nonatomic, readwrite) OptionValueType type;
 @end
 
 @implementation LLOptionValuePrototype
 
-- (LLOptionValuePrototype *)initWithKey:(NSString *)key andDisplayName:(NSString *)displayName andType:(OptionValueType)type {
+- (LLOptionValuePrototype *)initWithKey:(NSString *)key andDisplayName:(NSString *)displayName {
     self = [super init];
     if (self) {
         self.key = key;
         self.displayName = displayName;
-        self.type = type;
         self.selected = NO;
         self.value = nil;
     }

@@ -21,4 +21,6 @@
 //@TODO may use weak here
 @property (nonatomic, strong) id<LLPrefillOptionValuePrototypeCellDelegate> delegate;
 
+- (void)updateViewWithOptionValuePrototype:(LLOptionValuePrototype *)optionValuePrototype andValueType:(OptionValueType)valueType atIndexPath:(NSIndexPath *)indexPath;
+
 @end

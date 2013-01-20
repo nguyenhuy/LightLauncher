@@ -11,7 +11,7 @@
 
 @implementation LLPrefillOptionValuePrototypeCell
 
-- (void)updateViewWithOptionValuePrototype:(LLOptionValuePrototype *)optionValuePrototype atIndexPath:(NSIndexPath *)indexPath {
+- (void)updateViewWithOptionValuePrototype:(LLOptionValuePrototype *)optionValuePrototype andValueType:(OptionValueType)valueType atIndexPath:(NSIndexPath *)indexPath {
     self.indexPath = indexPath;
     
     self.textField.returnKeyType = UIReturnKeyDone;
@@ -19,9 +19,9 @@
 
     NSString *text = optionValuePrototype.value;
     UIKeyboardType keyboardType = UIKeyboardAppearanceDefault;
-    if (optionValuePrototype.type == TYPE_EMAIL) {
+    if (valueType == TYPE_EMAIL) {
         keyboardType = UIKeyboardTypeEmailAddress;
-    } else if (optionValuePrototype.type == TYPE_URL) {
+    } else if (valueType == TYPE_URL) {
         keyboardType = UIKeyboardTypeURL;
         if (!text) {
             text = @"http://";

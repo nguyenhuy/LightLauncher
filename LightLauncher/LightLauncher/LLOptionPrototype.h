@@ -21,8 +21,9 @@
 // So dictionary is better.
 @property (nonatomic, strong, readonly) NSDictionary *possibleValues;
 @property (nonatomic, readonly) OptionDataType dataType;
+@property (nonatomic, readonly) OptionValueType valueType;
 
-- (LLOptionPrototype *)initWithKey:(NSString *)key andDisplayName:(NSString *)displayName andDataType:(OptionDataType)dataType andPossibleValues:(NSDictionary *)possibleValues;
+- (LLOptionPrototype *)initWithKey:(NSString *)key andDisplayName:(NSString *)displayName andDataType:(OptionDataType)dataType andValueType:(OptionValueType)valueType andPossibleValues:(NSDictionary *)possibleValues;
 - (LLOptionValuePrototype *)possibleValueForKey:(NSString *)key;
 - (BOOL)containPossibleValueForKey:(NSString *)key;
 

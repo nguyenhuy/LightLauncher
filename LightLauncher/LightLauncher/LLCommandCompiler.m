@@ -120,9 +120,15 @@
 }
 
 - (void)pasteboardOptionValue {
-    // TODO: support different type (images, colors, data)
+    // TODO: support TYPE_BOOLEAN and TYPE_FILE as well
     UIPasteboard *pastebboard = [UIPasteboard generalPasteboard];
-    [self setCompiledValue:pastebboard.string];
+    
+    OptionValueType type = self.compilingOption.valueType;
+    if (type == TYPE_STRING || type == TYPE_EMAIL || type == TYPE_URL) {
+        [self setCompiledValue:pastebboard.string];
+    } else if (type == TYPE_IMAGE) {
+        [self setCompiledValue:pastebboard.image];
+    }
 }
 
 - (void)lastPhotoOptionValue {

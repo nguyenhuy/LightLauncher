@@ -45,7 +45,7 @@
                                     pasteboardValue, pasteboardValue.key,
                                     nil];
     
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_SUBJECT andDisplayName:@"Subject" andDataType:DATA_OBJECT andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_SUBJECT andDisplayName:@"Subject" andDataType:DATA_OBJECT andValueType:TYPE_STRING andPossibleValues:possibleValues];
     return optionPrototype;
 }
 
@@ -59,12 +59,12 @@
                                     pasteboardValue, pasteboardValue.key,
                                     nil];
     
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_BODY andDisplayName:@"Body" andDataType:DATA_OBJECT andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_BODY andDisplayName:@"Body" andDataType:DATA_OBJECT andValueType:TYPE_STRING andPossibleValues:possibleValues];
     return optionPrototype;
 }
 
 + (LLOptionPrototype *)toAddressesOptionPrototype {
-    LLOptionValuePrototype *prefillToValue = [LLOptionValuePrototypeFactory emailsOptionValuePrototypeWithDisplayName:@"support@lightlauncher.com"];
+    LLOptionValuePrototype *prefillToValue = [LLOptionValuePrototypeFactory stringOptionValuePrototypeWithDisplayName:@"support@lightlauncher.com"];
     LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
 
     NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -72,12 +72,12 @@
                                     pasteboardValue, pasteboardValue.key,
                                     nil];
     
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_TO_ADDRESSES andDisplayName:@"To" andDataType:DATA_ARRAY andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_TO_ADDRESSES andDisplayName:@"To" andDataType:DATA_ARRAY andValueType:TYPE_EMAIL andPossibleValues:possibleValues];
     return optionPrototype;
 }
 
 + (LLOptionPrototype *)ccAddressesOptionPrototype {
-    LLOptionValuePrototype *prefillCcValue = [LLOptionValuePrototypeFactory emailsOptionValuePrototypeWithDisplayName:@"support@lightlauncher.com"];
+    LLOptionValuePrototype *prefillCcValue = [LLOptionValuePrototypeFactory stringOptionValuePrototypeWithDisplayName:@"support@lightlauncher.com"];
     LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
 
     NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -85,12 +85,12 @@
                                     pasteboardValue, pasteboardValue.key,
                                     nil];
     
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_CC_ADDRESSES andDisplayName:@"Cc" andDataType:DATA_ARRAY andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_CC_ADDRESSES andDisplayName:@"Cc" andDataType:DATA_ARRAY andValueType:TYPE_EMAIL andPossibleValues:possibleValues];
     return optionPrototype;
 }
 
 + (LLOptionPrototype *)bccAddressesOptionPrototype {
-    LLOptionValuePrototype *prefillBccValue = [LLOptionValuePrototypeFactory emailsOptionValuePrototypeWithDisplayName:@"support@lightlauncher.com"];
+    LLOptionValuePrototype *prefillBccValue = [LLOptionValuePrototypeFactory stringOptionValuePrototypeWithDisplayName:@"support@lightlauncher.com"];
     LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
     
     NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -98,12 +98,12 @@
                                     pasteboardValue, pasteboardValue.key,
                                     nil];
     
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_BCC_ADDRESSES andDisplayName:@"Bcc" andDataType:DATA_ARRAY andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_BCC_ADDRESSES andDisplayName:@"Bcc" andDataType:DATA_ARRAY andValueType:TYPE_EMAIL andPossibleValues:possibleValues];
     return optionPrototype;
 }
 
 + (LLOptionPrototype *)urlOptionPrototype {
-    LLOptionValuePrototype *prefillUrlvalue = [LLOptionValuePrototypeFactory urlOptionValuePrototypeWithDisplayName:@"http://lightlauncher.com"];
+    LLOptionValuePrototype *prefillUrlvalue = [LLOptionValuePrototypeFactory stringOptionValuePrototypeWithDisplayName:@"http://lightlauncher.com"];
     LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
     
     NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -111,12 +111,12 @@
                                     pasteboardValue, pasteboardValue.key,
                                     nil];
     
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_URL andDisplayName:@"URL" andDataType:DATA_OBJECT andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_URL andDisplayName:@"URL" andDataType:DATA_OBJECT andValueType:TYPE_URL andPossibleValues:possibleValues];
     return optionPrototype;
 }
 
 + (LLOptionPrototype *)fileAttachmentsOptionPrototype {
-    LLOptionValuePrototype *fileValue = [LLOptionValuePrototypeFactory fileAttachmentsOptionValuePrototypeWithDisplayName:@"Pick now"];
+    LLOptionValuePrototype *fileValue = [LLOptionValuePrototypeFactory stringOptionValuePrototypeWithDisplayName:@"Pick now"];
     LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
     LLOptionValuePrototype *imageFromCameraRoll = [LLOptionValuePrototypeFactory imageFromCameraRollOptionValuePrototypeWithDisplayName:@"Last Photo"];
     
@@ -126,7 +126,7 @@
                                     imageFromCameraRoll, imageFromCameraRoll.key,
                                     nil];
     
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_FILE_ATTACHMENTS andDisplayName:@"File attachments" andDataType:DATA_ARRAY andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_FILE_ATTACHMENTS andDisplayName:@"File attachments" andDataType:DATA_ARRAY andValueType:TYPE_FILE andPossibleValues:possibleValues];
     return optionPrototype;
 }
 
@@ -141,21 +141,21 @@
                                     imagePickLater, imagePickLater.key,
                                     nil];
 
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_IMAGE andDisplayName:@"Image" andDataType:DATA_OBJECT andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_IMAGE andDisplayName:@"Image" andDataType:DATA_OBJECT andValueType:TYPE_IMAGE andPossibleValues:possibleValues];
     return optionPrototype;
 }
 
 + (LLOptionPrototype *)socialsOptionPrototype {
-    LLOptionValuePrototype *facebookValue = [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_SERVICE_TYPE_FACEBOOK andDisplayName:@"Facebook" andType:TYPE_STRING];
-    LLOptionValuePrototype *twitterVallue = [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_SERVICE_TYPE_TWITTER andDisplayName:@"Twitter" andType:TYPE_STRING];
-    LLOptionValuePrototype *googlePlusValue = [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_SERVICE_TYPE_GOOGLE_PLUS andDisplayName:@"Google Plus" andType:TYPE_STRING];
+    LLOptionValuePrototype *facebookValue = [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_SERVICE_TYPE_FACEBOOK andDisplayName:@"Facebook"];
+    LLOptionValuePrototype *twitterVallue = [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_SERVICE_TYPE_TWITTER andDisplayName:@"Twitter"];
+    LLOptionValuePrototype *googlePlusValue = [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_SERVICE_TYPE_GOOGLE_PLUS andDisplayName:@"Google Plus"];
     
     NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
                                     facebookValue, facebookValue.key,
                                     twitterVallue, twitterVallue.key,
                                     googlePlusValue, googlePlusValue.key,
                                     nil];
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_SERVICE_TYPES andDisplayName:@"Services" andDataType:DATA_ARRAY andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_SERVICE_TYPES andDisplayName:@"Services" andDataType:DATA_ARRAY andValueType:TYPE_STRING andPossibleValues:possibleValues];
     return optionPrototype;
 }
 

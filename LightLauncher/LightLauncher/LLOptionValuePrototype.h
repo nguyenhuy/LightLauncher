@@ -10,10 +10,9 @@
 
 @property (nonatomic, strong, readonly) NSString *key;
 @property (nonatomic, strong, readonly) NSString *displayName;
-@property (nonatomic, readonly) OptionValueType type;
 @property (nonatomic) BOOL selected;
 @property (nonatomic, strong) NSString *value;
 
-- (LLOptionValuePrototype *)initWithKey:(NSString *)key andDisplayName:(NSString *)displayName andType:(OptionValueType)type;
+- (LLOptionValuePrototype *)initWithKey:(NSString *)key andDisplayName:(NSString *)displayName;
 
 @end

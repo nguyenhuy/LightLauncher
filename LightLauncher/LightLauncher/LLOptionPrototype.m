@@ -12,17 +12,19 @@
 @property (nonatomic, strong, readwrite) NSString *key;
 @property (nonatomic, strong, readwrite) NSString *displayName;
 @property (nonatomic, readwrite) OptionDataType dataType;
+@property (nonatomic, readwrite) OptionValueType valueType;
 @property (nonatomic, strong, readwrite) NSDictionary *possibleValues;
 @end
 
 @implementation LLOptionPrototype
 
-- (LLOptionPrototype *)initWithKey:(NSString *)key andDisplayName:(NSString *)displayName andDataType:(OptionDataType)dataType andPossibleValues:(NSDictionary *)possibleValues {
+- (LLOptionPrototype *)initWithKey:(NSString *)key andDisplayName:(NSString *)displayName andDataType:(OptionDataType)dataType andValueType:(OptionValueType)valueType andPossibleValues:(NSDictionary *)possibleValues {
     self = [super init];
     if (self) {
         self.key = key;
         self.displayName = displayName;
         self.dataType = dataType;
+        self.valueType = valueType;
         self.possibleValues = possibleValues;
     }
     return self;
