@@ -116,14 +116,14 @@
 }
 
 + (LLOptionPrototype *)fileAttachmentsOptionPrototype {
-    LLOptionValuePrototype *fileValue = [LLOptionValuePrototypeFactory stringOptionValuePrototypeWithDisplayName:@"Pick now"];
     LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
     LLOptionValuePrototype *imageFromCameraRoll = [LLOptionValuePrototypeFactory imageFromCameraRollOptionValuePrototypeWithDisplayName:@"Last Photo"];
+    LLOptionValuePrototype *imagePickLater = [LLOptionValuePrototypeFactory imagePickLaterOptionValuePrototypeWithDisplayName:@"Pick Later"];
     
     NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                    fileValue, fileValue.key,
                                     pasteboardValue, pasteboardValue.key,
                                     imageFromCameraRoll, imageFromCameraRoll.key,
+                                    imagePickLater, imagePickLater.key,
                                     nil];
     
     LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_FILE_ATTACHMENTS andDisplayName:@"File attachments" andDataType:DATA_ARRAY andValueType:TYPE_FILE andPossibleValues:possibleValues];
