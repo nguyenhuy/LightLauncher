@@ -153,6 +153,7 @@
         [group setAssetsFilter:[ALAssetsFilter allPhotos]];
         
         // Last photo is the one has the last index
+        //@TODO handle the case when there is no photo
         NSIndexSet *indexes = [NSIndexSet indexSetWithIndex:([group numberOfAssets] - 1)];
         [group enumerateAssetsAtIndexes:indexes options:0 usingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
             // The end of enumeration is a null asset
@@ -174,9 +175,10 @@
 
 - (void)pickPhotoOptionValue {
     NSError *error;
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-        error = [NSError errorWithDomain:ERROR_DOMAIN code:1 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"Photo library is not available", NSLocalizedDescriptionKey, nil]];
-    }
+    //@TODO invetigate this, it doesn't work :|
+//    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+//        error = [NSError errorWithDomain:ERROR_DOMAIN code:1 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"Photo library is not available", NSLocalizedDescriptionKey, nil]];
+//    }
     if (!self.viewController) {
         error = [NSError errorWithDomain:ERROR_DOMAIN code:2 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"ViewController is not available", NSLocalizedDescriptionKey, nil]];
     }
