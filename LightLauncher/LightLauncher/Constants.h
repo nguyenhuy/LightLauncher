@@ -37,7 +37,7 @@
 #define OPTION_VALUE_SERVICE_TYPE_GOOGLE_PLUS @"google_plus"
 #define OPTION_VALUE_IMAGE_PICK_LATER @"image_pick_later"
 
-#define DISPLAY_NAME_PASTEBOARD_OPTION_VALUE @"from Pasteboard"
+#define DISPLAY_NAME_PASTEBOARD_OPTION_VALUE @"From Pasteboard"
 
 #define COMPONENTS_SEPARATOR @","
 
