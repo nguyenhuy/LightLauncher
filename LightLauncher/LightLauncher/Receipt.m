@@ -15,7 +15,6 @@
 
 @dynamic data;
 @dynamic executedDate;
-@dynamic group;
 @synthesize commandPrototype = _commandPrototype;
 
 - (LLCommandPrototype *)commandPrototype {
@@ -24,10 +23,6 @@
         _commandPrototype = [LLCommandParser decode:self.data];
     }
     return _commandPrototype;
-}
-
-- (BOOL)liked {
-    return self.group != nil;
 }
 
 - (void)setDesc:(NSString *)desc {

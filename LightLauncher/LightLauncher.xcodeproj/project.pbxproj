@@ -141,6 +141,7 @@
 		78E9ACBE16ABAF75008CE555 /* LLShareFacebookRequestCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E9ACBD16ABAF75008CE555 /* LLShareFacebookRequestCommand.m */; };
 		78E9ACC116ABB36C008CE555 /* LLShareTwitterRequestCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E9ACC016ABB36C008CE555 /* LLShareTwitterRequestCommand.m */; };
 		78E9ACC316ABBDAC008CE555 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E9ACC216ABBDAC008CE555 /* Accounts.framework */; };
+		78E9ACD216ABE583008CE555 /* FavReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E9ACD116ABE583008CE555 /* FavReceipt.m */; };
 		78EAC95C16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAC95B16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m */; };
 		78F12CF21646B0020068F9E4 /* LLOptionPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */; };
 		78F12CF51646B11F0068F9E4 /* LLCommandPrototypeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */; };
@@ -395,6 +396,8 @@
 		78E9ACBF16ABB36C008CE555 /* LLShareTwitterRequestCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLShareTwitterRequestCommand.h; sourceTree = "<group>"; };
 		78E9ACC016ABB36C008CE555 /* LLShareTwitterRequestCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLShareTwitterRequestCommand.m; sourceTree = "<group>"; };
 		78E9ACC216ABBDAC008CE555 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		78E9ACD016ABE583008CE555 /* FavReceipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavReceipt.h; sourceTree = "<group>"; };
+		78E9ACD116ABE583008CE555 /* FavReceipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavReceipt.m; sourceTree = "<group>"; };
 		78EAC95A16A2BEA9004C4B39 /* LLMultipleSocialsCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLMultipleSocialsCommand.h; sourceTree = "<group>"; };
 		78EAC95B16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLMultipleSocialsCommand.m; sourceTree = "<group>"; };
 		78F12CF01646B0020068F9E4 /* LLOptionPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLOptionPrototype.h; sourceTree = "<group>"; };
@@ -585,6 +588,8 @@
 				788F640D168319BB00C25E32 /* Receipt.m */,
 				788F64091683188800C25E32 /* Group.h */,
 				788F640A1683189B00C25E32 /* Group.m */,
+				78E9ACD016ABE583008CE555 /* FavReceipt.h */,
+				78E9ACD116ABE583008CE555 /* FavReceipt.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -1206,6 +1211,7 @@
 				78CF89FB16A6FE0600950FFF /* LLShareSocialComposeCommand.m in Sources */,
 				78E9ACBE16ABAF75008CE555 /* LLShareFacebookRequestCommand.m in Sources */,
 				78E9ACC116ABB36C008CE555 /* LLShareTwitterRequestCommand.m in Sources */,
+				78E9ACD216ABE583008CE555 /* FavReceipt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
