@@ -121,12 +121,12 @@
 
 #pragma mark - Like receipt helper delegate
 
-- (void)onFinishedLiking:(Receipt *)receipt {
+- (void)onFinishedLiking {
     self.likeReceiptHelper = nil;
     [self showCheckmarkHUDWithLabelText:@"Added"];
 }
 
-- (void)onFailedLiking:(Receipt *)receipt {
+- (void)onFailedLiking {
     self.likeReceiptHelper = nil;
     [self showTextHUDWithLabelText:@"Error. Try later"];
 }
@@ -157,12 +157,8 @@
 }
 
 - (void)likeCommand {
-    Receipt *receipt = [LLCommandManager createReceiptInDbFromCommandPrototype:self.commandPrototype];
-    if (receipt) {
-        //@TODO retain helper
-        self.likeReceiptHelper = [[LLLikeReceiptHelper alloc] init];
-        [self.likeReceiptHelper likeReceipt:receipt withDelegate:self];
-    }
+    self.likeReceiptHelper = [[LLLikeCommandHelper alloc] init];
+    [self.likeReceiptHelper likeCommandPrototype:self.commandPrototype withDelegate:self];
 }
 
 - (LLOptionPrototype *)optionPrototypeAtIndexPath:(NSIndexPath *)indexPath {

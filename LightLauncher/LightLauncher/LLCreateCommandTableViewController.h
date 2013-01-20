@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LLPrefillOptionValuePrototypeCell.h"
-#import "LLLikeReceiptHelper.h"
+#import "LLLikeCommandHelper.h"
 #import "LLCommand.h"
 
 #define NIB_CREATE_COMMAND_VIEW_CONTROLLER @"LLCreateCommandTableViewController"
@@ -16,10 +16,10 @@
 @class LLCommandPrototype;
 @class LLCommand;
 
-@interface LLCreateCommandTableViewController : UITableViewController <LLPrefillOptionValuePrototypeCellDelegate, LLLikeReceiptHelperDelegate, LLCommandDelegate>
+@interface LLCreateCommandTableViewController : UITableViewController <LLPrefillOptionValuePrototypeCellDelegate, LLLikeCommandHelperDelegate, LLCommandDelegate>
 
 @property (nonatomic, strong) LLCommandPrototype *commandPrototype;
-@property (nonatomic, strong) LLLikeReceiptHelper *likeReceiptHelper;
+@property (nonatomic, strong) LLLikeCommandHelper *likeReceiptHelper;
 
 - (void)likeCommand;
 - (void)executeCommand;

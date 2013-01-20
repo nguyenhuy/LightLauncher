@@ -16,7 +16,7 @@
 - (void)onDuplicateReceiptAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
-@class Receipt;
+@class HistoryReceipt;
 
 @interface LLHistoryCell : UITableViewCell <LLSideSwipeMenuDelegate>
 
@@ -24,7 +24,7 @@
 @property (nonatomic, weak) id<LLHistoryCellDelegate> delegate;
 @property (nonatomic, strong) LLSideSwipeMenu *menu;
 
-- (void)updateViewWithReceipt:(Receipt *)receipt atIndexPath:(NSIndexPath *)indexPath andDelegate:(id<LLHistoryCellDelegate>)delegate;
+- (void)updateViewWithHistoryReceipt:(HistoryReceipt *)receipt atIndexPath:(NSIndexPath *)indexPath andDelegate:(id<LLHistoryCellDelegate>)delegate;
 - (void)onShowSwipeSideMenu;
 
 @end

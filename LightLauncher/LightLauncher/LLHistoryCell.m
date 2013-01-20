@@ -8,7 +8,7 @@
 
 #import "LLHistoryCell.h"
 #import "LLCommandPrototype.h"
-#import "Receipt.h"
+#import "HistoryReceipt.h"
 
 @implementation LLHistoryCell
 
@@ -27,7 +27,7 @@
     return self;
 }
 
-- (void)updateViewWithReceipt:(Receipt *)receipt atIndexPath:(NSIndexPath *)indexPath andDelegate:(id<LLHistoryCellDelegate>)delegate {
+- (void)updateViewWithHistoryReceipt:(HistoryReceipt *)receipt atIndexPath:(NSIndexPath *)indexPath andDelegate:(id<LLHistoryCellDelegate>)delegate {
     if (!receipt) {
         return;
     }

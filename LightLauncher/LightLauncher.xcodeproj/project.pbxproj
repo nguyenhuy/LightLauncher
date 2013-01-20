@@ -37,7 +37,6 @@
 		788A48D1167F06F5009401DD /* LLHistoryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788A48CF167F06F5009401DD /* LLHistoryTableViewController.xib */; };
 		788A48D416815F9E009401DD /* LLHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A48D316815F9E009401DD /* LLHistoryCell.m */; };
 		788F63721681CF9B00C25E32 /* like_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 788F63701681CF9B00C25E32 /* like_unselected.png */; };
-		788F63731681CF9B00C25E32 /* like_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 788F63711681CF9B00C25E32 /* like_selected.png */; };
 		788F638F1682D0B400C25E32 /* LLFavoriteGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 788F638E1682D0B400C25E32 /* LLFavoriteGroupCell.m */; };
 		788F63911682D0F800C25E32 /* LLFavoriteGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788F63901682D0F800C25E32 /* LLFavoriteGroupCell.xib */; };
 		788F63951682D44E00C25E32 /* LLFavoriteGroupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788F63931682D44E00C25E32 /* LLFavoriteGroupTableViewController.m */; };
@@ -126,7 +125,7 @@
 		789C7B9116A6374E007673BD /* LLShareSocialRequestCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 789C7B9016A6374D007673BD /* LLShareSocialRequestCommand.m */; };
 		789EE197166C9D7000CD4B92 /* LLPrefillOptionValuePrototypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 789EE196166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.m */; };
 		789EE199166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 789EE198166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib */; };
-		78A90ACE168FEEA00057289E /* LLLikeReceiptHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A90ACD168FEEA00057289E /* LLLikeReceiptHelper.m */; };
+		78A90ACE168FEEA00057289E /* LLLikeCommandHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A90ACD168FEEA00057289E /* LLLikeCommandHelper.m */; };
 		78A90ADE168FF7FA0057289E /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A90ADA168FF67E0057289E /* MBProgressHUD.m */; };
 		78A90AE1168FF9150057289E /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 78A90ADF168FF9150057289E /* 37x-Checkmark.png */; };
 		78A90AE2168FF9150057289E /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 78A90AE0168FF9150057289E /* 37x-Checkmark@2x.png */; };
@@ -142,6 +141,8 @@
 		78E9ACC116ABB36C008CE555 /* LLShareTwitterRequestCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E9ACC016ABB36C008CE555 /* LLShareTwitterRequestCommand.m */; };
 		78E9ACC316ABBDAC008CE555 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E9ACC216ABBDAC008CE555 /* Accounts.framework */; };
 		78E9ACDE16ABFCB9008CE555 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E9ACDD16ABFCB9008CE555 /* MobileCoreServices.framework */; };
+		78E9ACD216ABE583008CE555 /* FavReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E9ACD116ABE583008CE555 /* FavReceipt.m */; };
+		78E9ACD516ABEE09008CE555 /* HistoryReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E9ACD416ABEE09008CE555 /* HistoryReceipt.m */; };
 		78EAC95C16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAC95B16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m */; };
 		78F12CF21646B0020068F9E4 /* LLOptionPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */; };
 		78F12CF51646B11F0068F9E4 /* LLCommandPrototypeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */; };
@@ -202,7 +203,6 @@
 		788A48D216815F9E009401DD /* LLHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLHistoryCell.h; sourceTree = "<group>"; };
 		788A48D316815F9E009401DD /* LLHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLHistoryCell.m; sourceTree = "<group>"; };
 		788F63701681CF9B00C25E32 /* like_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like_unselected.png; path = "../../../../../Downloads/Keyamoon-IcoMoon--limited--4f4e8f2/Icons/PNG/32px/like_unselected.png"; sourceTree = "<group>"; };
-		788F63711681CF9B00C25E32 /* like_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like_selected.png; path = "../../../../../Downloads/Keyamoon-IcoMoon--limited--4f4e8f2/Icons/PNG/32px/like_selected.png"; sourceTree = "<group>"; };
 		788F638D1682D0B400C25E32 /* LLFavoriteGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLFavoriteGroupCell.h; sourceTree = "<group>"; };
 		788F638E1682D0B400C25E32 /* LLFavoriteGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLFavoriteGroupCell.m; sourceTree = "<group>"; };
 		788F63901682D0F800C25E32 /* LLFavoriteGroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLFavoriteGroupCell.xib; sourceTree = "<group>"; };
@@ -371,8 +371,8 @@
 		789EE195166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLPrefillOptionValuePrototypeCell.h; sourceTree = "<group>"; };
 		789EE196166C9D6F00CD4B92 /* LLPrefillOptionValuePrototypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLPrefillOptionValuePrototypeCell.m; sourceTree = "<group>"; };
 		789EE198166CA81A00CD4B92 /* LLPrefillOptionValuePrototypeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLPrefillOptionValuePrototypeCell.xib; sourceTree = "<group>"; };
-		78A90ACC168FEEA00057289E /* LLLikeReceiptHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLLikeReceiptHelper.h; sourceTree = "<group>"; };
-		78A90ACD168FEEA00057289E /* LLLikeReceiptHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLLikeReceiptHelper.m; sourceTree = "<group>"; };
+		78A90ACC168FEEA00057289E /* LLLikeCommandHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLLikeCommandHelper.h; sourceTree = "<group>"; };
+		78A90ACD168FEEA00057289E /* LLLikeCommandHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLLikeCommandHelper.m; sourceTree = "<group>"; };
 		78A90AD9168FF67E0057289E /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = ../MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
 		78A90ADA168FF67E0057289E /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = ../MBProgressHUD/MBProgressHUD.m; sourceTree = "<group>"; };
 		78A90ADF168FF9150057289E /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "37x-Checkmark.png"; path = "../../MBProgressHUD/Demo/Images/37x-Checkmark.png"; sourceTree = "<group>"; };
@@ -397,6 +397,10 @@
 		78E9ACC016ABB36C008CE555 /* LLShareTwitterRequestCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLShareTwitterRequestCommand.m; sourceTree = "<group>"; };
 		78E9ACC216ABBDAC008CE555 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		78E9ACDD16ABFCB9008CE555 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		78E9ACD016ABE583008CE555 /* FavReceipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavReceipt.h; sourceTree = "<group>"; };
+		78E9ACD116ABE583008CE555 /* FavReceipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavReceipt.m; sourceTree = "<group>"; };
+		78E9ACD316ABEE09008CE555 /* HistoryReceipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryReceipt.h; sourceTree = "<group>"; };
+		78E9ACD416ABEE09008CE555 /* HistoryReceipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryReceipt.m; sourceTree = "<group>"; };
 		78EAC95A16A2BEA9004C4B39 /* LLMultipleSocialsCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLMultipleSocialsCommand.h; sourceTree = "<group>"; };
 		78EAC95B16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLMultipleSocialsCommand.m; sourceTree = "<group>"; };
 		78F12CF01646B0020068F9E4 /* LLOptionPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLOptionPrototype.h; sourceTree = "<group>"; };
@@ -566,7 +570,6 @@
 				78A90ADF168FF9150057289E /* 37x-Checkmark.png */,
 				78A90AE0168FF9150057289E /* 37x-Checkmark@2x.png */,
 				788F63701681CF9B00C25E32 /* like_unselected.png */,
-				788F63711681CF9B00C25E32 /* like_selected.png */,
 				785EBB69162B15C000ADE85F /* facebook.png */,
 				785A0E2415E9EFEC002C6F78 /* mail.png */,
 				785A0E1215E9D157002C6F78 /* twitter.png */,
@@ -589,6 +592,10 @@
 				788F640D168319BB00C25E32 /* Receipt.m */,
 				788F64091683188800C25E32 /* Group.h */,
 				788F640A1683189B00C25E32 /* Group.m */,
+				78E9ACD016ABE583008CE555 /* FavReceipt.h */,
+				78E9ACD116ABE583008CE555 /* FavReceipt.m */,
+				78E9ACD316ABEE09008CE555 /* HistoryReceipt.h */,
+				78E9ACD416ABEE09008CE555 /* HistoryReceipt.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -1000,8 +1007,8 @@
 		78A90ADD168FF7C50057289E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				78A90ACC168FEEA00057289E /* LLLikeReceiptHelper.h */,
-				78A90ACD168FEEA00057289E /* LLLikeReceiptHelper.m */,
+				78A90ACC168FEEA00057289E /* LLLikeCommandHelper.h */,
+				78A90ACD168FEEA00057289E /* LLLikeCommandHelper.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1081,7 +1088,6 @@
 				788A48BA167EDC77009401DD /* LLRearViewController.xib in Resources */,
 				788A48D1167F06F5009401DD /* LLHistoryTableViewController.xib in Resources */,
 				788F63721681CF9B00C25E32 /* like_unselected.png in Resources */,
-				788F63731681CF9B00C25E32 /* like_selected.png in Resources */,
 				788F63911682D0F800C25E32 /* LLFavoriteGroupCell.xib in Resources */,
 				788F63961682D44E00C25E32 /* LLFavoriteGroupTableViewController.xib in Resources */,
 				78A90AE1168FF9150057289E /* 37x-Checkmark.png in Resources */,
@@ -1164,7 +1170,7 @@
 				788F63F6168312D200C25E32 /* MagicalRecord.m in Sources */,
 				788F640B168318B200C25E32 /* Group.m in Sources */,
 				788F640E168319BB00C25E32 /* Receipt.m in Sources */,
-				78A90ACE168FEEA00057289E /* LLLikeReceiptHelper.m in Sources */,
+				78A90ACE168FEEA00057289E /* LLLikeCommandHelper.m in Sources */,
 				78A90AE6169006370057289E /* UIViewController+ShowHUD.m in Sources */,
 				78A90AF6169045BF0057289E /* UIViewController+SetupSideMenu.m in Sources */,
 				789948E816904FA9008406ED /* LLSideSwipeMenu.m in Sources */,
@@ -1210,6 +1216,8 @@
 				78CF89FB16A6FE0600950FFF /* LLShareSocialComposeCommand.m in Sources */,
 				78E9ACBE16ABAF75008CE555 /* LLShareFacebookRequestCommand.m in Sources */,
 				78E9ACC116ABB36C008CE555 /* LLShareTwitterRequestCommand.m in Sources */,
+				78E9ACD216ABE583008CE555 /* FavReceipt.m in Sources */,
+				78E9ACD516ABEE09008CE555 /* HistoryReceipt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

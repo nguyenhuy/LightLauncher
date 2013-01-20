@@ -6,14 +6,14 @@
 //  Copyright (c) 2012 EarlyBird Lab. All rights reserved.
 //
 
-#import "LLLikeReceiptHelper.h"
+#import "LLLikeCommandHelper.h"
 #import "LLCommandManager.h"
 #import "Receipt.h"
 
-@implementation LLLikeReceiptHelper
+@implementation LLLikeCommandHelper
 
-- (void)likeReceipt:(Receipt *)receipt withDelegate:(id<LLLikeReceiptHelperDelegate>)delegate {
-    self.receipt = receipt;
+- (void)likeCommandPrototype:(LLCommandPrototype *)commandPrototype withDelegate:(id<LLLikeCommandHelperDelegate>)delegate {
+    self.commandPrototype = commandPrototype;
     self.delegate = delegate;
     
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Description:" message:@"Enter description for the command" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Done", nil];
@@ -30,11 +30,11 @@
         UITextField *descTextField = [alertView textFieldAtIndex:0];
         NSString *desc = descTextField.text;
         
-        BOOL changed = [LLCommandManager assignDefaultGroupForReceipt:self.receipt withDescription:desc];
+        BOOL changed = [LLCommandManager createFavReceiptFromCommandPrototype:self.commandPrototype withDescription:desc];
         if (changed) {
-            [self.delegate onFinishedLiking:self.receipt];
+            [self.delegate onFinishedLiking];
         } else {
-            [self.delegate onFailedLiking:self.receipt];
+            [self.delegate onFailedLiking];
         }
     }
 }

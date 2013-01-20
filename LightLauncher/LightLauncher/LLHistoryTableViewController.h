@@ -7,15 +7,13 @@
 //
 
 #import "LLHistoryCell.h"
-#import "LLLikeReceiptHelper.h"
+#import "LLLikeCommandHelper.h"
 #import "LLCommand.h"
 
-@class Receipt;
-
-@interface LLHistoryTableViewController : UITableViewController <LLHistoryCellDelegate, LLLikeReceiptHelperDelegate, LLCommandDelegate, NSFetchedResultsControllerDelegate>
+@interface LLHistoryTableViewController : UITableViewController <LLHistoryCellDelegate, LLLikeCommandHelperDelegate, LLCommandDelegate, NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
-@property (nonatomic, strong) LLLikeReceiptHelper* likeReceiptHelper;
+@property (nonatomic, strong) LLLikeCommandHelper* likeReceiptHelper;
 
 + (LLHistoryTableViewController *)newInstance;
 

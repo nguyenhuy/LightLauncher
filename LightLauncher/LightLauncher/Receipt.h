@@ -8,22 +8,17 @@
 
 #import <CoreData/CoreData.h>
 
-@class Group;
 @class LLCommandPrototype;
 
 @interface Receipt : NSManagedObject
 
 @property (nonatomic, retain) NSString *data;
-@property (nonatomic, retain) NSDate *executedDate;
-@property (nonatomic, retain) Group *group;
 
 // Non-CoreData properties
 @property (nonatomic, strong) LLCommandPrototype *commandPrototype;
 
-- (BOOL)liked;
 // Save desc of receipt to data and commandPrototype
 // By decoding the data (if needed), save desc to commandPrototype and encode it again
 - (void)setDesc:(NSString *)desc;
-- (NSString *)stringFromExecutedDate;
 
 @end

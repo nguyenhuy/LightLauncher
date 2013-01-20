@@ -14,8 +14,6 @@
 @implementation Receipt
 
 @dynamic data;
-@dynamic executedDate;
-@dynamic group;
 @synthesize commandPrototype = _commandPrototype;
 
 - (LLCommandPrototype *)commandPrototype {
@@ -26,21 +24,11 @@
     return _commandPrototype;
 }
 
-- (BOOL)liked {
-    return self.group != nil;
-}
-
 - (void)setDesc:(NSString *)desc {
     // Call to commandPrototype getter will parse the data if needed
     self.commandPrototype.desc = desc;
     // Encode back to data
     self.data = [LLCommandParser encode:self.commandPrototype];
-}
-
-- (NSString *)stringFromExecutedDate {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateStyle = NSDateFormatterMediumStyle;
-    return [formatter stringFromDate:self.executedDate];
 }
 
 @end

@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12C60" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="FavReceipt" representedClassName="FavReceipt" parentEntity="Receipt" syncable="YES">
+        <attribute name="positionInGroup" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="group" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="receipts" inverseEntity="Group" syncable="YES"/>
+    </entity>
     <entity name="Group" representedClassName="Group" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="receipts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Receipt" inverseName="group" inverseEntity="Receipt" syncable="YES"/>
+        <relationship name="receipts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FavReceipt" inverseName="group" inverseEntity="FavReceipt" syncable="YES"/>
     </entity>
-    <entity name="Receipt" representedClassName="Receipt" syncable="YES">
-        <attribute name="data" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="HistoryReceipt" representedClassName="HistoryReceipt" parentEntity="Receipt" syncable="YES">
         <attribute name="executedDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="group" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="receipts" inverseEntity="Group" syncable="YES"/>
+    </entity>
+    <entity name="Receipt" representedClassName="Receipt" isAbstract="YES" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Receipt" positionX="0" positionY="0" width="128" height="102"/>
         <element name="Group" positionX="-279" positionY="-124" width="128" height="85"/>
+        <element name="Receipt" positionX="34" positionY="-126" width="128" height="68"/>
+        <element name="FavReceipt" positionX="-117" positionY="102" width="128" height="85"/>
+        <element name="HistoryReceipt" positionX="160" positionY="101" width="128" height="68"/>
     </elements>
 </model>

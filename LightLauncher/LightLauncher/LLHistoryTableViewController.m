@@ -14,7 +14,7 @@
 
 #import "LLCommandPrototype.h"
 
-#import "Receipt.h"
+#import "HistoryReceipt.h"
 #import "UIViewController+ShowHUD.h"
 #import "UIViewController+SetupSideMenu.h"
 
@@ -61,7 +61,7 @@
     }
     
     // Sort by executedDate
-    NSFetchRequest *fetchRequest = [Receipt MR_requestAllSortedBy:@"executedDate" ascending:NO];
+    NSFetchRequest *fetchRequest = [HistoryReceipt MR_requestAllSortedBy:@"executedDate" ascending:NO];
     [fetchRequest setFetchBatchSize:20];
     
     // Group by stringFromExecutedDate
@@ -126,21 +126,8 @@
 
 - (void)onToggleGroupOfReceiptAtIndexPath:(NSIndexPath *)indexPath {
     Receipt *receipt = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    if ([receipt liked]) {
-        // Unlike
-        BOOL changed = [LLCommandManager removeGroupForReceipt:receipt];
-
-        // don't need to call table view reload, since it's called in NSFetchedResultsControllerDelegate
-        //@TODO test if the table view is updated
-        
-        if (!changed) {
-            //@TODO got error. Show something
-        }
-    } else {
-        // Like
-        self.likeReceiptHelper = [[LLLikeReceiptHelper alloc] init];
-        [self.likeReceiptHelper likeReceipt:receipt withDelegate:self];
-    }
+    self.likeReceiptHelper = [[LLLikeCommandHelper alloc] init];
+    [self.likeReceiptHelper likeCommandPrototype:receipt.commandPrototype withDelegate:self];
 }
 
 - (void)onDuplicateReceiptAtIndexPath:(NSIndexPath *)indexPath {
@@ -153,14 +140,13 @@
 
 #pragma mark - Like receipt helper delegate
 
-- (void)onFinishedLiking:(Receipt *)receipt {
+- (void)onFinishedLiking {
     self.likeReceiptHelper = nil;
-    
-    // don't need to call table view reload, since it's called in NSFetchedResultsControllerDelegate
-    //@TODO test if the table view is updated
+    // don't need to call table view reload, since it's called in NSFetchedResultsControllerDelegate    
+    [self showTextHUDWithLabelText:@"Liked"];
 }
 
-- (void)onFailedLiking:(Receipt *)receipt {
+- (void)onFailedLiking {
     self.likeReceiptHelper = nil;
     [self showErrorHUDWithTitle:@"Failed" andDesc:nil];
 }
@@ -242,13 +228,13 @@
 }
 
 - (void)updateCell:(LLHistoryCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    Receipt *receipt = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [cell updateViewWithReceipt:receipt atIndexPath:indexPath andDelegate:self];
+    HistoryReceipt *receipt = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [cell updateViewWithHistoryReceipt:receipt atIndexPath:indexPath andDelegate:self];
 }
 
 - (void)deleteReceiptAtIndexPath:(NSIndexPath *)indexPath {
-    Receipt *receipt = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    BOOL deleted = [LLCommandManager deleteReceipt:receipt];
+    HistoryReceipt *receipt = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    BOOL deleted = [LLCommandManager deleteHistoryReceipt:receipt];
     if (deleted) {
         // don't need to call table view reload, since it's called in NSFetchedResultsControllerDelegate
         //@TODO test if the table view is updated

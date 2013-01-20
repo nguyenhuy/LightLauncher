@@ -44,7 +44,6 @@
 #define IMAGE_MAIL @"mail.png"
 #define IMAGE_TWITTER @"twitter.png"
 #define IMAGE_FACEBOOK @"facebook.png"
-#define IMAGE_LIKE_SELECTED @"like_selected.png"
 #define IMAGE_LIKE_UNSELECTED @"like_unselected.png"
 #define IMAGE_MENU_ICON @"menu-icon.png"
 #define IMAGE_HUD_CHECKMARK @"37x-Checkmark.png"

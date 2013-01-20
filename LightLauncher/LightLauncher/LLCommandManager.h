@@ -11,7 +11,8 @@
 
 @class LLCommandPrototype;
 @class Group;
-@class Receipt;
+@class HistoryReceipt;
+@class FavReceipt;
 
 @interface LLCommandManager : NSObject <LLCommandDelegate, LLCommandCompilerDelegate>
 
@@ -25,12 +26,10 @@
 + (LLCommandManager *)sharedInstance;
 + (Group *)defaultGroup;
 + (Group *)createGroupWithName:(NSString *)name;
-+ (Receipt *)createReceiptInDbFromCommandPrototype:(LLCommandPrototype *)commandPrototype;
-+ (BOOL)deleteAllReceipts;
-+ (BOOL)deleteReceipt:(Receipt *)receipt;
-+ (BOOL)assignDefaultGroupForReceipt:(Receipt *)receipt withDescription:(NSString *)description;
-+ (BOOL)assignGroup:(Group *)group forReceipt:(Receipt *)receipt withDescription:(NSString *)description;
-+ (BOOL)removeGroupForReceipt:(Receipt *)receipt;
++ (BOOL)createHistoryReceiptFromCommandPrototype:(LLCommandPrototype *)commandPrototype;
++ (BOOL)deleteHistoryReceipt:(HistoryReceipt *)historyReceipt;
++ (BOOL)createFavReceiptFromCommandPrototype:(LLCommandPrototype *)commandPrototype withDescription:(NSString *)description;
++ (BOOL)deleteFavReceipt:(FavReceipt *)favReceipt;
 
 - (void)executeFromCommandPrototype:(LLCommandPrototype *)commandPrototype withViewController:(UIViewController *)viewController andDelegate:(id<LLCommandDelegate>)delegate;
 
