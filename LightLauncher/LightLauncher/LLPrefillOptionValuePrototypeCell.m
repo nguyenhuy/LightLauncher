@@ -27,7 +27,13 @@
             text = @"http://";
         }
     }
-    self.textField.text = text;
+    
+    if (text) {
+        self.textField.text = text;
+    } else {
+        self.textField.placeholder = optionValuePrototype.displayName;
+    }
+    
     self.textField.keyboardType = keyboardType;
     
     BOOL selected = optionValuePrototype.selected;

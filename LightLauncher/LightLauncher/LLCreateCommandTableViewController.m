@@ -69,17 +69,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LLOptionValuePrototype *optionValuePrototype = [self optionValuePrototypeAtIndexPath:indexPath];
-    LLOptionValuePrototypeCell *cell;
     
     if ([optionValuePrototype.key isEqualToString:OPTION_VALUE_PREFILL]) {
-        cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_PREFILL_OPTION_VALUE_PROTOTYPE_CELL forIndexPath:indexPath];
+        LLOptionPrototype *optionPrototype = [self optionPrototypeAtIndexPath:indexPath];
+        
+        LLPrefillOptionValuePrototypeCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_PREFILL_OPTION_VALUE_PROTOTYPE_CELL forIndexPath:indexPath];
         ((LLPrefillOptionValuePrototypeCell *) cell).delegate = self;
+        [cell updateViewWithOptionValuePrototype:optionValuePrototype andValueType:optionPrototype.valueType atIndexPath:indexPath];
+        return cell;
     } else {
-        cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_OPTION_VALUE_PROTOTYPE_CELL forIndexPath:indexPath];
+        LLOptionValuePrototypeCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_OPTION_VALUE_PROTOTYPE_CELL forIndexPath:indexPath];
+        [cell updateViewWithOptionValuePrototype:optionValuePrototype atIndexPath:indexPath];
+        return cell;
     }
-    
-    [cell updateViewWithOptionValuePrototype:optionValuePrototype atIndexPath:indexPath];
-    return cell;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
