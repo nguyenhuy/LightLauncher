@@ -78,6 +78,15 @@ typedef enum {
     GROUP_FAVORITE,
 } ViewControllerGroup;
 
+
+#pragma mark Facebook Graph API
+#define API_FACEBOOK_GRAPH_ROOT @"https://graph.facebook.com"
+#define API_FACEBOOK_GRAPH_FEED @"/me/feed"
+#define API_FACEBOOK_GRAPH_PHOTOS @"/me/photos"
+#define API_FACEBOOK_GRAPH_PARAM_MESSAGE @"message"
+#define API_FACEBOOK_GRAPH_PARAM_LINK @"link"
+#define API_FACEBOOK_GRAPH_PARAM_SOURCE @"source"
+
 //@TODO decoupling using interface
 //@TODO test addresses in email
 //@TODO check all delegates are weak

@@ -138,6 +138,9 @@
 		78BA2D3416435C950057AD58 /* LLCommandPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BA2D3316435C950057AD58 /* LLCommandPrototype.m */; };
 		78CF08B716A4F2EB00ECF02A /* libGooglePlusUniversal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CF08B616A4F2EB00ECF02A /* libGooglePlusUniversal.a */; };
 		78CF89FB16A6FE0600950FFF /* LLShareSocialComposeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CF89FA16A6FE0600950FFF /* LLShareSocialComposeCommand.m */; };
+		78E9ACBE16ABAF75008CE555 /* LLShareFacebookRequestCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E9ACBD16ABAF75008CE555 /* LLShareFacebookRequestCommand.m */; };
+		78E9ACC116ABB36C008CE555 /* LLShareTwitterRequestCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E9ACC016ABB36C008CE555 /* LLShareTwitterRequestCommand.m */; };
+		78E9ACC316ABBDAC008CE555 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E9ACC216ABBDAC008CE555 /* Accounts.framework */; };
 		78EAC95C16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAC95B16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m */; };
 		78F12CF21646B0020068F9E4 /* LLOptionPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */; };
 		78F12CF51646B11F0068F9E4 /* LLCommandPrototypeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */; };
@@ -387,6 +390,11 @@
 		78CF08B616A4F2EB00ECF02A /* libGooglePlusUniversal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGooglePlusUniversal.a; sourceTree = "<group>"; };
 		78CF89F916A6FE0600950FFF /* LLShareSocialComposeCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLShareSocialComposeCommand.h; sourceTree = "<group>"; };
 		78CF89FA16A6FE0600950FFF /* LLShareSocialComposeCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLShareSocialComposeCommand.m; sourceTree = "<group>"; };
+		78E9ACBC16ABAF75008CE555 /* LLShareFacebookRequestCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLShareFacebookRequestCommand.h; sourceTree = "<group>"; };
+		78E9ACBD16ABAF75008CE555 /* LLShareFacebookRequestCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLShareFacebookRequestCommand.m; sourceTree = "<group>"; };
+		78E9ACBF16ABB36C008CE555 /* LLShareTwitterRequestCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLShareTwitterRequestCommand.h; sourceTree = "<group>"; };
+		78E9ACC016ABB36C008CE555 /* LLShareTwitterRequestCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLShareTwitterRequestCommand.m; sourceTree = "<group>"; };
+		78E9ACC216ABBDAC008CE555 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		78EAC95A16A2BEA9004C4B39 /* LLMultipleSocialsCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLMultipleSocialsCommand.h; sourceTree = "<group>"; };
 		78EAC95B16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLMultipleSocialsCommand.m; sourceTree = "<group>"; };
 		78F12CF01646B0020068F9E4 /* LLOptionPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLOptionPrototype.h; sourceTree = "<group>"; };
@@ -406,6 +414,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78E9ACC316ABBDAC008CE555 /* Accounts.framework in Frameworks */,
 				7891307116A47DE1005E12C8 /* SystemConfiguration.framework in Frameworks */,
 				7891306F16A47DD1005E12C8 /* Security.framework in Frameworks */,
 				78B2F4D216A278BF00EF31C6 /* AssetsLibrary.framework in Frameworks */,
@@ -443,6 +452,7 @@
 		785A0DA015E9A3B6002C6F78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				78E9ACC216ABBDAC008CE555 /* Accounts.framework */,
 				7891307016A47DE1005E12C8 /* SystemConfiguration.framework */,
 				7891306E16A47DD1005E12C8 /* Security.framework */,
 				78B2F4D116A278BF00EF31C6 /* AssetsLibrary.framework */,
@@ -528,12 +538,11 @@
 			isa = PBXGroup;
 			children = (
 				788FBF8F163D0927005A444E /* Abstract Commands */,
+				78E9ACBA16ABAF45008CE555 /* Share Social Request Commands */,
 				785A0E2015E9EF1A002C6F78 /* LLEmailCommand.h */,
 				785A0E2115E9EF1A002C6F78 /* LLEmailCommand.m */,
 				78CF89F916A6FE0600950FFF /* LLShareSocialComposeCommand.h */,
 				78CF89FA16A6FE0600950FFF /* LLShareSocialComposeCommand.m */,
-				789C7B8F16A6374D007673BD /* LLShareSocialRequestCommand.h */,
-				789C7B9016A6374D007673BD /* LLShareSocialRequestCommand.m */,
 				78EAC95A16A2BEA9004C4B39 /* LLMultipleSocialsCommand.h */,
 				78EAC95B16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m */,
 				789130DA16A4E93F005E12C8 /* LLGooglePlusCommand.h */,
@@ -993,6 +1002,19 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		78E9ACBA16ABAF45008CE555 /* Share Social Request Commands */ = {
+			isa = PBXGroup;
+			children = (
+				789C7B8F16A6374D007673BD /* LLShareSocialRequestCommand.h */,
+				789C7B9016A6374D007673BD /* LLShareSocialRequestCommand.m */,
+				78E9ACBC16ABAF75008CE555 /* LLShareFacebookRequestCommand.h */,
+				78E9ACBD16ABAF75008CE555 /* LLShareFacebookRequestCommand.m */,
+				78E9ACBF16ABB36C008CE555 /* LLShareTwitterRequestCommand.h */,
+				78E9ACC016ABB36C008CE555 /* LLShareTwitterRequestCommand.m */,
+			);
+			name = "Share Social Request Commands";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1182,6 +1204,8 @@
 				789C7B8E16A635C5007673BD /* REComposeViewController.m in Sources */,
 				789C7B9116A6374E007673BD /* LLShareSocialRequestCommand.m in Sources */,
 				78CF89FB16A6FE0600950FFF /* LLShareSocialComposeCommand.m in Sources */,
+				78E9ACBE16ABAF75008CE555 /* LLShareFacebookRequestCommand.m in Sources */,
+				78E9ACC116ABB36C008CE555 /* LLShareTwitterRequestCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

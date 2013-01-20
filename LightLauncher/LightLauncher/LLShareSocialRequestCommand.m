@@ -11,9 +11,7 @@
 @implementation LLShareSocialRequestCommand
 
 - (void)setValue:(id)value forKey:(NSString *)key {
-    if ([key isEqualToString:OPTION_SERVICE_TYPE] && [value isKindOfClass:[NSString class]]) {
-        self.serviceType = value;
-    } else if ([key isEqualToString:OPTION_BODY] && [value isKindOfClass:[NSString class]]) {
+    if ([key isEqualToString:OPTION_BODY] && [value isKindOfClass:[NSString class]]) {
         self.body = value;
     } else if ([key isEqualToString:OPTION_URL]) {
         if ([value isKindOfClass:[NSString class]]) {
@@ -26,11 +24,6 @@
     } else {
         [super setValue:value forKey:key];
     }
-}
-
-- (void)executeWithViewController:(UIViewController *)viewController withCommandDelegate:(id<LLCommandDelegate>)delegate {
-    [super executeWithViewController:viewController withCommandDelegate:delegate];
-    [self onFinished];
 }
 
 @end

@@ -8,6 +8,8 @@
 
 #import "LLMultipleSocialsCommand.h"
 #import "LLShareSocialRequestCommand.h"
+#import "LLShareFacebookRequestCommand.h"
+#import "LLShareTwitterRequestCommand.h"
 #import "LLGooglePlusCommand.h"
 
 @interface LLMultipleSocialsCommand ()
@@ -78,19 +80,20 @@
         return;
     }
     
-    LLCommand *command;
     NSString *serviceType = [self.serviceTypes objectAtIndex:self.executedServicesCounter];
+    
+    LLCommand *command;
     if ([serviceType isEqualToString:OPTION_VALUE_SERVICE_TYPE_FACEBOOK] || [serviceType isEqualToString:OPTION_VALUE_SERVICE_TYPE_TWITTER]) {
-        LLShareSocialRequestCommand *c = [[LLShareSocialRequestCommand alloc] init];
+        LLShareSocialRequestCommand *c;
+        if ([serviceType isEqualToString:OPTION_VALUE_SERVICE_TYPE_FACEBOOK]) {
+            c = [[LLShareFacebookRequestCommand alloc] init];
+        } else {
+            c = [[LLShareTwitterRequestCommand alloc] init];
+        }
+        
         c.body = self.body;
         c.url = self.url;
         c.image = self.image;
-        
-        if ([serviceType isEqualToString:OPTION_VALUE_SERVICE_TYPE_FACEBOOK]) {
-            c.serviceType = SLServiceTypeFacebook;
-        } else {
-            c.serviceType = SLServiceTypeTwitter;
-        }
         
         command = c;
     } else if ([serviceType isEqualToString:COMMAND_GOOGLE_PLUS]) {

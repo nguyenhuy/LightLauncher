@@ -14,7 +14,6 @@
 // If only share to Facebook/Twitter, consider using LLShareSocialComposeCommand.
 @interface LLShareSocialRequestCommand : LLCommand
 
-@property (nonatomic, strong) NSString *serviceType;
 @property (nonatomic, strong) NSString *body;
 @property (nonatomic, strong) NSURL *url;
 @property (nonatomic, strong) UIImage *image;
