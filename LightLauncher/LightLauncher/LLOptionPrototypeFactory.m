@@ -131,13 +131,11 @@
 }
 
 + (LLOptionPrototype *)imageOptionPrototype {
-    LLOptionValuePrototype *imageValue = [LLOptionValuePrototypeFactory imageAttachmentsOptionValuePrototypeWithDisplayName:@"Pick now"];
     LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
     LLOptionValuePrototype *imageFromCameraRoll = [LLOptionValuePrototypeFactory imageFromCameraRollOptionValuePrototypeWithDisplayName:@"Last Photo"];
     LLOptionValuePrototype *imagePickLater = [LLOptionValuePrototypeFactory imagePickLaterOptionValuePrototypeWithDisplayName:@"Pick Later"];
     
     NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                    imageValue, imageValue.key,
                                     pasteboardValue, pasteboardValue.key,
                                     imageFromCameraRoll, imageFromCameraRoll.key,
                                     imagePickLater, imagePickLater.key,

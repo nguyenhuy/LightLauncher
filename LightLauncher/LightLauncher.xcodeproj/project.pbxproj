@@ -140,9 +140,9 @@
 		78E9ACBE16ABAF75008CE555 /* LLShareFacebookRequestCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E9ACBD16ABAF75008CE555 /* LLShareFacebookRequestCommand.m */; };
 		78E9ACC116ABB36C008CE555 /* LLShareTwitterRequestCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E9ACC016ABB36C008CE555 /* LLShareTwitterRequestCommand.m */; };
 		78E9ACC316ABBDAC008CE555 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E9ACC216ABBDAC008CE555 /* Accounts.framework */; };
-		78E9ACDE16ABFCB9008CE555 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E9ACDD16ABFCB9008CE555 /* MobileCoreServices.framework */; };
 		78E9ACD216ABE583008CE555 /* FavReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E9ACD116ABE583008CE555 /* FavReceipt.m */; };
 		78E9ACD516ABEE09008CE555 /* HistoryReceipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E9ACD416ABEE09008CE555 /* HistoryReceipt.m */; };
+		78E9ACDE16ABFCB9008CE555 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78E9ACDD16ABFCB9008CE555 /* MobileCoreServices.framework */; };
 		78EAC95C16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EAC95B16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m */; };
 		78F12CF21646B0020068F9E4 /* LLOptionPrototype.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF11646B0020068F9E4 /* LLOptionPrototype.m */; };
 		78F12CF51646B11F0068F9E4 /* LLCommandPrototypeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F12CF41646B11F0068F9E4 /* LLCommandPrototypeFactory.m */; };
@@ -396,11 +396,11 @@
 		78E9ACBF16ABB36C008CE555 /* LLShareTwitterRequestCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLShareTwitterRequestCommand.h; sourceTree = "<group>"; };
 		78E9ACC016ABB36C008CE555 /* LLShareTwitterRequestCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLShareTwitterRequestCommand.m; sourceTree = "<group>"; };
 		78E9ACC216ABBDAC008CE555 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		78E9ACDD16ABFCB9008CE555 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		78E9ACD016ABE583008CE555 /* FavReceipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavReceipt.h; sourceTree = "<group>"; };
 		78E9ACD116ABE583008CE555 /* FavReceipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavReceipt.m; sourceTree = "<group>"; };
 		78E9ACD316ABEE09008CE555 /* HistoryReceipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryReceipt.h; sourceTree = "<group>"; };
 		78E9ACD416ABEE09008CE555 /* HistoryReceipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryReceipt.m; sourceTree = "<group>"; };
+		78E9ACDD16ABFCB9008CE555 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		78EAC95A16A2BEA9004C4B39 /* LLMultipleSocialsCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLMultipleSocialsCommand.h; sourceTree = "<group>"; };
 		78EAC95B16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLMultipleSocialsCommand.m; sourceTree = "<group>"; };
 		78F12CF01646B0020068F9E4 /* LLOptionPrototype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLOptionPrototype.h; sourceTree = "<group>"; };
@@ -441,7 +441,6 @@
 		785A0D9215E9A3B6002C6F78 = {
 			isa = PBXGroup;
 			children = (
-				78E9ACDD16ABFCB9008CE555 /* MobileCoreServices.framework */,
 				785A0DA715E9A3B6002C6F78 /* LightLauncher */,
 				785A0DA015E9A3B6002C6F78 /* Frameworks */,
 				788FBF89163CEC1D005A444E /* Libraries */,
@@ -460,6 +459,7 @@
 		785A0DA015E9A3B6002C6F78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				78E9ACDD16ABFCB9008CE555 /* MobileCoreServices.framework */,
 				78E9ACC216ABBDAC008CE555 /* Accounts.framework */,
 				7891307016A47DE1005E12C8 /* SystemConfiguration.framework */,
 				7891306E16A47DD1005E12C8 /* Security.framework */,

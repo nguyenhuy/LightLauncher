@@ -15,7 +15,6 @@
 + (LLOptionValuePrototype *)urlsOptionValuePrototypeWithDisplayName:(NSString *)displayName;
 + (LLOptionValuePrototype *)urlOptionValuePrototypeWithDisplayName:(NSString *)displayName;
 + (LLOptionValuePrototype *)fileAttachmentsOptionValuePrototypeWithDisplayName:(NSString *)displayName;
-+ (LLOptionValuePrototype *)imageAttachmentsOptionValuePrototypeWithDisplayName:(NSString *)displayName;
 + (LLOptionValuePrototype *)pasteboardOptionValuePrototype;
 + (LLOptionValuePrototype *)imageFromCameraRollOptionValuePrototypeWithDisplayName:(NSString *)displayName;
 + (LLOptionValuePrototype *)imagePickLaterOptionValuePrototypeWithDisplayName:(NSString *)displayName;
