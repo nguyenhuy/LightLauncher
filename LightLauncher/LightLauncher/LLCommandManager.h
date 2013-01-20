@@ -21,6 +21,7 @@
 @property (nonatomic, strong, readonly) LLCommandPrototype *executingCommandPrototype;
 @property (nonatomic, strong, readonly) LLCommand *executingCommand;
 @property (nonatomic, strong, readonly) UIViewController *executingViewController;
+@property (nonatomic, strong, readonly) LLCommandCompiler *compiler;
 @property (nonatomic, weak) id<LLCommandDelegate> executingCommandDelegate;
 
 + (LLCommandManager *)sharedInstance;

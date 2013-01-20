@@ -19,7 +19,6 @@
 @interface LLCommandCompiler ()
 - (void)decreaseCompilingCounter;
 - (void)doneCompiling;
-- (void)cleanUpAfterCompiling;
 - (void)compileValueFromOptionValuePrototype:(LLOptionValuePrototype *)optionValue;
 - (void)setCompiledValue:(id)compiledValue;
 - (void)onFailedCompilingValueWithError:(NSError *)error;
@@ -45,19 +44,6 @@
 
 - (void)doneCompiling {
     [self.delegate onFinishedCompilingCommandPrototype:self.compilingCommandPrototype withCompiledValue:self.compilingCommand];
-    [self cleanUpAfterCompiling];
-}
-
-- (void)cleanUpAfterCompiling {
-    @synchronized(self) {
-        self.compilingCounter = 0;
-    }
-
-    self.compilingCommand = nil;
-    self.compilingCommandPrototype = nil;
-    self.compilingOption = nil;
-    self.delegate = nil;
-    self.viewController = nil;
 }
 
 - (void)compile:(LLCommandPrototype *)commandPrototype withDelegate:(id<LLCommandCompilerDelegate>)delegate andViewController:(UIViewController *)viewController {
@@ -187,14 +173,19 @@
         return;
     }
     
-    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    // Only interested in image
-    imagePickerController.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeImage, nil];
-    imagePickerController.allowsEditing = NO;
-    imagePickerController.delegate = self;
-    
-    [self.viewController presentViewController:imagePickerController animated:YES completion:nil];
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+        imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        // Only interested in image
+        imagePickerController.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeImage, nil];
+        imagePickerController.allowsEditing = NO;
+        imagePickerController.delegate = self;
+        
+        [self.viewController presentViewController:imagePickerController animated:YES completion:nil];
+    } failureBlock:^(NSError *error) {
+        [self onFailedCompilingValueWithError:error];
+    }];
 }
 
 #pragma mark - Image Picker Delegate

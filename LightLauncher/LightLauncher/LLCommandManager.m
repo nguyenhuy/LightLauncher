@@ -22,6 +22,7 @@
 @property (nonatomic, strong, readwrite) LLCommand *executingCommand;
 @property (nonatomic, strong, readwrite) LLCommandPrototype *executingCommandPrototype;
 @property (nonatomic, strong, readwrite) UIViewController *executingViewController;
+@property (nonatomic, strong, readwrite) LLCommandCompiler *compiler;
 
 + (BOOL)save;
 + (BOOL)saveManagedObjectContext:(NSManagedObjectContext *)context;
@@ -161,12 +162,14 @@
     self.executingCommandDelegate = delegate;
     self.executingViewController = viewController;
 
-    [[[LLCommandCompiler alloc] init] compile:self.executingCommandPrototype withDelegate:self andViewController:self.executingViewController];
+    self.compiler = [[LLCommandCompiler alloc] init];
+    [self.compiler compile:self.executingCommandPrototype withDelegate:self andViewController:self.executingViewController];
 }
 
 #pragma mark - Command compiler delegate
 
 - (void)onFinishedCompilingCommandPrototype:(LLCommandPrototype *)commandPrototype withCompiledValue:(id)compiledValue {
+    self.compiler = nil;
     self.executingCommand = compiledValue;
     [self.executingCommand executeWithViewController:self.executingViewController withCommandDelegate:self];
 }
@@ -206,6 +209,7 @@
     self.executingCommandPrototype = nil;
     self.executingViewController = nil;
     self.executingCommandDelegate = nil;
+    self.compiler = nil;
 }
 
 @end
