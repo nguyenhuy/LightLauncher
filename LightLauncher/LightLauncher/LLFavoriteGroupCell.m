@@ -10,8 +10,8 @@
 #import "LLFavoriteReceiptCell.h"
 #import "LLCommandManager.h"
 #import "LLCommandParser.h"
+#import "HistoryReceipt.h"
 #import "Group.h"
-#import "Receipt.h"
 
 @interface LLFavoriteGroupCell ()
 @end
@@ -23,7 +23,7 @@
     self.group = group;
     
     // Sort receipts
-    NSSortDescriptor *sortDesctiptor = [[NSSortDescriptor alloc] initWithKey:@"executedDate" ascending:NO];
+    NSSortDescriptor *sortDesctiptor = [[NSSortDescriptor alloc] initWithKey:@"positionInGroup" ascending:NO];
     self.receipts = [self.group.receipts sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDesctiptor]];
 
     // Can't do these things in setup ???
@@ -57,7 +57,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
+    HistoryReceipt *receipt = [self.receipts objectAtIndex:indexPath.row];
     
     LLFavoriteReceiptCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_FAVORITE_RECEIPT_CELL forIndexPath:indexPath];
     [cell updateViewWithCommandPrototype:receipt.commandPrototype atIndexPath:indexPath withDelegate:self];
@@ -71,8 +71,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     // Execute the command
-    Receipt *receipt = [self.receipts objectAtIndex:indexPath.row];
-    [self.delegate onTappedReciept:receipt];
+    HistoryReceipt *receipt = [self.receipts objectAtIndex:indexPath.row];
+    [self.delegate onTappedHistoryReciept:receipt];
 }
 
 #pragma mark - Favorite receipt cell delegate

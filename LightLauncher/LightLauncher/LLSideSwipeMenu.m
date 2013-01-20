@@ -35,12 +35,7 @@
 }
 
 - (void)updateViewWithReceipt:(Receipt *)receipt {
-    UIImage *likeImage;
-    if ([receipt liked]) {
-        likeImage = [UIImage imageNamed:IMAGE_LIKE_SELECTED];
-    } else {
-        likeImage = [UIImage imageNamed:IMAGE_LIKE_UNSELECTED];
-    }
+    UIImage *likeImage = [UIImage imageNamed:IMAGE_LIKE_UNSELECTED];
     [self.btnLike setImage:likeImage forState:UIControlStateNormal];
 }
 

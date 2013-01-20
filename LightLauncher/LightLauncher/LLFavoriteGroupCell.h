@@ -13,11 +13,11 @@
 #import "LLCommand.h"
 
 @class Group;
-@class Receipt;
+@class HistoryReceipt;
 
 @protocol LLFavoriteGroupCellDelegate <NSObject>
 
-- (void)onTappedReciept:(Receipt *)receipt;
+- (void)onTappedHistoryReciept:(HistoryReceipt *)receipt;
 
 @end
 

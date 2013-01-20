@@ -13,7 +13,8 @@
 #import "LLCommandParser.h"
 #import "LLCommandPrototypeFactory.h"
 #import "Group.h"
-#import "Receipt.h"
+#import "HistoryReceipt.h"
+#import "FavReceipt.h"
 
 @interface LLCommandManager ()
 
@@ -79,56 +80,59 @@
     return nil;
 }
 
-+ (Receipt *)createReceiptInDbFromCommandPrototype:(LLCommandPrototype *)commandPrototype {
++ (BOOL)createHistoryReceiptFromCommandPrototype:(LLCommandPrototype *)commandPrototype {
     if (!commandPrototype) {
         return NO;
     }
     
-    Receipt *receipt = [Receipt MR_createEntity];
+    HistoryReceipt *receipt = [HistoryReceipt MR_createEntity];
     receipt.data = [LLCommandParser encode:commandPrototype];
     receipt.executedDate = [NSDate date];
-    receipt.group = nil;
     
     if ([LLCommandManager save]) {
-        return receipt;
+        return YES;
     }
     //@TODO can't save, show user something
-    return nil;
+    return NO;
 }
 
-+ (BOOL)deleteAllReceipts {
-    BOOL deleted = [Receipt MR_truncateAll];
-    return deleted && [LLCommandManager save];
-}
-
-+ (BOOL)deleteReceipt:(Receipt *)receipt {
-    if (!receipt) {
++ (BOOL)deleteHistoryReceipt:(HistoryReceipt *)historyReceipt {
+    if (!historyReceipt) {
         return NO;
     }
     
-    BOOL deleted = [receipt MR_deleteEntity];
+    BOOL deleted = [historyReceipt MR_deleteEntity];
     return deleted && [LLCommandManager save];
 }
 
-+ (BOOL)assignDefaultGroupForReceipt:(Receipt *)receipt withDescription:(NSString *)description {
-    return [LLCommandManager assignGroup:[LLCommandManager defaultGroup] forReceipt:receipt withDescription:description];
-}
-
-+ (BOOL)assignGroup:(Group *)group forReceipt:(Receipt *)receipt withDescription:(NSString *)description {
-    if (!receipt) {
++ (BOOL)createFavReceiptFromCommandPrototype:(LLCommandPrototype *)commandPrototype withDescription:(NSString *)description {
+    if (!commandPrototype) {
         return NO;
     }
     
-    receipt.group = group;
-    if (description && description.length != 0) {
-        // This call can be expensive, so only set if neccessary for now
-        [receipt setDesc:description];
+    FavReceipt *receipt = [FavReceipt MR_createEntity];
+    receipt.data = [LLCommandParser encode:commandPrototype];
+    receipt.group = [LLCommandManager defaultGroup];
+    receipt.positionInGroup = 0;
+    
+    //@TODO shift other fav receipts in this group to the right.
+    
+    if ([LLCommandManager save]) {
+        return YES;
     }
-    return [LLCommandManager save];
+    //@TODO can't save, show user something
+    return NO;
 }
 
-+ (BOOL)removeGroupForReceipt:(Receipt *)receipt {
-    return [LLCommandManager assignGroup:nil forReceipt:receipt withDescription:nil];
++ (BOOL)deleteFavReceipt:(FavReceipt *)favReceipt {
+    if (!favReceipt) {
+        return NO;
+    }
+    
+    //@TODO shift other commanda to the left
+    
+    BOOL deleted = [favReceipt MR_deleteEntity];
+    return deleted && [LLCommandManager save];
 }
 
 #pragma mark - Instance methods
@@ -174,7 +178,7 @@
 #pragma mark Command Delegate
 
 - (void)onFinishedCommand:(LLCommand *)command {
-    [LLCommandManager createReceiptInDbFromCommandPrototype:self.executingCommandPrototype];
+    [LLCommandManager createHistoryReceiptFromCommandPrototype:self.executingCommandPrototype];
     [LLSavingTimeManager increaseSavingTimeWithCommand:self.executingCommand];
     [self.executingCommandDelegate onFinishedCommand:command];
     [self cleanUpAfterExecutingCommand];
@@ -182,7 +186,7 @@
 
 - (void)onCanceledCommand:(LLCommand *)command {
     //@TODO should we save it???
-    [LLCommandManager createReceiptInDbFromCommandPrototype:self.executingCommandPrototype];
+    [LLCommandManager createHistoryReceiptFromCommandPrototype:self.executingCommandPrototype];
     if ([self.executingCommandDelegate respondsToSelector:@selector(onCanceledCommand:)]) {
         [self.executingCommandDelegate onCanceledCommand:command];
     }
@@ -191,7 +195,7 @@
 
 - (void)onStoppedCommand:(LLCommand *)command withErrorTitle:(NSString *)title andErrorDesc:(NSString *)desc {
     //@TODO should we save it???
-    [LLCommandManager createReceiptInDbFromCommandPrototype:self.executingCommandPrototype];
+    [LLCommandManager createHistoryReceiptFromCommandPrototype:self.executingCommandPrototype];
     [self.executingCommandDelegate onStoppedCommand:command withErrorTitle:title andErrorDesc:desc];
     [self cleanUpAfterExecutingCommand];
 }

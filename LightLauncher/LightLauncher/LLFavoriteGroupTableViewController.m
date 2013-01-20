@@ -15,7 +15,7 @@
 #import "LLFavoriteGroupCell.h"
 
 #import "Group.h"
-#import "Receipt.h"
+#import "HistoryReceipt.h"
 
 #import "UIViewController+ShowHUD.h"
 #import "UIViewController+SetupSideMenu.h"
@@ -118,7 +118,7 @@
 
 #pragma mark - Favorite receipt cell delegate
 
-- (void)onTappedReciept:(Receipt *)receipt {
+- (void)onTappedHistoryReciept:(HistoryReceipt *)receipt {
     LLCommandManager *commandManager = [LLCommandManager sharedInstance];
     [commandManager executeFromCommandPrototype:receipt.commandPrototype withViewController:self andDelegate:self];
 }

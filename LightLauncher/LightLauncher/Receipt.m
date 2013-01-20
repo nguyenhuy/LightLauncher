@@ -14,7 +14,6 @@
 @implementation Receipt
 
 @dynamic data;
-@dynamic executedDate;
 @synthesize commandPrototype = _commandPrototype;
 
 - (LLCommandPrototype *)commandPrototype {
@@ -30,12 +29,6 @@
     self.commandPrototype.desc = desc;
     // Encode back to data
     self.data = [LLCommandParser encode:self.commandPrototype];
-}
-
-- (NSString *)stringFromExecutedDate {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateStyle = NSDateFormatterMediumStyle;
-    return [formatter stringFromDate:self.executedDate];
 }
 
 @end
