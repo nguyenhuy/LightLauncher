@@ -156,7 +156,7 @@
     self.executingCommandDelegate = delegate;
     self.executingViewController = viewController;
 
-    [[[LLCommandCompiler alloc] init] compile:self.executingCommandPrototype withDelegate:self];
+    [[[LLCommandCompiler alloc] init] compile:self.executingCommandPrototype withDelegate:self andViewController:self.executingViewController];
 }
 
 #pragma mark - Command compiler delegate

@@ -7,6 +7,7 @@
 //
 
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <MobileCoreServices/UTCoreTypes.h>
 
 #import "LLCommandCompiler.h"
 #import "LLCommandFactory.h"
@@ -19,11 +20,12 @@
 - (void)decreaseCompilingCounter;
 - (void)doneCompiling;
 - (void)cleanUpAfterCompiling;
-- (void)compileValueForOption:(LLOptionPrototype *)option fromOptionValuePrototype:(LLOptionValuePrototype *)optionValue;
-- (void)setCompiledValue:(id)compiledValue forOption:(LLOptionPrototype *)option;
-- (void)onFailedCompilingValueForOption:(LLOptionPrototype *)option withError:(NSError *)error;
-- (void)pasteboardOptionValueForOption:(LLOptionPrototype *)option;
-- (void)lastPhotoOptionValueForOption:(LLOptionPrototype *)option;
+- (void)compileValueFromOptionValuePrototype:(LLOptionValuePrototype *)optionValue;
+- (void)setCompiledValue:(id)compiledValue;
+- (void)onFailedCompilingValueWithError:(NSError *)error;
+- (void)pasteboardOptionValue;
+- (void)lastPhotoOptionValue;
+- (void)pickPhotoOptionValue;
 @end
 
 @implementation LLCommandCompiler
@@ -53,11 +55,14 @@
 
     self.compilingCommand = nil;
     self.compilingCommandPrototype = nil;
+    self.compilingOption = nil;
     self.delegate = nil;
+    self.viewController = nil;
 }
 
--(void)compile:(LLCommandPrototype *)commandPrototype withDelegate:(id<LLCommandCompilerDelegate>)delegate {
+- (void)compile:(LLCommandPrototype *)commandPrototype withDelegate:(id<LLCommandCompilerDelegate>)delegate andViewController:(UIViewController *)viewController {
     self.delegate = delegate;
+    self.viewController = viewController;
     self.compilingCommand = [LLCommandFactory commandForString:commandPrototype.command];
     
     // Init compiling counter first
@@ -80,9 +85,10 @@
     }
 
     for (LLOptionPrototype *option in commandPrototype.options) {
+        self.compilingOption = option;
         for (LLOptionValuePrototype *optionValue in option.possibleValues.allValues) {
             if (optionValue.selected) {
-                [self compileValueForOption:option fromOptionValuePrototype:optionValue];
+                [self compileValueFromOptionValuePrototype:optionValue];
                 if (option.dataType != DATA_ARRAY) {
                     continue;
                 }
@@ -96,47 +102,49 @@
     }
 }
 
-- (void)compileValueForOption:(LLOptionPrototype *)option fromOptionValuePrototype:(LLOptionValuePrototype *)optionValue {
+- (void)compileValueFromOptionValuePrototype:(LLOptionValuePrototype *)optionValue {
     id compiledValue = optionValue.value;
     
     if (!compiledValue) {
         // If value is nil, it needs to be got at runtime.
         // Check and get it now
         if ([optionValue.key isEqualToString:OPTION_VALUE_PASTEBOARD]) {
-            [self pasteboardOptionValueForOption:option];
-        } else if([optionValue.key isEqualToString:OPTION_VALUE_CAMERA_ROLL]) {
-            [self lastPhotoOptionValueForOption:option];
+            [self pasteboardOptionValue];
+        } else if ([optionValue.key isEqualToString:OPTION_VALUE_CAMERA_ROLL]) {
+            [self lastPhotoOptionValue];
+        } else if ([optionValue.key isEqualToString:OPTION_VALUE_IMAGE_PICK_LATER]) {
+            [self pickPhotoOptionValue];
         } else if([optionValue.key isEqualToString:OPTION_VALUE_SERVICE_TYPE_FACEBOOK]) {
-            [self setCompiledValue:OPTION_VALUE_SERVICE_TYPE_FACEBOOK forOption:option];
+            [self setCompiledValue:OPTION_VALUE_SERVICE_TYPE_FACEBOOK];
         } else if([optionValue.key isEqualToString:OPTION_VALUE_SERVICE_TYPE_TWITTER]) {
-            [self setCompiledValue:OPTION_VALUE_SERVICE_TYPE_TWITTER forOption:option];
+            [self setCompiledValue:OPTION_VALUE_SERVICE_TYPE_TWITTER];
         } else if ([optionValue.key isEqualToString:OPTION_VALUE_SERVICE_TYPE_GOOGLE_PLUS]) {
-            [self setCompiledValue:OPTION_VALUE_SERVICE_TYPE_GOOGLE_PLUS forOption:option];
+            [self setCompiledValue:OPTION_VALUE_SERVICE_TYPE_GOOGLE_PLUS];
         }
     } else {
         // Value is already there, don't need to wait for compiling, set it now
-        [self setCompiledValue:compiledValue forOption:option];
+        [self setCompiledValue:compiledValue];
     }
 }
 
-- (void)setCompiledValue:(id)compiledValue forOption:(LLOptionPrototype *)option {
-    [self.compilingCommand setValue:compiledValue forKey:option.key];
+- (void)setCompiledValue:(id)compiledValue {
+    [self.compilingCommand setValue:compiledValue forKey:self.compilingOption.key];
     [self decreaseCompilingCounter];
 }
 
-- (void)onFailedCompilingValueForOption:(LLOptionPrototype *)option withError:(NSError *)error {
+- (void)onFailedCompilingValueWithError:(NSError *)error {
     [self.delegate onFailedCompilingCommandPrototype:self.compilingCommandPrototype withError:error];
     // Still call decrease, so that onFinishedCompilingCommandPrototype:withCompiledValue is still called if the counter reaches 0, because we want to ignore any failure.
     [self decreaseCompilingCounter];
 }
 
-- (void)pasteboardOptionValueForOption:(LLOptionPrototype *)option {
+- (void)pasteboardOptionValue {
     // TODO: support different type (images, colors, data)
     UIPasteboard *pastebboard = [UIPasteboard generalPasteboard];
-    [self setCompiledValue:pastebboard.string forOption:option];
+    [self setCompiledValue:pastebboard.string];
 }
 
-- (void)lastPhotoOptionValueForOption:(LLOptionPrototype *)option {
+- (void)lastPhotoOptionValue {
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
     
     //Enumerate just saved photos and videos group
@@ -155,11 +163,56 @@
             }
             
             //@TODO: may handle error when image can't be loaded.
-            [self setCompiledValue:image forOption:option];
+            [self setCompiledValue:image];
         }];
     } failureBlock:^(NSError *error) {
-        [self onFailedCompilingValueForOption:option withError:error];
+        [self onFailedCompilingValueWithError:error];
     }];
 }
+
+#pragma mark - Pick image using UIImagePickerController
+
+- (void)pickPhotoOptionValue {
+    NSError *error;
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        error = [NSError errorWithDomain:ERROR_DOMAIN code:1 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"Photo library is not available", NSLocalizedDescriptionKey, nil]];
+    }
+    if (!self.viewController) {
+        error = [NSError errorWithDomain:ERROR_DOMAIN code:2 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"ViewController is not available", NSLocalizedDescriptionKey, nil]];
+    }
+    if (error) {
+        [self onFailedCompilingValueWithError:error];
+        return;
+    }
+    
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    // Only interested in image
+    imagePickerController.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeImage, nil];
+    imagePickerController.allowsEditing = NO;
+    imagePickerController.delegate = self;
+    
+    [self.viewController presentViewController:imagePickerController animated:YES completion:nil];
+}
+
+#pragma mark - Image Picker Delegate
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self.viewController dismissViewControllerAnimated:YES completion:nil];
+    picker.delegate = nil;
+    
+    //@TODO may add cancel callback to delegate
+     NSError *error = [NSError errorWithDomain:ERROR_DOMAIN code:2 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"Canceled", NSLocalizedDescriptionKey, nil]];
+    [self onFailedCompilingValueWithError:error];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [self.viewController dismissViewControllerAnimated:YES completion:nil];
+    picker.delegate = nil;
+    
+    UIImage *image = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
+    [self setCompiledValue:image];
+}
+
 
 @end

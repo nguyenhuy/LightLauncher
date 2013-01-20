@@ -8,6 +8,7 @@
 
 @class LLCommand;
 @class LLCommandPrototype;
+@class LLOptionPrototype;
 
 @protocol LLCommandCompilerDelegate <NSObject>
 
@@ -17,13 +18,15 @@
 
 @end
 
-@interface LLCommandCompiler : NSObject
+@interface LLCommandCompiler : NSObject <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic, strong) LLCommandPrototype *compilingCommandPrototype;
 @property (nonatomic, strong) LLCommand *compilingCommand;
+@property (nonatomic, strong) LLOptionPrototype *compilingOption;
 @property (nonatomic) int compilingCounter;
 @property (nonatomic, weak) id<LLCommandCompilerDelegate> delegate;
+@property (nonatomic, strong) UIViewController *viewController;
 
-- (void)compile:(LLCommandPrototype *)commandPrototype withDelegate:(id<LLCommandCompilerDelegate>)delegate;;
+- (void)compile:(LLCommandPrototype *)commandPrototype withDelegate:(id<LLCommandCompilerDelegate>)delegate andViewController:(UIViewController *)viewController;
 
 @end

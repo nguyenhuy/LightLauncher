@@ -35,6 +35,7 @@
 #define OPTION_VALUE_SERVICE_TYPE_FACEBOOK @"facebok"
 #define OPTION_VALUE_SERVICE_TYPE_TWITTER @"twitter"
 #define OPTION_VALUE_SERVICE_TYPE_GOOGLE_PLUS @"google_plus"
+#define OPTION_VALUE_IMAGE_PICK_LATER @"image_pick_later"
 
 #define DISPLAY_NAME_PASTEBOARD_OPTION_VALUE @"from Pasteboard"
 
@@ -58,6 +59,8 @@
 
 #define CLIENT_ID_GOOGLE_PLUS @"16316205072.apps.googleusercontent.com"
 #define CLIENT_ID_FACEBOOK @"523390914350483"
+
+#define ERROR_DOMAIN @"com.lightlauncher.error"
 
 typedef enum {
     DATA_OBJECT,

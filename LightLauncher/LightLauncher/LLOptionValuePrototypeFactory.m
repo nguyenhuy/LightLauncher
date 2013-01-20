@@ -43,4 +43,8 @@
     return [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_CAMERA_ROLL andDisplayName:displayName andType:TYPE_IMAGE];
 }
 
++ (LLOptionValuePrototype *)imagePickLaterOptionValuePrototypeWithDisplayName:(NSString *)displayName {
+    return [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_IMAGE_PICK_LATER andDisplayName:displayName andType:TYPE_IMAGE];
+}
+
 @end
