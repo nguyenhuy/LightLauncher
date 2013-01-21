@@ -37,6 +37,7 @@
     composeViewController.title = @"Open In Chrome";
     composeViewController.text = [self.url absoluteString];
     composeViewController.delegate = self;
+    //@TODO change title of "Post" button to something else, "Go" for example.
     
     return composeViewController;
 }
