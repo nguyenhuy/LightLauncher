@@ -25,12 +25,6 @@
     }
 }
 
-#pragma mark - Service command protocol
-
-- (BOOL)isServiceAvailable {
-    return [[OpenInChromeController sharedInstance] isChromeInstalled];
-}
-
 #pragma mark - Url Scheme Command
 
 - (NSString *)title {
@@ -38,7 +32,15 @@
 }
 
 - (NSURL *)constructUrl {
+    if (!self.url) {
+        return nil;
+    }
+    
     return [[OpenInChromeController sharedInstance] constructChromeUrlFrom:self.url withCallbackURL:nil createNewTabe:self.createNewTab];
+}
+
+- (BOOL)isAppInstalled {
+    return [[OpenInChromeController sharedInstance] isChromeInstalled];
 }
 
 @end

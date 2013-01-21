@@ -20,8 +20,14 @@
     }
 }
 
+#pragma mark - URL Scheme command
+
 - (NSString *)title {
     return @"Add To Instapaper";
+}
+
+- (NSURL *)urlScheme {
+    return [NSURL URLWithString:@"x-callback-instapaper:"];
 }
 
 - (NSURL *)constructUrl {

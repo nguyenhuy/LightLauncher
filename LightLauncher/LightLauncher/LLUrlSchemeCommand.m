@@ -14,45 +14,39 @@
     @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"title must be implemented" userInfo:nil];
 }
 
+- (NSURL *)urlScheme {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"rootUrl must be implemented" userInfo:nil];
+}
+
 - (NSURL *)constructUrl {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"constructUrl must be implemented" userInfo:nil];
 }
 
-#pragma mark - Service command protocol
-
-- (BOOL)isServiceAvailable {
-    return YES;
+- (BOOL)isAppInstalled {
+    return [[UIApplication sharedApplication] canOpenURL:[self urlScheme]];
 }
 
-- (UIViewController *)constructComposeViewContrroller {
-    REComposeViewController *composeViewController = [[REComposeViewController alloc] init];
-    composeViewController.title = self.title;
-    composeViewController.text = [[self constructUrl] absoluteString];
-    composeViewController.delegate = self;
-    //@TODO change title of "Post" button to something else, "Go" for example.
+#pragma mark Command methods
+
+- (void)executeWithViewController:(UIViewController *)viewController withCommandDelegate:(id<LLCommandDelegate>)delegate {
+    [super executeWithViewController:viewController withCommandDelegate:delegate];
     
-    return composeViewController;
-}
-
-#pragma mark - REComposeViewControllerDelegate
-
-- (void)composeViewController:(REComposeViewController *)composeViewController didFinishWithResult:(REComposeResult)result {
-    if (result == REComposeResultPosted) {
-        NSURL *url = [NSURL URLWithString:composeViewController.text];
-        if (url) {
-            //@TODO callback???
-            BOOL opened = [[UIApplication sharedApplication] openURL:url];
-            if (opened) {
-                [self onFinished];
-            } else {
-                [self onErrorWithTitle:@"Error" andDesc:@"Can't execute the URL Scheme"];
-            }
+    if (![self isAppInstalled]) {
+        [self onErrorWithTitle:@"Error" andDesc:@"App is not available"];
+    }
+    
+    NSURL *url = [self constructUrl];
+    if (url) {
+        //@TODO callback???
+        BOOL opened = [[UIApplication sharedApplication] openURL:url];
+        if (opened) {
+            [self onFinished];
         } else {
-            // The url is malformed or empty
-            [self onErrorWithTitle:@"Error" andDesc:@"Invalid URL Scheme"];
+            [self onErrorWithTitle:@"Error" andDesc:@"Can't execute the URL Scheme"];
         }
     } else {
-        [self onCanceled];
+        // The url is malformed or empty
+        [self onErrorWithTitle:@"Error" andDesc:@"Invalid URL Scheme"];
     }
 }
 
