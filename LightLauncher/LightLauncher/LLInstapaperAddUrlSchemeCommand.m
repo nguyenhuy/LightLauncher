@@ -35,7 +35,7 @@
         return nil;
     }
     
-    return [NSURL URLWithString:[NSString stringWithFormat:@"x-callback-instapaper://x-callback-url/add?%@", self.url, nil]];
+    return [NSURL URLWithString:[NSString stringWithFormat:@"x-callback-instapaper://x-callback-url/add?url=%@", self.url, nil]];
 }
 
 @end
