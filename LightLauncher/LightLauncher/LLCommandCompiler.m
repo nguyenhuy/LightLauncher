@@ -124,7 +124,7 @@
     UIPasteboard *pastebboard = [UIPasteboard generalPasteboard];
     
     OptionValueType type = self.compilingOption.valueType;
-    if (type == TYPE_STRING || type == TYPE_EMAIL || type == TYPE_URL) {
+    if ([LLUtils isStringOptionValueType:type]) {
         [self setCompiledValue:pastebboard.string];
     } else if (type == TYPE_IMAGE) {
         [self setCompiledValue:pastebboard.image];

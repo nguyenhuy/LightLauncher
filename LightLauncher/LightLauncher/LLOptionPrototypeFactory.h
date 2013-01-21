@@ -10,7 +10,6 @@
 
 @interface LLOptionPrototypeFactory : NSObject
 
-+ (LLOptionPrototype *)optionPrototypeWithKey:(NSString *)key;
 + (LLOptionPrototype *)subjectOptionPrototype;
 + (LLOptionPrototype *)bodyOptionPrototype;
 + (LLOptionPrototype *)toAddressesOptionPrototype;
@@ -22,5 +21,6 @@
 + (LLOptionPrototype *)imageOptionPrototype;
 
 + (LLOptionPrototype *)socialsOptionPrototype;
++ (LLOptionPrototype *)createNewTabOptionPrototype;
 
 @end

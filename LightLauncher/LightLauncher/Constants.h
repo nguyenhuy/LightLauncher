@@ -16,6 +16,7 @@
 #define COMMAND_TWITTER @"twitter"
 #define COMMAND_MULTIPLE_SOCIALS @"multiple_socials"
 #define COMMAND_GOOGLE_PLUS @"google_plus"
+#define COMMAND_OPEN_IN_CHROME @"open_in_chrome"
 
 #define OPTION_SERVICE_TYPE @"service_type"
 #define OPTION_SERVICE_NAME @"service_name"
@@ -28,6 +29,7 @@
 #define OPTION_FILE_ATTACHMENTS @"file_attachments"
 #define OPTION_IMAGE @"image"
 #define OPTION_SERVICE_TYPES @"service_types"
+#define OPTION_CREATE_NEW_TAB @"create_new_tab"
 
 #define OPTION_VALUE_PREFILL @"prefill"
 #define OPTION_VALUE_PASTEBOARD @"pasteboard"
@@ -48,6 +50,7 @@
 #define IMAGE_MENU_ICON @"menu-icon.png"
 #define IMAGE_HUD_CHECKMARK @"37x-Checkmark.png"
 #define IMAGE_GOOGLE_PLUS @"google_plus.png"
+#define IMAGE_GOOGLE_CHROME @"google_chrome.png"
 
 #define HUD_DELAY_INTERVAL 2
 

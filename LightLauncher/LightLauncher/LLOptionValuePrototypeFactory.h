@@ -10,7 +10,7 @@
 
 @interface LLOptionValuePrototypeFactory : NSObject
 
-+ (LLOptionValuePrototype *)stringOptionValuePrototypeWithDisplayName:(NSString *)displayName;
++ (LLOptionValuePrototype *)prefillOptionValuePrototypeWithDisplayName:(NSString *)displayName;
 + (LLOptionValuePrototype *)pasteboardOptionValuePrototype;
 + (LLOptionValuePrototype *)imageFromCameraRollOptionValuePrototypeWithDisplayName:(NSString *)displayName;
 + (LLOptionValuePrototype *)imagePickLaterOptionValuePrototypeWithDisplayName:(NSString *)displayName;

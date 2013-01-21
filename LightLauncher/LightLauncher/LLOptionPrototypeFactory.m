@@ -14,30 +14,8 @@
 
 @implementation LLOptionPrototypeFactory
 
-+ (LLOptionPrototype *)optionPrototypeWithKey:(NSString *)key {
-    if ([key isEqualToString:OPTION_SUBJECT]) {
-        return [self subjectOptionPrototype];
-    }
-    if ([key isEqualToString:OPTION_BODY]) {
-        return [self bodyOptionPrototype];
-    }
-    if([key isEqualToString:OPTION_TO_ADDRESSES]) {
-        return [self toAddressesOptionPrototype];
-    }
-    if([key isEqualToString:OPTION_CC_ADDRESSES]) {
-        return [self ccAddressesOptionPrototype];
-    }
-    if([key isEqualToString:OPTION_BCC_ADDRESSES]) {
-        return [self bccAddressesOptionPrototype];
-    }
-    if ([key isEqualToString:OPTION_FILE_ATTACHMENTS]) {
-        return [self fileAttachmentsOptionPrototype];
-    }
-    return nil;
-}
-
 +(LLOptionPrototype *)subjectOptionPrototype {
-    LLOptionValuePrototype *prefillSubjectValue = [LLOptionValuePrototypeFactory stringOptionValuePrototypeWithDisplayName:@"Subject"];
+    LLOptionValuePrototype *prefillSubjectValue = [LLOptionValuePrototypeFactory prefillOptionValuePrototypeWithDisplayName:@"Subject"];
     LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
     
     NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -51,7 +29,7 @@
 
 + (LLOptionPrototype *)bodyOptionPrototype {
     NSString *subject = [NSString stringWithFormat:@"Send via %@", APP_NAME];
-    LLOptionValuePrototype *prefillBodyValue = [LLOptionValuePrototypeFactory stringOptionValuePrototypeWithDisplayName:subject];
+    LLOptionValuePrototype *prefillBodyValue = [LLOptionValuePrototypeFactory prefillOptionValuePrototypeWithDisplayName:subject];
     LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
     
     NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -64,7 +42,7 @@
 }
 
 + (LLOptionPrototype *)toAddressesOptionPrototype {
-    LLOptionValuePrototype *prefillToValue = [LLOptionValuePrototypeFactory stringOptionValuePrototypeWithDisplayName:@"support@lightlauncher.com"];
+    LLOptionValuePrototype *prefillToValue = [LLOptionValuePrototypeFactory prefillOptionValuePrototypeWithDisplayName:@"support@lightlauncher.com"];
     LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
 
     NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -77,7 +55,7 @@
 }
 
 + (LLOptionPrototype *)ccAddressesOptionPrototype {
-    LLOptionValuePrototype *prefillCcValue = [LLOptionValuePrototypeFactory stringOptionValuePrototypeWithDisplayName:@"support@lightlauncher.com"];
+    LLOptionValuePrototype *prefillCcValue = [LLOptionValuePrototypeFactory prefillOptionValuePrototypeWithDisplayName:@"support@lightlauncher.com"];
     LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
 
     NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -90,7 +68,7 @@
 }
 
 + (LLOptionPrototype *)bccAddressesOptionPrototype {
-    LLOptionValuePrototype *prefillBccValue = [LLOptionValuePrototypeFactory stringOptionValuePrototypeWithDisplayName:@"support@lightlauncher.com"];
+    LLOptionValuePrototype *prefillBccValue = [LLOptionValuePrototypeFactory prefillOptionValuePrototypeWithDisplayName:@"support@lightlauncher.com"];
     LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
     
     NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -103,7 +81,7 @@
 }
 
 + (LLOptionPrototype *)urlOptionPrototype {
-    LLOptionValuePrototype *prefillUrlvalue = [LLOptionValuePrototypeFactory stringOptionValuePrototypeWithDisplayName:@"http://lightlauncher.com"];
+    LLOptionValuePrototype *prefillUrlvalue = [LLOptionValuePrototypeFactory prefillOptionValuePrototypeWithDisplayName:@"http://lightlauncher.com"];
     LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
     
     NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -146,9 +124,9 @@
 }
 
 + (LLOptionPrototype *)socialsOptionPrototype {
-    LLOptionValuePrototype *facebookValue = [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_SERVICE_TYPE_FACEBOOK andDisplayName:@"Facebook"];
-    LLOptionValuePrototype *twitterVallue = [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_SERVICE_TYPE_TWITTER andDisplayName:@"Twitter"];
-    LLOptionValuePrototype *googlePlusValue = [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_SERVICE_TYPE_GOOGLE_PLUS andDisplayName:@"Google Plus"];
+    LLOptionValuePrototype *facebookValue = [LLOptionValuePrototypeFactory prefillOptionValuePrototypeWithDisplayName:@"Facebook"];
+    LLOptionValuePrototype *twitterVallue = [LLOptionValuePrototypeFactory prefillOptionValuePrototypeWithDisplayName:@"Twitter"];
+    LLOptionValuePrototype *googlePlusValue = [LLOptionValuePrototypeFactory prefillOptionValuePrototypeWithDisplayName:@"Google Plus"];
     
     NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
                                     facebookValue, facebookValue.key,
@@ -156,6 +134,17 @@
                                     googlePlusValue, googlePlusValue.key,
                                     nil];
     LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_SERVICE_TYPES andDisplayName:@"Services" andDataType:DATA_ARRAY andValueType:TYPE_STRING andPossibleValues:possibleValues];
+    return optionPrototype;
+}
+
++ (LLOptionPrototype *)createNewTabOptionPrototype {
+    LLOptionValuePrototype *prefill = [LLOptionValuePrototypeFactory prefillOptionValuePrototypeWithDisplayName:@"Yes"];
+    
+    NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    prefill, prefill.key,
+                                    nil];
+
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_CREATE_NEW_TAB andDisplayName:@"Open in new tab" andDataType:DATA_OBJECT andValueType:TYPE_BOOLEAN andPossibleValues:possibleValues];
     return optionPrototype;
 }
 

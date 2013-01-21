@@ -13,6 +13,7 @@
 #import "LLMultipleSocialsCommand.h"
 #import "LLGooglePlusCommand.h"
 #import "LLShareSocialComposeCommand.h"
+#import "LLOpenInChromeCommand.h"
 
 @interface LLCommandFactory ()
 + (LLShareSocialComposeCommand *)shareSocialComposeCommandWithServiceType:(NSString *)serviceType andServiceName:(NSString *)serviceName;
@@ -35,6 +36,9 @@
     }
     if ([command isEqualToString:COMMAND_GOOGLE_PLUS]) {
         return [[LLGooglePlusCommand alloc] init];
+    }
+    if ([command isEqualToString:COMMAND_OPEN_IN_CHROME]) {
+        return [[LLOpenInChromeCommand alloc] init];
     }
     return nil;
 }

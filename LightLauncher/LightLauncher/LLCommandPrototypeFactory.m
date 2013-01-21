@@ -93,4 +93,14 @@
     return commandPrototype;
 }
 
++ (LLCommandPrototype *)openInChromeCommandPrototype {
+    NSArray *options = [[NSArray alloc] initWithObjects:
+                        [LLOptionPrototypeFactory urlOptionPrototype],
+                        [LLOptionPrototypeFactory createNewTabOptionPrototype],
+                        nil];
+    
+    LLCommandPrototype *commandPrototype = [[LLCommandPrototype alloc] initWithCommand:COMMAND_OPEN_IN_CHROME andOptions:options andDesc:@"Open In Google Chrome" andIconFileName:IMAGE_GOOGLE_CHROME];
+    return commandPrototype;
+}
+
 @end

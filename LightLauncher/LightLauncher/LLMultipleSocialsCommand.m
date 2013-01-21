@@ -68,6 +68,7 @@
     if (result == REComposeResultCancelled) {
         [self onCanceled];
     } else if (result == REComposeResultPosted) {
+        //@TODO get new value from the composer
         [self executeService];
     }
 }

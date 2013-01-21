@@ -68,9 +68,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    LLOptionPrototype *option = [self optionPrototypeAtIndexPath:indexPath];
     LLOptionValuePrototype *optionValuePrototype = [self optionValuePrototypeAtIndexPath:indexPath];
     
-    if ([optionValuePrototype.key isEqualToString:OPTION_VALUE_PREFILL]) {
+    // Right now LLPrefillOptionValuePrototypeCell only supports string option value types
+    if ([optionValuePrototype.key isEqualToString:OPTION_VALUE_PREFILL] && [LLUtils isStringOptionValueType:option.valueType]) {
         LLOptionPrototype *optionPrototype = [self optionPrototypeAtIndexPath:indexPath];
         
         LLPrefillOptionValuePrototypeCell *cell = [tableView dequeueReusableCellWithIdentifier:IDENTIFIER_PREFILL_OPTION_VALUE_PROTOTYPE_CELL forIndexPath:indexPath];
@@ -95,9 +97,10 @@
 #pragma mark - Table view delegate
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    LLOptionPrototype *option = [self optionPrototypeAtIndexPath:indexPath];
     LLOptionValuePrototype *optionValuePrototype = [self optionValuePrototypeAtIndexPath:indexPath];
     
-    if ([optionValuePrototype.key isEqualToString:OPTION_VALUE_PREFILL]) {
+    if ([optionValuePrototype.key isEqualToString:OPTION_VALUE_PREFILL] && [LLUtils isStringOptionValueType:option.valueType]) {
         // Don't select prefill cells, since the UITextField is on top
         return nil;
     }

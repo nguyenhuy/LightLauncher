@@ -11,7 +11,7 @@
 
 @implementation LLOptionValuePrototypeFactory
 
-+ (LLOptionValuePrototype *)stringOptionValuePrototypeWithDisplayName:(NSString *)displayName {
++ (LLOptionValuePrototype *)prefillOptionValuePrototypeWithDisplayName:(NSString *)displayName {
     return [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_PREFILL andDisplayName:displayName];
 }
 

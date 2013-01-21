@@ -152,8 +152,8 @@
                               [LLCommandPrototypeFactory emailCommandPrototype],
                               [LLCommandPrototypeFactory facebookCommandPrototype],
                               [LLCommandPrototypeFactory twitterCommandPrototype],
-//                              [LLCommandPrototypeFactory multipleSocialsCommandPrototype],
                               [LLCommandPrototypeFactory googlePlusCommandPrototype],
+                              [LLCommandPrototypeFactory openInChromeCommandPrototype],
                               nil];
 }
 

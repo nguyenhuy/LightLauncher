@@ -16,5 +16,6 @@
 + (LLCommandPrototype *)twitterCommandPrototype;
 + (LLCommandPrototype *)multipleSocialsCommandPrototype;
 + (LLCommandPrototype *)googlePlusCommandPrototype;
++ (LLCommandPrototype *)openInChromeCommandPrototype;
 
 @end
