@@ -101,6 +101,10 @@
             [self setCompiledValue:OPTION_VALUE_SERVICE_TYPE_TWITTER];
         } else if ([optionValue.key isEqualToString:OPTION_VALUE_SERVICE_TYPE_GOOGLE_PLUS]) {
             [self setCompiledValue:OPTION_VALUE_SERVICE_TYPE_GOOGLE_PLUS];
+        } else if ([optionValue.key isEqualToString:OPTION_VALUE_PREFILL] && self.compilingOption.valueType == TYPE_BOOLEAN) {
+            // Boolean prefill option value doesn't have value, because it's state can be determined using selected state.
+            // When it reaches this like, selected is YES, so let's set the value to YES as well.
+            [self setCompiledValue:[NSNumber numberWithBool:YES]];
         }
     } else {
         // Value is already there, don't need to wait for compiling, set it now

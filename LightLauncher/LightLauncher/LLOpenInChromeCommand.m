@@ -18,6 +18,10 @@
         } else if ([value isKindOfClass:[NSString class]]) {
             self.url = [NSURL URLWithString:value];
         }
+    } else if ([key isEqualToString:OPTION_CREATE_NEW_TAB]) {
+        if ([value isKindOfClass:[NSNumber class]]) {
+            self.createNewTab = [value boolValue];
+        }
     }
 }
 
