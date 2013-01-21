@@ -13,3 +13,6 @@
 [submodule "REComposeViewController"]
 	path = REComposeViewController
 	url = git@github.com:nguyenhuy/REComposeViewController.git
+[submodule "OpenInChrome"]
+	path = OpenInChrome
+	url = git://github.com/GoogleChrome/OpenInChrome.git
