@@ -11,11 +11,13 @@
 @interface LLCommandPrototypeFactory : NSObject
 
 + (LLCommandPrototype *)commandPrototypeForCommand:(NSString *)command;
+
 + (LLCommandPrototype *)emailCommandPrototype;
 + (LLCommandPrototype *)facebookCommandPrototype;
 + (LLCommandPrototype *)twitterCommandPrototype;
 + (LLCommandPrototype *)multipleSocialsCommandPrototype;
 + (LLCommandPrototype *)googlePlusCommandPrototype;
 + (LLCommandPrototype *)openInChromeCommandPrototype;
++ (LLCommandPrototype *)instapaperAddCommandPrototype;
 
 @end

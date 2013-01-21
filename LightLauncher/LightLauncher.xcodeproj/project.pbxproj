@@ -26,9 +26,13 @@
 		785EBB68162AC70F00ADE85F /* LLServiceCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EBB67162AC70F00ADE85F /* LLServiceCommand.m */; };
 		785EBB6A162B15C000ADE85F /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 785EBB69162B15C000ADE85F /* facebook.png */; };
 		78796C6C16AD9CAD00045BB7 /* OpenInChromeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78796C6B16AD9CAD00045BB7 /* OpenInChromeController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		78796C6F16AD9DAD00045BB7 /* LLOpenInChromeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 78796C6E16AD9DAD00045BB7 /* LLOpenInChromeCommand.m */; };
+		78796C6F16AD9DAD00045BB7 /* LLOpenInChromeUrlSchemeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 78796C6E16AD9DAD00045BB7 /* LLOpenInChromeUrlSchemeCommand.m */; };
 		78796C7116ADA7B700045BB7 /* google_chrome.png in Resources */ = {isa = PBXBuildFile; fileRef = 78796C7016ADA7B700045BB7 /* google_chrome.png */; };
 		78796C7416ADA8D900045BB7 /* LLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 78796C7316ADA8D700045BB7 /* LLUtils.m */; };
+		78796C8316ADB23200045BB7 /* LLUrlSchemeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 78796C8216ADB23200045BB7 /* LLUrlSchemeCommand.m */; };
+		78796C8716ADB3C700045BB7 /* LLInstapaperAddUrlSchemeCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 78796C8616ADB3C600045BB7 /* LLInstapaperAddUrlSchemeCommand.m */; };
+		78796C8916ADBB0B00045BB7 /* instapaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 78796C8816ADBB0B00045BB7 /* instapaper.png */; };
+		78796C8B16ADBBF500045BB7 /* instapaper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 78796C8A16ADBBF500045BB7 /* instapaper@2x.png */; };
 		787B243C1699B18800302788 /* LLSavingTimeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 787B243B1699B18800302788 /* LLSavingTimeManager.m */; };
 		788A483B167D976E009401DD /* LightLauncher.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 788A4839167D976E009401DD /* LightLauncher.xcdatamodeld */; };
 		788A4873167DC317009401DD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 788A4872167DC317009401DD /* CoreData.framework */; };
@@ -189,11 +193,17 @@
 		785EBB69162B15C000ADE85F /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		78796C6A16AD9CAD00045BB7 /* OpenInChromeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenInChromeController.h; path = ../OpenInChrome/OpenInChromeController.h; sourceTree = "<group>"; };
 		78796C6B16AD9CAD00045BB7 /* OpenInChromeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpenInChromeController.m; path = ../OpenInChrome/OpenInChromeController.m; sourceTree = "<group>"; };
-		78796C6D16AD9DAD00045BB7 /* LLOpenInChromeCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLOpenInChromeCommand.h; sourceTree = "<group>"; };
-		78796C6E16AD9DAD00045BB7 /* LLOpenInChromeCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLOpenInChromeCommand.m; sourceTree = "<group>"; };
+		78796C6D16AD9DAD00045BB7 /* LLOpenInChromeUrlSchemeCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLOpenInChromeUrlSchemeCommand.h; sourceTree = "<group>"; };
+		78796C6E16AD9DAD00045BB7 /* LLOpenInChromeUrlSchemeCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLOpenInChromeUrlSchemeCommand.m; sourceTree = "<group>"; };
 		78796C7016ADA7B700045BB7 /* google_chrome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = google_chrome.png; sourceTree = "<group>"; };
 		78796C7216ADA8D600045BB7 /* LLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLUtils.h; sourceTree = "<group>"; };
 		78796C7316ADA8D700045BB7 /* LLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLUtils.m; sourceTree = "<group>"; };
+		78796C8116ADB23200045BB7 /* LLUrlSchemeCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLUrlSchemeCommand.h; sourceTree = "<group>"; };
+		78796C8216ADB23200045BB7 /* LLUrlSchemeCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLUrlSchemeCommand.m; sourceTree = "<group>"; };
+		78796C8516ADB3C600045BB7 /* LLInstapaperAddUrlSchemeCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLInstapaperAddUrlSchemeCommand.h; sourceTree = "<group>"; };
+		78796C8616ADB3C600045BB7 /* LLInstapaperAddUrlSchemeCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLInstapaperAddUrlSchemeCommand.m; sourceTree = "<group>"; };
+		78796C8816ADBB0B00045BB7 /* instapaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instapaper.png; sourceTree = "<group>"; };
+		78796C8A16ADBBF500045BB7 /* instapaper@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instapaper@2x.png"; sourceTree = "<group>"; };
 		787B243A1699B18800302788 /* LLSavingTimeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSavingTimeManager.h; sourceTree = "<group>"; };
 		787B243B1699B18800302788 /* LLSavingTimeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSavingTimeManager.m; sourceTree = "<group>"; };
 		788295FB1616A4EA0072B584 /* Log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
@@ -566,8 +576,10 @@
 				78EAC95B16A2BEA9004C4B39 /* LLMultipleSocialsCommand.m */,
 				789130DA16A4E93F005E12C8 /* LLGooglePlusCommand.h */,
 				789130DB16A4E93F005E12C8 /* LLGooglePlusCommand.m */,
-				78796C6D16AD9DAD00045BB7 /* LLOpenInChromeCommand.h */,
-				78796C6E16AD9DAD00045BB7 /* LLOpenInChromeCommand.m */,
+				78796C6D16AD9DAD00045BB7 /* LLOpenInChromeUrlSchemeCommand.h */,
+				78796C6E16AD9DAD00045BB7 /* LLOpenInChromeUrlSchemeCommand.m */,
+				78796C8516ADB3C600045BB7 /* LLInstapaperAddUrlSchemeCommand.h */,
+				78796C8616ADB3C600045BB7 /* LLInstapaperAddUrlSchemeCommand.m */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -575,6 +587,8 @@
 		785A0E1115E9D135002C6F78 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				78796C8A16ADBBF500045BB7 /* instapaper@2x.png */,
+				78796C8816ADBB0B00045BB7 /* instapaper.png */,
 				78796C7016ADA7B700045BB7 /* google_chrome.png */,
 				789C7B5F16A5B37E007673BD /* google_plus.png */,
 				789C7B6016A5B37E007673BD /* google_plus@2x.png */,
@@ -889,6 +903,8 @@
 				785EBB67162AC70F00ADE85F /* LLServiceCommand.m */,
 				785EBB5D16297FBF00ADE85F /* LLSocialCommand.h */,
 				785EBB5E16297FBF00ADE85F /* LLSocialCommand.m */,
+				78796C8116ADB23200045BB7 /* LLUrlSchemeCommand.h */,
+				78796C8216ADB23200045BB7 /* LLUrlSchemeCommand.m */,
 			);
 			name = "Abstract Commands";
 			sourceTree = "<group>";
@@ -1127,6 +1143,8 @@
 				789C7B6216A5B37E007673BD /* google_plus@2x.png in Resources */,
 				789C7B8D16A635C5007673BD /* REComposeViewController.bundle in Resources */,
 				78796C7116ADA7B700045BB7 /* google_chrome.png in Resources */,
+				78796C8916ADBB0B00045BB7 /* instapaper.png in Resources */,
+				78796C8B16ADBBF500045BB7 /* instapaper@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1246,8 +1264,10 @@
 				78E9ACD216ABE583008CE555 /* FavReceipt.m in Sources */,
 				78E9ACD516ABEE09008CE555 /* HistoryReceipt.m in Sources */,
 				78796C6C16AD9CAD00045BB7 /* OpenInChromeController.m in Sources */,
-				78796C6F16AD9DAD00045BB7 /* LLOpenInChromeCommand.m in Sources */,
+				78796C6F16AD9DAD00045BB7 /* LLOpenInChromeUrlSchemeCommand.m in Sources */,
 				78796C7416ADA8D900045BB7 /* LLUtils.m in Sources */,
+				78796C8316ADB23200045BB7 /* LLUrlSchemeCommand.m in Sources */,
+				78796C8716ADB3C700045BB7 /* LLInstapaperAddUrlSchemeCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

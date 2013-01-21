@@ -35,6 +35,12 @@
     if ([command isEqualToString:COMMAND_GOOGLE_PLUS]) {
         return [self googlePlusCommandPrototype];
     }
+    if ([command isEqualToString:COMMAND_OPEN_IN_CHROME]) {
+        return [self openInChromeCommandPrototype];
+    }
+    if ([command isEqualToString:COMMAND_INSTAPAPER_ADD]) {
+        return [self instapaperAddCommandPrototype];
+    }
     return nil;
 }
 
@@ -100,6 +106,15 @@
                         nil];
     
     LLCommandPrototype *commandPrototype = [[LLCommandPrototype alloc] initWithCommand:COMMAND_OPEN_IN_CHROME andOptions:options andDesc:@"Open In Google Chrome" andIconFileName:IMAGE_GOOGLE_CHROME];
+    return commandPrototype;
+}
+
++ (LLCommandPrototype *)instapaperAddCommandPrototype {
+    NSArray *options = [[NSArray alloc] initWithObjects:
+                        [LLOptionPrototypeFactory urlOptionPrototype],
+                        nil];
+    
+    LLCommandPrototype *commandPrototype = [[LLCommandPrototype alloc] initWithCommand:COMMAND_INSTAPAPER_ADD andOptions:options andDesc:@"Add to Instapaper" andIconFileName:IMAGE_INSTAPAPER];
     return commandPrototype;
 }
 

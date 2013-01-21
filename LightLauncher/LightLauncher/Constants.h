@@ -17,6 +17,7 @@
 #define COMMAND_MULTIPLE_SOCIALS @"multiple_socials"
 #define COMMAND_GOOGLE_PLUS @"google_plus"
 #define COMMAND_OPEN_IN_CHROME @"open_in_chrome"
+#define COMMAND_INSTAPAPER_ADD @"instapaper_add"
 
 #define OPTION_SERVICE_TYPE @"service_type"
 #define OPTION_SERVICE_NAME @"service_name"
@@ -51,6 +52,7 @@
 #define IMAGE_HUD_CHECKMARK @"37x-Checkmark.png"
 #define IMAGE_GOOGLE_PLUS @"google_plus.png"
 #define IMAGE_GOOGLE_CHROME @"google_chrome.png"
+#define IMAGE_INSTAPAPER @"instapaper.png"
 
 #define HUD_DELAY_INTERVAL 2
 

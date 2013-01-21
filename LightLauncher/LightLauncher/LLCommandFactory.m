@@ -13,7 +13,8 @@
 #import "LLMultipleSocialsCommand.h"
 #import "LLGooglePlusCommand.h"
 #import "LLShareSocialComposeCommand.h"
-#import "LLOpenInChromeCommand.h"
+#import "LLOpenInChromeUrlSchemeCommand.h"
+#import "LLInstapaperAddUrlSchemeCommand.h"
 
 @interface LLCommandFactory ()
 + (LLShareSocialComposeCommand *)shareSocialComposeCommandWithServiceType:(NSString *)serviceType andServiceName:(NSString *)serviceName;
@@ -38,7 +39,10 @@
         return [[LLGooglePlusCommand alloc] init];
     }
     if ([command isEqualToString:COMMAND_OPEN_IN_CHROME]) {
-        return [[LLOpenInChromeCommand alloc] init];
+        return [[LLOpenInChromeUrlSchemeCommand alloc] init];
+    }
+    if ([command isEqualToString:COMMAND_INSTAPAPER_ADD]) {
+        return [[LLInstapaperAddUrlSchemeCommand alloc] init];
     }
     return nil;
 }

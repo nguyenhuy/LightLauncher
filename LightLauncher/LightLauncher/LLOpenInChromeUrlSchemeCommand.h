@@ -6,10 +6,9 @@
 //  Copyright (c) 2013 EarlyBird Lab. All rights reserved.
 //
 
-#import "LLServiceCommand.h"
-#import "REComposeViewController.h"
+#import "LLUrlSchemeCommand.h"
 
-@interface LLOpenInChromeCommand : LLServiceCommand <REComposeViewControllerDelegate>;
+@interface LLOpenInChromeUrlSchemeCommand : LLUrlSchemeCommand
 
 @property (nonatomic, strong) NSURL *url;
 @property (nonatomic) BOOL createNewTab;

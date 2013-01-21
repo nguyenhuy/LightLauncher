@@ -154,6 +154,7 @@
                               [LLCommandPrototypeFactory twitterCommandPrototype],
                               [LLCommandPrototypeFactory googlePlusCommandPrototype],
                               [LLCommandPrototypeFactory openInChromeCommandPrototype],
+                              [LLCommandPrototypeFactory instapaperAddCommandPrototype],
                               nil];
 }
 
