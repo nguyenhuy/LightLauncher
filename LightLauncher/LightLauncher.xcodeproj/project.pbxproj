@@ -25,6 +25,8 @@
 		785EBB621629805E00ADE85F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785EBB611629805E00ADE85F /* Social.framework */; };
 		785EBB68162AC70F00ADE85F /* LLServiceCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EBB67162AC70F00ADE85F /* LLServiceCommand.m */; };
 		785EBB6A162B15C000ADE85F /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 785EBB69162B15C000ADE85F /* facebook.png */; };
+		78796C5816AD29C200045BB7 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78796C5716AD29C200045BB7 /* AddressBookUI.framework */; };
+		78796C5B16AD2F2F00045BB7 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78796C5A16AD2F2F00045BB7 /* AddressBook.framework */; };
 		787B243C1699B18800302788 /* LLSavingTimeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 787B243B1699B18800302788 /* LLSavingTimeManager.m */; };
 		788A483B167D976E009401DD /* LightLauncher.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 788A4839167D976E009401DD /* LightLauncher.xcdatamodeld */; };
 		788A4873167DC317009401DD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 788A4872167DC317009401DD /* CoreData.framework */; };
@@ -183,6 +185,8 @@
 		785EBB66162AC70E00ADE85F /* LLServiceCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLServiceCommand.h; sourceTree = "<group>"; };
 		785EBB67162AC70F00ADE85F /* LLServiceCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLServiceCommand.m; sourceTree = "<group>"; };
 		785EBB69162B15C000ADE85F /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		78796C5716AD29C200045BB7 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		78796C5A16AD2F2F00045BB7 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		787B243A1699B18800302788 /* LLSavingTimeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSavingTimeManager.h; sourceTree = "<group>"; };
 		787B243B1699B18800302788 /* LLSavingTimeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSavingTimeManager.m; sourceTree = "<group>"; };
 		788295FB1616A4EA0072B584 /* Log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
@@ -420,6 +424,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78796C5B16AD2F2F00045BB7 /* AddressBook.framework in Frameworks */,
+				78796C5816AD29C200045BB7 /* AddressBookUI.framework in Frameworks */,
 				78E9ACDE16ABFCB9008CE555 /* MobileCoreServices.framework in Frameworks */,
 				78E9ACC316ABBDAC008CE555 /* Accounts.framework in Frameworks */,
 				7891307116A47DE1005E12C8 /* SystemConfiguration.framework in Frameworks */,
@@ -459,6 +465,8 @@
 		785A0DA015E9A3B6002C6F78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				78796C5A16AD2F2F00045BB7 /* AddressBook.framework */,
+				78796C5716AD29C200045BB7 /* AddressBookUI.framework */,
 				78E9ACDD16ABFCB9008CE555 /* MobileCoreServices.framework */,
 				78E9ACC216ABBDAC008CE555 /* Accounts.framework */,
 				7891307016A47DE1005E12C8 /* SystemConfiguration.framework */,

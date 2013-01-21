@@ -15,6 +15,10 @@
     return [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_PREFILL andDisplayName:displayName];
 }
 
++ (LLOptionValuePrototype *)prefillEmailsPickNowOptionValuePrototypeWithDisplayName:(NSString *)displayName {
+    return [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_PREFILL_EMAILS_PICK_NOW andDisplayName:displayName];
+}
+
 + (LLOptionValuePrototype *)pasteboardOptionValuePrototype {
     return [[LLOptionValuePrototype alloc] initWithKey:OPTION_VALUE_PASTEBOARD andDisplayName:DISPLAY_NAME_PASTEBOARD_OPTION_VALUE];
 }

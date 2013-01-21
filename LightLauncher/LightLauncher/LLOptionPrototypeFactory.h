@@ -10,12 +10,12 @@
 
 @interface LLOptionPrototypeFactory : NSObject
 
-+ (LLOptionPrototype *)optionPrototypeWithKey:(NSString *)key;
 + (LLOptionPrototype *)subjectOptionPrototype;
 + (LLOptionPrototype *)bodyOptionPrototype;
 + (LLOptionPrototype *)toAddressesOptionPrototype;
 + (LLOptionPrototype *)ccAddressesOptionPrototype;
 + (LLOptionPrototype *)bccAddressesOptionPrototype;
++ (LLOptionPrototype *)emailsOptionPrototypeWithKey:(NSString *)key andDisplayName:(NSString *)displayName;
 + (LLOptionPrototype *)urlOptionPrototype;
 
 + (LLOptionPrototype *)fileAttachmentsOptionPrototype;

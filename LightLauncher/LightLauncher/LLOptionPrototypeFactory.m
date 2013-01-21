@@ -14,28 +14,6 @@
 
 @implementation LLOptionPrototypeFactory
 
-+ (LLOptionPrototype *)optionPrototypeWithKey:(NSString *)key {
-    if ([key isEqualToString:OPTION_SUBJECT]) {
-        return [self subjectOptionPrototype];
-    }
-    if ([key isEqualToString:OPTION_BODY]) {
-        return [self bodyOptionPrototype];
-    }
-    if([key isEqualToString:OPTION_TO_ADDRESSES]) {
-        return [self toAddressesOptionPrototype];
-    }
-    if([key isEqualToString:OPTION_CC_ADDRESSES]) {
-        return [self ccAddressesOptionPrototype];
-    }
-    if([key isEqualToString:OPTION_BCC_ADDRESSES]) {
-        return [self bccAddressesOptionPrototype];
-    }
-    if ([key isEqualToString:OPTION_FILE_ATTACHMENTS]) {
-        return [self fileAttachmentsOptionPrototype];
-    }
-    return nil;
-}
-
 +(LLOptionPrototype *)subjectOptionPrototype {
     LLOptionValuePrototype *prefillSubjectValue = [LLOptionValuePrototypeFactory stringOptionValuePrototypeWithDisplayName:@"Subject"];
     LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
@@ -64,41 +42,29 @@
 }
 
 + (LLOptionPrototype *)toAddressesOptionPrototype {
-    LLOptionValuePrototype *prefillToValue = [LLOptionValuePrototypeFactory stringOptionValuePrototypeWithDisplayName:@"support@lightlauncher.com"];
-    LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
-
-    NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                    prefillToValue, prefillToValue.key,
-                                    pasteboardValue, pasteboardValue.key,
-                                    nil];
-    
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_TO_ADDRESSES andDisplayName:@"To" andDataType:DATA_ARRAY andValueType:TYPE_EMAIL andPossibleValues:possibleValues];
-    return optionPrototype;
+    return [LLOptionPrototypeFactory emailsOptionPrototypeWithKey:OPTION_TO_ADDRESSES andDisplayName:@"To"];
 }
 
 + (LLOptionPrototype *)ccAddressesOptionPrototype {
-    LLOptionValuePrototype *prefillCcValue = [LLOptionValuePrototypeFactory stringOptionValuePrototypeWithDisplayName:@"support@lightlauncher.com"];
-    LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
-
-    NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                    prefillCcValue, prefillCcValue.key,
-                                    pasteboardValue, pasteboardValue.key,
-                                    nil];
-    
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_CC_ADDRESSES andDisplayName:@"Cc" andDataType:DATA_ARRAY andValueType:TYPE_EMAIL andPossibleValues:possibleValues];
-    return optionPrototype;
+    return [LLOptionPrototypeFactory emailsOptionPrototypeWithKey:OPTION_CC_ADDRESSES andDisplayName:@"Cc"];
 }
 
 + (LLOptionPrototype *)bccAddressesOptionPrototype {
-    LLOptionValuePrototype *prefillBccValue = [LLOptionValuePrototypeFactory stringOptionValuePrototypeWithDisplayName:@"support@lightlauncher.com"];
+    return [LLOptionPrototypeFactory emailsOptionPrototypeWithKey:OPTION_BCC_ADDRESSES andDisplayName:@"Bcc"];
+}
+
++ (LLOptionPrototype *)emailsOptionPrototypeWithKey:(NSString *)key andDisplayName:(NSString *)displayName {
+    LLOptionValuePrototype *prefillCcValue = [LLOptionValuePrototypeFactory stringOptionValuePrototypeWithDisplayName:@"support@lightlauncher.com"];
+    LLOptionValuePrototype *prefillEmailsPickNowValue = [LLOptionValuePrototypeFactory prefillEmailsPickNowOptionValuePrototypeWithDisplayName:@"Pick Now"];
     LLOptionValuePrototype *pasteboardValue = [LLOptionValuePrototypeFactory pasteboardOptionValuePrototype];
     
     NSDictionary *possibleValues = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                    prefillBccValue, prefillBccValue.key,
+                                    prefillCcValue, prefillCcValue.key,
                                     pasteboardValue, pasteboardValue.key,
+                                    prefillEmailsPickNowValue, prefillEmailsPickNowValue.key,
                                     nil];
     
-    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:OPTION_BCC_ADDRESSES andDisplayName:@"Bcc" andDataType:DATA_ARRAY andValueType:TYPE_EMAIL andPossibleValues:possibleValues];
+    LLOptionPrototype *optionPrototype = [[LLOptionPrototype alloc] initWithKey:key andDisplayName:displayName andDataType:DATA_ARRAY andValueType:TYPE_EMAIL andPossibleValues:possibleValues];
     return optionPrototype;
 }
 

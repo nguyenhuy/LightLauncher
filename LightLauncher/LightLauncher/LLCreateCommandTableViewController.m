@@ -105,7 +105,21 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self updateTableViewAndReloadOptionValueAtIndexPath:indexPath withValue:nil];
+    LLOptionValuePrototype *optionValue = [self optionValuePrototypeAtIndexPath:indexPath];
+    if ([optionValue.key isEqualToString:OPTION_VALUE_PREFILL_EMAILS_PICK_NOW]) {
+        self.selectingIndexPath = indexPath;
+        self.emails = [[NSMutableArray alloc] init];
+        
+        // Show people picker to select emails addresses
+        ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+        picker.peoplePickerDelegate = self;
+        picker.displayedProperties = @[[NSNumber numberWithInt:kABPersonEmailProperty]];
+        [self presentViewController:picker animated:YES completion:nil];
+    } else {
+        [self updateTableViewAndReloadOptionValueAtIndexPath:indexPath withValue:nil];
+    }
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Prefill option value prototype cell delegate
@@ -143,6 +157,23 @@
     [self showErrorHUDWithTitle:title andDesc:desc];
 }
 
+
+#pragma mark - People picker delegate
+
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier {
+    if (kABPersonEmailProperty == property) {
+        ABMultiValueRef multi = ABRecordCopyValue(person, kABPersonEmailProperty);
+        NSString *email = (__bridge NSString *)ABMultiValueCopyValueAtIndex(multi, 0);
+        [self.emails addObject:email];
+        return NO;
+    }
+    return YES;
+}
+
+- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker {
+    peoplePicker.delegate = nil;
+}
+
 #pragma mark - Instance methods
 
 - (void)setupToolbar {
@@ -178,9 +209,7 @@
 }
 
 // @TODO is it a good name?
-- (void)updateTableViewAndReloadOptionValueAtIndexPath:(NSIndexPath *)indexPath withValue:(id)value {
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+- (void)updateTableViewAndReloadOptionValueAtIndexPath:(NSIndexPath *)indexPath withValue:(id)value {    
     LLOptionPrototype *option = [self optionPrototypeAtIndexPath:indexPath];
     LLOptionValuePrototype *optionValue = [self optionValuePrototypeAtIndexPath:indexPath];
 

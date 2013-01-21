@@ -30,6 +30,7 @@
 #define OPTION_SERVICE_TYPES @"service_types"
 
 #define OPTION_VALUE_PREFILL @"prefill"
+#define OPTION_VALUE_PREFILL_EMAILS_PICK_NOW @"prefill_emails_pick_now"
 #define OPTION_VALUE_PASTEBOARD @"pasteboard"
 #define OPTION_VALUE_CAMERA_ROLL @"camera_roll"
 #define OPTION_VALUE_SERVICE_TYPE_FACEBOOK @"facebok"
