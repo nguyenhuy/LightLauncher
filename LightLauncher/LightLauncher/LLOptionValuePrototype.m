@@ -26,11 +26,11 @@
     return self;
 }
 
-- (BOOL)selected {
-    if ([self.key isEqualToString:OPTION_VALUE_PREFILL]) {
-        return _selected && [self.value length] != 0;
-    }
-    return _selected;
-}
+//- (BOOL)selected {
+//    if ([self.key isEqualToString:OPTION_VALUE_PREFILL]) {
+//        return _selected && [self.value length] != 0;
+//    }
+//    return _selected;
+//}
 
 @end
