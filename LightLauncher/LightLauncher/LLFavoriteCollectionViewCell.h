@@ -10,13 +10,26 @@
 #define NIB_FAVORITE_COLLECTION_VIEW_CELL @"LLFavoriteCollectionViewCell"
 
 @class LLCommandPrototype;
+@class LLFavoriteCollectionViewCell;
+
+@protocol LLFavoriteCollectionViewCellDelegate <NSObject>
+- (void)onDelete:(LLFavoriteCollectionViewCell *)cell;
+@end
 
 @interface LLFavoriteCollectionViewCell : UICollectionViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *icon;
 @property (strong, nonatomic) IBOutlet UILabel *title;
-@property (strong, nonatomic) NSIndexPath *indexPath;
+@property (strong, nonatomic) IBOutlet UIButton *deleteBtn;
 
-- (void)updateViewWithCommandPrototype:(LLCommandPrototype *)commandPrototype atIndexPath:(NSIndexPath *)indexPath;
+@property (strong, nonatomic) NSIndexPath *indexPath;
+@property (weak, nonatomic) id<LLFavoriteCollectionViewCellDelegate> delegate;
+
+- (void)updateViewWithCommandPrototype:(LLCommandPrototype *)commandPrototype atIndexPath:(NSIndexPath *)indexPath andDelegate:(id<LLFavoriteCollectionViewCellDelegate>)delegate;
+- (IBAction)delete:(id)sender;
+
+// Animations
+- (void)startQuivering;
+- (void)stopQuivering;
 
 @end

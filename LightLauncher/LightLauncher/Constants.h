@@ -97,7 +97,7 @@ typedef enum {
 
 //@TODO decoupling using interface
 //@TODO test addresses in email
-//@TODO check all delegates are weak
+//@TODO check all delegates are strong and removed when dealloc
 //@TODO check memory leak
 
 //@TODO transform NSString to NSURL for commands that have URLs

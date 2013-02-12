@@ -7,7 +7,6 @@
 //
 
 #import "LLFavoriteCollectionViewController.h"
-#import "LLFavoriteCollectionViewCell.h"
 
 #import "LLCommandManager.h"
 
@@ -53,9 +52,22 @@
     if (![[self fetchedResultsController] performFetch:&error]) {
         [self showErrorHUDWithTitle:@"Error" andDesc:[error localizedDescription]];
     }
+    
+    // Insert gesture regconizers to active/end deletion mode
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(activateDeletionMode:)];
+    longPress.delegate = self;
+    [self.collectionView addGestureRecognizer:longPress];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(endDeletionMode:)];
+    tap.delegate = self;
+    [self.collectionView addGestureRecognizer:tap];
 }
 
 - (void)dealloc {
+    for (LLFavoriteCollectionViewCell *cell in self.collectionView.visibleCells) {
+        cell.delegate = nil;
+    }
+    
     self.collectionView.delegate = nil;
     self.collectionView.dataSource = nil;
     self.collectionView = nil;
@@ -92,6 +104,11 @@
 }
 
 #pragma mark - Collection View Delegate
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    // Only allow selection when deletion mode is inactive.
+    return !self.isDeletionModeActive;
+}
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
@@ -171,17 +188,64 @@
 //    [self.tableView endUpdates];
 }
 
+#pragma mark - Favorite Collection View Cell Delegate
+
+- (void)onDelete:(LLFavoriteCollectionViewCell *)cell {
+    FavReceipt *receipt = [self.fetchedResultsController objectAtIndexPath:cell.indexPath];
+    [LLCommandManager deleteFavReceipt:receipt];
+}
+
+#pragma mark - Favorite Collection View Layout Delegate
+
+- (BOOL)isDeletionModeActiveForCollectionView:(UICollectionView *)collectionView andCollectionViewLayout:(UICollectionViewLayout *)layout {
+    return self.isDeletionModeActive;
+}
+
+#pragma mark - Gesture Recognizer Delegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    CGPoint touchPoint = [touch locationInView:self.collectionView];
+    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:touchPoint];
+    if (indexPath && [gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]])
+    {
+        return NO;
+    }
+    return YES;
+}
+
 #pragma mark - Instance methods
 
 - (void)updateCell:(LLFavoriteCollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     indexPath = [LLFavoriteCollectionViewController convert:indexPath];
 
     FavReceipt *receipt = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [cell updateViewWithCommandPrototype:receipt.commandPrototype atIndexPath:indexPath];
+    [cell updateViewWithCommandPrototype:receipt.commandPrototype atIndexPath:indexPath andDelegate:self];
 }
 
 + (NSIndexPath *)convert:(NSIndexPath *)indexPath {
     return [NSIndexPath indexPathForRow:indexPath.row / 100 inSection:indexPath.section];
+}
+
+- (void)activateDeletionMode:(UILongPressGestureRecognizer *)gesture {
+    if (gesture.state == UIGestureRecognizerStateBegan) {
+        NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:[gesture locationInView:self.collectionView]];
+        if (indexPath) {
+            self.isDeletionModeActive = YES;
+            LLFavoriteCollectionViewLayout *layout = (LLFavoriteCollectionViewLayout *)self.collectionView.collectionViewLayout;
+            [layout invalidateLayout];
+        }
+    }
+}
+
+- (void)endDeletionMode:(UITapGestureRecognizer *)gesture {
+    if (self.isDeletionModeActive) {
+        NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:[gesture locationInView:self.collectionView]];
+        if (!indexPath) {
+            self.isDeletionModeActive = NO;
+            LLFavoriteCollectionViewLayout *layout = (LLFavoriteCollectionViewLayout *)self.collectionView.collectionViewLayout;
+            [layout invalidateLayout];
+        }
+    }
 }
 
 @end
