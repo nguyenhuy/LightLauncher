@@ -18,6 +18,8 @@
 
 @interface LLFavoriteCollectionViewController ()
 - (void)updateCell:(LLFavoriteCollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+// Methods for testing, should be removed later
++ (NSIndexPath *)convert:(NSIndexPath *)indexPath;
 @end
 
 @implementation LLFavoriteCollectionViewController
@@ -76,11 +78,13 @@
 #pragma mark - Collection View Data Source
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [[self.fetchedResultsController.sections objectAtIndex:section] numberOfObjects];
+    return [[self.fetchedResultsController.sections objectAtIndex:section] numberOfObjects] * 100;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 
+    indexPath = [LLFavoriteCollectionViewController convert:indexPath];
+    
     LLFavoriteCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:IDENTIFIER_FAVORITE_COLLECTION_VIEW_CELL forIndexPath:indexPath];
     [self updateCell:cell atIndexPath:indexPath];
     
@@ -92,6 +96,8 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     
+    indexPath = [LLFavoriteCollectionViewController convert:indexPath];
+
     FavReceipt *receipt = [self.fetchedResultsController objectAtIndexPath:indexPath];
     LLCommandManager *commandManager = [LLCommandManager sharedInstance];
     
@@ -116,7 +122,9 @@
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
-    
+
+    indexPath = [LLFavoriteCollectionViewController convert:indexPath];
+
     switch (type) {
         case NSFetchedResultsChangeInsert:
             [self.collectionView insertItemsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]];
@@ -166,8 +174,14 @@
 #pragma mark - Instance methods
 
 - (void)updateCell:(LLFavoriteCollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    indexPath = [LLFavoriteCollectionViewController convert:indexPath];
+
     FavReceipt *receipt = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [cell updateViewWithCommandPrototype:receipt.commandPrototype atIndexPath:indexPath];
+}
+
++ (NSIndexPath *)convert:(NSIndexPath *)indexPath {
+    return [NSIndexPath indexPathForRow:indexPath.row / 100 inSection:indexPath.section];
 }
 
 @end
