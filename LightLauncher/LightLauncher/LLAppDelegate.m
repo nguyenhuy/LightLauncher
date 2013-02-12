@@ -7,7 +7,7 @@
 //
 
 #import "LLAppDelegate.h"
-#import "LLFavoriteGroupTableViewController.h"
+#import "LLFavoriteCollectionViewController.h"
 #import "LLRearViewController.h"
 #import "LLRevealController.h"
 #import "GPPShare.h"
@@ -24,7 +24,7 @@
     
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"LightLauncher.sqlite"];
     
-    LLFavoriteGroupTableViewController *frontViewController = [LLFavoriteGroupTableViewController newInstance];
+    LLFavoriteCollectionViewController *frontViewController = [LLFavoriteCollectionViewController newInstance];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
     
     LLRearViewController *rearViewController = [LLRearViewController newInstance];

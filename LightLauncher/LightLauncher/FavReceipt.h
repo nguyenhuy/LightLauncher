@@ -9,11 +9,8 @@
 #import <CoreData/CoreData.h>
 #import "Receipt.h"
 
-@class Group;
-
 @interface FavReceipt : Receipt
 
-@property (nonatomic, retain) NSNumber * positionInGroup;
-@property (nonatomic, retain) Group *group;
+@property (nonatomic, retain) NSNumber * position;
 
 @end

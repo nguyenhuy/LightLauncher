@@ -7,7 +7,6 @@
 //
 
 #import "Receipt.h"
-#import "Group.h"
 #import "LLCommandParser.h"
 #import "LLCommandPrototype.h"
 

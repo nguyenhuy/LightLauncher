@@ -6,8 +6,13 @@
 //  Copyright (c) 2013 EarlyBird Lab. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "LLCommand.h"
 
-@interface LLFavoriteCollectionViewController : UICollectionViewController
+@interface LLFavoriteCollectionViewController : UIViewController <LLCommandDelegate, NSFetchedResultsControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+
++ (LLFavoriteCollectionViewController *)newInstance;
 
 @end

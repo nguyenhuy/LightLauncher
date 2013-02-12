@@ -49,11 +49,6 @@
 		788A48D1167F06F5009401DD /* LLHistoryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788A48CF167F06F5009401DD /* LLHistoryTableViewController.xib */; };
 		788A48D416815F9E009401DD /* LLHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 788A48D316815F9E009401DD /* LLHistoryCell.m */; };
 		788F63721681CF9B00C25E32 /* like_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 788F63701681CF9B00C25E32 /* like_unselected.png */; };
-		788F638F1682D0B400C25E32 /* LLFavoriteGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 788F638E1682D0B400C25E32 /* LLFavoriteGroupCell.m */; };
-		788F63911682D0F800C25E32 /* LLFavoriteGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788F63901682D0F800C25E32 /* LLFavoriteGroupCell.xib */; };
-		788F63951682D44E00C25E32 /* LLFavoriteGroupTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 788F63931682D44E00C25E32 /* LLFavoriteGroupTableViewController.m */; };
-		788F63961682D44E00C25E32 /* LLFavoriteGroupTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 788F63941682D44E00C25E32 /* LLFavoriteGroupTableViewController.xib */; };
-		788F639D1682D9D700C25E32 /* LLFavoriteReceiptCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 788F639C1682D9D700C25E32 /* LLFavoriteReceiptCell.m */; };
 		788F63DD168312D200C25E32 /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 788F63A5168312D200C25E32 /* MagicalImportFunctions.m */; };
 		788F63DE168312D200C25E32 /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 788F63A7168312D200C25E32 /* NSAttributeDescription+MagicalDataImport.m */; };
 		788F63DF168312D200C25E32 /* NSEntityDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 788F63A9168312D200C25E32 /* NSEntityDescription+MagicalDataImport.m */; };
@@ -80,7 +75,6 @@
 		788F63F4168312D200C25E32 /* MagicalRecord+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = 788F63D6168312D200C25E32 /* MagicalRecord+Setup.m */; };
 		788F63F5168312D200C25E32 /* MagicalRecord+ShorthandSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 788F63D8168312D200C25E32 /* MagicalRecord+ShorthandSupport.m */; };
 		788F63F6168312D200C25E32 /* MagicalRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 788F63DA168312D200C25E32 /* MagicalRecord.m */; };
-		788F640B168318B200C25E32 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 788F640A1683189B00C25E32 /* Group.m */; };
 		788F640E168319BB00C25E32 /* Receipt.m in Sources */ = {isa = PBXBuildFile; fileRef = 788F640D168319BB00C25E32 /* Receipt.m */; };
 		788FBF87163CE93C005A444E /* LLCommandParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF86163CE93C005A444E /* LLCommandParser.m */; };
 		788FBF8D163CEC59005A444E /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 788FBF8C163CEC59005A444E /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -234,14 +228,6 @@
 		788A48D216815F9E009401DD /* LLHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLHistoryCell.h; sourceTree = "<group>"; };
 		788A48D316815F9E009401DD /* LLHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLHistoryCell.m; sourceTree = "<group>"; };
 		788F63701681CF9B00C25E32 /* like_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like_unselected.png; path = "../../../../../Downloads/Keyamoon-IcoMoon--limited--4f4e8f2/Icons/PNG/32px/like_unselected.png"; sourceTree = "<group>"; };
-		788F638D1682D0B400C25E32 /* LLFavoriteGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLFavoriteGroupCell.h; sourceTree = "<group>"; };
-		788F638E1682D0B400C25E32 /* LLFavoriteGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLFavoriteGroupCell.m; sourceTree = "<group>"; };
-		788F63901682D0F800C25E32 /* LLFavoriteGroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLFavoriteGroupCell.xib; sourceTree = "<group>"; };
-		788F63921682D44E00C25E32 /* LLFavoriteGroupTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLFavoriteGroupTableViewController.h; sourceTree = "<group>"; };
-		788F63931682D44E00C25E32 /* LLFavoriteGroupTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLFavoriteGroupTableViewController.m; sourceTree = "<group>"; };
-		788F63941682D44E00C25E32 /* LLFavoriteGroupTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLFavoriteGroupTableViewController.xib; sourceTree = "<group>"; };
-		788F639B1682D9D700C25E32 /* LLFavoriteReceiptCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLFavoriteReceiptCell.h; sourceTree = "<group>"; };
-		788F639C1682D9D700C25E32 /* LLFavoriteReceiptCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLFavoriteReceiptCell.m; sourceTree = "<group>"; };
 		788F63A4168312D200C25E32 /* MagicalImportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalImportFunctions.h; sourceTree = "<group>"; };
 		788F63A5168312D200C25E32 /* MagicalImportFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalImportFunctions.m; sourceTree = "<group>"; };
 		788F63A6168312D200C25E32 /* NSAttributeDescription+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributeDescription+MagicalDataImport.h"; sourceTree = "<group>"; };
@@ -296,8 +282,6 @@
 		788F63DA168312D200C25E32 /* MagicalRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalRecord.m; sourceTree = "<group>"; };
 		788F63DB168312D200C25E32 /* MagicalRecordShorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalRecordShorthand.h; sourceTree = "<group>"; };
 		788F63DC168312D200C25E32 /* CoreData+MagicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreData+MagicalRecord.h"; sourceTree = "<group>"; };
-		788F64091683188800C25E32 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
-		788F640A1683189B00C25E32 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		788F640C168319BB00C25E32 /* Receipt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Receipt.h; sourceTree = "<group>"; };
 		788F640D168319BB00C25E32 /* Receipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Receipt.m; sourceTree = "<group>"; };
 		788FBF85163CE93C005A444E /* LLCommandParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCommandParser.h; sourceTree = "<group>"; };
@@ -658,8 +642,6 @@
 			children = (
 				788F640C168319BB00C25E32 /* Receipt.h */,
 				788F640D168319BB00C25E32 /* Receipt.m */,
-				788F64091683188800C25E32 /* Group.h */,
-				788F640A1683189B00C25E32 /* Group.m */,
 				78E9ACD016ABE583008CE555 /* FavReceipt.h */,
 				78E9ACD116ABE583008CE555 /* FavReceipt.m */,
 				78E9ACD316ABEE09008CE555 /* HistoryReceipt.h */,
@@ -701,7 +683,6 @@
 			children = (
 				788F63841681FF1C00C25E32 /* Create Group */,
 				788F63851681FF3200C25E32 /* History Group */,
-				788F63861681FF6800C25E32 /* Favorite Group */,
 			);
 			name = "Table View Cells";
 			sourceTree = "<group>";
@@ -753,9 +734,6 @@
 		788F637D1681D3AC00C25E32 /* Favorite Group */ = {
 			isa = PBXGroup;
 			children = (
-				788F63921682D44E00C25E32 /* LLFavoriteGroupTableViewController.h */,
-				788F63931682D44E00C25E32 /* LLFavoriteGroupTableViewController.m */,
-				788F63941682D44E00C25E32 /* LLFavoriteGroupTableViewController.xib */,
 				785E375516C75CE100F0CF3B /* LLFavoriteCollectionViewController.h */,
 				785E375616C75CE100F0CF3B /* LLFavoriteCollectionViewController.m */,
 				785E375716C75CE100F0CF3B /* LLFavoriteCollectionViewController.xib */,
@@ -787,18 +765,6 @@
 				789948E716904FA9008406ED /* LLSideSwipeMenu.m */,
 			);
 			name = "History Group";
-			sourceTree = "<group>";
-		};
-		788F63861681FF6800C25E32 /* Favorite Group */ = {
-			isa = PBXGroup;
-			children = (
-				788F638D1682D0B400C25E32 /* LLFavoriteGroupCell.h */,
-				788F638E1682D0B400C25E32 /* LLFavoriteGroupCell.m */,
-				788F63901682D0F800C25E32 /* LLFavoriteGroupCell.xib */,
-				788F639B1682D9D700C25E32 /* LLFavoriteReceiptCell.h */,
-				788F639C1682D9D700C25E32 /* LLFavoriteReceiptCell.m */,
-			);
-			name = "Favorite Group";
 			sourceTree = "<group>";
 		};
 		788F63A1168312D200C25E32 /* MagicalRecord */ = {
@@ -1162,8 +1128,6 @@
 				788A48BA167EDC77009401DD /* LLRearViewController.xib in Resources */,
 				788A48D1167F06F5009401DD /* LLHistoryTableViewController.xib in Resources */,
 				788F63721681CF9B00C25E32 /* like_unselected.png in Resources */,
-				788F63911682D0F800C25E32 /* LLFavoriteGroupCell.xib in Resources */,
-				788F63961682D44E00C25E32 /* LLFavoriteGroupTableViewController.xib in Resources */,
 				78A90AE1168FF9150057289E /* 37x-Checkmark.png in Resources */,
 				78A90AE2168FF9150057289E /* 37x-Checkmark@2x.png in Resources */,
 				78A90AF1169045480057289E /* menu-icon.png in Resources */,
@@ -1218,9 +1182,6 @@
 				788A48B9167EDC77009401DD /* LLRearViewController.m in Sources */,
 				788A48D0167F06F5009401DD /* LLHistoryTableViewController.m in Sources */,
 				788A48D416815F9E009401DD /* LLHistoryCell.m in Sources */,
-				788F638F1682D0B400C25E32 /* LLFavoriteGroupCell.m in Sources */,
-				788F63951682D44E00C25E32 /* LLFavoriteGroupTableViewController.m in Sources */,
-				788F639D1682D9D700C25E32 /* LLFavoriteReceiptCell.m in Sources */,
 				788F63DD168312D200C25E32 /* MagicalImportFunctions.m in Sources */,
 				788F63DE168312D200C25E32 /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				788F63DF168312D200C25E32 /* NSEntityDescription+MagicalDataImport.m in Sources */,
@@ -1247,7 +1208,6 @@
 				788F63F4168312D200C25E32 /* MagicalRecord+Setup.m in Sources */,
 				788F63F5168312D200C25E32 /* MagicalRecord+ShorthandSupport.m in Sources */,
 				788F63F6168312D200C25E32 /* MagicalRecord.m in Sources */,
-				788F640B168318B200C25E32 /* Group.m in Sources */,
 				788F640E168319BB00C25E32 /* Receipt.m in Sources */,
 				78A90ACE168FEEA00057289E /* LLLikeCommandHelper.m in Sources */,
 				78A90AE6169006370057289E /* UIViewController+ShowHUD.m in Sources */,

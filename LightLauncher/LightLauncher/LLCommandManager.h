@@ -10,7 +10,6 @@
 #import "LLCommandCompiler.h"
 
 @class LLCommandPrototype;
-@class Group;
 @class HistoryReceipt;
 @class FavReceipt;
 
@@ -25,8 +24,6 @@
 @property (nonatomic, weak) id<LLCommandDelegate> executingCommandDelegate;
 
 + (LLCommandManager *)sharedInstance;
-+ (Group *)defaultGroup;
-+ (Group *)createGroupWithName:(NSString *)name;
 + (BOOL)createHistoryReceiptFromCommandPrototype:(LLCommandPrototype *)commandPrototype;
 + (BOOL)deleteHistoryReceipt:(HistoryReceipt *)historyReceipt;
 + (BOOL)createFavReceiptFromCommandPrototype:(LLCommandPrototype *)commandPrototype withDescription:(NSString *)description;

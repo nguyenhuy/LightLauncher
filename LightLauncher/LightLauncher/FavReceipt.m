@@ -7,12 +7,10 @@
 //
 
 #import "FavReceipt.h"
-#import "Group.h"
 
 
 @implementation FavReceipt
 
-@dynamic positionInGroup;
-@dynamic group;
+@dynamic position;
 
 @end

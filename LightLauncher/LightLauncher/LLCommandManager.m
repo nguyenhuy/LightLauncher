@@ -12,7 +12,6 @@
 #import "LLCommandPrototype.h"
 #import "LLCommandParser.h"
 #import "LLCommandPrototypeFactory.h"
-#import "Group.h"
 #import "HistoryReceipt.h"
 #import "FavReceipt.h"
 
@@ -58,29 +57,6 @@
     return YES;
 }
 
-+ (Group *)defaultGroup {
-    Group *group = [Group MR_findFirstByAttribute:@"name" withValue:DEFAULT_GROUP_NAME];
-    if (group) {
-        return group;
-    }
-    // No default group, create it
-    return [LLCommandManager createGroupWithName:DEFAULT_GROUP_NAME];
-}
-
-+ (Group *)createGroupWithName:(NSString *)name {
-    if (!name || name.length == 0) {
-        return NO;
-    }
-    
-    Group *group = [Group MR_createEntity];
-    group.name = name;
-
-    if ([LLCommandManager save]) {
-        return group;
-    }
-    return nil;
-}
-
 + (BOOL)createHistoryReceiptFromCommandPrototype:(LLCommandPrototype *)commandPrototype {
     if (!commandPrototype) {
         return NO;
@@ -113,8 +89,7 @@
     
     FavReceipt *receipt = [FavReceipt MR_createEntity];
     receipt.data = [LLCommandParser encode:commandPrototype];
-    receipt.group = [LLCommandManager defaultGroup];
-    receipt.positionInGroup = 0;
+    receipt.position = 0;
     [receipt setDesc:description];
     
     //@TODO shift other fav receipts in this group to the right.
