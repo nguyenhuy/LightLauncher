@@ -1,7 +1,7 @@
 LightLauncher
 ============
-An open-sourced, light-weight (and perhaps bad) clone of Lauch Center Pro.
-- It does not only support `x-callback-url` but also other native SDKs/APIs. So users can do things like: share last taken photo to multiple social networks, share current photo in clipboard to multiple social networks, open url in clipboard in Chrome, etc.
+An open-sourced, light-weight (and perhaps bad) clone of [Lauch Center Pro](http://contrast.co/launch-center-pro/).
+- It does not only support `x-callback-url` but also other native SDKs/APIs. In fact, it focuses more on native code and only use `x-callback-url` as the last shot. Users can do things like: share last taken photo to multiple social networks, share current photo in clipboard to multiple social networks, open url in clipboard in Chrome, etc.
 - The architecture is designed to be extensible. It's (supposedly) easy to add new commands or new parameters to an existing command.
 - Commands always have a readable JSON representation. Before executing, JSON form of a command is validated and "parsed" to runtime object. Then, the object is "compiled" to include runtime values (current photo in clipboard, for example). After that, the command is ready to be executed.
 - Since a command must have a readable JSON representation, the JSON text can be stored in CoreData, reused multiple times and shared to other users. If a user is hardcore enough, he can even write a JSON string and execute it using the app. 
